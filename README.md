@@ -1,0 +1,3 @@
+# VirtualGym
+# Project Background:
+Virtual Gym is a exergame with personalized exercise sessions. It uses a grammar, based on the kinect skeleton, to describe the key static postures of an exercise and it uses expressions in this grammar to animate a coach avatar (in Unity3D) demonstrating the exercise. The purpose of this project is to develop a web-based application that will serve as a repository for such exercise specifications, enabling users to browse through them, to and answer questions on them, and to see a demonstration on their browsers and through an their mobile devices. Ideally a multi-platform dynamic web-site will fulfill the user-interaction requirement, but a special-purpose Android/iOS app would also fit the bill.
