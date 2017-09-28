@@ -1,4 +1,4 @@
-package com.virtualgym.virtualgym;
+package com.example.panchy.virtualgym;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.virtualgym.virtualgym", appContext.getPackageName());
+        assertEquals("com.example.panchy.virtualgym", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.virtualgym.virtualgym;
+package com.example.panchy.virtualgym;
 
 import org.junit.Test;
 
