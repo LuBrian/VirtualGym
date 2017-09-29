@@ -1,10 +1,14 @@
 package com.example.panchy.virtualgym.ModelClass;
 
-import com.example.panchy.virtualgym.ModelClass.User;
+import android.media.Image;
 
 /**
  * Created by Panchy on 2017/9/28.
  */
 
 public class Physiotherapists extends User {
+    private String userName;
+    private String userType;
+    private String userID;
+    private Image userPicture;
 }
