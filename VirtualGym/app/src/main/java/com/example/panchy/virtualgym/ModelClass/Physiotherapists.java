@@ -7,8 +7,9 @@ import android.media.Image;
  */
 
 public class Physiotherapists extends User {
-    private String userName;
-    private String userType;
-    private String userID;
-    private Image userPicture;
+    public Physiotherapists(String userName, String userType, Image userPicture, int[] favoriteExeList) {
+        super(userName, userType, userPicture, favoriteExeList);
+    }
+
+
 }

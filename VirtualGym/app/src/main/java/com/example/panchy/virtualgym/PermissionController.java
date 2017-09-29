@@ -5,4 +5,5 @@ package com.example.panchy.virtualgym;
  */
 
 public class PermissionController {
+
 }
