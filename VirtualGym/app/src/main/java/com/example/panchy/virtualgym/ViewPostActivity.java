@@ -7,7 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.panchy.virtualgym.ModelClass.Exercise;
+import com.example.panchy.virtualgym.ModelClass.User;
+
+import java.util.ArrayList;
+
 public class ViewPostActivity extends AppCompatActivity {
+
+
+    PermissionController permissionController=new PermissionController();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +33,10 @@ public class ViewPostActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void post(User u){
+        permissionController.postUserApply(u);
     }
 
 }

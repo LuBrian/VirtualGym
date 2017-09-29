@@ -7,7 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.panchy.virtualgym.ModelClass.Exercise;
+
 public class CreateExerciseActivity extends AppCompatActivity {
+
+    private Exercise exercise;
+    private int unit3DData;
+    ExerciseController exerciseController=new ExerciseController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +31,14 @@ public class CreateExerciseActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void createExerciseActivity(int unit3DData){
+        exerciseController.updateToServer(exercise);
+    }
+
+
+
+
 
 }

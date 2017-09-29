@@ -7,7 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.panchy.virtualgym.ModelClass.Exercise;
+import com.example.panchy.virtualgym.ModelClass.User;
+
+import java.util.ArrayList;
+
 public class SearchActivity extends AppCompatActivity {
+
+    private ArrayList<Exercise> arrayList;
+    private User user;
+    private Exercise exercise;
+    ExerciseController exerciseController=new ExerciseController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +35,13 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
     }
+
+    public Exercise searchBy(User u,Exercise e){
+        exercise=exerciseController.fliterBy(u,e);
+        return exercise;
+
+    }
+
+
 
 }

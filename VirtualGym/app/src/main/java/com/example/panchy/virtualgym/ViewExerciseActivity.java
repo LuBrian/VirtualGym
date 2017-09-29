@@ -7,7 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.panchy.virtualgym.ModelClass.Exercise;
+import com.example.panchy.virtualgym.ModelClass.User;
+
 public class ViewExerciseActivity extends AppCompatActivity {
+
+    private Exercise exercise;
+    ExerciseController exerciseController=new ExerciseController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,11 @@ public class ViewExerciseActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public Exercise onExercise(User u,Exercise e){
+        exercise=exerciseController.fliterBy(u,e);
+        return  exercise;
     }
 
 }
