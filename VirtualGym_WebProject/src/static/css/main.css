@@ -23,7 +23,8 @@
     width: 100%;
     position: relative;
     margin: auto auto;
-    height: 300px; }
+    height: auto;
+    margin-top: 200px; }
     .signIn .signIn_form form {
       width: 100%;
       margin: auto auto;
@@ -43,7 +44,24 @@
             outline: none;
             border-bottom: 2px solid #838383; }
         .signIn .signIn_form form div.signIn_username, .signIn .signIn_form form div.signIn_password {
-          margin-top: 20px; }
+          margin-top: 100px; }
+      .signIn .signIn_form form .signIn_button {
+        margin-top: 60px;
+        background-color: #83A0FE;
+        width: 200px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #979797;
+        border-radius: 2px;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px; }
+  .signIn .go_signUp {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 60px; }
   .signIn ::-webkit-input-placeholder {
     /* Chrome */
     color: #D2D2D2; }
@@ -54,6 +72,82 @@
     /* Firefox 19+ */
     color: #D2D2D2; }
   .signIn :-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: #D2D2D2; }
+
+.signUp {
+  position: absolute;
+  width: 100%; }
+  .signUp .sigUp_header {
+    position: relative;
+    margin: auto auto;
+    width: 100%;
+    height: auto;
+    margin-top: 80px; }
+    .signUp .sigUp_header .header_text {
+      margin: auto;
+      text-align: center;
+      width: 80%; }
+      .signUp .sigUp_header .header_text p {
+        font-style: italic;
+        font-family: "Georgia";
+        font-weight: bold;
+        font-size: 50px;
+        color: #6A84D8;
+        text-shadow: 2px 2px #ACB1C1; }
+  .signUp .signUp_form {
+    width: 100%;
+    position: relative;
+    margin: auto auto;
+    height: auto;
+    margin-top: 200px; }
+    .signUp .signUp_form form {
+      width: 100%;
+      margin: auto auto;
+      max-width: 400px;
+      text-align: center; }
+      .signUp .signUp_form form div {
+        height: 50px; }
+        .signUp .signUp_form form div input {
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-bottom: 2px solid #9C9EA5;
+          border-radius: 2px;
+          font-size: 1em;
+          color: #838383; }
+          .signUp .signUp_form form div input:active, .signUp .signUp_form form div input:focus {
+            outline: none;
+            border-bottom: 2px solid #838383; }
+        .signUp .signUp_form form div.signUp_username, .signUp .signUp_form form div.signUp_password, .signUp .signUp_form form div.signUp_confirm {
+          margin-top: 100px; }
+      .signUp .signUp_form form .signUp_button {
+        margin-top: 50px;
+        background-color: #83A0FE;
+        width: 200px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #979797;
+        border-radius: 2px;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px; }
+  .signUp .go_signIn {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 60px; }
+  .signUp ::-webkit-input-placeholder {
+    /* Chrome */
+    color: #D2D2D2; }
+  .signUp :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #D2D2D2; }
+  .signUp ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #D2D2D2; }
+  .signUp :-moz-placeholder {
     /* Firefox 4 - 18 */
     color: #D2D2D2; }
 
