@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <title>
+  	signIn
+  </title>
+<head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+{% url 'signIn' as signIn_page%}
+{% if request.get_full_path == signIn_page %}
+<div>
+	<p>so happy</p>
+</div>
+{% endif %}
+
+<div>
+	<p>not happy</p>
+</div>
+
+
+

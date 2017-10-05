@@ -57,4 +57,25 @@
     /* Firefox 4 - 18 */
     color: #D2D2D2; }
 
+.home {
+  position: absolute;
+  width: 100%; }
+  .home .home_header {
+    position: relative;
+    margin: auto auto;
+    width: 100%;
+    height: 180px;
+    margin-top: 80px; }
+    .home .home_header .header_text {
+      margin: auto;
+      text-align: center;
+      width: 80%; }
+      .home .home_header .header_text p {
+        font-style: italic;
+        font-family: "Georgia";
+        font-weight: bold;
+        font-size: 50px;
+        color: #6A84D8;
+        text-shadow: 2px 2px #ACB1C1; }
+
 /*# sourceMappingURL=main.css.map */

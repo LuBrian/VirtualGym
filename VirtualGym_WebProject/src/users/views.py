@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def signIn(request):
+	template = loader.get_template('signIn.html')
+	return HttpResponse(template.render())
