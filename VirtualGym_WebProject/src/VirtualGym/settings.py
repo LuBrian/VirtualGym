@@ -70,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # '/var/www/static/',
@@ -80,6 +81,17 @@ WSGI_APPLICATION = 'VirtualGym.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'virtualgym',
+#         'USER': 'user',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost', 
+#     }
+# }
+
+
 
 DATABASES = {
     'default': {

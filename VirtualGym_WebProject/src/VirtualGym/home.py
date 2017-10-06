@@ -23,7 +23,6 @@ def signIn(request):
 
 
 def signUp(request):
-
 	return render(
         request,
         'SignUp.html',
