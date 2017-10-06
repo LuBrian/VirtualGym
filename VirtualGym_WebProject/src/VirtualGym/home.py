@@ -21,10 +21,3 @@ def signIn(request):
         {'page_title':"Sign In"},
     )
 
-
-def signUp(request):
-	return render(
-        request,
-        'SignUp.html',
-        {'page_title':"Sign Up"},
-    )

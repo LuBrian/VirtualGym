@@ -1,9 +1,11 @@
   {% include 'navBar.html' %}
   <div class = "signUp">
-  	 
+
 	<div class = "signUp_form">
-		<form >
-			<div class="signUp_username">
+
+		<form method="post" action="">{% csrf_token %}
+      <h1>{{title}}</h1>
+			<!-- <div class="signUp_username">
 			    <input type="text" id="fname" name="firstname" placeholder="Your name..">
 			</div>
 			<div class="signUp_password">
@@ -11,22 +13,22 @@
 			</div>
 			<div class="signUp_confirm">
 			    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-			</div>
-
+			</div> -->
+      {{ form.as_p}}
 			<button type="submit" class="signUp_button">Sign up</button>
 	  </form>
 	</div>
 
 
 	 <div class="go_signIn">
-		<p>Already have an account,<a href="{% url 'signIn' %}"> Sign In</a> here</p> 
-		
+		<p>Already have an account,<a href="{% url 'signIn' %}"> Sign In</a> here</p>
+
 	</div>
 
-	
+
 </div>
 
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -34,10 +36,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-
-
-
-
