@@ -3,17 +3,18 @@ from django.shortcuts import render
 from .forms import SignUpForm
 
 def signUp(request):
-	title="SignUp"
+	title="Sign Up"
 	form= SignUpForm(request.POST or None)
 	context={
 		"title":title,
-		"form":form
+		"form":form,
+		"page_title":title
 	}
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.save()
 		context={
-			"title":"Thank You"
+			"title":"Thank You",
 		}
 		# print (instance.user_name)
 		# print (instance.user_id)

@@ -28,8 +28,9 @@
     .signIn .signIn_form form {
       width: 100%;
       margin: auto auto;
-      max-width: 400px;
-      text-align: center; }
+      max-width: 400px; }
+      .signIn .signIn_form form .signIn_title {
+        text-align: center; }
       .signIn .signIn_form form div {
         height: 50px; }
         .signIn .signIn_form form div input {
@@ -45,17 +46,22 @@
             border-bottom: 2px solid #838383; }
         .signIn .signIn_form form div.signIn_username, .signIn .signIn_form form div.signIn_password {
           margin-top: 100px; }
-      .signIn .signIn_form form .signIn_button {
-        margin-top: 60px;
-        background-color: #83A0FE;
-        width: 200px;
-        height: 40px;
-        border: none;
-        border-bottom: 1px solid #979797;
-        border-radius: 2px;
-        font-style: italic;
-        font-weight: bold;
-        font-size: 20px; }
+        .signIn .signIn_form form div label {
+          text-align: left; }
+      .signIn .signIn_form form .signInButtonContainer {
+        text-align: center;
+        margin-top: 50px; }
+        .signIn .signIn_form form .signInButtonContainer .signIn_button {
+          margin-top: 50px;
+          background-color: #83A0FE;
+          width: 200px;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #979797;
+          border-radius: 2px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 20px; }
   .signIn .go_signUp {
     position: relative;
     text-align: center;
@@ -86,7 +92,7 @@
     margin-top: 80px; }
     .signUp .sigUp_header .header_text {
       margin: auto;
-      text-align: center;
+      text-align: left;
       width: 80%; }
       .signUp .sigUp_header .header_text p {
         font-style: italic;
@@ -104,8 +110,9 @@
     .signUp .signUp_form form {
       width: 100%;
       margin: auto auto;
-      max-width: 400px;
-      text-align: center; }
+      max-width: 400px; }
+      .signUp .signUp_form form .signUp_title {
+        text-align: center; }
       .signUp .signUp_form form div {
         height: 50px; }
         .signUp .signUp_form form div input {
@@ -119,19 +126,24 @@
           .signUp .signUp_form form div input:active, .signUp .signUp_form form div input:focus {
             outline: none;
             border-bottom: 2px solid #838383; }
+        .signUp .signUp_form form div label {
+          text-align: left; }
         .signUp .signUp_form form div.signUp_username, .signUp .signUp_form form div.signUp_password, .signUp .signUp_form form div.signUp_confirm {
           margin-top: 100px; }
-      .signUp .signUp_form form .signUp_button {
-        margin-top: 50px;
-        background-color: #83A0FE;
-        width: 200px;
-        height: 40px;
-        border: none;
-        border-bottom: 1px solid #979797;
-        border-radius: 2px;
-        font-style: italic;
-        font-weight: bold;
-        font-size: 20px; }
+      .signUp .signUp_form form .signUpButtonContainer {
+        text-align: center;
+        margin-top: 50px; }
+        .signUp .signUp_form form .signUpButtonContainer .signUp_button {
+          margin-top: 50px;
+          background-color: #83A0FE;
+          width: 200px;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #979797;
+          border-radius: 2px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 20px; }
   .signUp .go_signIn {
     position: relative;
     text-align: center;

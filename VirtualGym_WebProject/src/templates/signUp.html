@@ -4,18 +4,22 @@
 	<div class = "signUp_form">
 
 		<form method="post" action="">{% csrf_token %}
-      <h1>{{title}}</h1>
-			<!-- <div class="signUp_username">
-			    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+     		 <h1 class="signUp_title">{{title}}</h1>
+			<div class="signUp_username">
+				<label>User Name</label>
+			    {{ form.user_name }}
 			</div>
 			<div class="signUp_password">
-			    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+				<label>Password</label>
+			    {{ form.user_password }}
 			</div>
-			<div class="signUp_confirm">
-			    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+			<!-- <div class="signUp_confirm">
+			    {{ form.confirm }}
 			</div> -->
-      {{ form.as_p}}
+      <!-- {{ form.as_p}} -->
+      		<div class="signUpButtonContainer">
 			<button type="submit" class="signUp_button">Sign up</button>
+			</div>
 	  </form>
 	</div>
 

@@ -39,7 +39,11 @@
 			width:100%;
 			margin: auto auto;
 			max-width: 400px;
-			text-align: center;
+			// text-align: left;
+
+			.signIn_title{
+				text-align: center;
+			}
 			div{
 				height: 50px;
 
@@ -64,19 +68,34 @@
 				&.signIn_password{
 					margin-top: 100px;
 				}
-			}
-			.signIn_button {
-				margin-top: 60px;
-				background-color: #83A0FE;
-				width: 200px;
-				height: 40px;
-				border : none;
-				border-bottom: 1px solid #979797;
-				border-radius: 2px;
-				font-style: italic;
-				font-weight: bold;
-				font-size: 20px;
 
+				label{
+					text-align: left;
+
+				}
+			}
+
+
+
+
+			.signInButtonContainer{
+				text-align: center;
+				margin-top: 50px;
+				// width: 100%;
+				.signIn_button {
+					
+					margin-top: 50px;
+					background-color: #83A0FE;
+					width: 200px;
+					height: 40px;
+					border : none;
+					border-bottom: 1px solid #979797;
+					border-radius: 2px;
+					font-style: italic;
+					font-weight: bold;
+					font-size: 20px;
+
+				}
 			}
 		}
 
@@ -126,7 +145,7 @@
 			// margin: auto auto;
 		.header_text {
 			margin: auto;
-			text-align: center;
+			text-align: left;
 			width: 80%;
 
 			p {
@@ -146,14 +165,16 @@
 		position:relative;
 		margin: auto auto;
 		height: auto;
-
 		margin-top: 200px;
-		// display:inline-block;
+		// text-align: center;
 		form{
 			width:100%;
 			margin: auto auto;
 			max-width: 400px;
-			text-align: center;
+			// text-align: center;
+			.signUp_title{
+				text-align: center;
+			}
 			div{
 				height: 50px;
 
@@ -172,6 +193,10 @@
 						border-bottom: 2px solid #838383;
 					}
 				}
+				label{
+					text-align: left;
+
+				}
 
 
 				&.signUp_username,
@@ -181,19 +206,26 @@
 				}
 
 			}
-			.signUp_button {
+			.signUpButtonContainer{
+				text-align: center;
 				margin-top: 50px;
-				background-color: #83A0FE;
-				width: 200px;
-				height: 40px;
-				border : none;
-				border-bottom: 1px solid #979797;
-				border-radius: 2px;
-				font-style: italic;
-				font-weight: bold;
-				font-size: 20px;
+				// width: 100%;
+				.signUp_button {
+					
+					margin-top: 50px;
+					background-color: #83A0FE;
+					width: 200px;
+					height: 40px;
+					border : none;
+					border-bottom: 1px solid #979797;
+					border-radius: 2px;
+					font-style: italic;
+					font-weight: bold;
+					font-size: 20px;
 
+				}
 			}
+			
 		}
 	}
 
