@@ -15,13 +15,7 @@ class User(models.Model):
 	userID = models.AutoField(primary_key=True)
 	userName = models.CharField(max_length=30)
 	userType = models.CharField(max_length=10)
-	
-	def getUserID(self):
-		return userID
-	
-	def getUserType(self):
-		return userType
-		
+			
 	def __str__(self):
 		return userName
 	
@@ -34,11 +28,11 @@ class Exercise(models.Model):
 	exerciseQuestions = models.ManyToManyField('Questions', through=QuestionsExercises)
 	exerciseDateCreated= models.DateTimeField(auto_now_add=True)
 	exerciseAuthor = models.ForeignKey('User')
+	exerciseVideos = models.FileField(upload_to='uploads/videos')
+	exerciseApproved = models.BooleanField(default=False)
 	def __str__(self):              # __unicode__ on Python 2
 		return self.exerciseDescription
 
-
-	
 #This table stores all of the tags and their given text.
 class Tags(models.Model):
 	tagID = models.AutoField(primary_key=True)
