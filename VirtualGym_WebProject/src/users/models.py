@@ -7,4 +7,4 @@ class SignUp(models.Model):
     user_password = models.CharField(max_length=50,null=False)
     #timestamp=models.DataTimeField(auto_now_add=True,auto_now=False)
     def __str__ (self):
-        return str(self.user_name)
+        return "%s %s" %(self.user_id,self.user_name)

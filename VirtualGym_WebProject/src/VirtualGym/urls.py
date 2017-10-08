@@ -17,11 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from . import home
-from users import views
+from users import views as us
+from exercise import views as ex
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home.index, name='index'),
     url(r'^signIn/$',home.signIn,name="signIn"),
-    url(r'^signUp/$',views.signUp,name = "signUp"),
+    url(r'^signUp/$',us.signUp,name = "signUp"),
+    url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
 ]
