@@ -2,6 +2,11 @@ from django.db import models
 
 #This is using normalization to represent a many to many relationship.
 #A tag can be used by many different exerciseIDs.
+
+class VideosExercises(models.Model):
+      video_id = models.ForeignKey('Videos')
+      exercise_id = models.ForeignKey('Exercise')
+      
 class TagsExercises(models.Model):
 	tag_id = models.ForeignKey('Tags')
 	exercise_id = models.ForeignKey('Exercise')
@@ -10,6 +15,10 @@ class QuestionsExercises(models.Model):
 	question_id = models.ForeignKey('Questions')
 	exercise_id = models.ForeignKey('Exercise')
 
+class Videos(models.Model):
+	video_id = models.AutoField(primary_key=True)
+	videoFile = models.FileField(upload_to='uploads/videos')
+	
 # Create your models here.        
 class User(models.Model):
 	userID = models.AutoField(primary_key=True)
@@ -28,7 +37,7 @@ class Exercise(models.Model):
 	exerciseQuestions = models.ManyToManyField('Questions', through=QuestionsExercises)
 	exerciseDateCreated= models.DateTimeField(auto_now_add=True)
 	exerciseAuthor = models.ForeignKey('User')
-	exerciseVideos = models.FileField(upload_to='uploads/videos')
+	exerciseVideos = models.ManyToManyField('Videos', through=VideosExercises)
 	exerciseApproved = models.BooleanField(default=False)
 	def __str__(self):              # __unicode__ on Python 2
 		return self.exerciseDescription
