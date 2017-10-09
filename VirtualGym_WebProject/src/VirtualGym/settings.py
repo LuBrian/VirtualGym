@@ -16,6 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+    ('cujo2k', 'thectaeh@gmail.com'),
+)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -38,13 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'exercise',
+    'VirtualGym',
     ]
 
 ###################### AUTH ##########################
 
 AUTH_USER_MODEL = 'users.MyUsers'
 AUTHENTICATION_BACKENDS = [('django.contrib.auth.backends.ModelBackend'),]
-
 
 
 #######################################################
@@ -99,7 +104,7 @@ WSGI_APPLICATION = 'VirtualGym.wsgi.application'
 #         'NAME': 'virtualgym',
 #         'USER': 'user',
 #         'PASSWORD': 'password',
-#         'HOST': 'localhost', 
+#         'HOST': 'localhost',
 #     }
 # }
 
@@ -150,3 +155,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+MEDIA_URL = '/media/'

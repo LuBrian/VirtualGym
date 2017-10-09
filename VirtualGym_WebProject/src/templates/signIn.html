@@ -19,10 +19,10 @@
         {% endif %} -->
 
 
-
+         
 
 		<form method = "post" action="{% url 'signIn' %}">{% csrf_token %}
-
+            <h1 class="signIn_title">{{title}}</h1>
 		<div class="signIn_username">
 		    <input type="text" id="email" name="email" placeholder="Email">
 		</div>

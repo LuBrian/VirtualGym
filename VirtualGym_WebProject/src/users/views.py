@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login,logout
 
 
 def signIn(request):
+	title="Sign In"
 	email = request.POST.get('email')
 	password = request.POST.get('password')
 	# usr = MyUsers.objects.get(user_name='username')
@@ -28,7 +29,7 @@ def signIn(request):
 	return render(
         request,
         'signIn.html',
-        {'page_title':"Sign In"},
+        {'title':title},
         user
     )
 

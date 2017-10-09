@@ -19,12 +19,17 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import logout
 
 from . import home
-from users import views
+from users import views as us
+from exercise import views as ex
+from exercise import profileView as pex
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home.index, name='index'),
-    url(r'^signIn/$',views.signIn,name = "signIn"),
-    url(r'^signUp/$',views.signUp,name = "signUp"),
-    url(r'^logout/$', views.logOut, name='logout'),
+
+    url(r'^logout/$', us.logOut, name='logout'),
+    url(r'^signIn/$',us.signIn,name="signIn"),
+    url(r'^signUp/$',us.signUp,name = "signUp"),
+    url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
+    url(r'^viewProfile/$',pex.Profile,name = "viewProfile"),
 ]

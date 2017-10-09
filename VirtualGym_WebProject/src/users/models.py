@@ -44,6 +44,7 @@ class MyUsersManager(BaseUserManager):
         return self._create_user(email,password ,True, True, **extra_fields)
 
 # Create your models here.
+
 class MyUsers(AbstractBaseUser):
 	email = models.EmailField(blank = True,null=False,unique=True)
 	user_id = models.AutoField(primary_key=True)
@@ -110,11 +111,6 @@ class MyUsers(AbstractBaseUser):
 	# "Is the user a member of staff?"
 	# Simplest possible answer: All admins are staff
 		return self.is_admin
-
-
-
-
-
 
 
 
