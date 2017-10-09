@@ -41,7 +41,7 @@ class MyUsersManager(BaseUserManager):
     	return self._create_user(email,password,False, False, **extra_fields)
     def create_superuser(self, email, password, **extra_fields):
     	print("create super user")
-        return self._create_user(email,password ,True, True, **extra_fields)
+    	return self._create_user(email,password ,True, True, **extra_fields)
 
 # Create your models here.
 
