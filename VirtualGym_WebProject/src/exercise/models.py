@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import SignUp
+from users.models import MyUsers
 # Create your models here.
 
 class Exercise(models.Model):
@@ -7,7 +7,8 @@ class Exercise(models.Model):
     exerciseDescription = models.CharField(max_length=500)
     exerciseTag = models.CharField(max_length=50,null=False)
     exerciseData = models.DateTimeField(auto_now_add=True,auto_now=False)
-    exercisePosterId = models.ForeignKey(SignUp)
+    exercisePosterId = models.ForeignKey(MyUsers)
+    exerciseVideos = models.FileField(null=False,max_length=500,upload_to='./uploadVideo/')
 
     def __str__(self):              # __unicode__ on Python 2
         return (self.exerciseDescription)
