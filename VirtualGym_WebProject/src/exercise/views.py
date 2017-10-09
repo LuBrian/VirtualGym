@@ -13,7 +13,8 @@ def CreateExe(request):
 	}
 	if form.is_valid():
 		instance=form.save(commit=False)
-		instance.exercisePosterId=MyUsers.objects.create(user_name ="Lvxin",user_password="234");
+		instance.exercisePosterId= request.user
+		# instance.exercisePosterId= MyUsers.objects.create(username ="Lvxin",password="234");
         #print (instance.exerciseTag)
 		instance.save()
 
