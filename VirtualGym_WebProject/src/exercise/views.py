@@ -6,7 +6,7 @@ from users.models import SignUp
 
 def CreateExe(request):
 	title=" Create Your Exercise"
-	form= CreateExeForm(request.POST or None)
+	form= CreateExeForm(request.POST or None,request.FILES)
 	context={
 		"title":title,
 		"form":form,
