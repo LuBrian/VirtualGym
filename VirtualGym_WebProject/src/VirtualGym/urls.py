@@ -19,6 +19,7 @@ from django.contrib import admin
 from . import home
 from users import views as us
 from exercise import views as ex
+from exercise import profileView as pex
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     url(r'^signIn/$',home.signIn,name="signIn"),
     url(r'^signUp/$',us.signUp,name = "signUp"),
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
+    url(r'^viewProfile/$',pex.Profile,name = "viewProfile"),
 ]

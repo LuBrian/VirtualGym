@@ -8,6 +8,7 @@ class Exercise(models.Model):
     exerciseTag = models.CharField(max_length=50,null=False)
     exerciseData = models.DateTimeField(auto_now_add=True,auto_now=False)
     exercisePosterId = models.ForeignKey(SignUp)
+    exerciseVideos = models.FileField(null=False,upload_to='./uploadVideo/')
 
     def __str__(self):              # __unicode__ on Python 2
         return (self.exerciseDescription)

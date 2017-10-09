@@ -1,17 +1,19 @@
 from django.shortcuts import render
 
 from .forms import CreateExeForm
+from .models import Exercise
+from users.models import SignUp
 
 def CreateExe(request):
-	title=" Create Your Exe"
+	title=" Create Your Exercise"
 	form= CreateExeForm(request.POST or None)
 	context={
 		"title":title,
-		"form":form
+		"form":form,
 	}
-
 	if form.is_valid():
 		instance=form.save(commit=False)
+		instance.exercisePosterId=SignUp.objects.create(user_name ="Lvxin",user_password="234");
         #print (instance.exerciseTag)
 		instance.save()
 
