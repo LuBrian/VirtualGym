@@ -14,10 +14,12 @@
           {% for obj in objects_list %}
           <div class="col-md-4">
             <!-- <h2>{{title}}</h2> <img src="{% static "girls.jpg" %}"> -->
-            <div class="thumbnail"><img src="{% static "girls.jpg" %}">
-              <!-- <video src="videofile.ogg" autoplay poster="{% static "girls.jpg" %}">
+            <div class="thumbnail">
 
-            </video> -->
+              <video width=100% height="200" controls>
+                {% static "" as baseUrl %}
+                <source src="{{ baseUrl }}/{{obj.exerciseVideos}}" type="video/mp4">
+              </video>
               <h3 style="text-align: center">Tag: {{obj.exerciseTag}}</h3>
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>

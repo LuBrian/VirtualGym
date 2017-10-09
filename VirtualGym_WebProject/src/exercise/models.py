@@ -11,6 +11,7 @@ class Exercise(models.Model):
     exerciseVideos = models.FileField(null=False,max_length=500,upload_to='./uploadVideo/')
 
     def __str__(self):              # __unicode__ on Python 2
+        # return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
         return (self.exerciseDescription)
 
     #timestamp=models.DateTimeField(auto_now_add=True,auto_now=False)
