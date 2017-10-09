@@ -5,40 +5,32 @@
 
 
 
-{% if user.is_authenticated %}
+
     <div class="repo_list">
     <!--show Exercise-- >
-      <div class="container">
-        <section>
-          <!-- <div class="page-header"> -->
-          <!-- </div> -->
+    <div class="container">
+      <section>
+        <!-- <div class="page-header"> -->
+        <!-- </div> -->
 
-          <div class="row">
-            {% for obj in objects_list %}
-            <div class="col-md-4">
-              <!-- <h2>{{title}}</h2> <img src="{% static "girls.jpg" %}"> -->
-              <div class="thumbnail"><img src="{% static "girls.jpg" %}">
-                <!-- <video src="videofile.ogg" autoplay poster="{% static "girls.jpg" %}">
+        <div class="row">
+          {% for obj in objects_list %}
+          <div class="col-md-4">
+            <!-- <h2>{{title}}</h2> <img src="{% static "girls.jpg" %}"> -->
+            <div class="thumbnail">
 
-              </video> -->
-                <h3 style="text-align: center">Tag: {{obj.exerciseTag}}</h3>
-                <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
-              </div>
+              <video width=100% height="200" controls>
+                {% static "" as baseUrl %}
+                <source src="{{ baseUrl }}/{{obj.exerciseVideos}}" type="video/mp4">
+              </video>
+              <h3 style="text-align: center">Tag: {{obj.exerciseTag}}</h3>
+              <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
             {% endfor %}
           </div>
 
         </section>
-
-      </div>
     </div>
-
-
-    {% else %}
-     <div class="view_repo_perm">
-      <p>You have to Login to view all exercises, <a href="{% url 'signIn' %}">Sign In</a> here</p>
-    </div>
-  {% endif  %}
   </div>
 
   <!-- Optional JavaScript -->

@@ -1,7 +1,6 @@
 {% include 'navBar.html' %}
 <div class="create_exercise_container">
   {% if user.is_authenticated  %}
-
     <div class="exercise_form">
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
         <h1>{{title}}</h1>
