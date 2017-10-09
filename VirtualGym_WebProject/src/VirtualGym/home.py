@@ -13,11 +13,4 @@ def index(request):
 
 
 
-def signIn(request):
-	# return HttpResponse(signinTemp.render())
-	return render(
-        request,
-        'signIn.html',
-        {'page_title':"Sign In"},
-    )
 

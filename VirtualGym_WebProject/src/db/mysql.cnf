@@ -1,6 +1,0 @@
-[client]
-database = virtualgym
-host = localhost
-user = user
-password = password
-default-character-set = utf8

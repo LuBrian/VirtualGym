@@ -1,5 +1,14 @@
   {% include 'navBar.html' %}
+
+
+		
+	
   <div class = "signUp">
+  	{% if user.is_authenticated  %}
+	<div class = "already_loggedIn">
+		<p>You already logged in</p>
+	</div>
+	{% else %}
 
 	<div class = "signUp_form">
 
@@ -7,11 +16,11 @@
      		 <h1 class="signUp_title">{{title}}</h1>
 			<div class="signUp_username">
 				<label>User Name</label>
-			    {{ form.user_name }}
+			    {{ form.email }}
 			</div>
 			<div class="signUp_password">
 				<label>Password</label>
-			    {{ form.user_password }}
+			    {{ form.password }}
 			</div>
 			<!-- <div class="signUp_confirm">
 			    {{ form.confirm }}
@@ -29,8 +38,10 @@
 
 	</div>
 
+	{% endif  %}
 
 </div>
+
 
 
     <!-- Optional JavaScript -->
