@@ -2,13 +2,32 @@
   <div class = "signIn">
 
 	<div class = "signIn_form">
-		<form >
+<!-- 
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
+        {% if next %}
+
+
+            {% if user.is_authenticated %}
+
+
+            {% endif %}
+
+
+        {% endif %} -->
+
+
+         
+
+		<form method = "post" action="{% url 'signIn' %}">{% csrf_token %}
+            <h1 class="signIn_title">{{title}}</h1>
 		<div class="signIn_username">
-		    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+		    <input type="text" id="email" name="email" placeholder="Email">
 		</div>
 		<div class="signIn_password">
-		    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+		    <input type="text" id="password" name="password" placeholder="Your password">
 		</div>
 		<div class="signInButtonContainer">
 		<button type="submit" class="signIn_button">Sign In</button>

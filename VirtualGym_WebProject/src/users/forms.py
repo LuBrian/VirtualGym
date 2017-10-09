@@ -1,10 +1,12 @@
 from django import forms
-from .models import SignUp
+from .models import MyUsers
+# from django.contrib.auth.models import User
 
 class SignUpForm(forms.ModelForm):
-	user_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Name'}))
-	user_password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Input Passwrod'}))
-	
+	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Email'}))
+
+	password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Input Passwrod'}))
+
 	class Meta:
-		model=SignUp
-		fields={"user_name","user_password"}
+		model= MyUsers
+		fields={"email","password"}

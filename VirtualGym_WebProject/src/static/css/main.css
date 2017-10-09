@@ -67,7 +67,7 @@
     text-align: center;
     width: 100%;
     margin: auto;
-    margin-top: 60px; }
+    margin-top: 80px; }
   .signIn ::-webkit-input-placeholder {
     /* Chrome */
     color: #D2D2D2; }
@@ -101,11 +101,18 @@
         font-size: 50px;
         color: #6A84D8;
         text-shadow: 2px 2px #ACB1C1; }
-  .signUp .signUp_form {
+  .signUp .already_loggedIn {
     width: 100%;
     position: relative;
     margin: auto auto;
     height: auto;
+    text-align: center;
+    margin-top: 100px; }
+  .signUp .signUp_form {
+    width: 100%;
+    position: relative;
+    margin: auto auto;
+    height: 400px;
     margin-top: 200px; }
     .signUp .signUp_form form {
       width: 100%;
@@ -149,7 +156,7 @@
     text-align: center;
     width: 100%;
     margin: auto;
-    margin-top: 60px; }
+    margin-top: 120px; }
   .signUp ::-webkit-input-placeholder {
     /* Chrome */
     color: #D2D2D2; }
