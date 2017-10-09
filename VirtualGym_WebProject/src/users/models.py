@@ -69,15 +69,14 @@ class MyUsers(AbstractBaseUser):
 		return str(self.username)
 
 	def has_perm(self, perm, obj=None):
-		return self.is_staff
+		return self.is_superuser
 
 	def has_module_perms(self, app_label):
-		return self.is_staff
-
-
+		return self.is_superuser
 
 	def check_password(self,password):
 		return self.password == password
+		
 	def get_full_name(self):
 	# The user is identified by their email address
 		return self.email

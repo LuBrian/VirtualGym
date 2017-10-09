@@ -191,4 +191,14 @@
         color: #6A84D8;
         text-shadow: 2px 2px #ACB1C1; }
 
+.create_exercise {
+  position: absolute;
+  width: 100%; }
+  .create_exercise .create_exercise_perm,
+  .create_exercise .exercise_form {
+    position: relative;
+    margin: auto auto;
+    margin-top: 80px;
+    text-align: center; }
+
 /*# sourceMappingURL=main.css.map */
