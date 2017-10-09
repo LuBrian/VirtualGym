@@ -191,14 +191,30 @@
         color: #6A84D8;
         text-shadow: 2px 2px #ACB1C1; }
 
-.create_exercise {
+.create_exercise_container {
   position: absolute;
   width: 100%; }
-  .create_exercise .create_exercise_perm,
-  .create_exercise .exercise_form {
+  .create_exercise_container .create_exercise_perm {
     position: relative;
     margin: auto auto;
     margin-top: 80px;
     text-align: center; }
+  .create_exercise_container .exercise_form {
+    position: relative;
+    margin: auto auto;
+    margin-top: 80px; }
+
+.view_exercise_repo_container {
+  position: absolute;
+  width: 100%; }
+  .view_exercise_repo_container .view_repo_perm {
+    position: relative;
+    margin: auto auto;
+    margin-top: 80px;
+    text-align: center; }
+  .view_exercise_repo_container .repo_list {
+    position: relative;
+    margin: auto auto;
+    margin-top: 80px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,14 +1,37 @@
 
 
 
-.create_exercise{
+.create_exercise_container{
 	position: absolute;
 	width: 100%;
-	.create_exercise_perm,
-	.exercise_form{
+	.create_exercise_perm{
 		position: relative;
 		margin: auto auto;
 		margin-top: 80px;
 		text-align: center;
+	}
+	.exercise_form{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		// text-align: center;
+	}
+}
+
+
+.view_exercise_repo_container{
+	position: absolute;
+	width: 100%;
+	.view_repo_perm{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		text-align: center;
+	}
+	.repo_list{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		// text-align: center;
 	}
 }

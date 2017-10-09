@@ -1,5 +1,5 @@
 {% include 'navBar.html' %}
-<div class="create_exercise">
+<div class="create_exercise_container">
   {% if user.is_authenticated  %}
 
     <div class="exercise_form">
@@ -13,7 +13,7 @@
   
   {% else %}
      <div class="create_exercise_perm">
-      <p>You have to Login to create an exercise <a href="{% url 'signIn' %}">Sign In</a> here</p>
+      <p>You have to Login to create an exercise, <a href="{% url 'signIn' %}">Sign In</a> here</p>
     </div>
   {% endif  %}
 </div>
