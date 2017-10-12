@@ -25,3 +25,14 @@ def CreateExe(request):
 		# print (instance.user_id)
 
 	return render(request,"createExercise.html",context)
+
+def Profile(request):
+	title=" Profile of Exercise "
+	quearyset=Exercise.objects.all()
+	print(quearyset)
+	context={
+		"title":title,
+		"objects_list":quearyset
+	}
+
+	return render(request,"viewProfile.html",context)

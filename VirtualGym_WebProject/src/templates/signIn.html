@@ -2,7 +2,7 @@
   <div class = "signIn">
 
 	<div class = "signIn_form">
-<!-- 
+<!--
         {% if form.errors %}
             <p>Your username and password didn't match. Please try again.</p>
         {% endif %}
@@ -19,7 +19,7 @@
         {% endif %} -->
 
 
-         
+
 
 		<form method = "post" action="{% url 'signIn' %}">{% csrf_token %}
             <h1 class="signIn_title">{{title}}</h1>
@@ -48,9 +48,9 @@
     <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div>
      <a href="#" onclick="signOut();">Sign out</a>
 
-     <div 
+     <div
   class="fb-login-button"
-  data-size="large"  
+  data-size="large"
   data-auto-logout-link="true" />
 </div>
 
@@ -65,14 +65,14 @@
 
 
 
-  
+
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log("Name: " + profile.getName())
-        
+
         var first_name_value = profile.getGivenName();
         //var first_name = document.getElementById('name');
         //first_name.innerHTML = first_name_value;
@@ -94,8 +94,8 @@
        // var first_name = document.getElementById('name');
         //first_name.innerHTML = "";
       });
-   
-      
+
+
     }
     </script>
 
@@ -114,15 +114,15 @@
 
         // Additional init code here
         FB.Event.subscribe('auth.authResponseChange', function (response) {
-            // Here we specify what we do with the response anytime this event occurs. 
+            // Here we specify what we do with the response anytime this event occurs.
             if (response.status === 'connected') {
                 getName();
             } else if (response.status === 'not_authorized') {
                 // In this case, the person is logged into Facebook, but not into the app, so we call
-                // FB.login() to prompt them to do so. 
+                // FB.login() to prompt them to do so.
                 //FB.login();
             } else {
-                // In this case, the person is not logged into Facebook, so we call the login() 
+                // In this case, the person is not logged into Facebook, so we call the login()
                 //FB.login();
             }
         });
