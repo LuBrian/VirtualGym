@@ -1,13 +1,22 @@
 {% include 'navBar.html' %}
-<br>
-<br>
-<br>
-  <form method="post" enctype="multipart/form-data">{% csrf_token %}
-    <h1>{{title}}</h1>
-    {{ form.as_p}}
-    <button type="submit" class="signUp_button">Submit</button>
+<div class="create_exercise_container">
+  {% if user.is_authenticated  %}
+    <div class="exercise_form">
+      <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h1>{{title}}</h1>
+        {{ form.as_p}}
+        <button type="submit" class="signUp_button">Sign up</button>
+      </form>
+    </div>
 
-  </form>
+
+  {% else %}
+     <div class="create_exercise_perm">
+      <p>You have to Login to create an exercise, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+    </div>
+  {% endif  %}
+</div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
