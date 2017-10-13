@@ -83,18 +83,22 @@
         <!--/.Footer Links-->
         <div class="footer_infor">
             <div class="footer_links">
-                <p style="color:#ffffff">Column 1:</p>
-                <li><a href="#!">Link 2</a></li>
-                <li><a href="#!">Link 3</a></li>
+                <!-- <p style="color:#ffffff">Column 1:</p> -->
+              </br>
+                <li><a href=" {% url 'index' %}">Home</a></li>
+                </br>
+                <li><a href="{% url 'viewProfile' %}">View Exercise 3</a></li>
             </div>
             <div class="footer_links">
-                 <p style="color:#ffffff">Column 1:</p>
-                <li><a href="#!">Link 2</a></li>
-                <li><a href="#!">Link 3</a></li>
+                <!--  <p style="color:#ffffff">Column 1:</p> -->
+                 </br>
+                <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
+                 </br>
+                <li><a href="{% url 'QA' %}">Q&A forum</a></li>
             </div>
-             <div class="group_members">
+            <!--  <div class="group_members">
                 <p style="color:#ffffff">this is a description of this project</p>
-            </div>
+            </div> -->
         </div>
 
         <div class="copy_right" >
