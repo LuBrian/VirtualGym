@@ -40,21 +40,29 @@
 
 	</div>
 
-	<div class="go_signUp">
-		<p>Doesn't have an account,<a href="{% url 'signUp' %}"> Sign Up</a> here</p>
 
-	</div>
+    <div class="createSocial">
+        <a class="svg facebook" href="" target="_blank"></a>
+        <a class="svg google g-signin2" data-onsuccess="onSignIn" href="#"></a>
+        <a class="svg twitter" href="" target="_blank"></a>
+    </div>
 
-	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="233558815928-de9jovthktdkf9fhdlpab7odoug37p87.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div>
+	
+
+	
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div> -->
      <a href="#" onclick="signOut();">Sign out</a>
 
      <div
         class="fb-login-button"
         data-size="large"
         data-auto-logout-link="true" />
+    </div>
+
+
+    <div class="go_signUp">
+        <p>Doesn't have an account,<a href="{% url 'signUp' %}"> Sign Up</a> here</p>
+
     </div>
 </div>
 

@@ -40,7 +40,7 @@ class MyUsersManager(BaseUserManager):
     	print("creat normal user")
     	return self._create_user(email,password,False, False, **extra_fields)
     def create_superuser(self, email, password, **extra_fields):
-        print("create super user")
+
         return self._create_user(email,password ,True, True, **extra_fields)
         # Create your models here.
 
@@ -75,7 +75,7 @@ class MyUsers(AbstractBaseUser):
 
 	def check_password(self,password):
 		return self.password == password
-		
+
 	def get_full_name(self):
 	# The user is identified by their email address
 		return self.email
