@@ -44,7 +44,7 @@ def createVideos(data, exerciseObj):
 	rightVideo = data['rightVideo']
 	threeQuartersVideo = data['threeQuartersVideo']
 
-	if len(topVideo) >= 1:
+	if topVideo is not None:
 		createVideo(topVideo, exerciseObj, VideoPerspective.TOP)
 	if leftVideo is not None:
 		createVideo(leftVideo, exerciseObj, VideoPerspective.LEFT)
