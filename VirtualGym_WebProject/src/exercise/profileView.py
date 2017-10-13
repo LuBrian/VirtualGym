@@ -10,5 +10,4 @@ def Profile(request):
 		"title":title,
 		"objects_list":quearyset
 	}
-
 	return render(request,"viewProfile.html",context)

@@ -30,7 +30,7 @@ class MyUsersManager(BaseUserManager):
 			is_admin = is_admin,
 			is_superuser = is_superuser,
 			password = password,
-			
+
 		)
         # user.set_password(password)
         user.save(using=self._db)
@@ -40,10 +40,9 @@ class MyUsersManager(BaseUserManager):
     	print("creat normal user")
     	return self._create_user(email,password,False, False, **extra_fields)
     def create_superuser(self, email, password, **extra_fields):
-    	print("create super user")
-    	return self._create_user(email,password ,True, True, **extra_fields)
-
-# Create your models here.
+        print("create super user")
+        return self._create_user(email,password ,True, True, **extra_fields)
+        # Create your models here.
 
 class MyUsers(AbstractBaseUser):
 	email = models.EmailField(blank = True,null=False,unique=True)
@@ -56,7 +55,7 @@ class MyUsers(AbstractBaseUser):
 	is_active    = models.BooleanField(default=True)
 	is_admin     = models.BooleanField(default=False)
 	is_superuser = models.BooleanField(default=False)
-	
+
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = [ 'password']
 	print("create a user")
@@ -69,15 +68,14 @@ class MyUsers(AbstractBaseUser):
 		return str(self.username)
 
 	def has_perm(self, perm, obj=None):
-		return self.is_staff
+		return self.is_superuser
 
 	def has_module_perms(self, app_label):
-		return self.is_staff
-
-
+		return self.is_superuser
 
 	def check_password(self,password):
 		return self.password == password
+		
 	def get_full_name(self):
 	# The user is identified by their email address
 		return self.email
@@ -111,6 +109,3 @@ class MyUsers(AbstractBaseUser):
 	# "Is the user a member of staff?"
 	# Simplest possible answer: All admins are staff
 		return self.is_admin
-
-
-

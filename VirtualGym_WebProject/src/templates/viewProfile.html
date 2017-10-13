@@ -1,9 +1,12 @@
 {% load static %}
 {% include 'navBar.html' %}
-<br>
-<br>
-<br>
 
+<div class="view_exercise_repo_container">
+
+
+
+
+    <div class="repo_list">
     <!--show Exercise-- >
     <div class="container">
       <section>
@@ -12,22 +15,53 @@
 
         <div class="row">
           {% for obj in objects_list %}
-          <div class="col-md-4">
+          <div class="col-md-4s">
             <!-- <h2>{{title}}</h2> <img src="{% static "girls.jpg" %}"> -->
-            <div class="thumbnail"><img src="{% static "girls.jpg" %}">
-              <!-- <video src="videofile.ogg" autoplay poster="{% static "girls.jpg" %}">
+            <div class="thumbnail">
 
-            </video> -->
-              <h3 style="text-align: center">Tag: {{obj.exerciseTag}}</h3>
+    
+                {% static "" as baseUrl %}
+                {% for video in obj.exerciseVideos.all %}
+					<center>
+					{% if video.videoPerspective == 0 %}
+						{{ "Front Video" }}
+					{% elif video.videoPerspective == 1 %}
+						{{ "Back Video" }}
+					{% elif video.videoPerspective == 2 %}
+						{{ "Top Video" }}
+					{% elif video.videoPerspective == 3 %}
+						{{ "Left Video" }}
+					{% elif video.videoPerspective == 4 %}
+						{{ "Right Video" }}
+					{% elif video.videoPerspective == 5 %}
+						{{ "Three Quarters Video" }}
+					{% endif %}
+					</center> 
+					<center>
+					{{ video.videoFile }}
+					</center>
+                <div class="video">
+                 <video width=100% height="200" controls>
+					
+				<source src="{{ baseUrl }}/uploadVideo/{{ video.videoFile }}" type="video/mp4"
+				</video>
+				</div>
+				{% endfor %}
+              <h3 style="text-align: center">Tag: </h3>
+              <center>
+              {% for tag in obj.exerciseTag.all %}
+				
+				{{ tag.tagDescription }}
+			  {% endfor %}
+			  </center>
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-        </div>
 
-      </section>
-
+        </section>
     </div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
