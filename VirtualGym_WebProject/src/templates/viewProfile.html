@@ -17,12 +17,16 @@
           {% for obj in objects_list %}
           <div class="col-md-4">
             <div class="thumbnail">
-
+              {% for video in obj.exerciseVideos.all%}
               <video width=100% height="200" controls>
 
-                <source src="{{obj.exerciseVideos.url}}" type="video/mp4">
+                <source src="{{video.videoFile.url}}" type="video/mp4">
               </video>
-              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseTag}}  </a></h3>
+              {% endfor %}
+          
+              {% for tag in obj.exerciseTag.all %}
+              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{{tag.tagDescription}} </a></h3>
+              {%endfor%}
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
           </div>
