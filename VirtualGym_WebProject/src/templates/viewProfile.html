@@ -24,7 +24,7 @@
               </video>
               {% endfor %}
 
-              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{%endfor%} </a></h3>
+              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{% for tag in obj.exerciseTag.all %}&emsp;&emsp;&emsp;{{tag.tagDescription}}{%endfor%} </a></h3>
 
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
