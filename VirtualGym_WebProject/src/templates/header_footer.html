@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body>
+<!--Navbar-->
+<div class="page_container">
+  <div class="header_container">
+    <nav class="navbar navbar-inverse nav-pills" id="my-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a href="{% url 'index' %}" class="navbar-brand" >Virtual Gym</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'index' %}">HOME</a> </li>
+                    <li><a href="#">FAQ's</a> </li>
+                    <li><a href="#">Contact Us</a></li>
+                    {% if user.is_authenticated  %}
+                        <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                       <li><a href="{% url 'signIn' %}">Sign In</a></li>
+                    {% endif  %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exercise<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{% url 'viewProfile' %}">View all exercise</a></li>
+                        <li><a href="#">My Exercise</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
+                        <li role="separator" class="divider"></li>
+                      </ul>
+
+                    </li>
+                    <form class="navbar-form navbar-right" action="index.html" method="post">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+
+                </ul>
+            </div>
+        </div>
+    </nav> <!--end nav-->
+  </div>
+
+  <div class="body_container">
+
+  {% block page_content %}
+
+
+  
+  {% endblock %}
+</div>
+
+
+    <div class = "footer_container">
+      <footer style="background-color: #3a3a3a;">
+        <!-- <div> -->
+        <!--/.Footer Links-->
+        <div class="footer_infor">
+            <div class="footer_links">
+                <p style="color:#ffffff">Column 1:</p>
+                <li><a href="#!">Link 2</a></li>
+                <li><a href="#!">Link 3</a></li>
+            </div>
+            <div class="footer_links">
+                 <p style="color:#ffffff">Column 1:</p>
+                <li><a href="#!">Link 2</a></li>
+                <li><a href="#!">Link 3</a></li>
+            </div>
+             <div class="group_members">
+                <p style="color:#ffffff">this is a description of this project</p>
+            </div>
+        </div>
+       
+        <div class="copy_right" >
+            <div style="color:#ffffff">
+                <p> Copyright @2017 Virtual Gym.All Rights Reserved</p>
+            </div>
+        </div>
+
+      </footer>
+    </div>
+</div>
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
+

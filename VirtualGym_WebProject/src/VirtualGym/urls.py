@@ -17,11 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import logout
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import home
 from users import views as us
 from exercise import views as ex
-from exercise import profileView as pex
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,5 +33,8 @@ urlpatterns = [
     url(r'^signIn/$',us.signIn,name="signIn"),
     url(r'^signUp/$',us.signUp,name = "signUp"),
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
-    url(r'^viewProfile/$',pex.Profile,name = "viewProfile"),
+    url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

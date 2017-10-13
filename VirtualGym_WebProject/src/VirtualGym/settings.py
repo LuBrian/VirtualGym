@@ -53,7 +53,7 @@ AUTHENTICATION_BACKENDS = [('django.contrib.auth.backends.ModelBackend'),]
 
 
 #######################################################
- 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -156,4 +156,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL="/media/"
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
