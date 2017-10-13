@@ -13,7 +13,6 @@ class Exercise(models.Model):
     exerciseId = models.AutoField(primary_key=True)
     exerciseDescription = models.CharField(max_length=500)
     exerciseTag = models.CharField(max_length=200, blank=True)
-    
     exerciseData = models.DateTimeField(auto_now_add=True,auto_now=False)
     exercisePosterId = models.ForeignKey(MyUsers)
     exerciseVideos = models.FileField(upload_to=upload_location,
@@ -24,6 +23,7 @@ class Exercise(models.Model):
         # return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
         ordering=["-exerciseData"]
         return (self.exerciseTag)
+
 
     #timestamp=models.DateTimeField(auto_now_add=True,auto_now=False)
     # def __str__ (self):
