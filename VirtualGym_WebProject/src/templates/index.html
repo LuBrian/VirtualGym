@@ -1,5 +1,8 @@
 
-{% include 'navBar.html' %}
+{% extends 'header_footer.html' %}
+{% block page_content %}
+
+
 <div class = "home">
     <div class = "home_header">
 		<div class="header_text">
@@ -16,5 +19,6 @@
 	{% else %}
 		<div>no user logged in</div>
 	{% endif  %}
+</div>
 
- {% include 'footer.html' %}
+{% endblock %}
