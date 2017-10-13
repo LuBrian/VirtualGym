@@ -1,14 +1,36 @@
-  {% include 'navBar.html' %}
-  <div class = "signIn">
+
+{% extends 'header_footer.html' %}
+{% block page_content %}
+
+<div class = "signIn_form_container">
 
 	<div class = "signIn_form">
-		<form >
+<!--
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
+        {% if next %}
+
+
+            {% if user.is_authenticated %}
+
+
+            {% endif %}
+
+
+        {% endif %} -->
+
+
+
+
+		<form method = "post" action="{% url 'signIn' %}">{% csrf_token %}
+            <h1 class="signIn_title">{{title}}</h1>
 		<div class="signIn_username">
-		    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+		    <input type="text" id="email" name="email" placeholder="Email">
 		</div>
 		<div class="signIn_password">
-		    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+		    <input type="text" id="password" name="password" placeholder="Your password">
 		</div>
 		<div class="signInButtonContainer">
 		<button type="submit" class="signIn_button">Sign In</button>
@@ -29,31 +51,27 @@
     <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div>
      <a href="#" onclick="signOut();">Sign out</a>
 
-     <div 
-  class="fb-login-button"
-  data-size="large"  
-  data-auto-logout-link="true" />
+     <div
+        class="fb-login-button"
+        data-size="large"
+        data-auto-logout-link="true" />
+    </div>
 </div>
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  </body>
+
+ 
 
 
 
 
-  
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log("Name: " + profile.getName())
-        
+
         var first_name_value = profile.getGivenName();
         //var first_name = document.getElementById('name');
         //first_name.innerHTML = first_name_value;
@@ -75,8 +93,8 @@
        // var first_name = document.getElementById('name');
         //first_name.innerHTML = "";
       });
-   
-      
+
+
     }
     </script>
 
@@ -95,15 +113,15 @@
 
         // Additional init code here
         FB.Event.subscribe('auth.authResponseChange', function (response) {
-            // Here we specify what we do with the response anytime this event occurs. 
+            // Here we specify what we do with the response anytime this event occurs.
             if (response.status === 'connected') {
                 getName();
             } else if (response.status === 'not_authorized') {
                 // In this case, the person is logged into Facebook, but not into the app, so we call
-                // FB.login() to prompt them to do so. 
+                // FB.login() to prompt them to do so.
                 //FB.login();
             } else {
-                // In this case, the person is not logged into Facebook, so we call the login() 
+                // In this case, the person is not logged into Facebook, so we call the login()
                 //FB.login();
             }
         });
@@ -132,4 +150,4 @@
 </script>
 
 
-</html>
+{% endblock %}

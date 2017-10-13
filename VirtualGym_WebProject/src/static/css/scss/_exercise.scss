@@ -1,0 +1,41 @@
+
+
+
+.create_exercise_container{
+	position: relative;
+	width: 100%;
+	.create_exercise_perm{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		text-align: center;
+	}
+	.exercise_form{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		// text-align: center;
+	}
+}
+
+
+.view_exercise_repo_container{
+	position: relative;
+	width: 100%;
+	@media only screen and (min-width: 500px) {
+		margin-top: 15vh;
+	}
+	margin-top: 20vh;
+	.view_repo_perm{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		text-align: center;
+	}
+	.repo_list{
+		position: relative;
+		margin: auto auto;
+		margin-top: 80px;
+		// text-align: center;
+	}
+}

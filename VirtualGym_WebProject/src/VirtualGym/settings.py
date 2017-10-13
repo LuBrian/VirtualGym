@@ -44,7 +44,16 @@ INSTALLED_APPS = [
     'users',
     'exercise',
     'VirtualGym',
-]
+    'forum',
+    ]
+
+###################### AUTH ##########################
+
+AUTH_USER_MODEL = 'users.MyUsers'
+AUTHENTICATION_BACKENDS = [('django.contrib.auth.backends.ModelBackend'),]
+
+
+#######################################################
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,6 +86,8 @@ TEMPLATES = [
 ]
 
 
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # '/var/www/static/',
@@ -87,6 +98,7 @@ WSGI_APPLICATION = 'VirtualGym.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -102,7 +114,7 @@ WSGI_APPLICATION = 'VirtualGym.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'vg.db'),
     }
 }
 
@@ -145,5 +157,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL="/media/"
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')

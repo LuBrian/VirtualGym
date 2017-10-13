@@ -15,15 +15,28 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import logout
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import home
 from users import views as us
 from exercise import views as ex
+from forum import views as fo
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home.index, name='index'),
-    url(r'^signIn/$',home.signIn,name="signIn"),
+
+    url(r'^logout/$', us.logOut, name='logout'),
+    url(r'^signIn/$',us.signIn,name="signIn"),
     url(r'^signUp/$',us.signUp,name = "signUp"),
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
+    url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
+    url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
+    url(r'^QA/$',fo.CreateQuestion,name = "QA"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
