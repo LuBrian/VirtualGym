@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'exercise',
     'VirtualGym',
+    'forum',
     ]
 
 ###################### AUTH ##########################

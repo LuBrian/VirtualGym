@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 from . import home
 from users import views as us
 from exercise import views as ex
-
+from forum import views as fo
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
     url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
     url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
+    url(r'^QA/$',fo.CreateQuestion,name = "QA"),
 ]
 
 if settings.DEBUG:

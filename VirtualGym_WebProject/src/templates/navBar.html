@@ -32,7 +32,7 @@
 
               <ul class="nav navbar-nav navbar-right">
                   <li><a href="{% url 'index' %}">HOME</a> </li>
-                  <li><a href="#">FAQ's</a> </li>
+                  <li><a href="{% url 'QA' %}">FAQ's</a> </li>
                   <li><a href="#">Contact Us</a></li>
                   {% if user.is_authenticated  %}
                       <li><a href="{% url 'logout' %}">Log Out</a></li>
