@@ -6,12 +6,17 @@
     <!--show Exercise-- >
     <div class="container">
       <section>
+
         <!-- <div class="page-header"> -->
         <!-- </div> -->
 
         <div class="row">
           {% for obj in objects_list %}
           <div class="col-md-4">
+                </br>
+       </br>
+           </br>
+    
             <!-- <h2>{{title}}</h2> <img src="{% static "girls.jpg" %}"> -->
             <div class="thumbnail">
 
@@ -19,7 +24,7 @@
 
                 <source src="{{obj.exerciseVideos.url}}" type="video/mp4">
               </video>
-              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">Tag: {{obj.exerciseTag}}  </a></h3>
+              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseTag}}  </a></h3>
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
           </div>

@@ -34,7 +34,6 @@ def Profile(request):
 		"title":title,
 		"objects_list":quearyset
 	}
-
 	return render(request,"viewProfile.html",context)
 
 def Exercise_detail(request,id=None):
