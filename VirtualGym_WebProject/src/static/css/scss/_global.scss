@@ -1,0 +1,41 @@
+.createSocial {
+	display: none;
+	// dislay
+
+	@media (min-width: 400px) {
+		display: flex;
+		justify-content:space-between;
+		width: 380px;
+		margin: auto auto;
+		margin-top: 7vh;
+	}
+	// .g-signin2{
+	// 	display: 
+	// }
+}
+
+.svg {
+	background: url("../images/sprite.svg");
+	overflow: hidden;
+	.createSocial & {
+		width: 50px;
+		height: 50px;
+	}
+
+}
+
+
+
+
+
+.facebook {
+	background-position: 0 -0px;
+}
+
+.google {
+	background-position: 0 -50px;
+}
+
+.twitter {
+	background-position: 0 -100px;
+}
