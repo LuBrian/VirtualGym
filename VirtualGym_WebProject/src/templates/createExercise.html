@@ -1,22 +1,70 @@
+
 {% extends 'header_footer.html' %}
 {% block page_content %}
 
+
 <div class="create_exercise_container">
+  <div class="container">
   {% if user.is_authenticated  %}
     <div class="exercise_form">
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <h1>{{title}}</h1>
-        {{ form.as_p}}
-        <button type="submit" class="signUp_button">Sign up</button>
+        <h1 class ="text-center">Create New Exercise</h1>
+        <p class="text-center">Exercises will have to be approved my a moderator before they will be submitted</p>
+        <div class="jumbotron">
+
+          <p class="text-center">Eventually a video will go here</p></br> <!--DELETE ME LATER-->
+          <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video </br>{{form.exerciseVideos}}</a></p>
+
+        </div>
+
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="name">Name of Exercise</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="description">Description:</label></br>
+            {{ form.exerciseDescription}}
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="tags">Tags:</label></br>
+          {{ form.exerciseTag}}
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-12">
+          <div class = "signUp_button">
+            <button type="submit" class="btn btn-block btn-primary btn-lg">Submit Exercise</button>
+          </div>
+
+        </div>
+
       </form>
     </div>
+ 
 
 
-  {% else %}
-     <div class="create_exercise_perm">
-      <p>You have to Login to create an exercise, <a href="{% url 'signIn' %}">Sign In</a> here</p>
-    </div>
-  {% endif  %}
+
+    {% else %}
+      <div class="create_exercise_perm">
+        <p>You have to Login to create an exercise, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+      </div>
+    {% endif  %}
+   </div>
 </div>
+    
+
+
 
 {% endblock %}
+

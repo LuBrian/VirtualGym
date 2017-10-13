@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 from .forms import CreateExeForm
 from .models import Exercise
@@ -34,5 +34,13 @@ def Profile(request):
 		"title":title,
 		"objects_list":quearyset
 	}
-
 	return render(request,"viewProfile.html",context)
+
+def Exercise_detail(request,id=None):
+	title=" Detail of Exercise "
+	instance=get_object_or_404(Exercise,exerciseId=id)
+	context={
+		"title":title,
+		"instance":instance,
+	}
+	return render(request,"detail.html",context)

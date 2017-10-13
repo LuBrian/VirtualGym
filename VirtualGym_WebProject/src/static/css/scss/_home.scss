@@ -73,10 +73,6 @@
 .body_container{
 	position: relative;
 	width: 100%;
-	@media only screen and (min-width: 500px) {
-		margin-top: 15vh;
-	}
-	margin-top: 20vh;
 	margin-bottom: 20vh;
 }
 
@@ -84,6 +80,10 @@
 .home{
 	position: relative;
 	width: 100%;
+	@media only screen and (min-width: 500px) {
+		margin-top: 15vh;
+	}
+	margin-top: 20vh;
 
 	.home_header{
 		position: relative;
