@@ -6,6 +6,7 @@
 
 <div class="view_exercise_repo_container">
 
+
     <!--show Exercise-- >
     <div class="container">
       <section>
@@ -22,9 +23,13 @@
 
                 <source src="{{video.videoFile.url}}" type="video/mp4">
               </video>
+<!--                 <object id="video" width="400" height="200" border="0" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715">
+                <embed width="100%" height="200" border="0" autostart=0 filename="video" src="{{video.videoFile.url}}">
+                </embed>
+                </object> -->
               {% endfor %}
 
-              <h3 style="text-align: center"><a href="{%url "detail" id=obj.exerciseId %}">{% for tag in obj.exerciseTag.all %}&emsp;&emsp;&emsp;{{tag.tagDescription}}{%endfor%} </a></h3>
+              <h3 style="text-align: center"><a style=" color:#666; font-size:18px;" href="{%url "detail" id=obj.exerciseId %}">{% for tag in obj.exerciseTag.all %}&emsp;&emsp;&emsp;{{tag.tagDescription}}{%endfor%} </a></h3>
 
               <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
             </div>
