@@ -39,10 +39,16 @@
 
 <div class="">
   <p class="lead text-center">Comment here</p>
+  {% if user.is_authenticated  %}
   <form method="post">{% csrf_token %}
     {{comment_form}}
     <button type="submit" class="btn btn-default ">Comment</button>
   </form>
+  {% else %}
+    <div class="create_exercise_perm">
+      <p>You have to Login for your comment, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+    </div>
+  {% endif  %}
 
   {% for comment in instance.comment_set.all%}
   <div class="container">

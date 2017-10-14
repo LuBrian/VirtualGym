@@ -9,11 +9,16 @@
 <p>Answer should be here. By {{obj.userID}}</p>
 {% endfor %}
 
-
+{% if user.is_authenticated  %}
 <form method="post">{% csrf_token %}
   {{form}}
   <button type="submit" class="signUp_button">Submit</button>
 </form>
+{% else %}
+  <div class="create_exercise_perm">
+    <p>You have to Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+  </div>
+{% endif  %}
 
 
 {% endblock %}
