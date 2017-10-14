@@ -2,6 +2,7 @@
 {% block page_content %}
 
 
+
 <div class="container">
   <div class="exercise_form">
     <h3 style="text-align: center">{{title}}</h3>
@@ -22,6 +23,7 @@
     <div class="form-group">
       <label for="name">Tags: </label>
       <p style="text-align: center">{% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{%endfor%}</p>
+
     </div>
   </div>
 
@@ -31,7 +33,6 @@
       <p style="text-align: center">{{instance.exerciseDescription}}</p>
     </div>
   </div>
-</div>
 
 </div> <!-- /container -->
 
