@@ -53,18 +53,6 @@
   </div>
   
 </div>
-<!-- Here is the Question List -->
-<div class="container">
-	<section>
-		{% for obj in objects_list %}
-		<div class="row">
-			<h1>Question:</h1>
-			<p>{{obj.questionDescription}}</p>
-			<h2>Answer:</h2>
-			<p>{{obj.userID}}</p>
-		</div>
-		{% endfor %}
-	</section>
 
 </body>
 </html>
@@ -87,19 +75,18 @@
   </div>
 {% endif  %}
 
+<!-- Here is the Question List -->
+<div class="container">
+	<section>
+		{% for obj in objects_list %}
+		<div class="row">
+			<h1>Question:</h1>
+			<p>{{obj.questionDescription}}</p>
+			<h2>Answer:</h2>
+			<p>{{obj.userID}}</p>
+		</div>
+		{% endfor %}
+	</section>
+
 
 {% endblock %}
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-</head>
