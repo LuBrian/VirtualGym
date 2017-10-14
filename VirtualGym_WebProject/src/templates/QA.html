@@ -1,4 +1,5 @@
 
+
 {% extends 'header_footer.html' %}
 {% block page_content %}
 <br>
@@ -8,12 +9,78 @@
 <p>Question: {{obj.questionDescription}}</p>
 <p>Answer should be here. By {{obj.userID}}</p>
 {% endfor %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 {% if user.is_authenticated  %}
+<<<<<<< HEAD
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+  		<h2>Still Have Questions?</h2>
+  		<!-- Trigger the modal with a button -->
+  		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ask a Question</button>
+        </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">Create New Question</h4>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+          	<!-- Heres the text box -->
+          	<label for="comment">Question Description:</label>
+          	<textarea class="form-control" rows="5" id="comment"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+<!-- Here is the Question List -->
+<div class="container">
+	<section>
+		{% for obj in objects_list %}
+		<div class="row">
+			<h1>Question:</h1>
+			<p>{{obj.questionDescription}}</p>
+			<h2>Answer:</h2>
+			<p>{{obj.userID}}</p>
+		</div>
+		{% endfor %}
+	</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+=======
 <form method="post">{% csrf_token %}
   {{form}}
   <button type="submit" class="signUp_button">Submit</button>
 </form>
+>>>>>>> 19f303b55c2c4dfaeef2b3cd2a182a603c87098b
 {% else %}
   <div class="create_exercise_perm">
     <p>You have to Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
@@ -22,3 +89,17 @@
 
 
 {% endblock %}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
