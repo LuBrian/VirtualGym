@@ -22,11 +22,13 @@ class CreateExeForm(forms.ModelForm):
             "placeholder":"Description for your exercise...",
         }
     ))
+ 
     exerciseTag = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=TAG_CHOICE,
     )
+    exTag = forms.CharField(label='''Exercise Tags separated by ","''', max_length = 500, required=False)
     exerciseVideos=forms.FileField()
     # exercisePosterId=forms.CharField()
     class Meta:
