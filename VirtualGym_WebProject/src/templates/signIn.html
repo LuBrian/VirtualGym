@@ -42,15 +42,15 @@
 
 
     <div class="createSocial">
-        <a class="svg facebook" href="" target="_blank"></a>
-        <a class="svg google g-signin2" data-onsuccess="onSignIn" href="#"></a>
+        <a class="svg facebook" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"></a>
+        <a class="svg google" href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"></a>
         <a class="svg twitter" href="" target="_blank"></a>
     </div>
 
 	
 
 	
-    <!-- <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div> -->
+    <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div>
      <a href="#" onclick="signOut();">Sign out</a>
 
      <div
@@ -110,50 +110,50 @@
 
     <script>
     // Additional JS functions here
-    window.fbAsyncInit = function () {
-        // get from: http://www.cnblogs.com/MY0101/p/6380654.html
-        FB.init({
-            appId: '199889287218343', // App ID
-            status: true, // check login status
-            cookie: true, // enable cookies to allow the server to access the session
-            xfbml: true  // parse XFBML
-        });
+//     window.fbAsyncInit = function () {
+//         // get from: http://www.cnblogs.com/MY0101/p/6380654.html
+//         FB.init({
+//             appId: '125712721400792', // App ID
+//             status: true, // check login status
+//             cookie: true, // enable cookies to allow the server to access the session
+//             xfbml: true  // parse XFBML
+//         });
 
-        // Additional init code here
-        FB.Event.subscribe('auth.authResponseChange', function (response) {
-            // Here we specify what we do with the response anytime this event occurs.
-            if (response.status === 'connected') {
-                getName();
-            } else if (response.status === 'not_authorized') {
-                // In this case, the person is logged into Facebook, but not into the app, so we call
-                // FB.login() to prompt them to do so.
-                //FB.login();
-            } else {
-                // In this case, the person is not logged into Facebook, so we call the login()
-                //FB.login();
-            }
-        });
-    };
+//         // Additional init code here
+//         FB.Event.subscribe('auth.authResponseChange', function (response) {
+//             // Here we specify what we do with the response anytime this event occurs.
+//             if (response.status === 'connected') {
+//                 getName();
+//             } else if (response.status === 'not_authorized') {
+//                 // In this case, the person is logged into Facebook, but not into the app, so we call
+//                 // FB.login() to prompt them to do so.
+//                 //FB.login();
+//             } else {
+//                 // In this case, the person is not logged into Facebook, so we call the login()
+//                 //FB.login();
+//             }
+//         });
+//     };
 
-    // Load the SDK asynchronously
-    (function (d) {
-        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js";
-        ref.parentNode.insertBefore(js, ref);
-    } (document));
+//     // Load the SDK asynchronously
+//     (function (d) {
+//         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+//         if (d.getElementById(id)) { return; }
+//         js = d.createElement('script'); js.id = id; js.async = true;
+//         js.src = "//connect.facebook.net/en_US/all.js";
+//         ref.parentNode.insertBefore(js, ref);
+//     } (document));
 
-    function getName() {
-        FB.api('/me', function (response) {
-            alert('Good to see you, ' + response.name);
-        });
-    }
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-}
+//     function getName() {
+//         FB.api('/me', function (response) {
+//             alert('Good to see you, ' + response.name);
+//         });
+//     }
+//     function checkLoginState() {
+//         FB.getLoginStatus(function(response) {
+//         statusChangeCallback(response);
+//     });
+// }
 
 </script>
 
