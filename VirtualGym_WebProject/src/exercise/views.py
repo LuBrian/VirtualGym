@@ -50,13 +50,23 @@ def Profile(request):
 
 
 def MyExercise(request):
-	title=" Profile of Exercise "
-	quearyset=Exercise.objects.filter(exercisePosterId = request.user)
-	context={
-		"title":title,
-		"objects_list":quearyset
-	}
+	title=" My Exercise "
+	#print(Exercise.objects.filter(exercisePosterId = request.user))
+	#if(request.user.is_authenticated()):
+	try:
+		quearyset=Exercise.objects.filter(exercisePosterId = request.user)
+		context={
+			"title":title,			
+			"objects_list":quearyset
+		}
+	except:
+		quearyset = []
+		context={
+			"title":title,			
+			"objects_list":quearyset
+		}
 	return render(request,"MyExercise.html",context)
+
 
 
 
