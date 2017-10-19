@@ -13,13 +13,14 @@
 <h1 align="center">Q&A forum</h1>
       </br></br>
 {% for obj in objects_list %}
+  
   {% if obj.isParent %}
-    <p style="margin-left:10%;"><font size="5.5">  {{ forloop.counter }}.{{obj.questionDescription}}</font></p>
-    <p style="margin-left:50%;"> -----------{{obj.userID}}&emsp;{{obj.dateAsked}}</p>
+    <p style="margin-left:10%;"><font size="7.5"> Q.&emsp;</font><font size="5.5">{{obj.questionDescription}}</font>&emsp;&emsp;<font color = "#C2C2C2">{{obj.userID}}&emsp;{{obj.dateAsked}}</font></p>
     {% for child_answer in obj.children%}
-      <p style="margin-left:20%;">{{ forloop.counter }}： {{child_answer.questionDescription}} By {{obj.userID}}</p>
+      {% with forloop.counter as inner_counter %}
+      <p style="margin-left:20%;">{{ inner_counter }}： {{child_answer.questionDescription}} &emsp;&emsp;<font color = "#C2C2C2">By {{obj.userID}}</font></p>
+      {% endwith %}
     {%endfor%}
-
 
   {% if user.is_authenticated  %}
   <form  style="margin-left:60%;" method="post">{% csrf_token %}
@@ -35,6 +36,7 @@
   {% endif  %}
 
 {%endif%}
+
 {% endfor %}
 
 
