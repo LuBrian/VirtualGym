@@ -36,6 +36,10 @@ urlpatterns = [
     url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
     url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
     url(r'^QA/$',fo.CreateQuestion,name = "QA"),
+    url(r'^auth/', include('social_django.urls', namespace='social')),  # <--
+    # url('', include('social.apps.django_app.urls', namespace='social')),
+    # url(r'^$', home.index, name='home'),
+
 ]
 
 if settings.DEBUG:
