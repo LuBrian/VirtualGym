@@ -22,7 +22,7 @@ class CreateExeForm(forms.ModelForm):
             "placeholder":"Description for your exercise...",
         }
     ))
- 
+
     exerciseTag = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
@@ -33,5 +33,5 @@ class CreateExeForm(forms.ModelForm):
     # exercisePosterId=forms.CharField()
     class Meta:
         model=Exercise
-        # fields={"exerciseDescription","exerciseTag"}
-        fields={"exerciseDescription","exerciseTag","exerciseVideos","exercisePosterId"}
+
+        fields={"exerciseDescription","exerciseTag","exerciseVideos"}
