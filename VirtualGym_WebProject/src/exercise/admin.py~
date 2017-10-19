@@ -5,32 +5,13 @@ from django.utils.html import format_html
 
 # Register your models here.
 from .models import Exercise
-from .models import Videos
-from .models import VideosExercises
-from .models import Tags
-from .models import TagsExercises
 
 def approve_exercise(modeladmin, request, queryset):
     queryset.update(exerciseApproved=True)
 approve_exercise.short_description = "Approve Selected Exercise"
 
 def reject_exercise(modeladmin, request, queryset):
-    exId = queryset.values("exerciseId")
-    authId = queryset.values("exercisePosterId")
-    videos = queryset.values("exerciseVideos")
-    tags = queryset.values("exerciseTag")    
-
-    videoObj = Videos.objects.filter(video_id = videos)
-    videoObj.delete()
-
-    videoEx = VideosExercises.objects.filter(exercise_id = exId)
-    videoEx.delete()
-
-    tagEx = TagsExercises.objects.filter(exercise_id = exId, tag_id = tags)
-    tagEx.delete()
     queryset.delete()
-
-
 reject_exercise.short_description = "Reject Selected Exercise"
 
 class ExerciseAdmin(admin.ModelAdmin):        
