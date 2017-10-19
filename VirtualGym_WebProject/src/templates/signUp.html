@@ -12,7 +12,21 @@
 	</div>
 	{% else %}
 
+
+
+
+
+
 	<div class = "signUp_form">
+
+		{% if exception != "None" %}
+		
+		<div class="alert">
+		  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		 	<strong>Warning! </strong>{{exception}}
+		</div>
+
+		{% endif %}
 
 		<form method="post" action="">{% csrf_token %}
      		 <h1 class="signUp_title">{{title}}</h1>

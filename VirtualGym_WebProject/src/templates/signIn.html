@@ -27,7 +27,7 @@
 		<form method = "post" action="{% url 'signIn' %}">{% csrf_token %}
             <h1 class="signIn_title">{{title}}</h1>
 		<div class="signIn_username">
-		    <input type="text" id="email" name="email" placeholder="Email">
+		    <input type="text" id="email" name="email" placeholder="User name">
 		</div>
 		<div class="signIn_password">
 		    <input type="text" id="password" name="password" placeholder="Your password">
@@ -42,120 +42,16 @@
 
 
     <div class="createSocial">
-        <a class="svg facebook" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"></a>
-        <a class="svg google" href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"></a>
-        <a class="svg twitter" href="" target="_blank"></a>
+        <a class="svg facebook" href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}"></a>
+        <a class="svg google" href="{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}"></a>
+        <a class="svg twitter" href="{% url 'social:begin' 'twitter' %}?next={% url 'index' %}"></a>
     </div>
-
-	
-
-	
-    <div class="g-signin2" data-onsuccess="onSignIn" position:absolute;left:100px; height:100px;></div>
-     <a href="#" onclick="signOut();">Sign out</a>
-
-     <div
-        class="fb-login-button"
-        data-size="large"
-        data-auto-logout-link="true" />
-    </div>
-
 
     <div class="go_signUp">
         <p>Doesn't have an account,<a href="{% url 'signUp' %}"> Sign Up</a> here</p>
 
     </div>
 </div>
-
-
-
- 
-
-
-
-
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log("Name: " + profile.getName())
-
-        var first_name_value = profile.getGivenName();
-        //var first_name = document.getElementById('name');
-        //first_name.innerHTML = first_name_value;
-        alert('Welcome to Virtual GYM ' + first_name_value);
-
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      };
-
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-        console.log('User signed out.');
-       // var first_name = document.getElementById('name');
-        //first_name.innerHTML = "";
-      });
-
-
-    }
-    </script>
-
-
-
-    <script>
-    // Additional JS functions here
-//     window.fbAsyncInit = function () {
-//         // get from: http://www.cnblogs.com/MY0101/p/6380654.html
-//         FB.init({
-//             appId: '125712721400792', // App ID
-//             status: true, // check login status
-//             cookie: true, // enable cookies to allow the server to access the session
-//             xfbml: true  // parse XFBML
-//         });
-
-//         // Additional init code here
-//         FB.Event.subscribe('auth.authResponseChange', function (response) {
-//             // Here we specify what we do with the response anytime this event occurs.
-//             if (response.status === 'connected') {
-//                 getName();
-//             } else if (response.status === 'not_authorized') {
-//                 // In this case, the person is logged into Facebook, but not into the app, so we call
-//                 // FB.login() to prompt them to do so.
-//                 //FB.login();
-//             } else {
-//                 // In this case, the person is not logged into Facebook, so we call the login()
-//                 //FB.login();
-//             }
-//         });
-//     };
-
-//     // Load the SDK asynchronously
-//     (function (d) {
-//         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-//         if (d.getElementById(id)) { return; }
-//         js = d.createElement('script'); js.id = id; js.async = true;
-//         js.src = "//connect.facebook.net/en_US/all.js";
-//         ref.parentNode.insertBefore(js, ref);
-//     } (document));
-
-//     function getName() {
-//         FB.api('/me', function (response) {
-//             alert('Good to see you, ' + response.name);
-//         });
-//     }
-//     function checkLoginState() {
-//         FB.getLoginStatus(function(response) {
-//         statusChangeCallback(response);
-//     });
-// }
-
-</script>
 
 
 {% endblock %}

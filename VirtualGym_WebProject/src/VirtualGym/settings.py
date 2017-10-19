@@ -41,16 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
-
     'users',
     'exercise',
     'VirtualGym',
     'forum',
     'social.apps.django_app.default',
     'social_django',
-    # 'social.apps.django_app.default',
     ]
 
 ###################### AUTH ##########################
@@ -58,6 +54,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'users.MyUsers'
 
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     # 'social.backends.facebook.FacebookOAuth2',
     # 'social.backends.twitter.TwitterOAuth',
 
@@ -67,8 +64,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
     )
 
 
@@ -84,6 +79,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'social_django.middleware.SocialAuthExceptionMiddleware', 
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'VirtualGym.urls'
@@ -116,14 +112,24 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ad6TPM9N7jlkpplDYEXkXiNH'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1701071253299905'
-SOCIAL_AUTH_FACEBOOK_SECRET = '9cb6dc290b3675f7fe04b4cfaf1d3624'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_KEY = '181251585758026'
+SOCIAL_AUTH_FACEBOOK_SECRET = '78e7874e5f884ba062885611d9edaa45'
+
+SOCIAL_AUTH_TWITTER_KEY = 'jGXhvPd1hcE5NRhuAxsu5tBEP'
+SOCIAL_AUTH_TWITTER_SECRET = '0Jp7bQMBRvgNxP8MHlwTafL03LqxFIuHb7AyF22AJ0knlNNcbd'
 
 SOCIAL_AUTH_USER_MODEL = 'users.MyUsers'
 
-# LOGIN_REDIRECT_URL = '/signIn/'
-# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/index/'
+
+
+
+LOGIN_REDIRECT_URL = '/index/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/index/'
 # SOCIAL_AUTH_LOGIN_URL = '/signIn/'
+# LOGIN_URL = 'signIn'
+# LOGOUT_URL = '/index/'
+# LOGIN_REDIRECT_URL = '/index/'
 
 
 SOCIAL_AUTH_PIPELINE = (

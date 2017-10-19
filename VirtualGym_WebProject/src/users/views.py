@@ -13,9 +13,10 @@ def signIn(request):
 	password = request.POST.get('password')
 	# usr = MyUsers.objects.get(user_name='username')
 	# print(usr)
-	user = authenticate(request,email=email, password=password)
+
+	user = authenticate(request,username=email, password=password)
 	# print(password)
-	# print(username)
+	# print(email)
 	if user is not None:
 		print("user exists")
 		print(user.get_user_id())
@@ -37,28 +38,39 @@ def signIn(request):
 def signUp(request):
 	title="Sign Up"
 	form= SignUpForm(request.POST or None)
-	context={
-		"title":title,
-		"form":form,
-		"page_title":title
-	}
-	if form.is_valid():
-		
-		instance=form.save(commit=False)
-		# instance.is_superuser = True
-		# print(form.email)
-		instance.username = instance.email
-		instance.save()
-		login(request, instance)
-		return redirect('index')
-		# print (instance.user_name)
-		# print (instance.user_id)
-	else:
-		print("not signed up")
+	exception = "None"
+	
+	try:
+		context={
+			"title":title,
+			"form":form,
+			"page_title":title,
+			"exception": exception
+		}
+		if form.is_valid():
+			
+			instance=form.save(commit=False)
+			instance.username = instance.email
+			instance.save()
+			login(request, instance)
+			return redirect('index')
+			# print (instance.user_name)
+			# print (instance.user_id)
+		else:
+			print("not signed up")
 
-	return render(request,"signUp.html",context)
-	#template = loader.get_template('signIn.html')
-	#return HttpResponse(template.render())
+		return render(request,"signUp.html",context)
+		
+
+	except:
+		print("signup exception")
+		context["exception"] = "User name has been taken"
+
+		return render(request,"signUp.html",context)
+
+	
+
+	
 
 def logOut(request):
     logout(request)

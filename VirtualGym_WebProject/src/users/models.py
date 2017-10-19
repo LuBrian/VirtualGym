@@ -31,7 +31,7 @@ class MyUsersManager(BaseUserManager):
 			is_superuser = is_superuser,
 		)
 		if password != None:
-			user.set_a_password(password)
+			user.password = password
 
 		user.save(using=self._db)
 		return user
@@ -45,9 +45,9 @@ class MyUsersManager(BaseUserManager):
 	    # Create your models here.
 
 class MyUsers(AbstractBaseUser):
-	email = models.EmailField(blank = True,null=False,unique=True)
+	email = models.EmailField(blank = True,null=False)
 	user_id = models.AutoField(primary_key=True)
-	username = models.CharField(blank = True,max_length=50,null=False)
+	username = models.CharField(blank = True,max_length=50,unique=True)
 	password = models.CharField(blank = True,max_length=50)
 	last_login = models.DateTimeField(_('date joined'), default=timezone.now,null=True)
 	date_joined = models.DateTimeField(_('date joined'), default=timezone.now,null=True)
@@ -56,8 +56,8 @@ class MyUsers(AbstractBaseUser):
 	is_admin     = models.BooleanField(default=False)
 	is_superuser = models.BooleanField(default=False)
 
-	USERNAME_FIELD = 'email'
-	# REQUIRED_FIELDS = [ 'password']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = [ 'email']
 	print("create a user")
 	objects = MyUsersManager()
 	class Meta:
