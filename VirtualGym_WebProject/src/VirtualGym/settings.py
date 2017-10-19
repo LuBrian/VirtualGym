@@ -29,8 +29,6 @@ SECRET_KEY = 'vibj5$x&!ogu@1ksm*=w0819u4f-&732=ua6wh!88zver)5dmv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,13 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'comments',
     'users',
     'exercise',
     'VirtualGym',
     'forum',
     'social.apps.django_app.default',
     'social_django',
-    ]
+]
 
 ###################### AUTH ##########################
 

@@ -18,5 +18,11 @@ def CreateQuestion(request):
         instance=form.save(commit=False)
         instance.userID= request.user
         instance.save()
+        context={
+            "form":"",
+            "objects_list":quearyset,
+        }
+
+
     return render(request,"QA.html",context)
     # return render(request,"questionPos.html",context)

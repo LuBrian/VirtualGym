@@ -8,16 +8,29 @@
 		<div class="header_text">
 			<p> Virtual Gym </p>
 		</div>
-		<div class="header_pic">
-
+		<div class="header_pic" align="center">
+			<!-- image 1 and 2 taken from http://www.harrogatesfc.co.uk/gym/ 2017/10/13 14:46-->
+			<!-- image left and right taken from https://www.flaticon.com/search?word=left 2017/10/13 14:40 -->
+			<input type="image" src="../static/images/left.png" onclick="changeImg()" />
+			<span><img src="../static/images/1.jpg" width="700" height="400" id="bbb"/></span>
+			<input type="image" src="../static/images/right.png" onclick="changeImg()" />
+			<script>
+			function changeImg() {
+    			var obj = document.getElementById("bbb");   
+    			if (obj.getAttribute("src") == "../static/images/1.jpg") {
+        			obj.setAttribute("src", "../static/images/2.jpg");     
+    			} else { 
+        			obj.setAttribute("src", "../static/images/1.jpg"); 
+    			}
+			}
+			</script>
 		</div>
 	</div>
 
 	{% if user.is_authenticated  %}
-		<div>there is a user</div>
-		<p>{{user.get_user_id}}</p>
+
 	{% else %}
-		<div>no user logged in</div>
+		
 	{% endif  %}
 </div>
 

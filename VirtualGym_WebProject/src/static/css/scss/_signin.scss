@@ -1,10 +1,5 @@
 
 .signIn_form_container{
-	@media only screen and (min-width: 500px) {
-		margin-top: 15vh;
-	}
-	margin-top: 20vh;
-
 	.sigIn_header{
 		position: relative;
 		margin: auto auto;
@@ -136,10 +131,10 @@
 
 
 .signUp_form_container{
-	@media only screen and (min-width: 500px) {
-		margin-top: 15vh;
-	}
-	margin-top: 20vh;
+	// @media only screen and (min-width: 500px) {
+	// 	margin-top: 15vh;
+	// }
+	// margin-top: 20vh;
 
 	.sigUp_header{
 		position: relative;

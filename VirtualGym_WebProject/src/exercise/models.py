@@ -1,6 +1,5 @@
 from users.models import MyUsers
 from django.db import models
-
 # Create your models here.
 
 def upload_location(instance,filename):
@@ -14,7 +13,7 @@ class Tags(models.Model):
     tagID = models.AutoField(primary_key=True)
     tagDescription = models.CharField(db_index=True, max_length=100, unique=True)
     def __str__(self):
-        return self.tagDescription
+        return str(self.tagDescription)
 
 class VideosExercises(models.Model):
     video_id = models.ForeignKey('Videos')
@@ -41,9 +40,4 @@ class Exercise(models.Model):
     def __str__(self):              # __unicode__ on Python 2
         # return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
         ordering=["-exerciseData"]
-        return (self.exerciseTag)
-
-
-    #timestamp=models.DateTimeField(auto_now_add=True,auto_now=False)
-    # def __str__ (self):
-    #     return str(self.user_name)
+        return str(self.exerciseDescription)

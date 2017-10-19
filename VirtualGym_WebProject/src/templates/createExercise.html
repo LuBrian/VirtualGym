@@ -8,8 +8,8 @@
   }
 
   #id_exerciseVideos{
-
     margin: auto auto;
+    width: 100%;
   }
 
 </style>
@@ -46,12 +46,22 @@
           </div>
         </div>
 
+
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="tags">Custom tags separated by comma</label></br>
+          {{ form.exTag}}
+          </div>
+        </div>
+        
         <div class="col-lg-4">
           <div class="form-group">
             <label for="tags">Tags:</label></br>
           {{ form.exerciseTag}}
           </div>
         </div>
+
+
 
 
 
@@ -80,4 +90,3 @@
 
 
 {% endblock %}
-

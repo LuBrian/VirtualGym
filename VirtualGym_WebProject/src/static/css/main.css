@@ -1,195 +1,185 @@
 /*# sourceMappingURL=main.scss.map */
-.signIn_form_container {
-  margin-top: 20vh; }
-  @media only screen and (min-width: 500px) {
-    .signIn_form_container {
-      margin-top: 15vh; } }
-  .signIn_form_container .sigIn_header {
-    position: relative;
-    margin: auto auto;
-    width: 100%;
-    height: 180px; }
-    .signIn_form_container .sigIn_header .header_text {
-      margin: auto;
-      text-align: center;
-      width: 80%; }
-      .signIn_form_container .sigIn_header .header_text p {
-        font-style: italic;
-        font-family: "Georgia";
-        font-weight: bold;
-        font-size: 50px;
-        color: #6A84D8;
-        text-shadow: 2px 2px #ACB1C1; }
-  .signIn_form_container .signIn_form {
-    width: 100%;
-    position: relative;
-    margin: auto auto;
-    height: auto; }
-    .signIn_form_container .signIn_form form {
-      width: 100%;
-      margin: auto auto;
-      max-width: 400px;
-      height: auto; }
-      .signIn_form_container .signIn_form form .signIn_title {
-        text-align: center; }
-      .signIn_form_container .signIn_form form div {
-        height: 50px; }
-        .signIn_form_container .signIn_form form div input {
-          width: 100%;
-          height: 40px;
-          border: none;
-          border-bottom: 2px solid #9C9EA5;
-          border-radius: 2px;
-          font-size: 1em;
-          color: #838383; }
-          .signIn_form_container .signIn_form form div input:active, .signIn_form_container .signIn_form form div input:focus {
-            outline: none;
-            border-bottom: 2px solid #838383; }
-        .signIn_form_container .signIn_form form div.signIn_username, .signIn_form_container .signIn_form form div.signIn_password {
-          margin-top: 100px; }
-        .signIn_form_container .signIn_form form div label {
-          text-align: left; }
-      .signIn_form_container .signIn_form form .signInButtonContainer {
-        text-align: center;
-        margin-top: 50px;
-        height: auto; }
-        .signIn_form_container .signIn_form form .signInButtonContainer .signIn_button {
-          margin-top: 50px;
-          background-color: #83A0FE;
-          width: 200px;
-          height: 40px;
-          border: none;
-          border-bottom: 1px solid #979797;
-          border-radius: 2px;
-          font-style: italic;
-          font-weight: bold;
-          font-size: 20px; }
-  .signIn_form_container .go_signUp {
-    position: relative;
-    text-align: center;
-    width: 100%;
+.signIn_form_container .sigIn_header {
+  position: relative;
+  margin: auto auto;
+  width: 100%;
+  height: 180px; }
+  .signIn_form_container .sigIn_header .header_text {
     margin: auto;
-    margin-top: 80px; }
-  .signIn_form_container ::-webkit-input-placeholder {
-    /* Chrome */
-    color: #D2D2D2; }
-  .signIn_form_container :-ms-input-placeholder {
-    /* IE 10+ */
-    color: #D2D2D2; }
-  .signIn_form_container ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #D2D2D2; }
-  .signIn_form_container :-moz-placeholder {
-    /* Firefox 4 - 18 */
-    color: #D2D2D2; }
-
-.signUp_form_container {
-  margin-top: 20vh; }
-  @media only screen and (min-width: 500px) {
-    .signUp_form_container {
-      margin-top: 15vh; } }
-  .signUp_form_container .sigUp_header {
-    position: relative;
-    margin: auto auto;
-    width: 100%;
-    height: auto; }
-    .signUp_form_container .sigUp_header .header_text {
-      margin: auto;
-      text-align: left;
-      width: 80%; }
-      .signUp_form_container .sigUp_header .header_text p {
-        font-style: italic;
-        font-family: "Georgia";
-        font-weight: bold;
-        font-size: 50px;
-        color: #6A84D8;
-        text-shadow: 2px 2px #ACB1C1; }
-  .signUp_form_container .alert {
-    width: 40%;
-    padding: 15px;
-    background-color: #CE4949;
-    color: white;
-    margin: auto auto;
-    vertical-align: middle; }
-    .signUp_form_container .alert .closebtn {
-      color: white;
+    text-align: center;
+    width: 80%; }
+    .signIn_form_container .sigIn_header .header_text p {
+      font-style: italic;
+      font-family: "Georgia";
       font-weight: bold;
-      float: right;
-      font-size: 22px;
-      line-height: 15px;
-      cursor: pointer;
-      transition: 0.3s; }
-      .signUp_form_container .alert .closebtn:hover {
-        color: black; }
-  .signUp_form_container .already_loggedIn {
+      font-size: 50px;
+      color: #6A84D8;
+      text-shadow: 2px 2px #ACB1C1; }
+.signIn_form_container .signIn_form {
+  width: 100%;
+  position: relative;
+  margin: auto auto;
+  height: auto; }
+  .signIn_form_container .signIn_form form {
     width: 100%;
-    position: relative;
     margin: auto auto;
-    height: auto;
-    text-align: center;
-    margin-top: 100px; }
-  .signUp_form_container .signUp_form {
-    width: 100%;
-    position: relative;
-    margin: auto auto;
+    max-width: 400px;
     height: auto; }
-    .signUp_form_container .signUp_form form {
-      width: 100%;
-      margin: auto auto;
-      max-width: 400px;
-      margin-top: 40px; }
-      .signUp_form_container .signUp_form form .signUp_title {
-        text-align: center; }
-      .signUp_form_container .signUp_form form div {
-        height: 50px; }
-        .signUp_form_container .signUp_form form div input {
-          width: 100%;
-          height: 40px;
-          border: none;
-          border-bottom: 2px solid #9C9EA5;
-          border-radius: 2px;
-          font-size: 1em;
-          color: #838383; }
-          .signUp_form_container .signUp_form form div input:active, .signUp_form_container .signUp_form form div input:focus {
-            outline: none;
-            border-bottom: 2px solid #838383; }
-        .signUp_form_container .signUp_form form div label {
-          text-align: left; }
-        .signUp_form_container .signUp_form form div.signUp_username, .signUp_form_container .signUp_form form div.signUp_password, .signUp_form_container .signUp_form form div.signUp_confirm {
-          margin-top: 100px; }
-      .signUp_form_container .signUp_form form .signUpButtonContainer {
-        text-align: center;
+    .signIn_form_container .signIn_form form .signIn_title {
+      text-align: center; }
+    .signIn_form_container .signIn_form form div {
+      height: 50px; }
+      .signIn_form_container .signIn_form form div input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-bottom: 2px solid #9C9EA5;
+        border-radius: 2px;
+        font-size: 1em;
+        color: #838383; }
+        .signIn_form_container .signIn_form form div input:active, .signIn_form_container .signIn_form form div input:focus {
+          outline: none;
+          border-bottom: 2px solid #838383; }
+      .signIn_form_container .signIn_form form div.signIn_username, .signIn_form_container .signIn_form form div.signIn_password {
+        margin-top: 100px; }
+      .signIn_form_container .signIn_form form div label {
+        text-align: left; }
+    .signIn_form_container .signIn_form form .signInButtonContainer {
+      text-align: center;
+      margin-top: 50px;
+      height: auto; }
+      .signIn_form_container .signIn_form form .signInButtonContainer .signIn_button {
         margin-top: 50px;
-        height: auto; }
-        .signUp_form_container .signUp_form form .signUpButtonContainer .signUp_button {
-          margin-top: 50px;
-          background-color: #83A0FE;
-          width: 200px;
-          height: 40px;
-          border: none;
-          border-bottom: 1px solid #979797;
-          border-radius: 2px;
-          font-style: italic;
-          font-weight: bold;
-          font-size: 20px; }
-  .signUp_form_container .go_signIn {
-    position: relative;
-    text-align: center;
-    width: 100%;
+        background-color: #83A0FE;
+        width: 200px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #979797;
+        border-radius: 2px;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px; }
+.signIn_form_container .go_signUp {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  margin-top: 80px; }
+.signIn_form_container ::-webkit-input-placeholder {
+  /* Chrome */
+  color: #D2D2D2; }
+.signIn_form_container :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #D2D2D2; }
+.signIn_form_container ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #D2D2D2; }
+.signIn_form_container :-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #D2D2D2; }
+
+.signUp_form_container .sigUp_header {
+  position: relative;
+  margin: auto auto;
+  width: 100%;
+  height: auto; }
+  .signUp_form_container .sigUp_header .header_text {
     margin: auto;
-    margin-top: 80px; }
-  .signUp_form_container ::-webkit-input-placeholder {
-    /* Chrome */
-    color: #D2D2D2; }
-  .signUp_form_container :-ms-input-placeholder {
-    /* IE 10+ */
-    color: #D2D2D2; }
-  .signUp_form_container ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #D2D2D2; }
-  .signUp_form_container :-moz-placeholder {
-    /* Firefox 4 - 18 */
-    color: #D2D2D2; }
+    text-align: left;
+    width: 80%; }
+    .signUp_form_container .sigUp_header .header_text p {
+      font-style: italic;
+      font-family: "Georgia";
+      font-weight: bold;
+      font-size: 50px;
+      color: #6A84D8;
+      text-shadow: 2px 2px #ACB1C1; }
+.signUp_form_container .alert {
+  width: 40%;
+  padding: 15px;
+  background-color: #CE4949;
+  color: white;
+  margin: auto auto;
+  vertical-align: middle; }
+  .signUp_form_container .alert .closebtn {
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 15px;
+    cursor: pointer;
+    transition: 0.3s; }
+    .signUp_form_container .alert .closebtn:hover {
+      color: black; }
+.signUp_form_container .already_loggedIn {
+  width: 100%;
+  position: relative;
+  margin: auto auto;
+  height: auto;
+  text-align: center;
+  margin-top: 100px; }
+.signUp_form_container .signUp_form {
+  width: 100%;
+  position: relative;
+  margin: auto auto;
+  height: auto; }
+  .signUp_form_container .signUp_form form {
+    width: 100%;
+    margin: auto auto;
+    max-width: 400px;
+    margin-top: 40px; }
+    .signUp_form_container .signUp_form form .signUp_title {
+      text-align: center; }
+    .signUp_form_container .signUp_form form div {
+      height: 50px; }
+      .signUp_form_container .signUp_form form div input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-bottom: 2px solid #9C9EA5;
+        border-radius: 2px;
+        font-size: 1em;
+        color: #838383; }
+        .signUp_form_container .signUp_form form div input:active, .signUp_form_container .signUp_form form div input:focus {
+          outline: none;
+          border-bottom: 2px solid #838383; }
+      .signUp_form_container .signUp_form form div label {
+        text-align: left; }
+      .signUp_form_container .signUp_form form div.signUp_username, .signUp_form_container .signUp_form form div.signUp_password, .signUp_form_container .signUp_form form div.signUp_confirm {
+        margin-top: 100px; }
+    .signUp_form_container .signUp_form form .signUpButtonContainer {
+      text-align: center;
+      margin-top: 50px;
+      height: auto; }
+      .signUp_form_container .signUp_form form .signUpButtonContainer .signUp_button {
+        margin-top: 50px;
+        background-color: #83A0FE;
+        width: 200px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #979797;
+        border-radius: 2px;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px; }
+.signUp_form_container .go_signIn {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  margin-top: 80px; }
+.signUp_form_container ::-webkit-input-placeholder {
+  /* Chrome */
+  color: #D2D2D2; }
+.signUp_form_container :-ms-input-placeholder {
+  /* IE 10+ */
+  color: #D2D2D2; }
+.signUp_form_container ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #D2D2D2; }
+.signUp_form_container :-moz-placeholder {
+  /* Firefox 4 - 18 */
+  color: #D2D2D2; }
 
 .page_container {
   width: 100%;
@@ -215,7 +205,18 @@
   height: 12vh; }
   .footer_container footer {
     width: 100%;
-    height: 12vh; }
+    height: 12vh;
+    /* link */
+    /* visited */
+    /* hover */ }
+    .footer_container footer a:link {
+      color: #CDCDC1; }
+    .footer_container footer a:visited {
+      color: #CDCDC1; }
+    .footer_container footer a:hover {
+      color: #FFFFFF; }
+    .footer_container footer a {
+      text-decoration: none; }
     .footer_container footer .footer_infor {
       height: 9vh;
       display: flex; }
@@ -248,61 +249,42 @@
 .body_container {
   position: relative;
   width: 100%;
-  margin-bottom: 20vh; }
-
-.home {
-  position: relative;
-  width: 100%;
+  margin-bottom: 20vh;
   margin-top: 20vh; }
   @media only screen and (min-width: 500px) {
-    .home {
+    .body_container {
       margin-top: 15vh; } }
-  .home .home_header {
-    position: relative;
-    margin: auto auto;
-    width: 100%;
-    min-height: 180px;
-    margin-top: 80px; }
-    .home .home_header .header_text {
-      margin: auto;
-      text-align: center;
-      width: 80%; }
-      .home .home_header .header_text p {
-        font-style: italic;
-        font-family: "Georgia";
-        font-weight: bold;
-        font-size: 50px;
-        color: #6A84D8;
-        text-shadow: 2px 2px #ACB1C1; }
+
+.home .home_header {
+  position: relative;
+  margin: auto auto;
+  width: 100%;
+  min-height: 180px; }
+  .home .home_header .header_text {
+    margin: auto;
+    text-align: center;
+    width: 80%; }
+    .home .home_header .header_text p {
+      font-style: italic;
+      font-family: "Georgia";
+      font-weight: bold;
+      font-size: 50px;
+      color: #6A84D8;
+      text-shadow: 2px 2px #ACB1C1; }
 
 .create_exercise_container {
   position: relative;
   width: 100%; }
-  .create_exercise_container .create_exercise_perm {
-    position: relative;
-    margin: auto auto;
-    margin-top: 80px;
+  .create_exercise_container .create_exercise_perm p {
     text-align: center; }
-  .create_exercise_container .exercise_form {
-    position: relative;
-    margin: auto auto;
-    margin-top: 80px; }
 
 .view_exercise_repo_container {
-  width: 100%;
-  margin-top: 20vh; }
-  @media only screen and (min-width: 500px) {
-    .view_exercise_repo_container {
-      margin-top: 15vh; } }
+  margin: 0 20px 0 20px; }
   .view_exercise_repo_container .view_repo_perm {
     position: relative;
     margin: auto auto;
     margin-top: 80px;
     text-align: center; }
-  .view_exercise_repo_container .repo_list {
-    position: relative;
-    margin: auto auto;
-    margin-top: 80px; }
 
 .createSocial {
   display: none; }

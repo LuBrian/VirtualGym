@@ -1,15 +1,16 @@
 from django.shortcuts import render,get_object_or_404
 
+from comments.forms import CommentForm
 from .forms import CreateExeForm
 from .models import Exercise
 
-from .models import Exercise
 from .models import Videos
 from .models import VideosExercises
 from .models import Tags
 from .models import TagsExercises
 
 from users.models import MyUsers
+from comments.models import Comment
 
 def CreateExe(request):
 	title=" Create Your Exercise"
@@ -25,9 +26,10 @@ def CreateExe(request):
         #print (instance.exerciseTag)
 		instance.save()
 		data=form.cleaned_data
-		
+
 		createVideo(data,instance)
 		addTagsToDB(data["exerciseTag"],instance)
+		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
 		}
@@ -47,11 +49,28 @@ def Profile(request):
 	return render(request,"viewProfile.html",context)
 
 def Exercise_detail(request,id=None):
+
 	title=" Detail of Exercise "
 	instance=get_object_or_404(Exercise,exerciseId=id)
+
+	comment_form=CommentForm(request.POST or None)
+	if comment_form.is_valid():
+		print(comment_form.cleaned_data)
+
+		obj_content=comment_form.cleaned_data.get("content")
+
+		new_comment=Comment(
+					CommentPoster=request.user,
+					CommentExercise=instance,
+					CommentContent=obj_content,
+		)
+		new_comment.save();
+
+
 	context={
 		"title":title,
 		"instance":instance,
+		"comment_form":comment_form,
 	}
 	return render(request,"detail.html",context)
 
@@ -71,10 +90,12 @@ def createVideoExerciseRelationship(videoID, exerciseObj):
 	videosExercises_obj.save()
 
 def addTagsToDB(listOfTags, exerciseObj):
+	print(listOfTags)
 	for tag in listOfTags:
 		createTag(tag, exerciseObj)
 
 def createTag(tag, exerciseObj):
+	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
