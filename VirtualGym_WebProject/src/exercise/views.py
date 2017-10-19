@@ -48,6 +48,18 @@ def Profile(request):
 	}
 	return render(request,"viewProfile.html",context)
 
+
+def MyExercise(request):
+	title=" Profile of Exercise "
+	quearyset=Exercise.objects.filter(exercisePosterId = request.user)
+	context={
+		"title":title,
+		"objects_list":quearyset
+	}
+	return render(request,"MyExercise.html",context)
+
+
+
 def Exercise_detail(request,id=None):
 
 	title=" Detail of Exercise "

@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^signUp/$',us.signUp,name = "signUp"),
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
     url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
+    url(r'^myExercise/$',ex.MyExercise,name = "myExercise"),
     url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
     url(r'^QA/$',fo.CreateQuestion,name = "QA"),
 ]
