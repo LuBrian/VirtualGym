@@ -9,7 +9,7 @@ class CommentForm(forms.ModelForm):
             "placeholder":"your comments...",
         }
     ))
-    # parent_id=forms.IntegerField(widget=forms.HiddenInput,required=False)
+    #parent_id=forms.IntegerField(widget=forms.HiddenInput,required=False)
     class Meta:
         model=Comment
         # fields={"exerciseDescription","exerciseTag"}

@@ -34,4 +34,4 @@ class CreateExeForm(forms.ModelForm):
     class Meta:
         model=Exercise
         # fields={"exerciseDescription","exerciseTag"}
-        fields={"exerciseDescription","exerciseTag","exerciseVideos","exercisePosterId"}
+        fields={"exerciseDescription","exerciseTag","exerciseVideos"}
