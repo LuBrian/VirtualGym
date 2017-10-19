@@ -285,6 +285,8 @@
     margin: auto auto;
     margin-top: 80px;
     text-align: center; }
+  .view_exercise_repo_container .create_exercise_perm p {
+    text-align: center; }
 
 .createSocial {
   display: none; }
