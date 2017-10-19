@@ -1,5 +1,6 @@
 from users.models import MyUsers
 from django.db import models
+from django.core.urlresolvers import reverse
 # Create your models here.
 
 def upload_location(instance,filename):
@@ -41,3 +42,6 @@ class Exercise(models.Model):
         # return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
         ordering=["-exerciseData"]
         return str(self.exerciseDescription)
+
+    def get_absolute_url(self):
+        return reverse("detail",kwargs={"id":self.exerciseId})
