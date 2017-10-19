@@ -2,56 +2,65 @@
 
 {% extends 'header_footer.html' %}
 {% block page_content %}
+
+<style media="screen">
+  #id_questionDescription{
+      height: 200px;
+      width:500px;
+
+  }
+
+</style>
+
+</html>
 <br>
 <br>
-<h1>{{title}}</h1>
-{% for obj in objects_list %}
-<p>Question: {{obj.questionDescription}}</p>
-<p>Answer should be here. By {{obj.userID}}</p>
-{% endfor %}
+<h1 align="center">Q&A forum</h1>
+      </br></br>
+  {% for obj in objects_list reversed %}
+    <p style="margin-left:10%;"><font size="5.5">  {{ forloop.counter }}.{{obj.questionDescription}}</font></p>
+    <p style="margin-left:40%;"> -----------{{obj.userID}}</p>
+    <p style="margin-left:10%;">Answer should be here</p>
+    <br>
+  {% endfor %}
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 {% if user.is_authenticated  %}
 <body>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-  		<h2>Still Have Questions?</h2>
+  <div align="right" >
   		<!-- Trigger the modal with a button -->
-  		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ask a Question</button>
-        </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+      <div style="position: fixed;top:10%;right:8%;">
+  		  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Ask a Question</button>
+</div>
+   <!-- Modal -->
+    
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center">Create New Question</h4>
-        </div>
-        <div class="modal-body">
-          <form method="post">
-          	<!-- Heres the text box -->
-          	<label for="comment">Question Description:</label>
-          	<textarea class="form-control" rows="5" id="comment"></textarea>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title text-center">Create New Question</h4>
+          <div class="modal-body">
+          <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label for="description">Question_Description:</label></br>
+                  {{ form.questionDescription}}
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </form>
         </div>
-        <div class="modal-footer">
-
-          <button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
       </div>
-      
     </div>
   </div>
-  
-</div>
+     
 
 </body>
 </html>
@@ -66,7 +75,7 @@
 {% endif  %}
 
 <!-- Here is the Question List -->
-<div class="container">
+<!-- <div class="container">
 	<section>
 		{% for obj in objects_list %}
 		<div class="row">
@@ -76,7 +85,7 @@
 			<p>{{obj.userID}}</p>
 		</div>
 		{% endfor %}
-	</section>
+	</section> -->
 
 
 {% endblock %}
