@@ -6,3 +6,6 @@ Develope env:
   python 3.5
   Django 1.11.5
   virtualenv
+  python-social-auth 0.3.6
+  bootstrap
+  Sass 3.5.1
