@@ -19,6 +19,7 @@
           {% for obj in objects_list %}
           <div class="col-md-4">
             <div class="thumbnail">
+              <button class="btn btn-success">edit</button>
               {% for video in obj.exerciseVideos.all%}
               <video width=100% height="200" controls>
 

@@ -51,8 +51,6 @@ def Profile(request):
 
 def MyExercise(request):
 	title=" My Exercise "
-	#print(Exercise.objects.filter(exercisePosterId = request.user))
-	#if(request.user.is_authenticated()):
 	try:
 		quearyset=Exercise.objects.filter(exercisePosterId = request.user)
 		context={
