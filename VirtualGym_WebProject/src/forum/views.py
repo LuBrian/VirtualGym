@@ -30,6 +30,7 @@ def CreateQuestion(request):
                 parent_obj=parent_qs.first()
         instance.questionParent=parent_obj
         instance.save()
+
         return HttpResponseRedirect(instance.get_absolute_url())
     return render(request,"QA.html",context)
     # return render(request,"questionPos.html",context)

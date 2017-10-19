@@ -34,8 +34,13 @@ urlpatterns = [
     url(r'^signUp/$',us.signUp,name = "signUp"),
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
     url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
+    url(r'^myExercise/$',ex.MyExercise,name = "myExercise"),
     url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
     url(r'^QA/$',fo.CreateQuestion,name = "QA"),
+    url(r'^auth/', include('social_django.urls', namespace='social')),  # <--
+    # url('', include('social.apps.django_app.urls', namespace='social')),
+    # url(r'^$', home.index, name='home'),
+
 ]
 
 if settings.DEBUG:

@@ -1,8 +1,21 @@
 
+
 {% extends 'header_footer.html' %}
 {% block page_content %}
+
+<!-- /*<style media="screen">
+  #id_questionDescription{
+      height: 200px;
+      width:500px;
+
+  }
+
+</style>*/ -->
+
+</html>
 <br>
 <br>
+
 <h1>{{title}}</h1>
 {% for obj in objects_list %}
 {% if obj.isParent %}
@@ -35,11 +48,25 @@
   {{form}}
   <button type="submit" class="signUp_button">Submit</button>
 </form>
+
 {% else %}
   <div class="create_exercise_perm">
     <p>You have to Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
   </div>
 {% endif  %}
+
+<!-- Here is the Question List -->
+<!-- <div class="container">
+	<section>
+		{% for obj in objects_list %}
+		<div class="row">
+			<h1>Question:</h1>
+			<p>{{obj.questionDescription}}</p>
+			<h2>Answer:</h2>
+			<p>{{obj.userID}}</p>
+		</div>
+		{% endfor %}
+	</section> -->
 
 
 {% endblock %}

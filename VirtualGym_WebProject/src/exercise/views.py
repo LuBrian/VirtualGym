@@ -30,6 +30,7 @@ def CreateExe(request):
 
 		createVideo(data,instance)
 		addTagsToDB(data["exerciseTag"],instance)
+		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
 		}
@@ -47,6 +48,26 @@ def Profile(request):
 		"objects_list":quearyset
 	}
 	return render(request,"viewProfile.html",context)
+
+
+def MyExercise(request):
+	title=" My Exercise "
+	try:
+		quearyset=Exercise.objects.filter(exercisePosterId = request.user)
+		context={
+			"title":title,			
+			"objects_list":quearyset
+		}
+	except:
+		quearyset = []
+		context={
+			"title":title,			
+			"objects_list":quearyset
+		}
+	return render(request,"MyExercise.html",context)
+
+
+
 
 def Exercise_detail(request,id=None):
 
@@ -100,10 +121,12 @@ def createVideoExerciseRelationship(videoID, exerciseObj):
 	videosExercises_obj.save()
 
 def addTagsToDB(listOfTags, exerciseObj):
+	print(listOfTags)
 	for tag in listOfTags:
 		createTag(tag, exerciseObj)
 
 def createTag(tag, exerciseObj):
+	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
