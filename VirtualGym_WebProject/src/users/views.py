@@ -7,26 +7,41 @@ from .models import MyUsers
 # from django.contrib.auth.models import MyUsers
 # from users.models import MyUsers
 
+"""/******************************
+** File: views.py   
+** Desc: This file is used as a controller to interact with the front-end and back-end of the virtual gym's customer user model.
+** For example, New User email sign up, User sign in, social media sign in like
+facebook, twitter and google.
+*******************************/"""
+
+
 
 
 def signIn(request):
+	"""
+    Sign in the user through browser signIn page
+    @type  instance: MyUser
+    @param instance: The MyUser object
+    """
+	
 	title="Sign In"
+	# get the input email and password from html page
 	email = request.POST.get('email')
 	password = request.POST.get('password')
-	# usr = MyUsers.objects.get(user_name='username')
-	# print(usr)
-
+	# check authentication on input email and password
 	user = authenticate(request,email=email, password=password)
-	print(password)
-	print(email)
 
+	# if user exists, log it in
 	if user is not None:
+		# print stuffs for back end check
 		print("user exists")
 		print(user.get_user_id())
 		print(user.check_superuser() == True)
 		login(request,user)
 		return redirect('index')
 
+	# else give exception message, exception handlers
+	# on Sign In and Sign Up will be done in next Sprint
 	else:
 		print(user)
 		print('user not exists')
@@ -39,11 +54,17 @@ def signIn(request):
 
 
 def signUp(request):
+	"""
+    creater new MyUsers according user input and translate to database.
+    @type  instance: MyUser object
+    @param instance: The MyUser which will be created here and authenticated
+    right after signed up.
+    """
 	title="Sign Up"
 	form= SignUpForm(request.POST or None)
 	exception = "None"
 	
-	# try:
+
 	context={
 		"title":title,
 		"form":form,
@@ -61,17 +82,21 @@ def signUp(request):
 	return render(request,"signUp.html",context)
 		
 
-	# except:
-	# 	print("signup exception")
-	# 	context["exception"] = "User name has been taken"
-
-	# 	return render(request,"signUp.html",context)
 
 	
 
 	
 
 def logOut(request):
-    logout(request)
-    return redirect('index')
-    # Redirect to a succes
+	"""
+	Log out the user.
+	@type  request.User: Current authenticated User
+	@param request.User: Current authenticated User
+	"""
+	logout(request)
+	return redirect('index')
+	# Redirect to a home page
+
+
+
+
