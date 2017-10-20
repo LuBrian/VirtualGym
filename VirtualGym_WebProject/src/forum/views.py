@@ -1,12 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-# Create your views here.
 from .forms import QuestionsForm
 from .models import Questions
 from users.models import MyUsers
 
 def CreateQuestion(request):
+    """
+    1.view all question (return to my QA page by context).
+    2.receiving fron end answer and translate to database.
+    @type  quearyset: question objects.
+    @param quearyset: list of question object..
+
+    @type  form: string
+    @param form: front end question input string.
+
+    @type  instance: question object .
+    @param instance: question object for save in database.
+
+    @type  parent_obj: parent comment object.
+    @param parent_obj: if one comment do not have parent, then parent is None.
+
+    @type  parent_id:  int.
+    @param parent_id: get parent id from front end if current object is an answer.
+
+    @type  parent_qs: parent question object list .
+    @param parent_qs: get answer's parent according parent id,if have parent then set parent_obj.
+
+    """
     quearyset=Questions.objects.all()
     title=" Create Your Questions"
     form= QuestionsForm(request.POST or None)
@@ -33,4 +54,3 @@ def CreateQuestion(request):
 
         return HttpResponseRedirect(instance.get_absolute_url())
     return render(request,"QA.html",context)
-    # return render(request,"questionPos.html",context)

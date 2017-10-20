@@ -26,20 +26,29 @@ from exercise import views as ex
 from forum import views as fo
 
 urlpatterns = [
+    #settings admin page
     url(r'^admin/', admin.site.urls),
+    #setting index page
     url(r'^$', view.index, name='index'),
-
+    #setting log out page
     url(r'^logout/$', us.logOut, name='logout'),
+    #setting sing in page
     url(r'^signIn/$',us.signIn,name="signIn"),
+    #setting sing up page
     url(r'^signUp/$',us.signUp,name = "signUp"),
+    #setting createExercise page
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
+    #setting viewProfile page
     url(r'^viewProfile/$',ex.Profile,name = "viewProfile"),
+    #setting myExercise page
     url(r'^myExercise/$',ex.MyExercise,name = "myExercise"),
+    #setting exercise detail page according exercise id
     url(r'^(?P<id>\d+)/$',ex.Exercise_detail,name = "detail"),
+    #setting QA page
     url(r'^QA/$',fo.CreateQuestion,name = "QA"),
-    url(r'^auth/', include('social_django.urls', namespace='social')),  # <--
-    # url('', include('social.apps.django_app.urls', namespace='social')),
-    # url(r'^$', home.index, name='home'),
+    #setting facebook, google and twitter page
+    url(r'^auth/', include('social_django.urls', namespace='social')),
+
 
 ]
 

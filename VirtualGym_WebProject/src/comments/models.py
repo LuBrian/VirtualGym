@@ -14,10 +14,12 @@ class Comment(models.Model):
     @param CommentPoster: The poster of the comment.
     @type  CommentExercise: exercise object
     @param CommentExercise: a exercise of comment.
+    @type  CommentContent: string
+    @param CommentContent: The descriptin of the comment.
     @type  CommentTimestamp: date and time
     @param CommentTimestamp: time of comment.
     @type  CommentParent: comment object
-    @param CommentParent: comment object which might be reply.
+    @param CommentParent: comment object as a parent of itself replay.
     """
     CommentId=models.AutoField(primary_key=True)
     CommentPoster = models.ForeignKey(settings.AUTH_USER_MODEL,null=False,blank=True)

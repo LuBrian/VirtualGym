@@ -9,7 +9,7 @@ class CommentForm(forms.ModelForm):
     """
 
     # comment descriptin input field
-    content=forms.CharField(widget=forms.TextInput(
+    comment=forms.CharField(widget=forms.TextInput(
         attrs={
             "class":"form-control",
             "placeholder":"your comments...",
@@ -21,4 +21,4 @@ class CommentForm(forms.ModelForm):
         set comment fields in front end
         """
         model=Comment
-        fields={"content"}
+        fields={"comment"}
