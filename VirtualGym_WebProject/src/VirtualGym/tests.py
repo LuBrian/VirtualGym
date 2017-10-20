@@ -3,6 +3,7 @@ from django.test import TestCase
 import users.models as U
 import exercise.models as E
 import comments.models as C
+import datetime
 
 
 def userSetUp():
@@ -56,10 +57,9 @@ class ExerciseTestCase(TestCase):
 		#commentExercisesSetUp()
 		
 	def test_exercise_tester(self):
-		pass
-
-'''		exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
-		exerciseTags = str(exercise.exerciseTags.all())
+		currentMonth = datetime.datetime.today().month
+		exercise = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
+		exerciseTags = str(exercise.exerciseTag.all())
 
 		currentMonth = datetime.datetime.now().month
 		self.assertEqual('weightlifting' in exerciseTags, True)
@@ -67,9 +67,9 @@ class ExerciseTestCase(TestCase):
 		self.assertNotEqual('bodyweight' in exerciseTags, True)
 		
 
-		self.assertEqual(exercise.exerciseAuthor.userName, 'harrbra')
-		self.assertEqual(exercise.exerciseDateCreated.month, currentMonth)
-		self.assertNotEqual(exercise.exerciseDateCreated.month, currentMonth-1)'''
+		self.assertEqual(exercise.exercisePosterId.email, 'test1@test.ca')
+		self.assertEqual(exercise.exerciseApproved, False)
+		self.assertNotEqual(exercise.exerciseData.month, currentMonth-1)
 
 
 
