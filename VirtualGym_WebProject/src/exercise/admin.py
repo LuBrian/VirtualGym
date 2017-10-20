@@ -12,7 +12,7 @@ from .models import TagsExercises
 
 def approve_exercise(modeladmin, request, queryset):
     queryset.update(exerciseApproved=True)
-approve_exercise.short_description = "Approve Selected Exercise(s)"
+approve_exercise.short_description = "Approve Selected Exercise"
 
 def reject_exercise(modeladmin, request, queryset):
     exId = queryset.values("exerciseId")
@@ -31,12 +31,12 @@ def reject_exercise(modeladmin, request, queryset):
     queryset.delete()
 
 
-reject_exercise.short_description = "Reject/Delete Selected Exercise(s)"
+reject_exercise.short_description = "Reject Selected Exercise"
 
 class ExerciseAdmin(admin.ModelAdmin):        
     actions = [approve_exercise, reject_exercise]
-    list_display=["exerciseId","exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos", "exerciseApproved"]
-    list_filter=["exerciseApproved","exerciseDescription"]
+    list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos"]
+    list_filter=["exerciseDescription"]
     search_fields=["exercisePosterId","exerciseTag"]
     
     def exerciseURL(self,obj):
