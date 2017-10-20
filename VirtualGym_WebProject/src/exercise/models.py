@@ -41,7 +41,6 @@ class Exercise(models.Model):
     def __str__(self):              # __unicode__ on Python 2
         # return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
         ordering=["-exerciseData"]
-        return str(self.exerciseDescription)
 
     def get_absolute_url(self):
         return reverse("detail",kwargs={"id":self.exerciseId})
