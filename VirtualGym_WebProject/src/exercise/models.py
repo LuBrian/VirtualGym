@@ -4,6 +4,9 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 
 def upload_location(instance,filename):
+    print("no")
+    print(instance.exercisePosterId)
+    print("yes")
     return "%s/%s" %(instance.exercisePosterId,filename)
 
 class TagsExercises(models.Model):

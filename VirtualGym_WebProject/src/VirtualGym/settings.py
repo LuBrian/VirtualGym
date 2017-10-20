@@ -54,12 +54,6 @@ AUTH_USER_MODEL = 'users.MyUsers'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    # 'social.backends.facebook.FacebookOAuth2',
-    # 'social.backends.twitter.TwitterOAuth',
-
-    # 'social.backends.google.GoogleOpenId',
-    # 'social.backends.google.GoogleOAuth2',
-    # 'social.backends.google.GoogleOAuth',
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',

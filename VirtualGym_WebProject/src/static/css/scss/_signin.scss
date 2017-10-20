@@ -210,6 +210,7 @@
 			margin: auto auto;
 			max-width: 400px;
 			margin-top: 40px;
+			height: auto;
 			.signUp_title{
 				text-align: center;
 			}
@@ -239,10 +240,14 @@
 
 				&.signUp_username,
 				&.signUp_password,
+				&.signUp_email,
 				&.signUp_confirm{
 					margin-top: 100px;
 				}
 
+			}
+			.check_unique{
+				display: none;
 			}
 			.signUpButtonContainer{
 				text-align: center;
