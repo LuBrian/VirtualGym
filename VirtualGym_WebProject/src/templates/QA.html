@@ -8,7 +8,9 @@
 <h1 class="bg-warning" align="center">FAQ's</h1>
       </br></br>
 {% for obj in objects_list %}
+
   {% if obj.isParent %}
+
     <p><font size="7.5"> Q.</font>
       <font size="5.5"> {{obj.questionDescription}}</font>&emsp;&emsp;
       <font color = "#C2C2C2">{{obj.userID}}&emsp;{{obj.dateAsked}}</font>
@@ -38,6 +40,7 @@
   {% endif  %}
 
 {%endif%}
+
 {% endfor %}
 
 

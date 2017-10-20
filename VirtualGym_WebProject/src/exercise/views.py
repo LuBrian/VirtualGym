@@ -44,7 +44,7 @@ def CreateExe(request):
 
 def Profile(request):
 	title=" Profile of Exercise "
-	quearyset=Exercise.objects.all()
+	quearyset=Exercise.objects.filter(exerciseApproved = True)
 
 	context={
 		"title":title,
@@ -67,7 +67,7 @@ def MyExercise(request):
 			"title":title,			
 			"objects_list":quearyset
 		}
-	return render(request,"MyExercise.html",context)
+	return render(request,"myExercise.html",context)
 
 
 
@@ -124,12 +124,10 @@ def createVideoExerciseRelationship(videoID, exerciseObj):
 	videosExercises_obj.save()
 
 def addTagsToDB(listOfTags, exerciseObj):
-	print(listOfTags)
 	for tag in listOfTags:
 		createTag(tag, exerciseObj)
 
 def createTag(tag, exerciseObj):
-	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
