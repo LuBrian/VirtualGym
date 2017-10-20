@@ -127,7 +127,8 @@
     width: 100%;
     margin: auto auto;
     max-width: 400px;
-    margin-top: 40px; }
+    margin-top: 40px;
+    height: auto; }
     .signUp_form_container .signUp_form form .signUp_title {
       text-align: center; }
     .signUp_form_container .signUp_form form div {
@@ -145,8 +146,10 @@
           border-bottom: 2px solid #838383; }
       .signUp_form_container .signUp_form form div label {
         text-align: left; }
-      .signUp_form_container .signUp_form form div.signUp_username, .signUp_form_container .signUp_form form div.signUp_password, .signUp_form_container .signUp_form form div.signUp_confirm {
+      .signUp_form_container .signUp_form form div.signUp_username, .signUp_form_container .signUp_form form div.signUp_password, .signUp_form_container .signUp_form form div.signUp_email, .signUp_form_container .signUp_form form div.signUp_confirm {
         margin-top: 100px; }
+    .signUp_form_container .signUp_form form .check_unique {
+      display: none; }
     .signUp_form_container .signUp_form form .signUpButtonContainer {
       text-align: center;
       margin-top: 50px;

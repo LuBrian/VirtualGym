@@ -12,7 +12,11 @@ from .models import TagsExercises
 
 from users.models import MyUsers
 from comments.models import Comment
-
+"""/******************************
+** File: views.py
+** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
+** For example, Create Exercise, View Exercises, and My Exercise are all formed through here.
+*******************************/"""
 
 def CreateExe(request):
 	"""
@@ -146,6 +150,17 @@ def Exercise_detail(request,id=None):
 
 
 def createVideo(data, exerciseObj):
+	"""createVideo
+
+	This subroutine creates a video object from the file uploaded and calls createVideoExerciseRelationship to form the relationship in the normalized table.
+	Args:
+	data: An instance of well-formatted clean output from the form,
+	exerciseObj: An exercise instance attached to the newly created exercise object(which is formed in the createExercise screen)
+
+	Returns:
+	Nothing
+
+	"""
 	videoName = data['exerciseVideos']
 	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId)
 	videos_obj.save()
@@ -153,14 +168,48 @@ def createVideo(data, exerciseObj):
 	createVideoExerciseRelationship(videos_obj, exerciseObj)
 
 def createVideoExerciseRelationship(videoID, exerciseObj):
+	"""createVideoExerciseRelationship
+
+	This subroutine creates a VideoExercises object (a normalized table used to store relationships of exercises to videos)
+	Args:
+	videoID : An instance of the Video object.
+	exerciseObj: An instance of the newly created exercise object from Create Exercise.
+
+	Returns:
+	Nothing
+
+	"""
 	videosExercises_obj = VideosExercises(video_id = videoID, exercise_id = exerciseObj)
 	videosExercises_obj.save()
 
 def addTagsToDB(listOfTags, exerciseObj):
+	"""addTagsToDB
+
+	This subroutine calls createTag for each individual tag inside of the listOfTags.
+	Args:
+	listOfTags : List of tags in string format
+	exerciseObj: An instance of the newly created exercise object from Create Exercise.
+
+	Returns:
+	Nothing
+
+	"""
 	for tag in listOfTags:
 		createTag(tag, exerciseObj)
 
 def createTag(tag, exerciseObj):
+	"""createTag
+
+	This subroutine inserts into the Tags table if the given tag(string) doesn't exist in the table already. It will then call TagsExercises with the new Tags object to form a normalized relatinship.
+	If the tag already does exist, then it simply gets the pre-existing tag object and attaches it to the TagsExercises table to form a normalized relatinship.
+	Args:
+	tag: A given tag in string format
+	exerciseObj: An instance of the newly created exercise object from Create Exercise.
+
+	Returns:
+	Nothing
+
+	"""
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
@@ -171,5 +220,16 @@ def createTag(tag, exerciseObj):
 	createTagRelationship(tag_obj, exerciseObj)
 
 def createTagRelationship(tag_obj, exerciseObj):
+	"""createTagExerciseRelationship
+
+	This subroutine creates a TagsExercises object (a normalized table used to store relationships of exercises to tags)
+	Args:
+	tag_obj : An instance of the Tag object.
+	exerciseObj: An instance of the newly created exercise object from Create Exercise.
+
+	Returns:
+	Nothing
+
+	"""
 	tagRelationshipObj = TagsExercises(tag_id = tag_obj, exercise_id = exerciseObj)
 	tagRelationshipObj.save()

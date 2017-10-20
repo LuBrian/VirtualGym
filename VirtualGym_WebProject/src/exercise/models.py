@@ -2,11 +2,13 @@ from users.models import MyUsers
 from django.db import models
 from django.core.urlresolvers import reverse
 
-def upload_location(instance,filename):
-    """
-    generate folder fro each user to save their post videos
-    """
+"""/******************************
+** File: models.py 
+** Desc: This file forms the relevant back-end database structure for exercises in the VirtualGym web application.
+** The tables are viewed as "models" in Django and are viewed as "tables" in the database.
+*******************************/"""
 
+def upload_location(instance,filename):
     return "%s/%s" %(instance.exercisePosterId,filename)
 
 class TagsExercises(models.Model):

@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class MyUsersManager(BaseUserManager):
-	def _create_user(self, email, password, is_admin, is_superuser,**extra_fields):
+	def _create_user(self, username,email, password, is_admin, is_superuser,**extra_fields):
 		"""
 		Creates and saves a User with the given email, date of
 		birth and password.
@@ -21,31 +21,44 @@ class MyUsersManager(BaseUserManager):
 		print(email)
 		print(password)
 		now = timezone.now()
-		user = self.model(
-			email=email,
-			last_login = now,
-			date_joined=now,
-			username = email,
-			is_active = True,
-			is_admin = is_admin,
-			is_superuser = is_superuser,
-		)
+		if(email):
+			print("has email")
+			user = self.model(
+				email=email,
+				last_login = now,
+				date_joined=now,
+				username = username,
+				is_active = True,
+				is_admin = is_admin,
+				is_superuser = is_superuser,
+			)
+		else:
+			print("no email")
+			user = self.model(
+				email=username+"@vg.ca",
+				last_login = now,
+				date_joined=now,
+				username = username,
+				is_active = True,
+				is_admin = is_admin,
+				is_superuser = is_superuser,
+			)
 		if password != None:
 			user.password = password
 
 		user.save(using=self._db)
 		return user
 
-	def create_user(self, email, password = None,**extra_fields):
+	def create_user(self,username, email, password = None,**extra_fields):
 		print("creat normal user")
-		return self._create_user(email,password,False, False, **extra_fields)
-	def create_superuser(self, email, password, **extra_fields):
+		return self._create_user(username,email,password,False, False, **extra_fields)
+	def create_superuser(self, username,email, password, **extra_fields):
 
-	    return self._create_user(email,password ,True, True, **extra_fields)
+	    return self._create_user(username,email,password ,True, True, **extra_fields)
 	    # Create your models here.
 
 class MyUsers(AbstractBaseUser):
-	email = models.EmailField(blank = True,null=False)
+	email = models.EmailField(blank = True,null=False,unique=True)
 	user_id = models.AutoField(primary_key=True)
 	username = models.CharField(blank = True,max_length=50,unique=True)
 	password = models.CharField(blank = True,max_length=50)
@@ -56,8 +69,8 @@ class MyUsers(AbstractBaseUser):
 	is_admin     = models.BooleanField(default=False)
 	is_superuser = models.BooleanField(default=False)
 
-	USERNAME_FIELD = 'username'
-	REQUIRED_FIELDS = [ 'email']
+	USERNAME_FIELD = 'email'
+	REQUIRED_FIELDS = [ 'username']
 	print("create a user")
 	objects = MyUsersManager()
 	class Meta:
