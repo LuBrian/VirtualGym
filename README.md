@@ -13,6 +13,6 @@ Library :
   * Sass 3.5.1
   
 Run for sprint2:
-  *Install all library to local computer
-  *run command line: python manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
-  *use chrome open localhost:8000
+  * Install all library to local computer
+  * Run command line: python manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
+  * Use chrome open localhost:8000
