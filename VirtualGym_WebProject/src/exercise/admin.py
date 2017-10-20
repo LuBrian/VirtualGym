@@ -35,7 +35,7 @@ reject_exercise.short_description = "Reject Selected Exercise"
 
 class ExerciseAdmin(admin.ModelAdmin):        
     actions = [approve_exercise, reject_exercise]
-    list_display=["exerciseId","exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos"]
+    list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos"]
     list_filter=["exerciseDescription"]
     search_fields=["exercisePosterId","exerciseTag"]
     
@@ -55,7 +55,7 @@ class ExerciseAdmin(admin.ModelAdmin):
         return False
     
     def get_queryset(self, request):
-        return super(ExerciseAdmin,self).get_queryset(request).filter(exerciseApproved=False)
+        return super(ExerciseAdmin,self).get_queryset(request)
     
     def get_actions(self, request):
         actions = super(ExerciseAdmin, self).get_actions(request)

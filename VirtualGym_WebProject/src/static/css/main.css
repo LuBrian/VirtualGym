@@ -195,8 +195,14 @@
   .header_container .navbar-inverse {
     border-radius: 0px; }
 
+.home_container {
+  margin-top: 5vh; }
+  @media only screen and (min-width: 500px) {
+    .home_container {
+      margin-top: 5vh; } }
+
 .footer_container {
-  position: fixed;
+  position: relative;
   height: auto;
   width: 100%;
   right: 0;
@@ -250,6 +256,7 @@
   position: relative;
   width: 100%;
   margin-bottom: 20vh;
+  min-height: 60vh;
   margin-top: 20vh; }
   @media only screen and (min-width: 500px) {
     .body_container {

@@ -20,14 +20,14 @@ from django.contrib.auth.views import logout
 from django.conf import settings
 from django.conf.urls.static import static
 
-from . import home
+from . import view
 from users import views as us
 from exercise import views as ex
 from forum import views as fo
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home.index, name='index'),
+    url(r'^$', view.index, name='index'),
 
     url(r'^logout/$', us.logOut, name='logout'),
     url(r'^signIn/$',us.signIn,name="signIn"),
