@@ -73,13 +73,10 @@ class ExerciseTestCase(TestCase):
 
 
 
-'''	
-				def test_exercise_questions(self):
-					exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
-					exerciseQuestions = str(exercise.exerciseQuestions.all())
-					
-					self.assertEqual('How do I deadlift?' in exerciseQuestions, True)
-					self.assertEqual('How do I deadlift without pain in my back?' in exerciseQuestions, True)
-					self.assertNotEqual('How do I deadlift without pain in my leg?' in exerciseQuestions, True)
-					
-			'''
+
+	def test_exercise_questions(self):
+		exercise = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
+		exerciseQuestions = str(exercise.comment_set.all())
+		print(exerciseQuestions)
+
+		self.assertEqual('harrbra' in exerciseQuestions, True)
