@@ -10,10 +10,10 @@ from .models import VideosExercises
 from .models import Tags
 from .models import TagsExercises
 """/******************************
-** File: admin.py   
+** File: admin.py
 ** Desc: This file is used to control the administration access used within the "exercises" submenu
 ** in the adminisration panel.
-** Auth: Brad Harrison	
+** Auth: Brad Harrison
 ** Date: Oct 19 2017
 *******************************/"""
 
@@ -71,7 +71,7 @@ class ExerciseAdmin(admin.ModelAdmin):
 
     """
     Set up exercise in back end admin page by managing which fields of the Exercise model are displayed, which actions you can select, and how it is filtered.
-    """        
+    """
     actions = [approve_exercise, reject_exercise]
     list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos","exerciseApproved"]
     list_filter=["exerciseApproved","exerciseDescription"]
@@ -89,7 +89,7 @@ class ExerciseAdmin(admin.ModelAdmin):
            a formatted string with a hardcoded server prefix attached to the suffix of the exercise instance's exerciseid.`
 
         """
-    	return format_html("<a target=_blank href='http://127.0.0.1:8000/{0}'>{0}</a>", obj.exerciseId)
+        return format_html("<a target=_blank href='http://127.0.0.1:8000/{0}'>{0}</a>", obj.exerciseId)
 
     def Tags(self, obj):
         """Tags
@@ -103,7 +103,7 @@ class ExerciseAdmin(admin.ModelAdmin):
            a string of tags joined together per exercise.
 
         """
-    	return "\n".join([p.tagDescription for p in obj.exerciseTag.all()])
+        return "\n".join([p.tagDescription for p in obj.exerciseTag.all()])
 
     def Videos(self, obj):
         """Videos
@@ -117,7 +117,7 @@ class ExerciseAdmin(admin.ModelAdmin):
            a string of Videos joined together per exercise.
 
         """
-    	return "\n".join([static(p.videoFile.url) for p in obj.exerciseVideos.all()])
+        return "\n".join([static(p.videoFile.url) for p in obj.exerciseVideos.all()])
 
     def has_add_permission(self, request):
         """has_add_permission

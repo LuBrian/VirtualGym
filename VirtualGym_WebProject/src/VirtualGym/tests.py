@@ -1,29 +1,31 @@
 import datetime
 from django.test import TestCase
 import users.models as U
+import exercise.models as E
+import comments.models as C
 
 
 def userSetUp():
-	U.MyUsers.objects.create(username = 'harrbra', is_admin = True, is_superuser = True)
+	U.MyUsers.objects.create(username = 'harrbra', is_admin = True, is_superuser = True, email = 'test1@test.ca')
 	U.MyUsers.objects.create(username = 'harrbra2', email = 'test2@test.ca')
 
 def tagSetUp():
-	Tags.objects.create(tagDescription = 'weightlifting')
-	Tags.objects.create(tagDescription = 'cardio')
+	E.Tags.objects.create(tagDescription = 'weightlifting')
+	E.Tags.objects.create(tagDescription = 'cardio')
 
 def tagExerciseSetUp():
-	TagsExercises.objects.create(tag_id = Tags.objects.get(tagDescription = 'weightlifting'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
-	TagsExercises.objects.create(tag_id = Tags.objects.get(tagDescription = 'cardio'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
+	E.TagsExercises.objects.create(tag_id = E.Tags.objects.get(tagDescription = 'weightlifting'), 
+		exercise_id = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
+	E.TagsExercises.objects.create(tag_id = E.Tags.objects.get(tagDescription = 'cardio'), 
+		exercise_id = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
-def questionsSetUp():
-	Questions.objects.create(questionDescription = 'How do I deadlift?', 
-		exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), 
-		userID = User.objects.get(userName = 'harrbra'))
-	Questions.objects.create(questionDescription = 'How do I deadlift without pain in my back?', 
-		exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), 
-		userID = User.objects.get(userName = 'harrbra'))
+def commentSetUp():
+	harrbra = U.MyUsers.objects.get(username = 'harrbra')
+	C.Comment.objects.create(CommentPoster = harrbra, CommentContent ='How do I deadlift', 
+		CommentExercise =E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
-def questionExercisesSetUp():
+
+def commentExercisesSetUp():
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift without pain in my back?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
@@ -42,19 +44,21 @@ class UsersTestCase(TestCase):
 		self.assertEqual(harrbra2.is_superuser, False)
 		
 
-'''class ExerciseTestCase(TestCase):
+class ExerciseTestCase(TestCase):
 	def setUp(self):
 		userSetUp()
 		tagSetUp()		
 		
-		Exercise.objects.create(exerciseDescription = 'This is a deadlift.', 
-			exerciseAuthor = User.objects.get(userName = 'harrbra'))
+		E.Exercise.objects.create(exerciseDescription = 'This is a deadlift.', 
+			exercisePosterId = U.MyUsers.objects.get(username = 'harrbra'))
 		tagExerciseSetUp()
-		questionsSetUp()
-		questionExercisesSetUp()
+		commentSetUp()
+		#commentExercisesSetUp()
 		
 	def test_exercise_tester(self):
-		exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
+		pass
+
+'''		exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
 		exerciseTags = str(exercise.exerciseTags.all())
 
 		currentMonth = datetime.datetime.now().month
@@ -65,14 +69,17 @@ class UsersTestCase(TestCase):
 
 		self.assertEqual(exercise.exerciseAuthor.userName, 'harrbra')
 		self.assertEqual(exercise.exerciseDateCreated.month, currentMonth)
-		self.assertNotEqual(exercise.exerciseDateCreated.month, currentMonth-1)
-		
-	def test_exercise_questions(self):
-		exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
-		exerciseQuestions = str(exercise.exerciseQuestions.all())
-		
-		self.assertEqual('How do I deadlift?' in exerciseQuestions, True)
-		self.assertEqual('How do I deadlift without pain in my back?' in exerciseQuestions, True)
-		self.assertNotEqual('How do I deadlift without pain in my leg?' in exerciseQuestions, True)
-		
-'''
+		self.assertNotEqual(exercise.exerciseDateCreated.month, currentMonth-1)'''
+
+
+
+'''	
+				def test_exercise_questions(self):
+					exercise = Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
+					exerciseQuestions = str(exercise.exerciseQuestions.all())
+					
+					self.assertEqual('How do I deadlift?' in exerciseQuestions, True)
+					self.assertEqual('How do I deadlift without pain in my back?' in exerciseQuestions, True)
+					self.assertNotEqual('How do I deadlift without pain in my leg?' in exerciseQuestions, True)
+					
+			'''
