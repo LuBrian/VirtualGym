@@ -3,70 +3,83 @@
 {% extends 'header_footer.html' %}
 {% block page_content %}
 
-<!-- /*<style media="screen">
-  #id_questionDescription{
-      height: 200px;
-      width:500px;
 
-  }
-
-</style>*/ -->
-
-</html>
-<br>
-<br>
-
-<h1>{{title}}</h1>
+<div class="container">
+<h1 class="bg-warning" align="center">FAQ's</h1>
+      </br></br>
 {% for obj in objects_list %}
-{% if obj.isParent %}
-<blockquote>
-  <p>Question: {{obj.questionDescription}}</p>
-  {% for child_answer in obj.children%}
-  <blockquote >
-    <p>answer: {{child_answer.questionDescription}} By {{obj.userID}}</p>
-  </blockquote>
-  {%endfor%}
+  {% if obj.isParent %}
+    <p><font size="7.5"> Q.</font>
+      <font size="5.5"> {{obj.questionDescription}}</font>&emsp;&emsp;
+      <font color = "#C2C2C2">{{obj.userID}}&emsp;{{obj.dateAsked}}</font>
+    </p>
+
+    {% for child_answer in obj.children%}
+      <div class="container">
+        <p><font size="5"> A.</font> {{child_answer.questionDescription}}</p>
+        <footer align="right" style="color:#C2C2C2;">{{obj.userID}}</footer>
+      </div>
+    {%endfor%}
+
   {% if user.is_authenticated  %}
   <form method="post">{% csrf_token %}
-    {{form}}
-    <input type="hidden" name="questionparent_id" value="{{obj.questionID}}">
-    <button type="submit" class="signUp_button">Reply</button>
+    <div class="form-group">
+      {{form.questionDescription}}
+      <input type="hidden" name="questionparent_id" value="{{obj.questionID}}">
+    </div>
+    <button type="submit" class="btn btn-info btn-lg">Reply</button>
   </form>
+
+  <hr/>
   {% else %}
     <div class="create_exercise_perm">
-      <p>You have to Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+      <p align="right">Login to Reply questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
     </div>
   {% endif  %}
-</blockquote>
-<p>Answer should be here. By {{obj.userID}}</p>
+
 {%endif%}
 {% endfor %}
 
+
+<!--  ask button -->
 {% if user.is_authenticated  %}
+  <div align="right" >
+      <!-- Trigger the modal with a button -->
+      <div style="position: fixed;top:10%;right:8%;">
+        <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" >Ask a Question</button>
+      </div>
+   <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-<form method="post">{% csrf_token %}
-  {{form}}
-  <button type="submit" class="signUp_button">Submit</button>
-</form>
-
+      <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center">Create New Question</h4>
+              <div class="modal-body">
+              <form method="post" enctype="multipart/form-data">{% csrf_token %}
+              <div class="col-lg-12">
+              <div class="form-group">
+                <label for="description"></label></br>
+                  {{ form.questionDescription}}
+              </div>
+              <button type="submit" class="btn btn-success" onclick="reloadPage()">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% else %}
   <div class="create_exercise_perm">
-    <p>You have to Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+    <p align="right">Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
   </div>
 {% endif  %}
-
-<!-- Here is the Question List -->
-<!-- <div class="container">
-	<section>
-		{% for obj in objects_list %}
-		<div class="row">
-			<h1>Question:</h1>
-			<p>{{obj.questionDescription}}</p>
-			<h2>Answer:</h2>
-			<p>{{obj.userID}}</p>
-		</div>
-		{% endfor %}
-	</section> -->
-
 
 {% endblock %}

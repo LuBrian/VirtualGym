@@ -33,5 +33,4 @@ class CreateExeForm(forms.ModelForm):
     # exercisePosterId=forms.CharField()
     class Meta:
         model=Exercise
-
         fields={"exerciseDescription","exerciseTag","exerciseVideos"}

@@ -20,6 +20,7 @@ def CreateExe(request):
 		"title":title,
 		"form":form,
 	}
+	print(request.user)
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exercisePosterId= request.user
@@ -34,8 +35,10 @@ def CreateExe(request):
 		context={
 			"title":"Thank You"
 		}
-		# print (instance.user_name)
-		# print (instance.user_id)
+	else:
+		print("not created")
+		# print (request.user.user_name)
+		# print (request.user.user_id)
 
 	return render(request,"createExercise.html",context)
 
