@@ -29,7 +29,7 @@
       {{form.questionDescription}}
       <input type="hidden" name="questionparent_id" value="{{obj.questionID}}">
     </div>
-    <button type="submit" class="btn btn-info btn-lg">Reply</button>
+    <button id="replyA" type="submit" class="btn btn-info btn-lg">Reply</button>
   </form>
 
   <hr/>
@@ -49,7 +49,7 @@
   <div align="right" >
       <!-- Trigger the modal with a button -->
       <div style="position: fixed;top:10%;right:8%;">
-        <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" >Ask a Question</button>
+        <button id = "askButton" type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" >Ask a Question</button>
       </div>
    <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
@@ -67,7 +67,7 @@
                 <label for="description"></label></br>
                   {{ form.questionDescription}}
               </div>
-              <button type="submit" class="btn btn-success" onclick="reloadPage()">Submit</button>
+              <button id = "submitQ" type="submit" class="btn btn-success" onclick="reloadPage()">Submit</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </form>

@@ -42,7 +42,7 @@
   {% if user.is_authenticated  %}
   <form method="post">{% csrf_token %}
     {{comment_form}}
-    <button type="submit" class="btn btn-default ">Comment</button>
+    <button id = "submitComment" type="submit" class="btn btn-default ">Comment</button>
   </form>
   {% else %}
     <div class="create_exercise_perm">
@@ -66,7 +66,7 @@
         <form method="post">{% csrf_token %}
           {{comment_form}}
           <input type="hidden" name="parent_id" value="{{comment.CommentId}}">
-          <button type="submit" class="btn btn-default ">Replay</button>
+          <button id = "reply" type="submit" class="btn btn-default ">Replay</button>
         </form>
         {% else %}
           <div class="create_exercise_perm">
