@@ -23,6 +23,9 @@ class Questions(models.Model):
 	userID = models.ForeignKey(MyUsers, on_delete=models.CASCADE)
 	dateAsked = models.DateTimeField(auto_now_add=True)
 	questionParent=models.ForeignKey("self",null=True,blank=True)
+	class Meta():
+        #setting questiong showing order according date
+		ordering=["-dateAsked"]
 
 	def __str__(self):
 		"""
