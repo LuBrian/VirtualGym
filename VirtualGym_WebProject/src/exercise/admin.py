@@ -18,7 +18,7 @@ def reject_exercise(modeladmin, request, queryset):
     exId = queryset.values("exerciseId")
     authId = queryset.values("exercisePosterId")
     videos = queryset.values("exerciseVideos")
-    tags = queryset.values("exerciseTag")    
+    tags = queryset.values("exerciseTag")
 
     videoObj = Videos.objects.filter(video_id = videos)
     videoObj.delete()
@@ -33,30 +33,34 @@ def reject_exercise(modeladmin, request, queryset):
 
 reject_exercise.short_description = "Reject Selected Exercise"
 
-class ExerciseAdmin(admin.ModelAdmin):        
+class ExerciseAdmin(admin.ModelAdmin):
+
+    """
+    Set up exercise in back end admin page
+    """        
     actions = [approve_exercise, reject_exercise]
     list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos"]
     list_filter=["exerciseDescription"]
     search_fields=["exercisePosterId","exerciseTag"]
-    
+
     def exerciseURL(self,obj):
     	return format_html("<a target=_blank href='http://127.0.0.1:8000/{0}'>{0}</a>", obj.exerciseId)
-    	     
+
     def Tags(self, obj):
     	return "\n".join([p.tagDescription for p in obj.exerciseTag.all()])
-    
+
     def getPath(self, obj):
     	return "test"
-    	
+
     def Videos(self, obj):
-    	return "\n".join([static(p.videoFile.url) for p in obj.exerciseVideos.all()])	
+    	return "\n".join([static(p.videoFile.url) for p in obj.exerciseVideos.all()])
 
     def has_add_permission(self, request):
         return False
-    
+
     def get_queryset(self, request):
         return super(ExerciseAdmin,self).get_queryset(request)
-    
+
     def get_actions(self, request):
         actions = super(ExerciseAdmin, self).get_actions(request)
         del actions['delete_selected']

@@ -31,17 +31,12 @@ class Exercise(models.Model):
     exerciseTag = models.ManyToManyField('Tags',through=TagsExercises)
     exerciseData = models.DateTimeField(auto_now_add=True,auto_now=False)
     exercisePosterId = models.ForeignKey(MyUsers)
-    # exerciseVideos = models.FileField(upload_to=upload_location,
-    #                 null=False,
-    #                 blank=True)
     exerciseVideos = models.ManyToManyField('Videos', through=VideosExercises)
     exerciseApproved = models.BooleanField(default=False)
 
 
-    def __str__(self):              # __unicode__ on Python 2
+    def __str__(self):
        return str(self.exerciseDescription)
-        #return "%s %s" %(self.exerciseDescription,self.exerciseVideos)
-        #ordering=["-exerciseData"]
 
     def get_absolute_url(self):
         return reverse("detail",kwargs={"id":self.exerciseId})
