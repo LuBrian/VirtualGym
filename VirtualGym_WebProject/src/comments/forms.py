@@ -3,14 +3,22 @@ from .models import Comment
 
 
 class CommentForm(forms.ModelForm):
+
+    """
+    comment form for accept front end user input information
+    """
+
+    # comment descriptin input field
     content=forms.CharField(widget=forms.TextInput(
         attrs={
             "class":"form-control",
             "placeholder":"your comments...",
         }
     ))
-    #parent_id=forms.IntegerField(widget=forms.HiddenInput,required=False)
+
     class Meta:
+        """
+        set comment fields in front end
+        """
         model=Comment
-        # fields={"exerciseDescription","exerciseTag"}
         fields={"content"}

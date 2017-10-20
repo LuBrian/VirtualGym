@@ -19,7 +19,7 @@
     {% for child_answer in obj.children%}
       <div class="container">
         <p><font size="5"> A.</font> {{child_answer.questionDescription}}</p>
-        <footer align="right" style="color:#C2C2C2;">{{obj.userID}}</footer>
+        <footer align="right" style="color:#C2C2C2;">{{child_answer.userID}}</footer>
       </div>
     {%endfor%}
 
