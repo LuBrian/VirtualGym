@@ -1,11 +1,11 @@
 import datetime
 from django.test import TestCase
-from VirtualGym.models import *
+import users.models as U
+
 
 def userSetUp():
-	User.objects.create(userName = 'harrbra', userType = 'moderator')
-	User.objects.create(userName = 'harrbra2', userType = 'physiotherapist')
-	User.objects.create(userName = 'harrbra3', userType = 'exerciser')
+	U.MyUsers.objects.create(username = 'harrbra', is_admin = True, is_superuser = True)
+	U.MyUsers.objects.create(username = 'harrbra2', email = 'test2@test.ca')
 
 def tagSetUp():
 	Tags.objects.create(tagDescription = 'weightlifting')
@@ -16,31 +16,39 @@ def tagExerciseSetUp():
 	TagsExercises.objects.create(tag_id = Tags.objects.get(tagDescription = 'cardio'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
 def questionsSetUp():
-	Questions.objects.create(questionDescription = 'How do I deadlift?', exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), userID = User.objects.get(userName = 'harrbra'))
-	Questions.objects.create(questionDescription = 'How do I deadlift without pain in my back?', exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), userID = User.objects.get(userName = 'harrbra'))
+	Questions.objects.create(questionDescription = 'How do I deadlift?', 
+		exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), 
+		userID = User.objects.get(userName = 'harrbra'))
+	Questions.objects.create(questionDescription = 'How do I deadlift without pain in my back?', 
+		exerciseID = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'), 
+		userID = User.objects.get(userName = 'harrbra'))
 
 def questionExercisesSetUp():
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift without pain in my back?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
+
 	
 class UsersTestCase(TestCase):
 	def setUp(self):
 		userSetUp()
 	def test_users_can_create(self):
-		harrbra = User.objects.get(userName = 'harrbra')
-		harrbra2 = User.objects.get(userName = 'harrbra2')
-		harrbra3 = User.objects.get(userName = 'harrbra3')
-		self.assertEqual(harrbra.userType, 'moderator')
-		self.assertEqual(harrbra2.userID, 2)
-		self.assertEqual(harrbra3.userType, 'exerciser')
+		pass
+		harrbra = U.MyUsers.objects.get(username = 'harrbra')
+		self.assertEqual(harrbra.username, 'harrbra')
+		harrbra2 = U.MyUsers.objects.get(username = 'harrbra2')
+
+		self.assertEqual(harrbra.is_superuser, True)
+		self.assertEqual(harrbra2.user_id, 2)
+		self.assertEqual(harrbra2.is_superuser, False)
 		
 
-class ExerciseTestCase(TestCase):
+'''class ExerciseTestCase(TestCase):
 	def setUp(self):
 		userSetUp()
 		tagSetUp()		
 		
-		Exercise.objects.create(exerciseDescription = 'This is a deadlift.', exerciseAuthor = User.objects.get(userName = 'harrbra'))
+		Exercise.objects.create(exerciseDescription = 'This is a deadlift.', 
+			exerciseAuthor = User.objects.get(userName = 'harrbra'))
 		tagExerciseSetUp()
 		questionsSetUp()
 		questionExercisesSetUp()
@@ -67,5 +75,4 @@ class ExerciseTestCase(TestCase):
 		self.assertEqual('How do I deadlift without pain in my back?' in exerciseQuestions, True)
 		self.assertNotEqual('How do I deadlift without pain in my leg?' in exerciseQuestions, True)
 		
-	
-	
+'''
