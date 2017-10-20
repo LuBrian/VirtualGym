@@ -14,5 +14,5 @@ Library :
   
 Run for sprint2:
   * Install all library to local computer
-  * Run command line: python manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
+  * Run command line: python3 manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
   * Use chrome open localhost:8000
