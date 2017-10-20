@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'social_django.middleware.SocialAuthExceptionMiddleware', 
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
@@ -119,10 +119,7 @@ SOCIAL_AUTH_USER_MODEL = 'users.MyUsers'
 
 LOGIN_REDIRECT_URL = '/index/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/index/'
-# SOCIAL_AUTH_LOGIN_URL = '/signIn/'
-# LOGIN_URL = 'signIn'
-# LOGOUT_URL = '/index/'
-# LOGIN_REDIRECT_URL = '/index/'
+
 
 
 SOCIAL_AUTH_PIPELINE = (
@@ -207,6 +204,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#user video upadte url setting
 MEDIA_URL="/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')

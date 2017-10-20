@@ -1,6 +1,10 @@
 from django import forms
 from .models import Exercise
-
+"""/******************************
+** File: forms.py   
+** Desc: This file interacts with the exercise model and given exercise forms in HTML
+** Currently, Creating an Exercise is the only "form" that uses this in the exercise app.
+*******************************/"""
 # exercise tag choices for check box
 TAG_CHOICE = (
     ('Shoulder', 'Shoulder'),
@@ -17,7 +21,7 @@ TAG_CHOICE = (
 class CreateExeForm(forms.ModelForm):
 
     """
-    exercise form for accept front end user input information
+    exercise form for accept front end user input information for creating an exercise
     """
 
     # exercise descriptin input field
