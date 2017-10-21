@@ -140,6 +140,12 @@ class MyUsers(AbstractBaseUser):
 	def check_password(self,password):
 		return self.password == password
 
+	def has_perm(self, perm, obj=None):
+		return self.is_superuser
+
+	def has_module_perms(self, app_label):
+		return self.is_superuser
+
 	# return the MyUser object's full name, now just return the email
 	# will be further modified if needed
 	def get_full_name(self):
