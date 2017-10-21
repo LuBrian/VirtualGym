@@ -12,7 +12,14 @@ Library :
   * bootstrap 3
   * Sass 3.5.1
   
-Run for sprint2:
+Run sprint2 VG:
   * Install all library to local computer
   * Run command line: python3 manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
   * Use chrome or firefox open localhost:8000 (safari not work for mp4 player)
+
+Run UI test case:
+ * Install selenium, geckodriver library at first
+ * runserver at localhost:8000
+ * Run command line: python3 manage.py test (under  VirtualGym/VirtualGym_WebProject/src)
+ * need new Firefox for UI test
+ 
