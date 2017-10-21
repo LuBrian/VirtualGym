@@ -27,7 +27,7 @@
 		</div>
 
 		{% endif %}
-
+		
 		<form method="post" action="">{% csrf_token %}
      		 <h1 class="signUp_title">{{title}}</h1>
 
@@ -43,10 +43,7 @@
 				<label>Password</label>
 			    {{ form.password }}
 			</div>
-			<!-- <div class="signUp_confirm">
-			    {{ form.confirm }}
-			</div> -->
-      <!-- {{ form.as_p}} -->
+
       		<div class="signUpButtonContainer">
 			<button type="submit" class="signUp_button">Sign up</button>
 			</div>
