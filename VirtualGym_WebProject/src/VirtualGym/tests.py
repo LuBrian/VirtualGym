@@ -50,11 +50,6 @@ class UsersTestCase(TestCase):
 		self.assertEqual(harrbra2.user_id, 2)
 		self.assertEqual(harrbra2.is_superuser, False)
 		
-
-class ExerciseTestCase(TestCase):
-	def setUp(self):
-		userSetUp()
-		tagSetUp()		
 		
 		E.Exercise.objects.create(exerciseDescription = 'This is a deadlift.', 
 			exercisePosterId = U.MyUsers.objects.get(username = 'harrbra'))
@@ -67,10 +62,6 @@ class ExerciseTestCase(TestCase):
 		exercise = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
 		exerciseTags = str(exercise.exerciseTag.all())
 
-		currentMonth = datetime.datetime.now().month
-		self.assertEqual('weightlifting' in exerciseTags, True)
-		self.assertEqual('cardio' in exerciseTags, True)
-		self.assertNotEqual('bodyweight' in exerciseTags, True)
 		
 
 		self.assertEqual(exercise.exercisePosterId.email, 'test1@test.ca')
@@ -93,6 +84,7 @@ class QATestCase(TestCase):
 	def setUp(self):
 		userSetUp()
 		QASetUp()
+
 		
 	def test_QA(self):
 		harrbra = U.MyUsers.objects.get(username = 'harrbra')

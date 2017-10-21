@@ -1,25 +1,30 @@
 from django import forms
 from .models import MyUsers
-# from django.contrib.auth.models import User
+
+
+
+
+"""/******************************
+** File: forms.py   
+** Desc: This file interacts with the MyUser model and given Sign Up forms in HTML
+** Currently, Creating an New User when sign up is processed
+*******************************/"""
 
 class SignUpForm(forms.ModelForm):
+	# html email input content
 	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Email'}))
-
+	# html password input box
 	password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Input Passwrod'}))
-
+	# html username input box
 	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User name'}))
 
-
-	# exception = forms.CharField(
- #        label='exception',
- #        required=False,
- #        initial=False
- #     )
 
 	class Meta:
 		model= MyUsers
 		fields={"email","password","username"}
 
+
+	# exception handler on duplicate user name, will be completed in sprint 3
 	def clean_username(self):
 		username = self.cleaned_data["username"]
 
@@ -29,11 +34,11 @@ class SignUpForm(forms.ModelForm):
 			print("user already exists")
 			raise forms.ValidationError('Username is already in use.')
 		except MyUsers.DoesNotExist:
-			return username # great, this user does not exist so we can continue the registration process
+			return username # great, this user does not exist so we can continue the sign Up process
 	
 		
 
-
+	# exception handler on duplicate user email, will be completed in sprint 3
 	# def clean_email(self):
 	# 	email = self.cleaned_data["email"]
 	# 	try:

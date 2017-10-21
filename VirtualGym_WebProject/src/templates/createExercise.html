@@ -62,7 +62,7 @@
 
         <div class="col-lg-12">
           <div class = "signUp_button">
-            <button type="submit" class="btn btn-block btn-primary btn-lg">
+            <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
               Submit Exercise
             </button>
           </div>
@@ -74,7 +74,7 @@
 
     {% else %}
       <div class="create_exercise_perm">
-        <p>You have to Login to create an exercise, <a href="{% url 'signIn' %}">Sign In</a> here</p>
+        <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
       </div>
     {% endif  %}
    </div>
