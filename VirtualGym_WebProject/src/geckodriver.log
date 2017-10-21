@@ -1,52 +1,47 @@
-1508538422728	geckodriver	INFO	geckodriver 0.19.0
-1508538422789	geckodriver	INFO	Listening on 127.0.0.1:61403
-1508538423834	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.IlGRkUzk8doL"
-1508538424178	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
-1508538424514	Marionette	INFO	Enabled via --marionette
-2017-10-20 22:27:05.525 plugin-container[22082:6975772] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d27, name = 'com.apple.tsm.portname'
-See /usr/include/servers/bootstrap_defs.h for the error codes.
-2017-10-20 22:27:05.527 plugin-container[22082:6975772] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
-See /usr/include/servers/bootstrap_defs.h for the error codes.
-1508538426080	Marionette	INFO	Listening on port 61412
-1508538426145	Marionette	WARN	TLS certificate errors will be ignored for this session
-1508538426181	Marionette	DEBUG	Register listener.js for window 2147483649
-1508538426203	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
-1508538426226	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
-1508538426226	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1508546445447	geckodriver	INFO	geckodriver 0.19.0
+1508546445455	geckodriver	INFO	Listening on 127.0.0.1:56441
+1508546447528	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "D:\\cygwin\\tmp\\rust_mozprofile.yqv5fw0MZK51"
+1508546447839	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1508546448344	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\Chris\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7956] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7956] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1508546450313	Marionette	INFO	Listening on port 56447
+1508546450655	Marionette	WARN	TLS certificate errors will be ignored for this session
+1508546450685	Marionette	DEBUG	Register listener.js for window 4294967297
+1508546450727	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1508546451015	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1508546451015	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\Chris\AppData\Local\openvr\openvrpaths.vrpath
 JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3
-1508538426700	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/signIn/"
-1508538426750	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/signIn/"
-2017-10-20 22:27:11.367 firefox-bin[22081:6975686] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1317150a0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
-2017-10-20 22:27:11.427 firefox-bin[22081:6975686] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1317150a0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
-2017-10-20 22:27:26.939 firefox-bin[22081:6975686] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1317150a0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
-2017-10-20 22:27:26.955 firefox-bin[22081:6975686] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1317150a0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
-2017-10-20 22:27:29.062 firefox-bin[22081:6975686] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1317150a0 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
-*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
-1508538451009	geckodriver	INFO	geckodriver 0.19.0
-1508538451066	geckodriver	INFO	Listening on 127.0.0.1:61497
-1508538452101	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.KHx2BpRsOnUj"
-1508538452345	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
-1508538452608	Marionette	INFO	Enabled via --marionette
-2017-10-20 22:27:33.415 plugin-container[22089:6976433] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d2f, name = 'com.apple.tsm.portname'
-See /usr/include/servers/bootstrap_defs.h for the error codes.
-2017-10-20 22:27:33.415 plugin-container[22089:6976433] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
-See /usr/include/servers/bootstrap_defs.h for the error codes.
-1508538453948	Marionette	INFO	Listening on port 61507
-1508538453978	Marionette	WARN	TLS certificate errors will be ignored for this session
-1508538454019	Marionette	DEBUG	Register listener.js for window 2147483649
-1508538454040	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
-1508538454065	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
-1508538454065	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1508546451946	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/signIn/"
+1508546451949	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/signIn/"
+1508546452019	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/signIn/"
+1508546453078	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/signIn/"
+1508546453079	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/signIn/"
+1508546453630	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://api.twitter.com/oauth/authenticate?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3D19dXUaf15qaFudjwY6mLRknNQhMJJUgp&oauth_token=cVHxfgAAAAAA201YAAABXzxgHGY"
+1508546453894	Marionette	DEBUG	Received DOM event "pageshow" for "https://api.twitter.com/oauth/authenticate?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3D19dXUaf15qaFudjwY6mLRknNQhMJJUgp&oauth_token=cVHxfgAAAAAA201YAAABXzxgHGY"
+1508546456990	Marionette	DEBUG	Received DOM event "beforeunload" for "https://api.twitter.com/oauth/authenticate?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3D19dXUaf15qaFudjwY6mLRknNQhMJJUgp&oauth_token=cVHxfgAAAAAA201YAAABXzxgHGY"
+1508546457590	Marionette	DEBUG	Received DOM event "pagehide" for "https://api.twitter.com/oauth/authenticate?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3D19dXUaf15qaFudjwY6mLRknNQhMJJUgp&oauth_token=cVHxfgAAAAAA201YAAABXzxgHGY"
+1508546457590	Marionette	DEBUG	Received DOM event "unload" for "https://api.twitter.com/oauth/authenticate?redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3D19dXUaf15qaFudjwY6mLRknNQhMJJUgp&oauth_token=cVHxfgAAAAAA201YAAABXzxgHGY"
+1508546457669	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://api.twitter.com/oauth/authenticate"
+1508546457730	Marionette	DEBUG	Received DOM event "pageshow" for "https://api.twitter.com/oauth/authenticate"
 JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3
-1508538454511	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/signIn/"
-1508538454589	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/signIn/"
-1508538454766	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/signIn/"
-1508538454807	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/signIn/"
-1508538454808	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/signIn/"
+1508546460740	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+ for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=6078780a7cd1e571&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChR1aTdsRHJZclA2QTg1ZlZmOFVleRIfMDQ0dkpTM1IwLWdXWUpOWUFyQnF0S05ndXZmRjh4VQ%E2%88%99AHw7d_cAAAAAWevo6zR5Fi3L7v_6m9AeSJZJDrAhBFix&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE-Ju8cF-a8-5V8Tx7exi7SGogmhhg&flowName=GeneralOAuthFlow&TL=AHnYQLy2AkMvT5Zo-M7Zrf6vA7ZFxKFLvckXWb6Q1jLN8Ym1gtdugJGO_LvQWTrTfSmQ5ygtbqfo-dC0S-6YAp14AU6Kv7H8XxkoUv6s1gP3FSQwpjwn1x9z570zsQOp1DadzsQr_W1iEsmTvDwtsIJe8Y8xiF3zGA&cid=1&navigationDirection=forward"
+1508546419323	Marionette	DEBUG	Received DOM event "beforeunload" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=6078780a7cd1e571&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChR1aTdsRHJZclA2QTg1ZlZmOFVleRIfMDQ0dkpTM1IwLWdXWUpOWUFyQnF0S05ndXZmRjh4VQ%E2%88%99AHw7d_cAAAAAWevo6zR5Fi3L7v_6m9AeSJZJDrAhBFix&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE-Ju8cF-a8-5V8Tx7exi7SGogmhhg&flowName=GeneralOAuthFlow&TL=AHnYQLy2AkMvT5Zo-M7Zrf6vA7ZFxKFLvckXWb6Q1jLN8Ym1gtdugJGO_LvQWTrTfSmQ5ygtbqfo-dC0S-6YAp14AU6Kv7H8XxkoUv6s1gP3FSQwpjwn1x9z570zsQOp1DadzsQr_W1iEsmTvDwtsIJe8Y8xiF3zGA&cid=1&navigationDirection=forward"
+1508546420226	Marionette	DEBUG	Received DOM event "pagehide" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=6078780a7cd1e571&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChR1aTdsRHJZclA2QTg1ZlZmOFVleRIfMDQ0dkpTM1IwLWdXWUpOWUFyQnF0S05ndXZmRjh4VQ%E2%88%99AHw7d_cAAAAAWevo6zR5Fi3L7v_6m9AeSJZJDrAhBFix&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE-Ju8cF-a8-5V8Tx7exi7SGogmhhg&flowName=GeneralOAuthFlow&TL=AHnYQLy2AkMvT5Zo-M7Zrf6vA7ZFxKFLvckXWb6Q1jLN8Ym1gtdugJGO_LvQWTrTfSmQ5ygtbqfo-dC0S-6YAp14AU6Kv7H8XxkoUv6s1gP3FSQwpjwn1x9z570zsQOp1DadzsQr_W1iEsmTvDwtsIJe8Y8xiF3zGA&cid=1&navigationDirection=forward"
+1508546420228	Marionette	DEBUG	Received DOM event "unload" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=6078780a7cd1e571&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChR1aTdsRHJZclA2QTg1ZlZmOFVleRIfMDQ0dkpTM1IwLWdXWUpOWUFyQnF0S05ndXZmRjh4VQ%E2%88%99AHw7d_cAAAAAWevo6zR5Fi3L7v_6m9AeSJZJDrAhBFix&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE-Ju8cF-a8-5V8Tx7exi7SGogmhhg&flowName=GeneralOAuthFlow&TL=AHnYQLy2AkMvT5Zo-M7Zrf6vA7ZFxKFLvckXWb6Q1jLN8Ym1gtdugJGO_LvQWTrTfSmQ5ygtbqfo-dC0S-6YAp14AU6Kv7H8XxkoUv6s1gP3FSQwpjwn1x9z570zsQOp1DadzsQr_W1iEsmTvDwtsIJe8Y8xiF3zGA&cid=1&navigationDirection=forward"
+1508546420325	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967303"
 JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3
-1508538455052	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
-1508538455097	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
-2017-10-20 22:27:38.262 firefox-bin[22088:6976362] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x12de89c40 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1508546420508	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+1508546420615	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1508546421625	Marionette	INFO	New connections will no longer be accepted
+[GF[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+X1-]: Receive IPC close with reason=AbnormalShutdown
+troller to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
 *** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
 1508538504192	geckodriver	INFO	geckodriver 0.19.0
 1508538504248	geckodriver	INFO	Listening on 127.0.0.1:61599

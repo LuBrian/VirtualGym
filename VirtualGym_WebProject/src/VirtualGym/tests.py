@@ -41,7 +41,6 @@ class UsersTestCase(TestCase):
 	def setUp(self):
 		userSetUp()
 	def test_users_can_create(self):
-		pass
 		harrbra = U.MyUsers.objects.get(username = 'harrbra')
 		self.assertEqual(harrbra.username, 'harrbra')
 		harrbra2 = U.MyUsers.objects.get(username = 'harrbra2')
@@ -50,13 +49,17 @@ class UsersTestCase(TestCase):
 		self.assertEqual(harrbra2.user_id, 2)
 		self.assertEqual(harrbra2.is_superuser, False)
 		
+	
+class ExerciseTestCase(TestCase):
+	def setUp(self):
+		userSetUp()
+		tagSetUp()		
 		
 		E.Exercise.objects.create(exerciseDescription = 'This is a deadlift.', 
 			exercisePosterId = U.MyUsers.objects.get(username = 'harrbra'))
 		tagExerciseSetUp()
 		commentSetUp()
 		#commentExercisesSetUp()
-		
 	def test_exercise_tester(self):
 		currentMonth = datetime.datetime.today().month
 		exercise = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
