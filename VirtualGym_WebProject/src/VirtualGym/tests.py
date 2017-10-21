@@ -3,7 +3,7 @@ from django.test import TestCase
 import users.models as U
 import exercise.models as E
 import comments.models as C
-import datetime
+import forum.models as F
 
 
 def userSetUp():
@@ -31,6 +31,12 @@ def commentExercisesSetUp():
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift without pain in my back?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
 	
+
+def QASetUp():
+	harrbra = U.MyUsers.objects.get(username = 'harrbra')
+	F.Questions.objects.create(userID = harrbra, 
+		questionID = '1', questionDescription = "QA_Description1")
+
 class UsersTestCase(TestCase):
 	def setUp(self):
 		userSetUp()
@@ -77,6 +83,18 @@ class ExerciseTestCase(TestCase):
 	def test_exercise_questions(self):
 		exercise = E.Exercise.objects.get(exerciseDescription = 'This is a deadlift.')
 		exerciseQuestions = str(exercise.comment_set.all())
-		print(exerciseQuestions)
 
 		self.assertEqual('harrbra' in exerciseQuestions, True)
+
+
+
+class QATestCase(TestCase):
+	"""Tests that Questions and Answers portion works"""
+	def setUp(self):
+		userSetUp()
+		QASetUp()
+		
+	def test_QA(self):
+		harrbra = U.MyUsers.objects.get(username = 'harrbra')
+		question = F.Questions.objects.get(questionDescription="QA_Description1")
+		self.assertEqual('test1@test.ca' in str(question.userID), True)
