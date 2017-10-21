@@ -31,28 +31,21 @@ class SignUpForm(forms.ModelForm):
 		try:
 			MyUsers._default_manager.get(username=username)
 			#if the user exists, then let's raise an error message
-			print("user already exists")
-			raise forms.ValidationError('Username is already in use.')
+			print("user already exists by username")
+			raise ValueError('User name is already used, please user a new user name')
 		except MyUsers.DoesNotExist:
 			return username # great, this user does not exist so we can continue the sign Up process
 	
 		
 
 	# exception handler on duplicate user email, will be completed in sprint 3
-	# def clean_email(self):
-	# 	email = self.cleaned_data["email"]
-	# 	try:
-	# 		MyUsers._default_manager.get(email=email)
-	# 		#if the user exists, then let's raise an error message
-	# 		print("user already exists")
-	# 		# raise forms.ValidationError( 
-	# 		# 	self.exception['duplicate_username']
-	# 			# print('user exists')  #user my customized error message
-
-	# 		# code='duplicate_username',   #set the error message key
-
-	# 	# )
-	# 	except MyUsers.DoesNotExist:
-	# 		return email # great, this user does not exist so we can continue the registration process
+	def clean_email(self):
+		email = self.cleaned_data["email"]
+		try:
+			MyUsers._default_manager.get(email=email)
+			print("user already exists by email")
+			raise ValueError('User email is already used, please user a new user email')
+		except MyUsers.DoesNotExist:
+			return email # great, this user does not exist so we can continue the registration process
 
 

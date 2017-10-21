@@ -71,15 +71,23 @@ def signUp(request):
 		"page_title":title,
 		"exception": exception
 	}
-	if form.is_valid():
+	try:
+		form.is_valid()
 		instance=form.save(commit=False)
 		instance.save()
 		user = authenticate(email=instance.email,password=instance.password)
 		login(request, user)
 		return redirect('index')
-
-
+	except Exception as e:
+		print '%s (%s)' % (e.message, type(e))
+		context["exception"] = e.message
+		# print(context["exception"])
+		# print(context)
+	
 	return render(request,"signUp.html",context)
+
+
+	# return render(request,"signUp.html",context)
 		
 
 
