@@ -21,4 +21,5 @@ Run UI test case:
  * Install selenium, geckodriver library at first
  * runserver at localhost:8000
  * Run command line: python3 manage.py test (under  VirtualGym/VirtualGym_WebProject/src)
+ * need new Firefox for UI test
  
