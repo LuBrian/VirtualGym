@@ -40,7 +40,12 @@ class CreateExeForm(forms.ModelForm):
     )
 
     # exercise tag text input field
-    exTag = forms.CharField(label='''Exercise Tags separated by ","''', max_length = 500, required=False)
+    exTag=forms.CharField(widget=forms.TextInput(
+        attrs={
+            "class":"form-control",
+            "placeholder":"Tags for the exercise...",
+        }
+    ))
 
     # exercise video input field
     exerciseVideos=forms.FileField()
