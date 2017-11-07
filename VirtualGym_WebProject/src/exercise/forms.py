@@ -1,7 +1,7 @@
 from django import forms
 from .models import Exercise
 """/******************************
-** File: forms.py   
+** File: forms.py
 ** Desc: This file interacts with the exercise model and given exercise forms in HTML
 ** Currently, Creating an Exercise is the only "form" that uses this in the exercise app.
 *******************************/"""
