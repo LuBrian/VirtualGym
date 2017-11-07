@@ -224,7 +224,7 @@ def addTagsToDB(listOfTags, exerciseObj):
 
 	"""
 	for tag in listOfTags:
-		createTag(tag, exerciseObj)
+		createTag(tag.lstrip(), exerciseObj)
 
 def createTag(tag, exerciseObj):
 	"""createTag
