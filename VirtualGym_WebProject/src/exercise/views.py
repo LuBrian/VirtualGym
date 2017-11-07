@@ -4,7 +4,6 @@ from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
 from .models import Exercise
-from .forms import TAG_CHOICE
 
 from .models import Videos
 from .models import VideosExercises
@@ -163,6 +162,12 @@ def EditExe(request,id=None):
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
+
+		instance.exerciseTag.clear()
+		data=form.cleaned_data
+		addTagsToDB(data["exerciseTag"],instance)
+		addTagsToDB(data["exTag"].split(","), instance)
+
 		instance.save()
 		return HttpResponseRedirect('/myExercise/')
 	context={
