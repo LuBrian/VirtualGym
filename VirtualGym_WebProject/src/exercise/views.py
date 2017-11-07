@@ -148,8 +148,20 @@ def Exercise_detail(request,id=None):
 	}
 	return render(request,"detail.html",context)
 
-
-
+def EditExe(request,id=None):
+	instance=get_object_or_404(Exercise,exerciseId=id)
+	form= CreateExeForm(request.POST or None,instance=instance)
+	if form.is_valid():
+		instance=form.save(commit=False)
+		instance.exerciseApproved=False
+		instance.save()
+		return HttpResponseRedirect('/myExercise/')
+	context={
+	"title":"Edit Exercist",
+	"instance":instance,
+	"form":form
+	}
+	return render(request,"edit.html",context)
 
 
 def createVideo(data, exerciseObj):
