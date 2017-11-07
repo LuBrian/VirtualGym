@@ -1,9 +1,10 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect
-
+from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
 from .models import Exercise
+from .forms import TAG_CHOICE
 
 from .models import Videos
 from .models import VideosExercises
@@ -12,6 +13,7 @@ from .models import TagsExercises
 
 from users.models import MyUsers
 from comments.models import Comment
+import re
 """/******************************
 ** File: views.py
 ** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
@@ -56,8 +58,15 @@ def Profile(request):
 	title=" Profile of Exercise "
 	quearyset=Exercise.objects.filter(exerciseApproved = True)
 	query=request.GET.get("q")
+	
+
 	if query:
-		quearyset=quearyset.filter(exerciseDescription =query)
+		queryList = re.split(' |,',query)
+		for i in queryList:
+			quearyset=quearyset.filter(
+				Q(exerciseDescription__icontains = i) |
+				Q(exerciseTag__tagDescription__icontains = i)
+			).distinct()
 
 	context={
 		"title":title,
