@@ -224,7 +224,8 @@ def addTagsToDB(listOfTags, exerciseObj):
 
 	"""
 	for tag in listOfTags:
-		createTag(tag.lstrip(), exerciseObj)
+		if not tag.strip() =='':
+			createTag(tag.lstrip(), exerciseObj)
 
 def createTag(tag, exerciseObj):
 	"""createTag
@@ -239,6 +240,7 @@ def createTag(tag, exerciseObj):
 	Nothing
 
 	"""
+	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
