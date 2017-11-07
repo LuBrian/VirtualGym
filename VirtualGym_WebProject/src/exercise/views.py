@@ -55,6 +55,9 @@ def Profile(request):
     """
 	title=" Profile of Exercise "
 	quearyset=Exercise.objects.filter(exerciseApproved = True)
+	query=request.GET.get("q")
+	if query:
+		quearyset=quearyset.filter(exerciseDescription =query)
 
 	context={
 		"title":title,

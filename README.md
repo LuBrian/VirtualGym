@@ -15,4 +15,4 @@ Library :
 Run for sprint2:
   * Install all library to local computer
   * Run command line: python3 manage.py runserver localhost:8000 (under  VirtualGym/VirtualGym_WebProject/src)
-  * Use chrome open localhost:8000
+  * Use chrome or firefox open localhost:8000 (safari not work for mp4 player)
