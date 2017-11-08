@@ -1,6 +1,5 @@
 {% extends 'header_footer.html' %}
 {% block page_content %}
-
 <style media="screen">
   #id_exerciseDescription{
       height: 200px;
@@ -20,8 +19,8 @@
   {% if user.is_authenticated  %}
     <div class="exercise_form">
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <h1 class ="text-center">Create New Exercise</h1>
-        <p class="text-center">Exercises will have to be approved my a moderator before they will be submitted</p>
+        <h1 class ="text-center">Edit Exercise</h1>
+        <p class="text-center">Changes will have to be approved my a moderator before they will be submitted</p>
         <div class="jumbotron">
 
           <!-- <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video {{form.exerciseVideos}}</a></p> -->
@@ -62,7 +61,7 @@
         <div class="col-lg-12">
           <div class = "signUp_button">
             <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
-              Submit Exercise
+              Submit Changes
             </button>
           </div>
 
@@ -73,7 +72,7 @@
 
     {% else %}
       <div class="create_exercise_perm">
-        <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
+        <p>You have to Login to edit an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
       </div>
     {% endif  %}
    </div>

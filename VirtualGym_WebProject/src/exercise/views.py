@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect
-
+from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
 from .models import Exercise
@@ -12,6 +12,7 @@ from .models import TagsExercises
 
 from users.models import MyUsers
 from comments.models import Comment
+import re
 """/******************************
 ** File: views.py
 ** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
@@ -55,6 +56,16 @@ def Profile(request):
     """
 	title=" Profile of Exercise "
 	quearyset=Exercise.objects.filter(exerciseApproved = True)
+	query=request.GET.get("q")
+	
+
+	if query:
+		queryList = re.split(' |,',query)
+		for i in queryList:
+			quearyset=quearyset.filter(
+				Q(exerciseDescription__icontains = i) |
+				Q(exerciseTag__tagDescription__icontains = i)
+			).distinct()
 
 	context={
 		"title":title,
@@ -145,8 +156,26 @@ def Exercise_detail(request,id=None):
 	}
 	return render(request,"detail.html",context)
 
+def EditExe(request,id=None):
+	instance=get_object_or_404(Exercise,exerciseId=id)
+	form= CreateExeForm(request.POST or None,instance=instance)
+	if form.is_valid():
+		instance=form.save(commit=False)
+		instance.exerciseApproved=False
 
+		instance.exerciseTag.clear()
+		data=form.cleaned_data
+		addTagsToDB(data["exerciseTag"],instance)
+		addTagsToDB(data["exTag"].split(","), instance)
 
+		instance.save()
+		return HttpResponseRedirect('/myExercise/')
+	context={
+	"title":"Edit Exercist",
+	"instance":instance,
+	"form":form
+	}
+	return render(request,"edit.html",context)
 
 
 def createVideo(data, exerciseObj):
@@ -195,7 +224,8 @@ def addTagsToDB(listOfTags, exerciseObj):
 
 	"""
 	for tag in listOfTags:
-		createTag(tag, exerciseObj)
+		if not tag.strip() =='':
+			createTag(tag.lstrip(), exerciseObj)
 
 def createTag(tag, exerciseObj):
 	"""createTag
@@ -210,6 +240,7 @@ def createTag(tag, exerciseObj):
 	Nothing
 
 	"""
+	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)

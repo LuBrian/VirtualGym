@@ -14,14 +14,15 @@ class SignUpForm(forms.ModelForm):
 	# html email input content
 	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Email'}))
 	# html password input box
-	password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Input Passwrod'}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Input Password'}))
+	# html password confirm box
+	confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 	# html username input box
 	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User name'}))
 
-
 	class Meta:
 		model= MyUsers
-		fields={"email","password","username"}
+		fields={"email","password","username", "confirm"}
 
 
 	# exception handler on duplicate user name, will be completed in sprint 3
@@ -36,6 +37,17 @@ class SignUpForm(forms.ModelForm):
 		except MyUsers.DoesNotExist:
 			return username # great, this user does not exist so we can continue the sign Up process
 	
+	#exception handler on password confirmation
+	def clean(self):
+		super(SignUpForm, self).clean()
+		password = self.cleaned_data["password"]
+		confirm = self.cleaned_data["confirm"]
+		if password != confirm:
+			msg ="Passwords do not match"
+			print(msg)
+			self.add_error('password', msg)
+			self.add_error('confirm', msg)
+			raise forms.ValidationError(msg)
 		
 
 	# exception handler on duplicate user email, will be completed in sprint 3
