@@ -29,9 +29,10 @@
                 </object> -->
               {% endfor %}
 			
-              <h3 style="text-align: center"><a style=" color:#666; font-size:18px;" href="{%url "detail" id=obj.exerciseId %}">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%} </a></h3>
-
-              <p style="text-align: center">Description: {{obj.exerciseDescription}}</p>
+              
+              <p style="text-align: center">{{obj.}}</p>
+              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Description: {{obj.exerciseDescription}}</p>
+              <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
             </div>
           </div>
             {% endfor %}
