@@ -1,7 +1,5 @@
 
 {% extends 'header_footer.html' %}
-
-
 {% block page_content %}
 
 <div class="body_container">
@@ -14,7 +12,7 @@
 
         <!-- <div class="page-header"> -->
         <!-- </div> -->
-
+		<i></i>
         <div class="row">
           {% for obj in objects_list %}
           <div class="col-md-4">
@@ -40,6 +38,10 @@
           </div>
 
         </section>
+     <div class="button" align="bottom">
+		<button type="button">Save Annotations</button>
+	</div>
+	
     </div>
     {% else %}
       <div class="create_exercise_perm">
