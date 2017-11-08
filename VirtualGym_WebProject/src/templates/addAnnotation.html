@@ -1,7 +1,10 @@
 {% extends 'header_footer.html' %}
+
+
+{% load static %}
 {% block page_content %}
 
-
+<script type="text/javascript" src="{% static 'js/jsfile.js' %}"></script>
 <div class="body_container">
 <div class="container">
   <div class="exercise_form">
@@ -15,6 +18,12 @@
     </video>
    
   </div>
+
+
+  <div class="buttonSAVE" align="bottom">
+    <button type="buttonSAVE">Save Annotations</button>
+  </div>
+
   <div class="annotation_button_container">
     <a class="finish_button" href="{% url 'myExercise' %}"><button>Finish</button></a>
   </div>
@@ -24,4 +33,4 @@
 </div>
 </div>
 
- {% endblock %}
+{% endblock %}

@@ -332,6 +332,9 @@
     font-weight: bold;
     font-size: 20px; }
 
+.exercise_detail {
+  text-align: center; }
+
 .facebook {
   background-position: 0 -0px; }
 

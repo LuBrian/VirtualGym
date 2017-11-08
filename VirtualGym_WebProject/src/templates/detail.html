@@ -1,4 +1,9 @@
+
 {% extends 'header_footer.html' %}
+
+
+{% load static %}
+
 {% block page_content %}
 
 
@@ -8,16 +13,18 @@
     <h3 style="text-align: center">{{title}}</h3>
     <p class="text-center">This is exercise detail</p>
   </div>
-  <div class="jumbotron">
+  <div class="jumbotron exercise_detail">
+	<i></i>
     {% for video in instance.exerciseVideos.all%}
-    <video width=100% height="500" controls>
+    <video width="auto" height="auto" controls>
       <source src="{{video.videoFile.url}}" type="video/mp4">
     </video>
+    <span></span>
     {% endfor %}
   </div>
 </br>
 </br>
-
+	
 <div class="row marketing">
   <div class="col-lg-6">
     <div class="form-group">
