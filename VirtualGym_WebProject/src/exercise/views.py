@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from comments.forms import CommentForm
@@ -38,13 +38,14 @@ def CreateExe(request):
 		instance.save()
 		data=form.cleaned_data
 
-		createVideo(data,instance)
+		vidid = createVideo(data,instance)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
 		}
-		return HttpResponseRedirect('/myExercise/')
+		# return HttpResponseRedirect('/myExercise/')
+		return redirect('annotations',vidID = vidid)
 
 	return render(request,"createExercise.html",context)
 
@@ -195,6 +196,7 @@ def createVideo(data, exerciseObj):
 	videos_obj.save()
 
 	createVideoExerciseRelationship(videos_obj, exerciseObj)
+	return videos_obj.video_id
 
 def createVideoExerciseRelationship(videoID, exerciseObj):
 	"""createVideoExerciseRelationship
@@ -264,3 +266,17 @@ def createTagRelationship(tag_obj, exerciseObj):
 	"""
 	tagRelationshipObj = TagsExercises(tag_id = tag_obj, exercise_id = exerciseObj)
 	tagRelationshipObj.save()
+
+
+def createAnnotation(request,vidID):
+	print(vidID)
+	instance=get_object_or_404(Videos,video_id=vidID)
+	title="Add annotations"
+	# print(instance.exerciseVideos.url)
+	context = {
+		"title":title,
+		"instance":instance,
+	}
+
+	return render(request,"addAnnotation.html",context)
+

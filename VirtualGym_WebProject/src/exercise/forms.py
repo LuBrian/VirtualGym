@@ -57,3 +57,8 @@ class CreateExeForm(forms.ModelForm):
         """
         model=Exercise
         fields={"exerciseDescription","exerciseTag","exerciseVideos"}
+
+
+
+
+

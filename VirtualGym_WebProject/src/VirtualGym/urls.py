@@ -49,6 +49,7 @@ urlpatterns = [
     #setting facebook, google and twitter page
     url(r'^auth/', include('social_django.urls', namespace='social')),
     url(r'^(?P<id>\d+)/edit/$',ex.EditExe,name = "edit"),
+    url(r'^annotations/(?P<vidID>\d+)/$',ex.createAnnotation,name = "annotations"),
 
 
 ]

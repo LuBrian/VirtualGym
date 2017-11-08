@@ -12,13 +12,13 @@ from .models import MyUsers
 
 class SignUpForm(forms.ModelForm):
 	# html email input content
-	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Email'}))
+	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Sign Up Email','autocomplete': 'off'}))
 	# html password input box
-	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Input Password'}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Input Password','autocomplete': 'off'}))
 	# html password confirm box
-	confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
+	confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password','autocomplete': 'off'}))
 	# html username input box
-	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User name'}))
+	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User name','autocomplete': 'off'}))
 
 	class Meta:
 		model= MyUsers
@@ -28,12 +28,12 @@ class SignUpForm(forms.ModelForm):
 	# exception handler on duplicate user name, will be completed in sprint 3
 	def clean_username(self):
 		username = self.cleaned_data["username"]
-
+		print(username)
 		try:
 			MyUsers._default_manager.get(username=username)
 			#if the user exists, then let's raise an error message
 			print("user already exists by username")
-			raise ValueError('User name is already used, please user a new user name')
+			raise ValueError('User name is already used, please use a new user name')
 		except MyUsers.DoesNotExist:
 			return username # great, this user does not exist so we can continue the sign Up process
 	
@@ -45,9 +45,7 @@ class SignUpForm(forms.ModelForm):
 		if password != confirm:
 			msg ="Passwords do not match"
 			print(msg)
-			self.add_error('password', msg)
-			self.add_error('confirm', msg)
-			raise forms.ValidationError(msg)
+			raise ValueError(msg)
 		
 
 	# exception handler on duplicate user email, will be completed in sprint 3
@@ -56,7 +54,7 @@ class SignUpForm(forms.ModelForm):
 		try:
 			MyUsers._default_manager.get(email=email)
 			print("user already exists by email")
-			raise ValueError('User email is already used, please user a new user email')
+			raise ValueError('User email is already used, please use a new user email')
 		except MyUsers.DoesNotExist:
 			return email # great, this user does not exist so we can continue the registration process
 
