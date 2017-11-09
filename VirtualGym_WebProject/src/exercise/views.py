@@ -4,7 +4,7 @@ from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
 
-from .models import Exercise,Tags
+from .models import Exercise,Tags,TagsExercises
 from .forms import TAG_CHOICE
 
 
@@ -131,15 +131,15 @@ def Exercise_detail(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)
 
 	comment_form=CommentForm(request.POST or None)
-	tagobj=Tags.objects.get(tagID=instance.exerciseId)
+	tagobj=gettag(instance.exerciseId)
 	quearyset=[]
-	print(tagobj)
+	# print(tagobj)
 	if tagobj not in [None, '']:
 		quearyset=Exercise.objects.filter(
 			Q(exerciseApproved = True) &
 			Q(exerciseTag__tagDescription = tagobj)).distinct()
 
-	print (quearyset)
+	#print (quearyset)
 
 	if comment_form.is_valid():
 
@@ -170,6 +170,9 @@ def Exercise_detail(request,id=None):
 		"quearyset":quearyset,
 	}
 	return render(request,"detail.html",context)
+
+def gettag(exeid):
+	return Tags.objects.get(tagsexercises=TagsExercises.objects.filter(exercise_id=exeid))
 
 def EditExe(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)

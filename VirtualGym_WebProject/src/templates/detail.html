@@ -6,7 +6,6 @@
 
 {% block page_content %}
 
-
 <div class="body_container">
 <div class="container">
   <div class="exercise_form">
@@ -14,35 +13,32 @@
     <p class="text-center">Tags: {% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</p>
   </div>
   <div class="jumbotron exercise_detail">
-	<i></i>
+
     {% for video in instance.exerciseVideos.all%}
     <video width="360" height="auto" controls>
       <source src="{{video.videoFile.url}}" type="video/mp4">
     </video>
-    <span></span>
+
       <div class="col-lg-6">
         <div class="form-group">
-        <label for="description">Description:</label></br>
-      <p style="text-align: left">{{instance.exerciseDescription}}</p>
-    </div>
-  </div>
+          <label for="description">Description:</label></br>
+          <p style="text-align: left">{{instance.exerciseDescription}}</p>
+        </div>
+      </div>
     {% endfor %}
   </div>
 </br>
+
+{%if instance.exerciseApproved %}
+<h3>Cross referance</h3>
+  {%for crossExercise in quearyset%}
+    {%if instance.exerciseId != crossExercise.exerciseId %}
+      <h3><a  href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
+      <p>{{crossExercise.exerciseDescription}}</p>
+    {%endif%}
+  {%endfor%}
+{%endif%}
 </br>
-	
-<div class="row marketing">
-  <div class="col-lg-6">
-    <div class="form-group">
-      
-
-    </div>
-  </div>
-
-
-
-</div> <!-- /container -->
-
 
 <div class="">
   <p class="lead text-center">Comment here</p>
@@ -86,6 +82,7 @@
   {%endif%}
   {% endfor %}
 </div>
+
 </div>
 </div>
 
