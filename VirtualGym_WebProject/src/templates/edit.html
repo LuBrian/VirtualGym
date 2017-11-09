@@ -6,6 +6,10 @@
       width:500px;
   }
 
+  #id_exerciseName{
+      width: 100%;
+  }
+
   #id_exerciseVideos{
     margin: auto auto;
     width: 100%;
@@ -31,8 +35,8 @@
 
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="name">Name of Exercise</label>
-            <input type="text" class="form-control" id="name">
+            <label for="name">Exercise Title:</label></br>
+            {{ form.exerciseName}}
           </div>
 
         </div>

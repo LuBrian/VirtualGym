@@ -3,7 +3,10 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
-from .models import Exercise
+
+from .models import Exercise,Tags,TagsExercises
+from .forms import TAG_CHOICE
+
 
 from .models import Videos
 from .models import VideosExercises
@@ -58,7 +61,7 @@ def Profile(request):
 	title=" Profile of Exercise "
 	quearyset=Exercise.objects.filter(exerciseApproved = True)
 	query=request.GET.get("q")
-	
+
 
 	if query:
 		queryList = re.split(' |,',query)
@@ -128,6 +131,16 @@ def Exercise_detail(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)
 
 	comment_form=CommentForm(request.POST or None)
+	tagobj=gettag(instance.exerciseId)
+	quearyset=[]
+	# print(tagobj)
+	if tagobj not in [None, '']:
+		quearyset=Exercise.objects.filter(
+			Q(exerciseApproved = True) &
+			Q(exerciseTag__tagDescription = tagobj)).distinct()
+
+	#print (quearyset)
+
 	if comment_form.is_valid():
 
 		obj_content=comment_form.cleaned_data.get("comment")
@@ -154,8 +167,12 @@ def Exercise_detail(request,id=None):
 		"title":title,
 		"instance":instance,
 		"comment_form":comment_form,
+		"quearyset":quearyset,
 	}
 	return render(request,"detail.html",context)
+
+def gettag(exeid):
+	return Tags.objects.get(tagsexercises=TagsExercises.objects.filter(exercise_id=exeid))
 
 def EditExe(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)

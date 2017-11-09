@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <title>{{ page_title }}</title>
 
-
     <!-- google sigin links -->
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="233558815928-de9jovthktdkf9fhdlpab7odoug37p87.apps.googleusercontent.com">
@@ -52,7 +51,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">HOME</a> </li>
-                    <li><a href="{% url 'QA' %}">FAQ's</a> </li>
+                    <li><a href="{% url 'QA' %}">FAQ</a> </li>
                     <li><a href="#">Contact Us</a></li>
                     {% if user.is_authenticated  %}
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
@@ -135,5 +134,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
   </body>
 </html>
