@@ -15,29 +15,34 @@
   <div class="jumbotron exercise_detail">
 
     {% for video in instance.exerciseVideos.all%}
-    <video width="360" height="auto" controls>
+    <video width="400" height="auto" controls>
       <source src="{{video.videoFile.url}}" type="video/mp4">
     </video>
 
-      <div class="col-lg-6">
-        <div class="form-group">
-          <label for="description">Description:</label></br>
-          <p style="text-align: left">{{instance.exerciseDescription}}</p>
-        </div>
+    <div class="col-lg-4" style="float: right;">
+      <div class="form-group">
+        <label for="description">Description:</label></br>
+        <p style="text-align: left">{{instance.exerciseDescription}}</p>
       </div>
+    </div>
     {% endfor %}
   </div>
 </br>
+<div class="col-lg-12">
+  {%if instance.exerciseApproved %}
+  <h3>Cross referance:</h3>
+    {%for crossExercise in quearyset%}
+      {%if instance.exerciseId != crossExercise.exerciseId %}
+      <div class="col-lg-3">
+        <h3><a  href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
+        <p>{{crossExercise.exerciseDescription}}</p>
+      </div>
+      {%endif%}
+    {%endfor%}
+  {%endif%}
+</div>
 
-{%if instance.exerciseApproved %}
-<h3>Cross referance</h3>
-  {%for crossExercise in quearyset%}
-    {%if instance.exerciseId != crossExercise.exerciseId %}
-      <h3><a  href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
-      <p>{{crossExercise.exerciseDescription}}</p>
-    {%endif%}
-  {%endfor%}
-{%endif%}
+</br>
 </br>
 
 <div class="">
