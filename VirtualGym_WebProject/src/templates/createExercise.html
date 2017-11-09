@@ -7,10 +7,15 @@
       width:500px;
   }
 
+
+  #id_exerciseName{
+      width:100%;
+  }
   #id_exerciseVideos{
     margin: auto auto;
     width: 100%;
   }
+
 
 </style>
 
@@ -24,17 +29,16 @@
         <p class="text-center">Exercises will have to be approved my a moderator before they will be submitted</p>
         <div class="jumbotron">
 
-          <p class="text-center">Eventually a video will go here</p></br> <!--DELETE ME LATER-->
           <!-- <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video {{form.exerciseVideos}}</a></p> -->
-          <button class="btn btn-block btn-success" >{{form.exerciseVideos}}</button>
+          <button type= "videofile" class="btn btn-block btn-success" >{{form.exerciseVideos}}</button>
 
         </div>
 
 
         <div class="col-lg-12">
           <div class="form-group">
-            <label for="name">Name of Exercise</label>
-            <input type="text" class="form-control" id="name">
+            <label for="name">Exercise Title:</label></br>
+            {{ form.exerciseName}}
           </div>
 
         </div>
@@ -81,5 +85,15 @@
 </div>
 </div>
 
+
+<script>
+  $(document).ready(function () {
+    console.log("get jquery")
+    $(":file").change(function(){
+      console.log("file uploaded")
+      console.log($(":file").val());
+    });
+  });
+</script>
 
 {% endblock %}

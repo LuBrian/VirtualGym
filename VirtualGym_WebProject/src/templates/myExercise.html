@@ -1,7 +1,5 @@
 
 {% extends 'header_footer.html' %}
-
-
 {% block page_content %}
 
 <div class="body_container">
@@ -14,7 +12,7 @@
 
         <!-- <div class="page-header"> -->
         <!-- </div> -->
-
+		<i></i>
         <div class="row">
           {% for obj in objects_list %}
           <div class="col-md-4">
@@ -30,16 +28,22 @@
                 </embed>
                 </object> -->
               {% endfor %}
+            
+              <p style="text-align: center">{{obj.}}</p>
+              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}</p>
+              <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
 
-              <h3 style="text-align: center"><a style=" color:#666; font-size:18px;" href="{%url "detail" id=obj.exerciseId %}">{% for tag in obj.exerciseTag.all %}&emsp;&emsp;&emsp;{{tag.tagDescription}}{%endfor%} </a></h3>
-
-              <p style="text-align: center">Description:{{obj.exerciseDescription}}</p>
+              
             </div>
           </div>
             {% endfor %}
           </div>
 
         </section>
+     <div class="button" align="bottom">
+		<button type="button">Save Annotations</button>
+	</div>
+	
     </div>
     {% else %}
       <div class="create_exercise_perm">

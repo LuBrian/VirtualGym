@@ -1,38 +1,45 @@
+
 {% extends 'header_footer.html' %}
+
+
+{% load static %}
+
 {% block page_content %}
 
 
 <div class="body_container">
 <div class="container">
   <div class="exercise_form">
-    <h3 style="text-align: center">{{title}}</h3>
-    <p class="text-center">This is exercise detail</p>
+    <h3 style="text-align: center">{{instance.exerciseName}}</h3>
+    <p class="text-center">Tags: {% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</p>
   </div>
-  <div class="jumbotron">
+  <div class="jumbotron exercise_detail">
+	<i></i>
     {% for video in instance.exerciseVideos.all%}
-    <video width=100% height="500" controls>
+    <video width="360" height="auto" controls>
       <source src="{{video.videoFile.url}}" type="video/mp4">
     </video>
+    <span></span>
+      <div class="col-lg-6">
+        <div class="form-group">
+        <label for="description">Description:</label></br>
+      <p style="text-align: left">{{instance.exerciseDescription}}</p>
+    </div>
+  </div>
     {% endfor %}
   </div>
 </br>
 </br>
-
+	
 <div class="row marketing">
   <div class="col-lg-6">
     <div class="form-group">
-      <label for="name">Tags: </label>
-      <p style="text-align: center">{% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{%endfor%}</p>
+      
 
     </div>
   </div>
 
-  <div class="col-lg-6">
-    <div class="form-group">
-      <label for="description">Description:</label></br>
-      <p style="text-align: center">{{instance.exerciseDescription}}</p>
-    </div>
-  </div>
+
 
 </div> <!-- /container -->
 

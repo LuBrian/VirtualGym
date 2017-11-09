@@ -1,0 +1,36 @@
+{% extends 'header_footer.html' %}
+
+
+{% load static %}
+{% block page_content %}
+
+<script type="text/javascript" src="{% static 'js/jsfile.js' %}"></script>
+<div class="body_container">
+<div class="container">
+  <div class="exercise_form">
+    <h3 style="text-align: center">{{title}}</h3>
+    <p class="text-center">This is exercise detail</p>
+  </div>
+  <div class="jumbotron">
+  
+    <video width=100% height="500" controls>
+      <source src="{{instance.videoFile.url}}" type="video/mp4">
+    </video>
+   
+  </div>
+
+
+  <div class="buttonSAVE" align="bottom">
+    <button type="buttonSAVE">Save Annotations</button>
+  </div>
+
+  <div class="annotation_button_container">
+    <a class="finish_button" href="{% url 'myExercise' %}"><button>Finish</button></a>
+  </div>
+
+</br>
+</br>
+</div>
+</div>
+
+{% endblock %}

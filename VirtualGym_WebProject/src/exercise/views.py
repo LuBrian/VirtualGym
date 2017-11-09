@@ -1,10 +1,12 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
+
 from .models import Exercise,Tags
 from .forms import TAG_CHOICE
+
 
 from .models import Videos
 from .models import VideosExercises
@@ -39,13 +41,14 @@ def CreateExe(request):
 		instance.save()
 		data=form.cleaned_data
 
-		createVideo(data,instance)
+		vidid = createVideo(data,instance)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
 		}
-		return HttpResponseRedirect('/myExercise/')
+		# return HttpResponseRedirect('/myExercise/')
+		return redirect('annotations',vidID = vidid)
 
 	return render(request,"createExercise.html",context)
 
@@ -128,7 +131,7 @@ def Exercise_detail(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)
 
 	comment_form=CommentForm(request.POST or None)
-	tagobj=Tags.objects.get(tagDescription=instance.exerciseId)
+	tagobj=Tags.objects.get(tagID=instance.exerciseId)
 	quearyset=[]
 	print(tagobj)
 	if tagobj not in [None, '']:
@@ -136,7 +139,7 @@ def Exercise_detail(request,id=None):
 			Q(exerciseApproved = True) &
 			Q(exerciseTag__tagDescription = tagobj)).distinct()
 
-	#print (quearyset)
+	print (quearyset)
 
 	if comment_form.is_valid():
 
@@ -174,6 +177,12 @@ def EditExe(request,id=None):
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
+
+		instance.exerciseTag.clear()
+		data=form.cleaned_data
+		addTagsToDB(data["exerciseTag"],instance)
+		addTagsToDB(data["exTag"].split(","), instance)
+
 		instance.save()
 		return HttpResponseRedirect('/myExercise/')
 	context={
@@ -201,6 +210,7 @@ def createVideo(data, exerciseObj):
 	videos_obj.save()
 
 	createVideoExerciseRelationship(videos_obj, exerciseObj)
+	return videos_obj.video_id
 
 def createVideoExerciseRelationship(videoID, exerciseObj):
 	"""createVideoExerciseRelationship
@@ -230,7 +240,8 @@ def addTagsToDB(listOfTags, exerciseObj):
 
 	"""
 	for tag in listOfTags:
-		createTag(tag, exerciseObj)
+		if not tag.strip() =='':
+			createTag(tag.lstrip(), exerciseObj)
 
 def createTag(tag, exerciseObj):
 	"""createTag
@@ -245,6 +256,7 @@ def createTag(tag, exerciseObj):
 	Nothing
 
 	"""
+	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
@@ -268,3 +280,16 @@ def createTagRelationship(tag_obj, exerciseObj):
 	"""
 	tagRelationshipObj = TagsExercises(tag_id = tag_obj, exercise_id = exerciseObj)
 	tagRelationshipObj.save()
+
+
+def createAnnotation(request,vidID):
+	print(vidID)
+	instance=get_object_or_404(Videos,video_id=vidID)
+	title="Add annotations"
+	# print(instance.exerciseVideos.url)
+	context = {
+		"title":title,
+		"instance":instance,
+	}
+
+	return render(request,"addAnnotation.html",context)

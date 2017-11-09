@@ -1,7 +1,87 @@
+{% extends 'header_footer.html' %}
+{% block page_content %}
+<style media="screen">
+  #id_exerciseDescription{
+      height: 200px;
+      width:500px;
+  }
+
+  #id_exerciseName{
+      width: 100%;
+  }
+
+  #id_exerciseVideos{
+    margin: auto auto;
+    width: 100%;
+  }
+
+</style>
+
+<div class="body_container">
+<div class="create_exercise_container">
+  <div class="container">
+  {% if user.is_authenticated  %}
+    <div class="exercise_form">
+      <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h1 class ="text-center">Edit Exercise</h1>
+        <p class="text-center">Changes will have to be approved my a moderator before they will be submitted</p>
+        <div class="jumbotron">
+
+          <!-- <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video {{form.exerciseVideos}}</a></p> -->
+          <button class="btn btn-block btn-success" >{{form.exerciseVideos}}</button>
+
+        </div>
 
 
-<h3 style="text-align: center">{{title}}</h3>
-<form class="" action="" method="post">{% csrf_token %}
-  {{form}}
-  <button type="submit" class="btn btn-info btn-lg">edit</button>
-</form>
+        <div class="col-lg-12">
+          <div class="form-group">
+            <label for="name">Exercise Title:</label></br>
+            {{ form.exerciseName}}
+          </div>
+
+        </div>
+
+        <div class="col-lg-8">
+          <div class="form-group">
+            <label for="description">Description:</label></br>
+            {{ form.exerciseDescription}}
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="tags">Custom tags separated by comma</label></br>
+          {{ form.exTag}}
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="tags">Tags:</label></br>
+          {{ form.exerciseTag}}
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class = "signUp_button">
+            <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
+              Submit Changes
+            </button>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+
+    {% else %}
+      <div class="create_exercise_perm">
+        <p>You have to Login to edit an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
+      </div>
+    {% endif  %}
+   </div>
+</div>
+</div>
+
+
+{% endblock %}

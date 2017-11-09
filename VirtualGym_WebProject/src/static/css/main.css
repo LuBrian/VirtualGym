@@ -315,6 +315,26 @@
     width: 50px;
     height: 50px; }
 
+.annotation_button_container {
+  text-align: center; }
+  .annotation_button_container button {
+    border: none;
+    margin-top: 50px;
+    height: 40px;
+    width: 200px;
+    background-color: #83A0FE;
+    border-bottom: 1px solid #979797;
+    border-radius: 2px; }
+  .annotation_button_container a:link {
+    text-decoration: none; }
+  .annotation_button_container .finish_button {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px; }
+
+.exercise_detail {
+  text-align: center; }
+
 .facebook {
   background-position: 0 -0px; }
 

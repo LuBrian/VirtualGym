@@ -22,8 +22,31 @@
 		height: 50px;
 	}
 }
+.annotation_button_container{
+	text-align: center;
+	button{
+		border:none;
+		margin-top: 50px;
+		height:40px;
+		width: 200px;
+		background-color: #83A0FE;
+		border-bottom: 1px solid #979797;
+		border-radius: 2px;
+	}
 
+	a:link{
+		text-decoration: none;
+	}
+	.finish_button{
+		font-style: italic;
+		font-weight: bold;
+		font-size: 20px;
+	}
+}
 
+.exercise_detail{
+	text-align:center;
+}
 
 
 
