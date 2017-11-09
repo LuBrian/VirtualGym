@@ -268,15 +268,5 @@ def createTagRelationship(tag_obj, exerciseObj):
 	tagRelationshipObj.save()
 
 
-def createAnnotation(request,vidID):
-	print(vidID)
-	instance=get_object_or_404(Videos,video_id=vidID)
-	title="Add annotations"
-	# print(instance.exerciseVideos.url)
-	context = {
-		"title":title,
-		"instance":instance,
-	}
 
-	return render(request,"addAnnotation.html",context)
 

@@ -4,33 +4,184 @@
 {% load static %}
 {% block page_content %}
 
-<script type="text/javascript" src="{% static 'js/jsfile.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/jsfile.js' %}"></script> -->
 <div class="body_container">
 <div class="container">
   <div class="exercise_form">
     <h3 style="text-align: center">{{title}}</h3>
     <p class="text-center">This is exercise detail</p>
   </div>
-  <div class="jumbotron">
+  <div class="jumbotron video_container">
   
-    <video width=100% height="500" controls>
+    <video id = "annotation_vid" controls>
       <source src="{{instance.videoFile.url}}" type="video/mp4">
     </video>
+
+
+    <div id = "annotationForm_container" class="annotationForm_container">
+      <form method="post">{% csrf_token %}
+        <div class="input_container">
+          <textarea id = "annotation_detial" class = "annotation_detial" type="text" value = "" name="details" value="{{obj.questionID}}"></textarea>
+        </div>
+        <button id = "annotation_submit" type="button" class="annotation_submit">Add</button>
+      </form>
+    </div>
    
   </div>
 
 
-  <div class="buttonSAVE" align="bottom">
-    <button type="buttonSAVE">Save Annotations</button>
+  
+
+
+
+<div class="vid_annotations">
+    <div>ppp</div>
+    <div>ppp</div>
+    <div>jlajf</div>
+
   </div>
+
 
   <div class="annotation_button_container">
     <a class="finish_button" href="{% url 'myExercise' %}"><button>Finish</button></a>
   </div>
 
+
+  
+
 </br>
 </br>
 </div>
 </div>
+
+
+<script>
+
+window.onload = function() {
+  
+  var video = document.querySelector("video"),
+    info = document.querySelector("span"),
+    initial = document.querySelector("i");
+    concanenatedVideoElems = "";
+    button = document.querySelector("button");
+    annotationSubmit =  document.getElementById("annotation_submit")
+    vidData = [];
+    videoInfo = {};
+    details = "";
+    Xval = 0.0;
+    Yval = 0.0;
+    timeStep = 0.0;
+    localdata = "";
+
+  function getElementCSSSize(el) {
+    var cs = getComputedStyle(el);
+    var w = parseInt(cs.getPropertyValue("width"), 10);
+    var h = parseInt(cs.getPropertyValue("height"), 10);
+    return {width: w, height: h}
+  }
+  
+  function saveText(text, filename){
+    var a = document.createElement('a');
+    a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
+    a.setAttribute('download', filename);
+    a.click()
+  }
+
+  function saveToJSON(event) {
+    saveText(JSON.stringify(vidData), "filename.json");
+    //alert("test")
+  }
+  function mouseHandler(event) {
+    this.pause();
+    document.getElementById("annotationForm_container").style.display = "block";
+
+
+    // var annotation = prompt("Please enter your annotation:");
+    // var annotation = "nice"
+    var size = getElementCSSSize(this);
+    var scaleX = this.videoWidth / size.width;
+    var scaleY = this.videoHeight / size.height;
+
+    var rect = this.getBoundingClientRect();  // absolute position of element
+    var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
+    var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
+    Xval = x;
+    Yval = y;
+    // console.log(x);
+    // console.log(y);
+    timeStep = this.currentTime;
+    
+  }
+
+  function callback(){
+    console.log('success call back');
+  }
+  
+  // button.addEventListener("click", saveToJSON);
+  video.addEventListener("click", mouseHandler);
+
+  annotationSubmit.addEventListener('click', function() {
+      details = $("textarea").val();
+      console.log(details);
+      if (details != "" && details != null)
+      {
+        vidData.push({x: Xval, y: Yval, time: timeStep, details: details});
+        var tempData = {x: Xval, y: Yval, time: timeStep, details: details}
+        localdata = JSON.stringify([tempData]);
+        // concanenatedVideoElems = concanenatedVideoElems + "(video: " + this.videoWidth + " x " + this.videoHeight + ")" + "time : "+ this.currentTime + " annotation: "+annotation;
+        //initial.innerHTML = concanenatedVideoElems
+        // https://stackoverflow.com/questions/36201666/submit-without-refresh-in-django
+        $.ajax({
+          type: 'POST',
+          url: '/annotations/{{ instance.video_id }}/',
+          data :  localdata,
+          dataType:'Json'
+        }).done(function(){
+            // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+
+            // For instance, you could hide/display your add/remove button here
+            console.log('success call back');
+          });
+      }
+
+
+    
+   
+    document.getElementById("annotation_detial").value = "";
+    video.play();
+    document.getElementById("annotationForm_container").style.display = "none";
+    
+
+
+    
+  }, false);
+  
+  $('#annotation_vid').on('timeupdate',function(event){
+    console.log(this.currentTime);
+    if(vidData.length != 0){
+      console.log(vidData);
+    };
+
+
+  });
+
+  //   setInterval(function checkvidT(){
+  //     // console.log('in loop');
+  //      if(vidData[0] != null){
+    //  console.log(vidData);
+    // };
+  //     // console.log(vid.currentTime);
+  //     // if(vid.currentTime == 4.1){
+  //     //   console.log('catch time');
+  //     // }
+
+  //   },10);
+  
+}
+
+
+
+
+</script>
 
 {% endblock %}
