@@ -10,7 +10,7 @@
 <div class="body_container">
 <div class="container">
   <div class="exercise_form">
-    <h3 style="text-align: center">{{title}}</h3>
+    <h3 style="text-align: center">{{instance.exerciseName}}</h3>
     <p class="text-center">Tags: {% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</p>
   </div>
   <div class="jumbotron exercise_detail">
