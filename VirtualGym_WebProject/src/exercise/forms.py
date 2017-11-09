@@ -18,6 +18,46 @@ TAG_CHOICE = (
 
 )
 
+class EditExeForm(forms.ModelForm):
+
+    """
+    exercise form for accept front end user input information for creating an exercise
+    """
+
+    # exercise descriptin input field
+    exerciseDescription=forms.CharField(widget=forms.TextInput(
+        attrs={
+            "class":"form-control",
+            "placeholder":"Description for your exercise...",
+        }
+    ))
+
+    exerciseName=forms.CharField(widget=forms.TextInput(
+        attrs={
+            "placeholder":"Title for your exercise...",
+        }
+    ))
+
+    # exercise tag text input field
+    exerciseTag=forms.CharField(required=False,widget=forms.TextInput(
+        attrs={
+            "class":"form-control",
+            "placeholder":"Tags for the exercise...",
+        }
+    ))
+
+    # exercise video input field
+    exerciseVideos=forms.FileField()
+
+    class Meta:
+
+        """
+        set exercise fields in front end
+        """
+        model=Exercise
+        fields={"exerciseDescription","exerciseTag","exerciseVideos","exerciseName"}
+
+
 class CreateExeForm(forms.ModelForm):
 
     """
