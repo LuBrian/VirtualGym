@@ -46,6 +46,7 @@ window.onload = function() {
 			concanenatedVideoElems = concanenatedVideoElems + "(video: " + this.videoWidth + " x " + this.videoHeight + ")" + "time : "+ this.currentTime + " annotation: "+annotation;
 			//initial.innerHTML = concanenatedVideoElems
 		}
+		console.log(vidData);
 		this.play();
 	}
 	
