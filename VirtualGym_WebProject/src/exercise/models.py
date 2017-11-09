@@ -90,6 +90,7 @@ class Exercise(models.Model):
     exercisePosterId = models.ForeignKey(MyUsers)
     exerciseVideos = models.ManyToManyField('Videos', through=VideosExercises)
     exerciseApproved = models.BooleanField(default=False)
+    exerciseName = models.CharField(max_length=100,blank = False)
 
 
     def __str__(self):

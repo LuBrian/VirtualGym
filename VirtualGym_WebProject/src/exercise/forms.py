@@ -32,15 +32,20 @@ class CreateExeForm(forms.ModelForm):
         }
     ))
 
+    exerciseName=forms.CharField(widget=forms.TextInput(
+        attrs={
+            "placeholder":"Title for your exercise...",
+        }
+    ))
+
     # exercise tag input check box field
     exerciseTag = forms.MultipleChoiceField(
-        required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=TAG_CHOICE,
     )
 
     # exercise tag text input field
-    exTag=forms.CharField(widget=forms.TextInput(
+    exTag=forms.CharField(required=False,widget=forms.TextInput(
         attrs={
             "class":"form-control",
             "placeholder":"Tags for the exercise...",
@@ -56,7 +61,7 @@ class CreateExeForm(forms.ModelForm):
         set exercise fields in front end
         """
         model=Exercise
-        fields={"exerciseDescription","exerciseTag","exerciseVideos"}
+        fields={"exerciseDescription","exerciseTag","exerciseVideos","exerciseName"}
 
 
 
