@@ -333,7 +333,10 @@
     font-size: 20px; }
 
 .video_container {
-  position: relative; }
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: auto; }
   .video_container .annotationForm_container {
     display: none;
     background-color: rgba(128, 128, 128, 0.7);
@@ -341,9 +344,10 @@
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0; }
+    left: 0;
+    z-index: 100; }
     .video_container .annotationForm_container .input_container {
-      margin-top: 20%;
+      margin-top: 40%;
       vertical-align: middle; }
       .video_container .annotationForm_container .input_container textarea {
         resize: none;
@@ -365,16 +369,35 @@
       font-weight: bold;
       font-size: 20px; }
 
-.video_container {
-  text-align: center; }
+.vid_box {
+  display: inline-block;
+  position: relative; }
 
-.vid_annotations {
+.vid_annotations_details {
+  position: absolute;
+  z-index: 10; }
+  .vid_annotations_details .single_annotation {
+    padding: 2px 2px 2px 2px;
+    background-color: rgba(255, 80, 80, 0.8);
+    font-size: 13px;
+    font-family: "Georgia";
+    min-width: 100px;
+    border-radius: 5px; }
+
+#annotation_closeBtn {
+  float: right;
+  color: black;
+  margin-right: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer; }
+
+.annotation_tags {
   margin: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  flex-basis: 20%; }
-  .vid_annotations div {
+  flex-wrap: wrap; }
+  .annotation_tags div {
     margin: 0 20px 0 20px;
     order: 1;
     text-align: center; }
