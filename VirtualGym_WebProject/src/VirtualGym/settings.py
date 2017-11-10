@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'exercise',
     'VirtualGym',
     'forum',
+    'annotations',
     'social.apps.django_app.default',
     'social_django',
 ]
@@ -73,7 +74,10 @@ MIDDLEWARE = [
 
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
+
 ]
+
+
 
 ROOT_URLCONF = 'VirtualGym.urls'
 

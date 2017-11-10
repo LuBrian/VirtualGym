@@ -3,8 +3,9 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
+from .forms import EditExeForm
 
-from .models import Exercise,Tags
+from .models import Exercise,Tags,TagsExercises
 from .forms import TAG_CHOICE
 
 
@@ -131,15 +132,15 @@ def Exercise_detail(request,id=None):
 	instance=get_object_or_404(Exercise,exerciseId=id)
 
 	comment_form=CommentForm(request.POST or None)
-	tagobj=Tags.objects.get(tagID=instance.exerciseId)
+	tagobj=gettag(instance.exerciseId)
 	quearyset=[]
-	print(tagobj)
+	# print(tagobj)
 	if tagobj not in [None, '']:
 		quearyset=Exercise.objects.filter(
 			Q(exerciseApproved = True) &
 			Q(exerciseTag__tagDescription = tagobj)).distinct()
 
-	print (quearyset)
+	#print (quearyset)
 
 	if comment_form.is_valid():
 
@@ -171,33 +172,28 @@ def Exercise_detail(request,id=None):
 	}
 	return render(request,"detail.html",context)
 
+def gettag(exeid):
+	return Tags.objects.get(tagsexercises=TagsExercises.objects.filter(exercise_id=exeid))
+
+def getTags(exTags):
+	tags = ""
+	for tag in exTags:
+		tags = tags+", "+str(tag)
+	return tags[2:]
+    	
 def EditExe(request,id=None):
 
 	instance=get_object_or_404(Exercise,exerciseId=id)
-	form= CreateExeForm(request.POST or None,instance=instance)
+	form= EditExeForm(request.POST or None,instance=instance, initial={"exerciseTag": getTags(instance.exerciseTag.all())})
+	tagobj=gettag(instance.exerciseId)
+	
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
 
-		tagobj=Tags.objects.get(tagID=instance.exerciseId)
-		data=form.cleaned_data
-		checkbox_data = data["exerciseTag"]
-		custom_data = data["exTag"].split(",")
-		final_list = []
-		for i in checkbox_data:
-			final_list.append(i)
-		for i in custom_data:
-			final_list.append(i)
-		final_list.append(str(tagobj))
-		# for tag in tagobj:
-		# 	if(tag not in final_list):
-		# 		final_list.append(tag)
-
-
 		instance.exerciseTag.clear()
-	
-		addTagsToDB(final_list,instance)
-		#addTagsToDB(data["exTag"].split(","), instance)
+		data=form.cleaned_data
+		addTagsToDB(data["exerciseTag"].split(","), instance)
 
 		instance.save()
 
@@ -273,7 +269,6 @@ def createTag(tag, exerciseObj):
 	Nothing
 
 	"""
-	print(tag)
 	tag_obj = Tags()
 	if not Tags.objects.filter(tagDescription=tag).exists():
 		tag_obj = Tags(tagDescription = tag)
@@ -299,14 +294,5 @@ def createTagRelationship(tag_obj, exerciseObj):
 	tagRelationshipObj.save()
 
 
-def createAnnotation(request,vidID):
-	print(vidID)
-	instance=get_object_or_404(Videos,video_id=vidID)
-	title="Add annotations"
-	# print(instance.exerciseVideos.url)
-	context = {
-		"title":title,
-		"instance":instance,
-	}
 
-	return render(request,"addAnnotation.html",context)
+

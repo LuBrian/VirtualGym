@@ -24,6 +24,7 @@
     {%endfor%}
 
   {% if user.is_authenticated  %}
+  <div id="fn" hidden>
   <form method="post">{% csrf_token %}
     <div class="form-group">
       {{form.questionDescription}}
@@ -31,6 +32,8 @@
     </div>
     <button id="replyA" type="submit" class="btn btn-info btn-lg">Reply</button>
   </form>
+  </div>
+  <input id="button" type="button" value="Reply" class="btn btn-info btn-sm"><br>
 
   <hr/>
   {% else %}

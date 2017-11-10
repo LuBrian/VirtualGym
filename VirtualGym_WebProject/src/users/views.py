@@ -80,8 +80,8 @@ def signUp(request):
 			login(request, user)
 			return redirect('index')
 		except Exception as e:
-			print ('%s (%s)' % (e.message, type(e)))
-			context["exception"] = e.message
+			print ('%s (%s)' % (e, type(e)))
+			context["exception"] = e
 			# print(context["exception"])
 			# print(context)
 		
