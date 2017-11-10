@@ -57,8 +57,16 @@ window.onload = function() {
 		
 	}
 
+<<<<<<< HEAD
+			concanenatedVideoElems = concanenatedVideoElems + "(video: " + this.videoWidth + " x " + this.videoHeight + ")" + "time : "+ this.currentTime + " annotation: "+annotation;
+			//initial.innerHTML = concanenatedVideoElems
+		}
+		console.log(vidData);
+		this.play();
+=======
 	function callback(){
 		console.log('success call back');
+>>>>>>> 70df6f2b3a1b07bb7a54e36ab03d44e07ceabae9
 	}
 	
 	// button.addEventListener("click", saveToJSON);

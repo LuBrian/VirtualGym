@@ -75,7 +75,8 @@ class ExerciseAdmin(admin.ModelAdmin):
     actions = [approve_exercise, reject_exercise]
     list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos","exerciseApproved"]
     list_filter=["exerciseApproved","exerciseDescription"]
-    search_fields=["exercisePosterId","exerciseTag"]
+    search_fields=["exerciseTag__tagDescription","exercisePosterId__email","exerciseName"]
+
 
     def exerciseURL(self,obj):
         """approve_exercise
