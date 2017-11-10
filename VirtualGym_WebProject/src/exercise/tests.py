@@ -27,7 +27,7 @@ class UITestCase(TestCase):
                 password.send_keys('admin1234')
                 sign_In = self.browser.find_element_by_id('signInButton').click()
             self.browser.get("http://localhost:8000/createExercise/")
-       
+
             name = self.browser.find_element_by_id('name')
             name.send_keys("this is a test name")
             video =    self.browser.find_element_by_id('id_exerciseVideos')
@@ -123,4 +123,3 @@ class UITestCase(TestCase):
         except:
             print("Test failed! server down or no internet for now")
             print("Please check or contact us! ")
-    	
