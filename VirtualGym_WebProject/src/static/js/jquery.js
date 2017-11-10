@@ -1,10 +1,5 @@
 
-//hide replay function
-// $("#button").click(function() {
-//   $("#fn").show();
-//   $("#button").hide();
-// });
-
+//function for hide replay 
 function myFunction(btn) {
     var x = document.getElementById(btn);
     if (x.style.display === "block") {
