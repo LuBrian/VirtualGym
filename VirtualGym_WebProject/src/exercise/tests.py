@@ -15,50 +15,50 @@ class UITestCase(TestCase):
     #     self.browser.quit()
 
     # test if a user can create exercise
-    def test_create_exercise(self):
-        try:
-            self.browser.get("http://localhost:8000/createExercise/")
-            self.assertIn("http://localhost:8000/createExercise/", self.browser.current_url)
-            if(self.browser.find_element_by_id("signIn")):
-                signIn = self.browser.find_element_by_id("signIn").click()
-                email = self.browser.find_element_by_id('email')
-                email.send_keys('xin@vg.ca')
-                password = self.browser.find_element_by_id('password')
-                password.send_keys('admin1234')
-                sign_In = self.browser.find_element_by_id('signInButton').click()
-            self.browser.get("http://localhost:8000/createExercise/")
+    # def test_create_exercise(self):
+    #     try:
+    #         self.browser.get("http://localhost:8000/createExercise/")
+    #         self.assertIn("http://localhost:8000/createExercise/", self.browser.current_url)
+    #         if(self.browser.find_element_by_id("signIn")):
+    #             signIn = self.browser.find_element_by_id("signIn").click()
+    #             email = self.browser.find_element_by_id('email')
+    #             email.send_keys('xin@vg.ca')
+    #             password = self.browser.find_element_by_id('password')
+    #             password.send_keys('admin1234')
+    #             sign_In = self.browser.find_element_by_id('signInButton').click()
+    #         self.browser.get("http://localhost:8000/createExercise/")
 
-            name = self.browser.find_element_by_xpath("//*[@id='id_exerciseName']")
-            name.send_keys("this is a test name")
-            video = self.browser.find_element_by_id('id_exerciseVideos')
-            # need absolute path here
-            # assume there is a video called "2017_04_03_13_12_34.mp4" under file_path
-            pwd = os.getcwd()
-            father_path=str(os.path.abspath(os.path.dirname(pwd)+os.path.sep+"."))
-            file_path = father_path+("/media_cdn/bacK.mp4")
-            video.send_keys(file_path)
-            description = self.browser.find_element_by_id('id_exerciseDescription')
-            description.send_keys("this is a test description")
-            tag = self.browser.find_element_by_id('id_exerciseTag_4').click()
-            tag_text = self.browser.find_element_by_id('id_exTag')
-            tag_text.send_keys("tagText")
-            submit_ex = self.browser.find_element_by_id("submitExercise").click()
-            time.sleep(1)
-            annotation = self.browser.find_element_by_xpath("//*[@id='annotation_vid']")
-            action = webdriver.common.action_chains.ActionChains(self.browser)
-            action.move_to_element_with_offset(annotation, 200, 200)
-            action.click()
-            action.perform()
-            time.sleep(2)
-            note = self.browser.find_element_by_xpath("//*[@id='annotation_detial']")
-            note.send_keys("annotation from test")
-            add = self.browser.find_element_by_xpath("//*[@id='annotation_submit']").click()
-            time.sleep(2)
-            finish = self.browser.find_element_by_xpath("/html/body/div/div[2]/div/div[4]/a/button").click()
-            self.assertIn("http://localhost:8000/myExercise/", self.browser.current_url)
-        except:
-            print("Test failed! server down or no internet for now")
-            print("Please check or contact us! ")
+    #         name = self.browser.find_element_by_xpath("//*[@id='id_exerciseName']")
+    #         name.send_keys("this is a test name")
+    #         video = self.browser.find_element_by_id('id_exerciseVideos')
+    #         # need absolute path here
+    #         # assume there is a video called "2017_04_03_13_12_34.mp4" under file_path
+    #         pwd = os.getcwd()
+    #         father_path=str(os.path.abspath(os.path.dirname(pwd)+os.path.sep+"."))
+    #         file_path = father_path+("/media_cdn/bacK.mp4")
+    #         video.send_keys(file_path)
+    #         description = self.browser.find_element_by_id('id_exerciseDescription')
+    #         description.send_keys("this is a test description")
+    #         tag = self.browser.find_element_by_id('id_exerciseTag_4').click()
+    #         tag_text = self.browser.find_element_by_id('id_exTag')
+    #         tag_text.send_keys("tagText")
+    #         submit_ex = self.browser.find_element_by_id("submitExercise").click()
+    #         time.sleep(1)
+    #         annotation = self.browser.find_element_by_xpath("//*[@id='annotation_vid']")
+    #         action = webdriver.common.action_chains.ActionChains(self.browser)
+    #         action.move_to_element_with_offset(annotation, 200, 200)
+    #         action.click()
+    #         action.perform()
+    #         time.sleep(2)
+    #         note = self.browser.find_element_by_xpath("//*[@id='annotation_detial']")
+    #         note.send_keys("annotation from test")
+    #         add = self.browser.find_element_by_xpath("//*[@id='annotation_submit']").click()
+    #         time.sleep(2)
+    #         finish = self.browser.find_element_by_xpath("/html/body/div/div[2]/div/div[4]/a/button").click()
+    #         self.assertIn("http://localhost:8000/myExercise/", self.browser.current_url)
+    #     except:
+    #         print("Test failed! server down or no internet for now")
+    #         print("Please check or contact us! ")
 
 
     # # test if user can view accepted exercise list
@@ -210,4 +210,23 @@ class UITestCase(TestCase):
     #         self.assertTrue("Three" in cross_exe)
     #     except:
     #         print("Cross reference Test failed! server down or no internet for now")
+    #         print("Please check or contact us! ")
+
+
+    # def test_moderator_search(self):
+    #     try:
+    #         self.browser.get("http://localhost:8000/admin/")
+    #         self.assertIn("http://localhost:8000/admin/", self.browser.current_url)
+    #         username = self.browser.find_element_by_xpath("//*[@id='id_username']")
+    #         username.send_keys("test@vg.ca")
+    #         password = self.browser.find_element_by_xpath("//*[@id='id_password']")
+    #         password.send_keys("admin1234")
+    #         Log_in = self.browser.find_element_by_xpath("//*[@id='login-form']/div[3]/input").click()
+    #         exercise = self.browser.find_element_by_xpath("//*[@id='content-main']/div[4]/table/tbody/tr/th/a").click()
+    #         self.assertIn("http://localhost:8000/admin/exercise/exercise/",self.browser.current_url)
+    #         search_posterID = self.browser.find_element_by_xpath("//*[@id='searchbar']")
+    #         search_posterID.send_keys("xin@vg.ca")
+    #         search_button = self.browser.find_element_by_xpath("//*[@id='changelist-search']/div/input[2]").click()
+    #     except:
+    #         print("Moderator search test failed! server down or no internet for now")
     #         print("Please check or contact us! ")
