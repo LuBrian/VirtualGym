@@ -24,16 +24,17 @@
     {%endfor%}
 
   {% if user.is_authenticated  %}
-  <div id="fn" hidden>
+  <div id="{{obj.questionID}}" hidden>
   <form method="post">{% csrf_token %}
     <div class="form-group">
       {{form.questionDescription}}
       <input type="hidden" name="questionparent_id" value="{{obj.questionID}}">
     </div>
-    <button id="replyA" type="submit" class="btn btn-info btn-lg">Reply</button>
+    <button id="replyA" type="submit" class="btn btn-info btn-lg">Post</button>
   </form>
   </div>
-  <input id="button" type="button" value="Reply" class="btn btn-info btn-sm"><br>
+  <button id="button" style="float: right;" type="button" class="btn btn-info btn-sm" onclick="myFunction({{obj.questionID}})">Reply</button>
+  <br>
 
   <hr/>
   {% else %}
@@ -89,4 +90,5 @@
 {% endif  %}
 </div>
 </div>
+
 {% endblock %}

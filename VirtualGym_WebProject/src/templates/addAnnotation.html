@@ -9,16 +9,22 @@
 <div class="container">
   <div class="exercise_form">
     <h3 style="text-align: center">{{title}}</h3>
-    <p class="text-center">This is exercise detail</p>
+    <p class="text-center">This is annotation detail</p>
   </div>
   <div class="jumbotron video_container">
-  
-    <video id = "annotation_vid" controls>
-      <source src="{{instance.videoFile.url}}" type="video/mp4">
-    </video>
+      <div id = "vid_annotations_details" class="vid_annotations_details">
+        
+      </div>
+
+      <div class="vid_box">
+        <video id = "annotation_vid" controls>
+          <source src="{{instance.videoFile.url}}" type="video/mp4">
+         </video>
+      </div>
 
 
     <div id = "annotationForm_container" class="annotationForm_container">
+      <a id="annotation_closeBtn"">&times;</a>
       <form method="post">{% csrf_token %}
         <div class="input_container">
           <textarea id = "annotation_detial" class = "annotation_detial" type="text" value = "" name="details" value="{{obj.questionID}}"></textarea>
@@ -34,10 +40,8 @@
 
 
 
-<div class="vid_annotations">
+<div class="annotation_tags">
     <div>ppp</div>
-    <div>ppp</div>
-    <div>jlajf</div>
 
   </div>
 
@@ -64,7 +68,8 @@ window.onload = function() {
     initial = document.querySelector("i");
     concanenatedVideoElems = "";
     button = document.querySelector("button");
-    annotationSubmit =  document.getElementById("annotation_submit")
+    annotationSubmit =  document.getElementById("annotation_submit");
+    annotationClose = document.getElementById("annotation_closeBtn")
     vidData = [];
     videoInfo = {};
     details = "";
@@ -72,6 +77,7 @@ window.onload = function() {
     Yval = 0.0;
     timeStep = 0.0;
     localdata = "";
+    myData = {{contents|safe}};
 
   function getElementCSSSize(el) {
     var cs = getComputedStyle(el);
@@ -116,53 +122,93 @@ window.onload = function() {
   function callback(){
     console.log('success call back');
   }
+
+
   
   // button.addEventListener("click", saveToJSON);
   video.addEventListener("click", mouseHandler);
 
+  annotationClose.addEventListener('click',function(){
+    document.getElementById("annotationForm_container").style.display = "none";
+    video.play();
+
+  });
+
   annotationSubmit.addEventListener('click', function() {
+
       details = $("textarea").val();
-      console.log(details);
+      // console.log(details);
       if (details != "" && details != null)
       {
         vidData.push({x: Xval, y: Yval, time: timeStep, details: details});
-        var tempData = {x: Xval, y: Yval, time: timeStep, details: details}
+        var tempData = {x: Xval, y: Yval, time: timeStep, details: details};
         localdata = JSON.stringify([tempData]);
-        // concanenatedVideoElems = concanenatedVideoElems + "(video: " + this.videoWidth + " x " + this.videoHeight + ")" + "time : "+ this.currentTime + " annotation: "+annotation;
-        //initial.innerHTML = concanenatedVideoElems
+        
         // https://stackoverflow.com/questions/36201666/submit-without-refresh-in-django
         $.ajax({
           type: 'POST',
           url: '/annotations/{{ instance.video_id }}/',
           data :  localdata,
           dataType:'Json'
-        }).done(function(){
+        }).done(function(contents){
             // This is the ajax.done() method, where you can fire events after the ajax method is complete 
-
             // For instance, you could hide/display your add/remove button here
-            console.log('success call back');
+            console.log('success post call back');
+            // myData = JSON.parse(contents);
           });
+
+          $.ajax({
+            type:'GET',
+            url : '/annotations/{{ instance.video_id }}/',
+          }).done(function(contents){
+            console.log('######success get call back');
+            myData = JSON.parse(contents);
+            // console.log(myData.length)
+
+          });
+        
       }
 
+    $.ajax({
+      type:'GET',
+      url : '/annotations/{{ instance.video_id }}/',
+    }).done(function(contents){
+      console.log('######success get call back');
+      myData = JSON.parse(contents);
+      console.log(myData.length)
+
+    });
 
     
    
     document.getElementById("annotation_detial").value = "";
     video.play();
     document.getElementById("annotationForm_container").style.display = "none";
-    
-
-
-    
+  
   }, false);
   
   $('#annotation_vid').on('timeupdate',function(event){
-    console.log(this.currentTime);
-    if(vidData.length != 0){
-      console.log(vidData);
+    var dataLength = myData.length;
+    var dataSet = [];
+    var previousLen = 0;
+    for(var i =0; i<dataLength; i++){
+      dataSet.push(JSON.parse(myData[i]));
     };
-
-
+    var currentT = this.currentTime;
+    var innerContent = "";
+    for(var i=0;i<dataLength;i++){
+        
+        if(currentT > dataSet[i][0]["time"] && currentT < (dataSet[i][0]["time"]+3)){
+          innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ dataSet[i][0]["x"] + "px; top: " + dataSet[i][0]["y"] + "px;\">";
+          innerContent += dataSet[i][0]["details"] + "</p>" + "\n";
+        };
+    };
+   
+    var infoDiv = document.getElementById("vid_annotations_details");
+    infoDiv.innerHTML = "";
+    infoDiv.innerHTML = innerContent;
+    
+    // myData = JSON.parse({{ contents }});
   });
 
   //   setInterval(function checkvidT(){
@@ -176,7 +222,6 @@ window.onload = function() {
   //     // }
 
   //   },10);
-  
 }
 
 

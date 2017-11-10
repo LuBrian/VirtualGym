@@ -13,10 +13,6 @@ class Annotation(models.Model):
 	AnnotationId = models.AutoField(primary_key = True)
 	toVid = models.ForeignKey(Videos)
 	details = models.CharField(null = False, blank = False, max_length=1000)
-	x = models.PositiveIntegerField()
-	y = models.PositiveIntegerField()
-	timeStep = models.DecimalField(max_digits=30, decimal_places=15)
-
 	class Meta():
 		ordering = ["-AnnotationId"]
 
