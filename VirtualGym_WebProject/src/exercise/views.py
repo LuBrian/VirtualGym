@@ -55,9 +55,16 @@ def CreateExe(request):
 
 def Profile(request):
 	"""
-    get all approved exercise from server and return to view all exercise page by context.
+    1.get all approved exercise from server and return to view all exercise page by context.
+	2.filter exercise by tag and descriptin var search file.
+
     @type  quearyset: set of exercise
-    @param quearyset: The set of all approved exercise object.
+    @param quearyset: The set of all approved exercise object. if front end send search request,
+						filter exercise according request.
+
+    @type  queary: string
+    @param queary: request string from front end.
+
     """
 	title=" Profile of Exercise "
 	quearyset=Exercise.objects.filter(exerciseApproved = True)
@@ -106,6 +113,8 @@ def Exercise_detail(request,id=None):
 	"""
     1.view each exercise according exercise Id(return to my exercise page by context).
 	2.receiving fron end comment and translate to database.
+	3.filter database according the same tag and show in front as cross referance.
+
     @type  instance: exercise id
     @param instance: view exercise detail according exercise Id.
 
@@ -125,22 +134,22 @@ def Exercise_detail(request,id=None):
     @param parent_qs: get reply's parent according parent id,if have parent then set parent_obj.
 
     @type  new_comment: new comment object.
-    @param obj_content: new a comment object and save it to database.
+    @param new_comment: new a comment object and save it to database.
+
+    @type  quearyset: set.
+    @param quearyset: set of exercise object with same tag.
+
+    @type  taglist: tag object.
+    @param taglist: list of tag.
     """
 
 	title=" Detail of Exercise "
 	instance=get_object_or_404(Exercise,exerciseId=id)
-
 	comment_form=CommentForm(request.POST or None)
-	tagobj=gettag(instance.exerciseId)
-	quearyset=[]
-	# print(tagobj)
-	if tagobj not in [None, '']:
-		quearyset=Exercise.objects.filter(
-			Q(exerciseApproved = True) &
-			Q(exerciseTag__tagDescription = tagobj)).distinct()
 
-	#print (quearyset)
+	quearyset=[]
+	taglist=instance.exerciseTag.all()
+	quearyset=getExebytag(taglist)
 
 	if comment_form.is_valid():
 
@@ -172,21 +181,52 @@ def Exercise_detail(request,id=None):
 	}
 	return render(request,"detail.html",context)
 
-def gettag(exeid):
-	return Tags.objects.get(tagsexercises=TagsExercises.objects.filter(exercise_id=exeid))
+def getExebytag(taglist):
+	"""
+	1.according the tag list return exercises with same tag
+    @type  quearyset: set.
+    @param quearyset: set of exercise object with same tag.
+
+    @type  tagset: tag object.
+    @param tagset: list of tag.
+    """
+	quearyset=[]
+	tagset=[]
+	for tag in taglist:
+		if tag.tagDescription not in [None, '']:
+			print(tag.tagDescription)
+			tagset=Exercise.objects.filter(
+				Q(exerciseApproved = True) &
+				Q(exerciseTag__tagDescription = tag)).distinct()
+			for i in tagset:
+				if i not in quearyset:
+					quearyset.append(i)
+	return quearyset
 
 def getTags(exTags):
+	"""
+	1.tostring method for tags.
+
+    """
 	tags = ""
 	for tag in exTags:
 		tags = tags+", "+str(tag)
 	return tags[2:]
-    	
+
 def EditExe(request,id=None):
+	"""
+	1.according the current exercises edit descriptin, tags.
+
+    @type  instance: exercise object.
+    @param instance: exercise object according by current user click exercise.
+
+    @type  form: edit form.
+    @param form: provide a form interact between front and back to save edit.
+
+    """
 
 	instance=get_object_or_404(Exercise,exerciseId=id)
 	form= EditExeForm(request.POST or None,instance=instance, initial={"exerciseTag": getTags(instance.exerciseTag.all())})
-	tagobj=gettag(instance.exerciseId)
-	
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
@@ -292,7 +332,3 @@ def createTagRelationship(tag_obj, exerciseObj):
 	"""
 	tagRelationshipObj = TagsExercises(tag_id = tag_obj, exercise_id = exerciseObj)
 	tagRelationshipObj.save()
-
-
-
-
