@@ -13,8 +13,8 @@ class UITestCase(TestCase):
         self.browser = webdriver.Firefox()
 
     # close browser after test
-    # def tearDown(self):
-    #     self.browser.quit()
+    def tearDown(self):
+        self.browser.quit()
 
     # test if a user can create exercise
     def test_create_exercise(self):
