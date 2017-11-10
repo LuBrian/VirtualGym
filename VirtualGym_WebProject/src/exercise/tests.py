@@ -213,20 +213,30 @@ class UITestCase(TestCase):
     #         print("Please check or contact us! ")
 
 
-    # def test_moderator_search(self):
-    #     try:
-    #         self.browser.get("http://localhost:8000/admin/")
-    #         self.assertIn("http://localhost:8000/admin/", self.browser.current_url)
-    #         username = self.browser.find_element_by_xpath("//*[@id='id_username']")
-    #         username.send_keys("test@vg.ca")
-    #         password = self.browser.find_element_by_xpath("//*[@id='id_password']")
-    #         password.send_keys("admin1234")
-    #         Log_in = self.browser.find_element_by_xpath("//*[@id='login-form']/div[3]/input").click()
-    #         exercise = self.browser.find_element_by_xpath("//*[@id='content-main']/div[4]/table/tbody/tr/th/a").click()
-    #         self.assertIn("http://localhost:8000/admin/exercise/exercise/",self.browser.current_url)
-    #         search_posterID = self.browser.find_element_by_xpath("//*[@id='searchbar']")
-    #         search_posterID.send_keys("xin@vg.ca")
-    #         search_button = self.browser.find_element_by_xpath("//*[@id='changelist-search']/div/input[2]").click()
-    #     except:
-    #         print("Moderator search test failed! server down or no internet for now")
-    #         print("Please check or contact us! ")
+    def test_moderator_search(self):
+        try:
+            self.browser.get("http://localhost:8000/admin/")
+            self.assertIn("http://localhost:8000/admin/", self.browser.current_url)
+            username = self.browser.find_element_by_xpath("//*[@id='id_username']")
+            username.send_keys("test@vg.ca")
+            password = self.browser.find_element_by_xpath("//*[@id='id_password']")
+            password.send_keys("admin1234")
+            Log_in = self.browser.find_element_by_xpath("//*[@id='login-form']/div[3]/input").click()
+            exercise = self.browser.find_element_by_xpath("//*[@id='content-main']/div[4]/table/tbody/tr/th/a").click()
+            self.assertIn("http://localhost:8000/admin/exercise/exercise/",self.browser.current_url)
+            search_posterID = self.browser.find_element_by_xpath("//*[@id='searchbar']")
+            search_posterID.send_keys("xin@vg.ca")
+            search_button = self.browser.find_element_by_xpath("//*[@id='changelist-search']/div/input[2]").click()
+            time.sleep(1)
+            search_exerciseName = self.browser.find_element_by_xpath("//*[@id='searchbar']")
+            search_exerciseName.clear()
+            search_exerciseName.send_keys("Balance Exercises For Seniors")
+            search_button = self.browser.find_element_by_xpath("//*[@id='changelist-search']/div/input[2]").click()
+            time.sleep(1)
+            search_exerciseTag = self.browser.find_element_by_xpath("//*[@id='searchbar']")
+            search_exerciseTag.clear()
+            search_exerciseTag.send_keys("Triceps")
+            search_button = self.browser.find_element_by_xpath("//*[@id='changelist-search']/div/input[2]").click()
+        except:
+            print("Moderator search test failed! server down or no internet for now")
+            print("Please check or contact us! ")
