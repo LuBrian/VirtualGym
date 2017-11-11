@@ -4,7 +4,7 @@ import users.models as U
 import exercise.models as E
 import comments.models as C
 import forum.models as F
-
+import annotations.models as A
 
 def userSetUp():
 	U.MyUsers.objects.create(username = 'harrbra', is_admin = True, is_superuser = True, email = 'test1@test.ca')
@@ -30,7 +30,15 @@ def commentExercisesSetUp():
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 	QuestionsExercises.objects.create(question_id = Questions.objects.get(questionDescription = 'How do I deadlift without pain in my back?'), exercise_id = Exercise.objects.get(exerciseDescription = 'This is a deadlift.'))
 
-	
+#Requires video set up first
+def annotationSetUp():
+	vid = E.Videos.objects.get(videoFile = "Video Test")
+	A.Annotation.objects.create(details = "Annotation Test", toVid = vid)
+
+#Requires user set up first
+def videoSetUp():
+	harrbra = U.MyUsers.objects.get(username = 'harrbra')
+	E.Videos.objects.create(videoFile = "Video Test", exercisePosterId = harrbra)
 
 def QASetUp():
 	harrbra = U.MyUsers.objects.get(username = 'harrbra')
@@ -81,6 +89,16 @@ class ExerciseTestCase(TestCase):
 		self.assertEqual('harrbra' in exerciseQuestions, True)
 
 
+class AnnotationTestCase(TestCase):
+	def setUp(self):
+		userSetUp()
+		videoSetUp()
+		annotationSetUp()
+
+	def test_annotation(self):
+		annotate = A.Annotation.objects.get(details = 'Annotation Test')
+
+		self.assertEqual("Annotation Test" in annotate.details, True)
 
 class QATestCase(TestCase):
 	"""Tests that Questions and Answers portion works"""
