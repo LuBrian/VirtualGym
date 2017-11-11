@@ -5,4 +5,5 @@ from django.contrib import admin
 from .models import Annotation
 
 # Register your models here.
+# set up annotation in admin page
 admin.site.register(Annotation)

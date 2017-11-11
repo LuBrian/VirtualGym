@@ -12,7 +12,17 @@ import json
 
 @csrf_exempt #This skips csrf validation. Use csrf_protect to have validation
 def createAnnotation(request,vidID):
-
+	"""
+	After create the exercise, create annotation when click on a video
+	@type  vidID: vidID, int
+    @param vidID: passed in vidID
+    @type  instance: video
+    @param instance: video instance find by vidID
+    @type  annotationSet: list
+    @param annotationSet: list stores this instance's annotations
+    @type  json_string: string
+    @param json_string: json string contains this video's annotations
+	"""
 
 	instance=get_object_or_404(Videos,video_id=vidID)
 	title="Add annotations"
@@ -25,19 +35,15 @@ def createAnnotation(request,vidID):
 	
 	
 
-
+	# if it is a ajax post or get request,create a new annotation or send the updated annotations json string
 	if request.is_ajax():
-		print('in ajax')
 		if request.method == "POST":
-			print("in post ajax")
-			print('in ajax')
 			JSONdata = request.body
 			tempAnnotation = Annotation(toVid=instance, details=JSONdata)
 			tempAnnotation.save()
 			return HttpResponse("OK")
 
 		if request.method == "GET":
-			print('in get ajax')
 
 			return HttpResponse(json_string)
 
