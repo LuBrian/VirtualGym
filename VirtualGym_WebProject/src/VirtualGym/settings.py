@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'exercise',
     'VirtualGym',
     'forum',
-    'annotations',
     'social.apps.django_app.default',
     'social_django',
 ]

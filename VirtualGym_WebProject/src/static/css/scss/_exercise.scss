@@ -14,13 +14,20 @@
 
 
 .view_exercise_repo_container{
-	margin: 0 20px 0 20px;
+
 	.view_repo_perm{
 		position: relative;
 		margin: auto auto;
 		margin-top: 80px;
 		text-align: center;
 	}
+	.row{
+		display: flex;
+		margin:0;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
 	.create_exercise_perm{
 		p{
 			text-align: center;
