@@ -18,6 +18,8 @@
           {% for obj in objects_list %}
           <div class="col-md-4">
             <div class="thumbnail">
+            <h3 class = "text-center"><a href="{%url "detail" id=obj.exerciseId %}" style="text-align: center"; color:#000; font-size:20px;" href=>{{obj.exerciseName}}</h3>
+
               {% for video in obj.exerciseVideos.all%}
               <video width=100% height="200" controls>
 
@@ -31,8 +33,8 @@
 			
               
               <p style="text-align: center">{{obj.}}</p>
-              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}</p>
-              <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
+              
+              <p style="text-align: center">{% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
             </div>
           </div>
             {% endfor %}
