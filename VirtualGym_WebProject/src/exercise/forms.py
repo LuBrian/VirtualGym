@@ -94,6 +94,7 @@ class CreateExeForm(forms.ModelForm):
     ))
 
 
+
     # exercise video input field
     exerciseVideos=forms.FileField()
 

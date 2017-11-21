@@ -27,62 +27,12 @@
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
         <h1 class ="text-center">Create New Exercise</h1>
         <p class="text-center">Exercises will have to be approved my a moderator before they will be submitted</p>
-        <button type= "videofile" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos}}</button>
+        <div class="jumbotron">
 
-
-        <div class="posiiton_wrapper">
-          <div class="video_container">
-            <div id = "vid_annotations_details" class="vid_annotations_details">
-              
-            </div>
-
-            <div class="vid_box">
-              <video id = "vid_preview" width="800px" height="400px" controls>
-                  <source src="" type="video/mp4">
-              </video>
-         
-            </div>
-
-
-          <div id = "annotationForm_container" class="annotationForm_container">
-            <a id="annotation_closeBtn"">&times;</a>
-            
-              <div class="input_container">
-                <textarea id = "annotation_detial" class = "annotation_detial" type="text" value = "" name="details" value="{{obj.questionID}}"></textarea>
-              </div>
-              <button id = "annotation_submit" type="button" class="annotation_submit">Add</button>
-          
-          </div>
-         
-        </div>
-      </div>
-      <div  class="annotation_tag_wrapper">
-        <div id = "annotation_tags" class="annotation_tags">
-          <!-- <div class= "single_tag">
-            <div class="tag_time">
-              
-              <div class="tag_info">
-                <p>90s </p>
-              </div>
-              <div class="tag_close_btn">
-                &times;
-              </div>
-            </div>
-
-            <div class="tag_details svg toggle">
-            </div>
-
-            <div class= "tag_description">
-              this is an description
-            </div>
-          </div> -->
-
-          
+          <!-- <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video {{form.exerciseVideos}}</a></p> -->
+          <button type= "videofile" class="btn btn-block btn-success" >{{form.exerciseVideos}}</button>
 
         </div>
-      </div>
-        
-        
 
 
         <div class="col-lg-12">
@@ -122,7 +72,6 @@
           </div>
 
         </div>
-        <input class="returnData" type="text" id="returnData" name="returnData">
 
       </form>
     </div>
@@ -137,237 +86,14 @@
 </div>
 
 
-<script type="text/javascript">
-  var myData = [];
+<script>
   $(document).ready(function () {
-
-    // reference: https://www.youtube.com/watch?v=UomEs0ZlvHY
     console.log("get jquery")
     $(":file").change(function(){
-      var file = this.files[0];
-      var reader = new FileReader();
-      reader.onload = viewer.load;
-      reader.readAsDataURL(file);
-      // console.log($(":file").val());
+      console.log("file uploaded")
+      console.log($(":file").val());
     });
-
-
-    var viewer = {
-      load:function(e){
-        $("#vid_preview").attr('src',e.target.result);
-      }
-
-    }
-
-
-
-
   });
-
-
-function showDetials(element){
-  // assign booking content to a variable
-  console.log('clicked');
-  $content = $(element).closest(".single_tag").find('.tag_description');
-  
-  // if content is hiddent, show up arrow. If not show down arrwo
-  if($content.css("display")=="none"){
-    $(element).css("transform","rotateX(180deg)");
-  } 
-  else{
-    $(element).css("transform","rotateX(0deg)");
-  }
-  // toggle the content on click
-  $content.slideToggle(500)
-
-  
-};
-
-function deleteAnnotation(element){
-  // reference: https://stackoverflow.com/questions/44185632/get-index-of-class-element-with-inline-onclick-pure-js-no-jquery
-  var els = Array.prototype.slice.call( document.getElementsByClassName('single_tag'), 0 );
-  // console.log(els);
-  // console.log(element.closest(".single_tag"));
-  var tempIndex = els.indexOf(element.closest(".single_tag"));
-  myData.splice(tempIndex,1);
-  $(element).closest(".single_tag").remove();
-  // console.log(myData);
-
-}
-
-
-
-
-
-window.onload = function() {
-  // specify major varaibles needed to using in
-  // this function
-
-
-  var video = document.querySelector("video"),
-    info = document.querySelector("span"),
-    initial = document.querySelector("i");
-    concanenatedVideoElems = "";
-    annotationSubmit =  document.getElementById("annotation_submit");
-    annotationClose = document.getElementById("annotation_closeBtn");
-    vidData = [];
-    videoInfo = {};
-    details = "";
-    Xval = 0.0;
-    Yval = 0.0;
-    timeStep = 0.0;
-    localdata = "";
-    returnData = "";
-    sumitBtn = document.getElementById("submitExercise");
-    returnInput = document.getElementById("returnData");
-
-
-
-  // when click on video window, performing adding
-  // annotations
-  function mouseHandler(event) {
-    if($(":file").val() != ""){
-      this.pause();
-      document.getElementById("annotationForm_container").style.display = "block";
-    
-      // var size = getElementCSSSize(this);
-      
-      // var scaleX = this.videoWidth / size.width;
-      // var scaleY = this.videoHeight / size.height;
-
-      var rect = this.getBoundingClientRect();  // absolute position of element
-      console.log(event.clientX);
-      // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
-      // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-      var x = ((event.clientX - rect.left)  + 0.5)|0;
-      var y = ((event.clientY - rect.top )  + 0.5)|0;
-
-      Xval = x;
-      Yval = y;
-      timeStep = this.currentTime;
-    };
-    
-  }
-
-  // add onclick listener to video
-  video.addEventListener("click", mouseHandler);
-  // add onclick listener to the close button
-  annotationClose.addEventListener('click',function(){
-    document.getElementById("annotationForm_container").style.display = "none";
-    video.play();
-
-  });
-
-  sumitBtn.addEventListener('click',function(){
-    returnInput.value = returnData;
-
-  })
-
-
-  // add event listener when click submit button
-  // of adding annotation form
-  annotationSubmit.addEventListener('click', function() {
-
-      details = $("textarea").val();
-      // console.log(details);
-      if (details != "" && details != null)
-      {
-        vidData.push({x: Xval, y: Yval, time: timeStep, details: details});
-        var tempData = {x: Xval, y: Yval, time: timeStep, details: details};
-        // localdata = JSON.stringify([tempData]);
-        myData.push(tempData);
-        sortByTimeStep();
-
-
-
-
-        var dataLength = myData.length;
-        var tagContent = "";
-        for(var i=0;i<dataLength;i++){
-          tagContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
-        };
-        var tagDiv = document.getElementById("annotation_tags");
-        tagDiv.innerHTML = tagContent;
-
-      };
-
-
-    
-   
-    document.getElementById("annotation_detial").value = "";
-    video.play();
-    document.getElementById("annotationForm_container").style.display = "none";
-    returnData = JSON.stringify(myData);
-    console.log(returnData);
-  
-  }, false);
-  
-  // show the added annotation on the video
-  $('#vid_preview').on('timeupdate',function(event){
-    var dataLength = myData.length;
-    myData;
-    var currentT = this.currentTime;
-    var innerContent = "";
-   
-    for(var i=0;i<dataLength;i++){
-        
-        if(currentT > myData[i]["time"] && currentT < (myData[i]["time"]+3)){
-
-
-          innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData[i]["x"] + "px; top: " + myData[i]["y"] + "px;\">" + myData[i]["details"] + "</p>" + "\n";
-
-
-         
-        };
-    };
-   
-    var infoDiv = document.getElementById("vid_annotations_details");
-   
-    // infoDiv.innerHTML = "";
-    infoDiv.innerHTML = innerContent;
-    
-    // myData = JSON.parse({{ contents }});
-  });
-
-
-
-  function sortByTimeStep(){
-    myData.sort(function(a,b){
-      if(a.time<b.time) return -1;
-      if(a.time>b.time) return 1;
-      return 0;
-    })
-    console.log(myData)
-  }
-
-
-
-  //   setInterval(function checkvidT(){
-  //     // console.log('in loop');
-  //      if(vidData[0] != null){
-    //  console.log(vidData);
-    // };
-  //     // console.log(vid.currentTime);
-  //     // if(vid.currentTime == 4.1){
-  //     //   console.log('catch time');
-  //     // }
-
-  //   },10);
-
-
-
-
-  
-
-
-  $(".tag_close_btn").click(function(){
-
-
-  })
-}
-
-
-
 </script>
 
 {% endblock %}

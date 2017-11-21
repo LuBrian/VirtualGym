@@ -62,7 +62,6 @@ class Videos(models.Model):
     """
     video_id = models.AutoField(primary_key=True)
     exercisePosterId = models.ForeignKey(MyUsers)
-    annotations = models.CharField(max_length=5000)
     videoFile = models.FileField(null=False,upload_to=upload_location)
 
 class Exercise(models.Model):
