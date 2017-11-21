@@ -17,7 +17,17 @@
           {% for obj in objects_list %}
           <div class="col-md-4">
             <div class="thumbnail">
-              <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
+
+              <div class="row">
+
+              <div class="col-md-12">
+              <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success" aria-label= "Left Align">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+              </a>
+              <h3 class = "text-center"><a href="{%url "detail" id=obj.exerciseId %}" style="text-align: center"; color:#000; font-size:20px;" href=>{{obj.exerciseName}}</h3>
+              </div>
+              </div>
+
               {% for video in obj.exerciseVideos.all%}
               <video width=100% height="200" controls>
 
@@ -30,7 +40,6 @@
               {% endfor %}
             
               <p style="text-align: center">{{obj.}}</p>
-              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}</p>
               <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
 
               
