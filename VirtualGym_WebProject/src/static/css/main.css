@@ -379,13 +379,13 @@
   background-color: #D3D3D3; }
 .create_exercise_container .returnData {
   display: none; }
-.create_exercise_container .position_wrapper {
+.create_exercise_container .posiiton_wrapper {
   text-align: center; }
-  .create_exercise_container .position_wrapper .video_container {
+  .create_exercise_container .posiiton_wrapper .video_container {
     position: relative;
     margin-top: 20px;
     display: inline-block; }
-    .create_exercise_container .position_wrapper .video_container .annotationForm_container {
+    .create_exercise_container .posiiton_wrapper .video_container .annotationForm_container {
       display: none;
       background-color: rgba(128, 128, 128, 0.7);
       position: absolute;
@@ -394,17 +394,17 @@
       top: 0;
       left: 0;
       z-index: 100; }
-      .create_exercise_container .position_wrapper .video_container .annotationForm_container .input_container {
+      .create_exercise_container .posiiton_wrapper .video_container .annotationForm_container .input_container {
         margin-top: 30px;
         vertical-align: middle; }
-        .create_exercise_container .position_wrapper .video_container .annotationForm_container .input_container textarea {
+        .create_exercise_container .posiiton_wrapper .video_container .annotationForm_container .input_container textarea {
           resize: none;
           width: 60%;
           height: 200px;
           font-style: italic;
           font-weight: bold;
           font-size: 15px; }
-      .create_exercise_container .position_wrapper .video_container .annotationForm_container button {
+      .create_exercise_container .posiiton_wrapper .video_container .annotationForm_container button {
         border: none;
         margin-top: 50px;
         height: 40px;

@@ -240,57 +240,24 @@ def EditExe(request,id=None):
     """
 
 	instance=get_object_or_404(Exercise,exerciseId=id)
-	vid_instances = instance.exerciseVideos.all()
-	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
-	# print(vid_instances)
-	videos = []
-	for element in vid_instances:
-		videos.append(element)
-		# print element.videoFile.url
-
 	form= EditExeForm(request.POST or None,instance=instance, initial={"exerciseTag": getTags(instance.exerciseTag.all())})
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
+
 		instance.exerciseTag.clear()
-		
 		data=form.cleaned_data
 		addTagsToDB(data["exerciseTag"].split(","), instance)
 
 		instance.save()
-		if request.method == "POST":
-			jsonData = request.POST.get('returnData')
-			annotaiton_data = json.loads(jsonData)
-			set_video_annotation(annotaiton_data)
-
 
 		return HttpResponseRedirect('/myExercise/')
 	context={
 	"title":"Edit Exercist",
 	"instance":instance,
-	"form":form,
-	"videos": json.dumps(videos_to_dict(videos))
+	"form":form
 	}
 	return render(request,"edit.html",context)
-
-def set_video_annotation(myData):
-	print('before set annotation')
-	print(myData)
-	for element in myData:
-
-		item = get_object_or_404(Videos,video_id=element["video_id"])
-		print(item)
-		print(item.annotations)
-		item.annotations = element["annotations"]
-		item.save()
-
-def videos_to_dict(myVids):
-	vidList = []
-	for item in myVids:
-		vidList.append({"video_id": item.video_id, "annotations": item.annotations,"url":item.videoFile.url })
-	print(vidList)
-	return vidList
-
 
 
 def createVideo(data, exerciseObj,jsonData):
