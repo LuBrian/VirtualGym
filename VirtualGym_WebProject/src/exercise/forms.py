@@ -12,10 +12,6 @@ TAG_CHOICE = (
     ('Elbow', 'Elbow'),
     ('Triceps', 'Triceps'),
     ('Biceps', 'Biceps'),
-    ('Upright Rows', 'Upright Rows'),
-    ('Diagonal_Inward_Shoulder', 'Diagonal_Inward_Shoulder'),
-    ('Diagonal_Outward_Shoulder', 'Diagonal_Outward_Shoulder'),
-
 )
 
 class EditExeForm(forms.ModelForm):
