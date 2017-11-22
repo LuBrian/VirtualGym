@@ -1,6 +1,23 @@
 {% extends 'header_footer.html' %}
 {% block page_content %}
 
+<style media="screen">
+  #id_exerciseDescription{
+      height: 200px;
+      width:500px;
+  }
+
+
+  #id_exerciseName{
+      width:100%;
+  }
+  #id_exerciseVideos{
+    margin: auto auto;
+    width: 100%;
+  }
+
+
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="body_container">
@@ -186,6 +203,7 @@
                <input class="returnData" type="text" id="returnData" name="returnData">
          </form>
          </div>
+        </div>
          {% else %}
          <div class="create_exercise_perm">
             <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
