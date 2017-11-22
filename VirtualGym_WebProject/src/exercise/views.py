@@ -37,8 +37,6 @@ def CreateExe(request):
 		"form":form,
 	}
 
-
-
 	if form.is_valid():
 		print('form submit')
 		instance=form.save(commit=False)
@@ -46,16 +44,9 @@ def CreateExe(request):
 		instance.save()
 		data=form.cleaned_data
 
-		jsonData = request.POST.get('returnData')
+		jsonData = request.POST.get('returnData').split("||")
 
-		vidid = createVideo(data,instance,jsonData)
-
-		jsonData = request.POST.get('returnData')
-		print(jsonData)
-		annotationData = json.loads(jsonData)
-		print(annotationData)
-
-
+		createVideos(data,instance,jsonData)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
@@ -292,8 +283,25 @@ def videos_to_dict(myVids):
 	return vidList
 
 
+def createVideos(data, exerciseObj, jsonData):
+	ex1 = data['exerciseVideos1']
+	ex2 = data['exerciseVideos2']
+	ex3 = data['exerciseVideos3']
+	ex4 = data['exerciseVideos4']
+	ex5 = data['exerciseVideos5']
 
-def createVideo(data, exerciseObj,jsonData):
+	if ex1 is not None:
+		createVideo(ex1, exerciseObj, jsonData[0])
+	if ex2 is not None:
+		createVideo(ex2, exerciseObj, jsonData[1])
+	if ex3 is not None:
+		createVideo(ex3, exerciseObj, jsonData[2])
+	if ex4 is not None:
+		createVideo(ex4, exerciseObj, jsonData[3])
+	if ex5 is not None:
+		createVideo(ex5, exerciseObj, jsonData[4])
+
+def createVideo(videoName, exerciseObj,jsonData):
 	"""createVideo
 
 	This subroutine creates a video object from the file uploaded and calls createVideoExerciseRelationship to form the relationship in the normalized table.
@@ -305,7 +313,8 @@ def createVideo(data, exerciseObj,jsonData):
 	Nothing
 
 	"""
-	videoName = data['exerciseVideos']
+        print(videoName)
+        print(jsonData)
 	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId,annotations = jsonData)
 	videos_obj.save()
 

@@ -95,12 +95,15 @@ class CreateExeForm(forms.ModelForm):
 
 
     # exercise video input field
-    exerciseVideos=forms.FileField()
-
+    exerciseVideos1=forms.FileField()
+    exerciseVideos2=forms.FileField(required=False)
+    exerciseVideos3=forms.FileField(required=False)
+    exerciseVideos4=forms.FileField(required=False)
+    exerciseVideos5=forms.FileField(required=False)
     class Meta:
 
         """
         set exercise fields in front end
         """
         model=Exercise
-        fields={"exerciseDescription","exerciseTag","exerciseVideos","exerciseName"}
+        fields={"exerciseDescription","exerciseTag","exerciseName"}
