@@ -237,6 +237,7 @@ def EditExe(request,id=None):
 	videos = []
 	for element in vid_instances:
 		videos.append(element)
+		
 		# print element.videoFile.url
 
 	form= EditExeForm(request.POST or None,instance=instance, initial={"exerciseTag": getTags(instance.exerciseTag.all())})

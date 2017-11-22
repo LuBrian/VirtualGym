@@ -25,8 +25,37 @@
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
         <h1 class ="text-center">Edit Exercise</h1>
         <p class="text-center">Changes will have to be approved my a moderator before they will be submitted</p>
-        
-
+		  <div class="container" id="tabs">
+          <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" id="video0" href="#menu0">Video 1</a></li>
+                  <li><a data-toggle="tab" id="video1" href="#menu1">Video 2</a></li>
+                  <li><a data-toggle="tab" id="video2" href="#menu2">Video 3</a></li>
+                  <li><a data-toggle="tab" id="video3" href="#menu3">Video 4</a></li>
+                  <li><a data-toggle="tab" id="video4" href="#menu4">Video 5</a></li>
+               </ul>
+           <div class="tab-content">
+            <div id="menu0" class="tab-pane active">
+             <h3>Video 1</h3>
+             </div>
+             
+            <div id="menu1" class="tab-pane fade">
+              <h3>Video 2</h3>
+             </div>
+             
+            <div id="menu2" class="tab-pane fade">
+              <h3>Video 3</h3>
+             </div>
+             
+           <div id="menu3" class="tab-pane fade">
+              <h3>Video 4</h3>
+             </div>
+             
+            <div id="menu4" class="tab-pane fade">
+              <h3>Video 5</h3>
+             </div>
+          </div>
+       </div>
+             
           <!-- <p><a class="btn btn-block btn-success" href="#" role="button">Upload Video {{form.exerciseVideos}}</a></p> -->
         <button class="btn btn-block btn-success" >{{form.exerciseVideos}}</button>
 
@@ -112,11 +141,69 @@
 </div>
 
 <script type="text/javascript">
+	
   var tempvideos = {{ videos|safe}};
   console.log(tempvideos);
+  alert(tempvideos);
   var myData = JSON.parse(tempvideos[0]['annotations']);
+  console.log(myData)
   var current_vid = 0;
   
+   $(document).ready(function () {
+   $('#tabs .nav-tabs a').on('click', function(){
+   activeTab=$(this).attr('id');
+   if (activeTab == 'video0')
+   {
+
+		 current_vid = 0;
+    }
+    
+    else if (activeTab == 'video1')
+    {
+
+		 current_vid = 1;
+    }
+    
+    else if (activeTab == 'video2')
+    {
+
+		 current_vid = 2;
+    }
+    
+    else if (activeTab == 'video3')
+    {
+
+		 current_vid = 3;
+    }
+    
+    else if (activeTab == 'video4')
+    {
+
+		 current_vid = 4;
+    }
+   
+   
+       setVideoSrc();
+   
+   });
+    });
+  
+  function setVideoSrc() {
+	var videoSrc = document.querySelector("video > source");
+	var video = document.querySelector("video");
+	
+	videoSrc.src = tempvideos[current_vid]['url'];
+    video.load();
+
+
+    var tempLength = myData.length;
+    var tempContent = "";
+    for(var i=0;i<tempLength;i++){
+      tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+    };
+    var tempDiv = document.getElementById("annotation_tags");
+    tempDiv.innerHTML = tempContent;
+   };
 
   function showDetials(element){
     // assign booking content to a variable
@@ -224,6 +311,7 @@
     });
 
     sumitBtn.addEventListener('click',function(){
+	  alert(JSON.stringify(tempvideos));
       returnInput.value = JSON.stringify(tempvideos);
 
     })
