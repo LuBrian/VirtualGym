@@ -11,7 +11,7 @@
     <h3 style="text-align: center">{{title}}</h3>
     <p class="text-center">This is annotation detail</p>
   </div>
-  <div class="jumbotron video_container">
+  <div class="jumbotron annotation_video_container">
       <div id = "vid_annotations_details" class="vid_annotations_details">
         
       </div>
@@ -62,7 +62,8 @@
 <script>
 
 window.onload = function() {
-  
+  // specify major varaibles needed to using in
+  // this function
   var video = document.querySelector("video"),
     info = document.querySelector("span"),
     initial = document.querySelector("i");
@@ -78,14 +79,14 @@ window.onload = function() {
     timeStep = 0.0;
     localdata = "";
     myData = {{contents|safe}};
-
+  // get element size of the page
   function getElementCSSSize(el) {
     var cs = getComputedStyle(el);
     var w = parseInt(cs.getPropertyValue("width"), 10);
     var h = parseInt(cs.getPropertyValue("height"), 10);
     return {width: w, height: h}
   }
-  
+  // download saved json file
   function saveText(text, filename){
     var a = document.createElement('a');
     a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
@@ -93,17 +94,18 @@ window.onload = function() {
     a.click()
   }
 
+  // save to json file
   function saveToJSON(event) {
     saveText(JSON.stringify(vidData), "filename.json");
     //alert("test")
   }
+
+  // when click on video window, performing adding
+  // annotations
   function mouseHandler(event) {
     this.pause();
     document.getElementById("annotationForm_container").style.display = "block";
 
-
-    // var annotation = prompt("Please enter your annotation:");
-    // var annotation = "nice"
     var size = getElementCSSSize(this);
     var scaleX = this.videoWidth / size.width;
     var scaleY = this.videoHeight / size.height;
@@ -119,21 +121,18 @@ window.onload = function() {
     
   }
 
-  function callback(){
-    console.log('success call back');
-  }
-
-
-  
-  // button.addEventListener("click", saveToJSON);
+  // add onclick listener to video
   video.addEventListener("click", mouseHandler);
-
+  // add onclick listener to the close button
   annotationClose.addEventListener('click',function(){
     document.getElementById("annotationForm_container").style.display = "none";
     video.play();
 
   });
 
+
+  // add event listener when click submit button
+  // of adding annotation form
   annotationSubmit.addEventListener('click', function() {
 
       details = $("textarea").val();
@@ -144,7 +143,9 @@ window.onload = function() {
         var tempData = {x: Xval, y: Yval, time: timeStep, details: details};
         localdata = JSON.stringify([tempData]);
         
-        // https://stackoverflow.com/questions/36201666/submit-without-refresh-in-django
+        // reference: https://stackoverflow.com/questions/36201666/submit-without-refresh-in-django
+        // ajax post method that send post request
+        // without reloading the page
         $.ajax({
           type: 'POST',
           url: '/annotations/{{ instance.video_id }}/',
@@ -156,7 +157,8 @@ window.onload = function() {
             console.log('success post call back');
             // myData = JSON.parse(contents);
           });
-
+          // ajax get method that send get request
+          // without reloading the page
           $.ajax({
             type:'GET',
             url : '/annotations/{{ instance.video_id }}/',
@@ -187,6 +189,7 @@ window.onload = function() {
   
   }, false);
   
+  // show the added annotation on the video
   $('#annotation_vid').on('timeupdate',function(event){
     var dataLength = myData.length;
     var dataSet = [];

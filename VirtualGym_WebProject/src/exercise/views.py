@@ -16,13 +16,14 @@ from .models import TagsExercises
 
 from users.models import MyUsers
 from comments.models import Comment
-import re
+import re,json
+from django.views.decorators.csrf import csrf_exempt
 """/******************************
 ** File: views.py
 ** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
 ** For example, Create Exercise, View Exercises, and My Exercise are all formed through here.
 *******************************/"""
-
+@csrf_exempt #This skips csrf validation. Use csrf_protect to have validation
 def CreateExe(request):
 	"""
     creater exercise according user input and translate to database.
@@ -37,19 +38,23 @@ def CreateExe(request):
 	}
 
 	if form.is_valid():
+		print('form submit')
 		instance=form.save(commit=False)
 		instance.exercisePosterId= request.user
 		instance.save()
 		data=form.cleaned_data
 
-		vidid = createVideo(data,instance)
+		jsonData = request.POST.get('returnData').split("||")
+
+		createVideos(data,instance,jsonData)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
 		}
-		# return HttpResponseRedirect('/myExercise/')
-		return redirect('annotations',vidID = vidid)
+
+		return HttpResponseRedirect('/myExercise/')
+		# return redirect('annotations',vidID = vidid)
 
 	return render(request,"createExercise.html",context)
 
@@ -226,27 +231,78 @@ def EditExe(request,id=None):
     """
 
 	instance=get_object_or_404(Exercise,exerciseId=id)
+	vid_instances = instance.exerciseVideos.all()
+	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
+	# print(vid_instances)
+	videos = []
+	for element in vid_instances:
+		videos.append(element)
+
+		# print element.videoFile.url
+
 	form= EditExeForm(request.POST or None,instance=instance, initial={"exerciseTag": getTags(instance.exerciseTag.all())})
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.exerciseApproved=False
-
 		instance.exerciseTag.clear()
+
 		data=form.cleaned_data
 		addTagsToDB(data["exerciseTag"].split(","), instance)
 
 		instance.save()
+		if request.method == "POST":
+			jsonData = request.POST.get('returnData')
+			annotaiton_data = json.loads(jsonData)
+			set_video_annotation(annotaiton_data)
+
 
 		return HttpResponseRedirect('/myExercise/')
 	context={
 	"title":"Edit Exercist",
 	"instance":instance,
-	"form":form
+	"form":form,
+	"videos": json.dumps(videos_to_dict(videos))
 	}
 	return render(request,"edit.html",context)
 
+def set_video_annotation(myData):
+	print('before set annotation')
+	print(myData)
+	for element in myData:
 
-def createVideo(data, exerciseObj):
+		item = get_object_or_404(Videos,video_id=element["video_id"])
+		print(item)
+		print(item.annotations)
+		item.annotations = element["annotations"]
+		item.save()
+
+def videos_to_dict(myVids):
+	vidList = []
+	for item in myVids:
+		vidList.append({"video_id": item.video_id, "annotations": item.annotations,"url":item.videoFile.url })
+	print(vidList)
+	return vidList
+
+
+def createVideos(data, exerciseObj, jsonData):
+	ex1 = data['exerciseVideos1']
+	ex2 = data['exerciseVideos2']
+	ex3 = data['exerciseVideos3']
+	ex4 = data['exerciseVideos4']
+	ex5 = data['exerciseVideos5']
+
+	if ex1 is not None:
+		createVideo(ex1, exerciseObj, jsonData[0])
+	if ex2 is not None:
+		createVideo(ex2, exerciseObj, jsonData[1])
+	if ex3 is not None:
+		createVideo(ex3, exerciseObj, jsonData[2])
+	if ex4 is not None:
+		createVideo(ex4, exerciseObj, jsonData[3])
+	if ex5 is not None:
+		createVideo(ex5, exerciseObj, jsonData[4])
+
+def createVideo(videoName, exerciseObj,jsonData):
 	"""createVideo
 
 	This subroutine creates a video object from the file uploaded and calls createVideoExerciseRelationship to form the relationship in the normalized table.
@@ -258,8 +314,9 @@ def createVideo(data, exerciseObj):
 	Nothing
 
 	"""
-	videoName = data['exerciseVideos']
-	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId)
+	print(videoName)
+	print(jsonData)
+	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId,annotations = jsonData)
 	videos_obj.save()
 
 	createVideoExerciseRelationship(videos_obj, exerciseObj)

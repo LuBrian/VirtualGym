@@ -24,7 +24,7 @@ from . import view
 from users import views as us
 from exercise import views as ex
 from forum import views as fo
-from annotations import views as an
+# from annotations import views as an
 
 urlpatterns = [
     #settings admin page
@@ -50,7 +50,7 @@ urlpatterns = [
     #setting facebook, google and twitter page
     url(r'^auth/', include('social_django.urls', namespace='social')),
     url(r'^(?P<id>\d+)/edit/$',ex.EditExe,name = "edit"),
-    url(r'^annotations/(?P<vidID>\d+)/$',an.createAnnotation,name = "annotations"),
+    # url(r'^annotations/(?P<vidID>\d+)/$',an.createAnnotation,name = "annotations"),
 
 
 ]
