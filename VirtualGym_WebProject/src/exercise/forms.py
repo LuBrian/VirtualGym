@@ -7,15 +7,14 @@ from .models import Exercise
 *******************************/"""
 # exercise tag choices for check box
 TAG_CHOICE = (
-    ('Shoulder', 'Shoulder'),
-    ('Overhead', 'Overhead'),
-    ('Elbow', 'Elbow'),
-    ('Triceps', 'Triceps'),
     ('Biceps', 'Biceps'),
+    ('Diagonal Inward Shoulder', 'Diagonal Inward Shoulder'),
+    ('Diagonal Outward Shoulder', 'Diagonal Outward Shoulder'),
+    ('Elbow', 'Elbow'),
+    ('Overhead', 'Overhead'),
+    ('Shoulder', 'Shoulder'),
+    ('Triceps', 'Triceps'),
     ('Upright Rows', 'Upright Rows'),
-    ('Diagonal_Inward_Shoulder', 'Diagonal_Inward_Shoulder'),
-    ('Diagonal_Outward_Shoulder', 'Diagonal_Outward_Shoulder'),
-
 )
 
 class EditExeForm(forms.ModelForm):
