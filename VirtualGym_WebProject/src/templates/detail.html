@@ -10,7 +10,6 @@
 <div class="container">
   <div class="exercise_form">
     <h3 style="text-align: center">{{instance.exerciseName}}</h3>
-    <p class="text-center">Tags: {% for tag in instance.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</p>
   </div>
   <div class="jumbotron exercise_detail">
 
@@ -19,7 +18,7 @@
       <source src="{{video.videoFile.url}}" type="video/mp4">
     </video>
 
-    <div class="col-lg-4" style="float: right;">
+    <div class="col-lg-6" style="float: right;">
       <div class="form-group">
         <label for="description">Description:</label></br>
         <p style="text-align: left">{{instance.exerciseDescription}}</p>
@@ -27,14 +26,20 @@
     </div>
     {% endfor %}
   </div>
-</br>
+  </br>
+   <p class="text-left"> &emsp; &emsp;Tags: {% for tag in instance.exerciseTag.all %}
+    <!-- {{tag.tagDescription}} -->
+    <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>
+    <!-- {% include "comma.html" %} -->
+    {%endfor%}</p>
+
 <div class="col-lg-12">
   {%if instance.exerciseApproved %}
   <h3>Cross referance:</h3>
     {%for crossExercise in quearyset%}
       {%if instance.exerciseId != crossExercise.exerciseId %}
-      <div class="col-lg-3">
-        <h3><a  href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
+      <div class="col-lg-12">
+        <h3><a href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
         <p>{{crossExercise.exerciseDescription}}</p>
       </div>
       {%endif%}

@@ -2,13 +2,28 @@
 
 
 {% block title %}Virtual Gym Admin{% endblock %}
-<body style="background-image:url(../static/images/2.jpg);width="100%"; height="100%";  ">
 
 {% block extrastyle %}
+<style>
+#header {
+    width: auto;
+    height: 40px;
+    padding: 10px 40px;
+    background: #3274af;
+    line-height: 40px;
+    color: #ffc;
+    overflow: hidden;
+}
+
+.navbar-default {
+    /*background-color: #3274af;*/
+    border-color: #3274af;
+}
+</style>
 {% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">Virtual Gym Admin</a></h1>
+<h1 id="site-name"><a style="color: #ffffff"href="{% url 'admin:index' %}">Site administration</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
