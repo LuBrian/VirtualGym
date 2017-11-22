@@ -50,8 +50,8 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'index' %}">HOME</a> </li>
-                    <li><a href="{% url 'QA' %}">FAQ</a> </li>
+                    <li><a href="{% url 'index' %}">Home</a> </li>
+                    <li><a href="{% url 'QA' %}">Forum</a> </li>
                     <li><a href="#">Contact Us</a></li>
                     {% if user.is_authenticated  %}
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
@@ -61,11 +61,11 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exercise<span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="{% url 'viewProfile' %}">View all exercise</a></li>
-                        <li><a href="{% url 'myExercise' %}">My Exercise</a></li>
+                        <li><a href="{% url 'viewProfile' %}">View All Exercises</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'myExercise' %}">View My Exercises</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
-                        <li role="separator" class="divider"></li>
                       </ul>
 
                     </li>
@@ -90,42 +90,13 @@
 
 
   {% endblock %}
+    <footer class="footer">
+    <footer style="background-color: #3a3a3a;">
+      <div class="container text-center">
+        <p class="text-muted credit">Copyright @2017 Virtual Gym. All Rights Reserved</p>
+      </div>
+    </footer>
 
-
-
-<div class = "footer_container">
-      <footer style="background-color: #3a3a3a;">
-        <!-- <div> -->
-        <!--/.Footer Links-->
-        <div class="footer_infor">
-            <div class="footer_links">
-                <!-- <p style="color:#ffffff">Column 1:</p> -->
-              </br>
-                <li><a href=" {% url 'index' %}">Home</a></li>
-                </br>
-                <li><a href="{% url 'viewProfile' %}">View Exercise</a></li>
-            </div>
-            <div class="footer_links">
-                <!--  <p style="color:#ffffff">Column 1:</p> -->
-                 </br>
-                <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
-                 </br>
-                <li><a href="{% url 'QA' %}">Q&A forum</a></li>
-            </div>
-            <!--  <div class="group_members">
-                <p style="color:#ffffff">this is a description of this project</p>
-            </div> -->
-        </div>
-
-        <div class="copy_right" >
-            <div style="color:#ffffff">
-                <p> Copyright @2017 Virtual Gym.All Rights Reserved</p>
-            </div>
-        </div>
-
-      </footer>
-    </div>
-</div>
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -135,5 +106,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-  </body>
+
+
+</div>
 </html>

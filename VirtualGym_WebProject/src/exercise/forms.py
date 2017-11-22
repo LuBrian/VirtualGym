@@ -7,15 +7,14 @@ from .models import Exercise
 *******************************/"""
 # exercise tag choices for check box
 TAG_CHOICE = (
-    ('Shoulder', 'Shoulder'),
-    ('Overhead', 'Overhead'),
-    ('Elbow', 'Elbow'),
-    ('Triceps', 'Triceps'),
     ('Biceps', 'Biceps'),
+    ('Diagonal Inward Shoulder', 'Diagonal Inward Shoulder'),
+    ('Diagonal Outward Shoulder', 'Diagonal Outward Shoulder'),
+    ('Elbow', 'Elbow'),
+    ('Overhead', 'Overhead'),
+    ('Shoulder', 'Shoulder'),
+    ('Triceps', 'Triceps'),
     ('Upright Rows', 'Upright Rows'),
-    ('Diagonal_Inward_Shoulder', 'Diagonal_Inward_Shoulder'),
-    ('Diagonal_Outward_Shoulder', 'Diagonal_Outward_Shoulder'),
-
 )
 
 class EditExeForm(forms.ModelForm):
@@ -95,12 +94,15 @@ class CreateExeForm(forms.ModelForm):
 
 
     # exercise video input field
-    exerciseVideos=forms.FileField()
-
+    exerciseVideos1=forms.FileField()
+    exerciseVideos2=forms.FileField(required=False)
+    exerciseVideos3=forms.FileField(required=False)
+    exerciseVideos4=forms.FileField(required=False)
+    exerciseVideos5=forms.FileField(required=False)
     class Meta:
 
         """
         set exercise fields in front end
         """
         model=Exercise
-        fields={"exerciseDescription","exerciseTag","exerciseVideos","exerciseName"}
+        fields={"exerciseDescription","exerciseTag","exerciseName"}
