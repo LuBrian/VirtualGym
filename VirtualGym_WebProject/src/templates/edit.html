@@ -144,7 +144,6 @@
 	
   var tempvideos = {{ videos|safe}};
   console.log(tempvideos);
-  alert(tempvideos);
   var myData = JSON.parse(tempvideos[0]['annotations']);
   console.log(myData)
   var current_vid = 0;
@@ -311,7 +310,6 @@
     });
 
     sumitBtn.addEventListener('click',function(){
-	  alert(JSON.stringify(tempvideos));
       returnInput.value = JSON.stringify(tempvideos);
 
     })

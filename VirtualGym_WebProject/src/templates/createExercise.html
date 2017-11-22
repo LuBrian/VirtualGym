@@ -282,7 +282,6 @@
    function showDetials(element){
    // assign booking content to a variable
    console.log('clicked');
-   alert('in showdetails');
    $content = $(element).closest(".single_tag").find('.tag_description');
    
    // if content is hiddent, show up arrow. If not show down arrwo
@@ -500,8 +499,6 @@
    
        Xval3 = x;
        Yval3 = y;
-       alert(Xval3);
-       alert(Yval3);
        timeStep3 = this.currentTime;
      };
      
@@ -599,7 +596,6 @@
    
    sumitBtn.addEventListener('click',function(){
      returnInput.value = [returnData1, returnData2, returnData3, returnData4, returnData5].filter(function (val) {return val;}).join('|| ');
-     alert(returnInput.value)
    })
    
    
@@ -637,7 +633,6 @@
      video1.play();
      document.getElementById("annotationForm_container0").style.display = "none";
      returnData1 = JSON.stringify(myData1);
-     alert(returnData1);
      console.log(returnData1);
     
    }, false);
