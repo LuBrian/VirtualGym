@@ -144,8 +144,7 @@
 	
   var tempvideos = {{ videos|safe}};
   console.log(tempvideos);
-  var myData = JSON.parse(tempvideos[0]['annotations']);
-  console.log(myData)
+  var myData1 = JSON.parse(tempvideos[0]['annotations']);
   var current_vid = 0;
   
    $(document).ready(function () {
@@ -153,31 +152,47 @@
    activeTab=$(this).attr('id');
    if (activeTab == 'video0')
    {
-
+		 if (myData1.length == 0)
+		 {
+	            myData1 = JSON.parse(tempvideos[0]['annotations'])
+		 }
 		 current_vid = 0;
     }
     
     else if (activeTab == 'video1')
     {
-
+		 if (myData2.length == 0 && tempvideos.length >= 2)
+		 {
+		    console.log(tempvideos.length);
+		    myData2 = JSON.parse(tempvideos[1]['annotations'])
+		 }
 		 current_vid = 1;
     }
     
     else if (activeTab == 'video2')
     {
-
+		 if (myData3.length == 0 && tempvideos.length >= 3)
+		 {
+		    myData3 = JSON.parse(tempvideos[2]['annotations'])
+		 }
 		 current_vid = 2;
     }
     
     else if (activeTab == 'video3')
     {
-
+		 if (myData4.length == 0 && tempvideos.length >= 4)
+		 {
+		    myData4 = JSON.parse(tempvideos[3]['annotations'])
+		 }
 		 current_vid = 3;
     }
     
     else if (activeTab == 'video4')
     {
-
+		 if (myData5.length == 0 && tempvideos.length >= 5)
+		 {
+		    myData5 = JSON.parse(tempvideos[4]['annotations'])
+		 }
 		 current_vid = 4;
     }
    
@@ -188,11 +203,15 @@
     });
   
   function setVideoSrc() {
+	myData = getMyData();
+
+	if (tempvideos.length >= current_vid+1)
+	{ 
 	var videoSrc = document.querySelector("video > source");
 	var video = document.querySelector("video");
 	
 	videoSrc.src = tempvideos[current_vid]['url'];
-    video.load();
+    	video.load();
 
 
     var tempLength = myData.length;
@@ -202,6 +221,16 @@
     };
     var tempDiv = document.getElementById("annotation_tags");
     tempDiv.innerHTML = tempContent;
+   }
+     else
+     {
+	var videoSrc = document.querySelector("video > source");
+	var video = document.querySelector("video");
+	videoSrc.src = "";
+	video.load();
+	 var tempDiv = document.getElementById("annotation_tags");
+   	 tempDiv.innerHTML = "";
+     }
    };
 
   function showDetials(element){
@@ -222,16 +251,99 @@
     
   };
 
+  function getMyData() 
+  {
+      if (activeTab == 'video0')
+   {
+		 if (myData1.length)
+		 {
+		    return JSON.parse(tempvideos[0]['annotations'])
+		 }
+		 return myData1;
+    }
+    
+    else if (activeTab == 'video1')
+    {
+	         if (myData2.length == 0 && tempvideos.length >= 2)
+		 {
+		    console(tempVideos);
+		    return JSON.parse(tempvideos[1]['annotations'])
+		 }
+		 return myData2;
+    }
+    
+    else if (activeTab == 'video2')
+    {
+		 if (myData3.length == 0 && tempvideos.length >= 3)
+		 {
+		    return JSON.parse(tempvideos[2]['annotations'])
+		 }
+		 return myData3;
+    }
+    
+    else if (activeTab == 'video3')
+    {
+		 if (myData4.length == 0 && tempvideos.length >= 4)
+		 {
+		    return JSON.parse(tempvideos[3]['annotations'])
+		 }
+		 return myData4;
+    }
+    
+    else if (activeTab == 'video4')
+    {
+		 if (myData5.length == 0 && tempvideos.length >= 5)
+		 {
+		    return JSON.parse(tempvideos[4]['annotations'])
+		 }
+		 return myData5;
+    }	
 
+  }
+
+  function setMyData()
+  {
+           if (activeTab == 'video0')
+   {
+
+		 myData1 = myData;
+    }
+    
+    else if (activeTab == 'video1')
+    {
+
+		 myData2 = myData;
+    }
+    
+    else if (activeTab == 'video2')
+    {
+
+		 myData3 = myData;
+    }
+    
+    else if (activeTab == 'video3')
+    {
+
+		 myData4 = myData;
+    }
+    
+    else if (activeTab == 'video4')
+    {
+
+		 myData5 = myData;
+    }	
+   }
 
   function deleteAnnotation(element){
     // reference: https://stackoverflow.com/questions/44185632/get-index-of-class-element-with-inline-onclick-pure-js-no-jquery
+    myData = getMyData();
     var els = Array.prototype.slice.call( document.getElementsByClassName('single_tag'), 0 );
     var tempIndex = els.indexOf(element.closest(".single_tag"));
     myData.splice(tempIndex,1);
     $(element).closest(".single_tag").remove();
 
     tempvideos[current_vid]['annotations']=JSON.stringify(myData);
+    setMyData();
     // console.log(myData);
 
   }
@@ -242,6 +354,7 @@
         concanenatedVideoElems = "";
         annotationSubmit =  document.getElementById("annotation_submit");
         annotationClose = document.getElementById("annotation_closeBtn");
+	activeTab = 'video0';
         vidData = [];
         videoInfo = {};
         details = "";
@@ -252,7 +365,7 @@
         returnData = "";
         sumitBtn = document.getElementById("submitExercise");
         returnInput = document.getElementById("returnData");
-        myData1 = [];
+	myData1 = [];
         myData2 = [];
         myData3 = [];
         myData4 = [];
@@ -264,7 +377,7 @@
     videoSrc.src = tempvideos[current_vid]['url'];
     video.load();
 
-
+    myData = getMyData();
     var tempLength = myData.length;
     var tempContent = "";
     for(var i=0;i<tempLength;i++){
@@ -327,6 +440,7 @@
         // console.log(details);
         if (details != "" && details != null)
         {
+          myData = getMyData();
           vidData.push({x: Xval, y: Yval, time: timeStep, details: details});
           var tempData = {x: Xval, y: Yval, time: timeStep, details: details};
           // localdata = JSON.stringify([tempData]);
@@ -335,7 +449,6 @@
 
           tempvideos[current_vid]['annotations']=JSON.stringify(myData);
           console.log(tempvideos);
-          console.log('hahah')
 
 
 
@@ -357,6 +470,8 @@
       document.getElementById("annotationForm_container").style.display = "none";
       returnData = JSON.stringify(myData);
       console.log(returnData);
+
+      setMyData();
     
     }, false);
 
@@ -364,6 +479,7 @@
 
 
     function sortByTimeStep(){
+      myData = getMyData();
       myData.sort(function(a,b){
         if(a.time<b.time) return -1;
         if(a.time>b.time) return 1;
@@ -374,6 +490,7 @@
 
 
     $('#vid_preview').on('timeupdate',function(event){
+      myData = getMyData();
       var dataLength = myData.length;
       myData;
       var currentT = this.currentTime;
@@ -395,7 +512,6 @@
      
       // infoDiv.innerHTML = "";
       infoDiv.innerHTML = innerContent;
-      
       // myData = JSON.parse({{ contents }});
     });
 

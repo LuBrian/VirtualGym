@@ -4,91 +4,92 @@
 {% block page_content %}
 
 <div class="body_container">
-<div class="container">
-<h1 class="bg-warning" align="center">FAQ</h1>
-      </br></br>
-{% for obj in objects_list %}
+<h1 align="center">Frequently Asked Questions</h1>
+<div class="container ">
+    <div class="panel-group" id="faqAccordion">
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: How do I create an exercise?</a>
+              </h4>
 
-  {% if obj.isParent %}
-
-    <p><font size="7.5"> Q.</font>
-      <font size="5.5"> {{obj.questionDescription}}</font>&emsp;&emsp;
-      <font color = "#C2C2C2">{{obj.userID}}&emsp;{{obj.dateAsked}}</font>
-    </p>
-
-    {% for child_answer in obj.children%}
-      <div class="container">
-        <p><font size="5"> A.</font> {{child_answer.questionDescription}}</p>
-        <footer align="right" style="color:#C2C2C2;">{{child_answer.userID}}</footer>
-      </div>
-    {%endfor%}
-
-  {% if user.is_authenticated  %}
-  <div id="{{obj.questionID}}" hidden>
-  <form method="post">{% csrf_token %}
-    <div class="form-group">
-      {{form.questionDescription}}
-      <input type="hidden" name="questionparent_id" value="{{obj.questionID}}">
-    </div>
-    <button id="replyA" type="submit" class="btn btn-info btn-lg">Post</button>
-  </form>
-  </div>
-  <button id="button" style="float: right;" type="button" class="btn btn-info btn-sm" onclick="myFunction({{obj.questionID}})">Reply</button>
-  <br>
-
-  <hr/>
-  {% else %}
-    <div class="create_exercise_perm">
-      <p align="right">Login to Reply questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
-    </div>
-  {% endif  %}
-
-{%endif%}
-
-{% endfor %}
-
-
-<!--  ask button -->
-{% if user.is_authenticated  %}
-  <div align="right" >
-      <!-- Trigger the modal with a button -->
-      <div style="position: fixed;top:10%;right:8%;">
-        <button id = "askButton" type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" >Ask a Question</button>
-      </div>
-   <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-
-      <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title text-center">Create New Question</h4>
-              <div class="modal-body">
-              <form method="post" enctype="multipart/form-data">{% csrf_token %}
-              <div class="col-lg-12">
-              <div class="form-group">
-                <label for="description"></label></br>
-                  {{ form.questionDescription}}
-              </div>
-              <button id = "submitQ" type="submit" class="btn btn-success" onclick="reloadPage()">Submit</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-{% else %}
-  <div class="create_exercise_perm">
-    <p align="right">Login to Post questions, <a href="{% url 'signIn' %}">Sign In</a> here</p>
-  </div>
-{% endif  %}
-</div>
-</div>
+            <div id="question0" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
 
+                    <p>
+                    In order to create an exercise you must be logged in, and you can log in <a href="/signIn"> Here </a> or if you don't have an account you can create one <a href="/signUp"> Here. </a> 
+                    Once you are logged in there will be an option to create exercise under the exercise heading at the top of the page.
+                        </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question3">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: I made a mistake, how do I change the exercise I created?</a>
+              </h4>
+
+            </div>
+            <div id="question3" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
+
+                    <p>In order to edit any exercise you create you go to the  <a href="/myExercise"> My Exercises </a> page. From there you find the exercise you are looking for and click the green pencil button in the corner.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question1">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: Why can't I see the exercise I just created?</a>
+              </h4>
+
+            </div>
+            <div id="question1" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
+
+                    <p>This is because each exercise must be approved by a moderator before other users may see it. You may still see it and edit it at the <a href="/myExercise"> My Exercises </a> page.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question2">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: Why can't I see my exercise after I edit it?</a>
+              </h4>
+
+            </div>
+            <div id="question2" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
+
+                    <p>After you edit an exercise it has to undergo the same approval proccess that a new exercise must undergo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question4">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: How do I become a Moderator?</a>
+              </h4>
+
+            </div>
+            <div id="question4" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
+
+                    <p>Unfortunately at this time there is no way to become a Moderator. </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!--/panel-group-->
+</div>
+</div>
 {% endblock %}
