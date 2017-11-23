@@ -85,13 +85,13 @@ class Exercise(models.Model):
     @param exerciseApproved: state of exercise, if true exercise will show in web.
     """
     exerciseId = models.AutoField(primary_key=True)
-    exerciseDescription = models.CharField(max_length=500)
+    exerciseDescription = models.CharField(max_length=5000)
     exerciseTag = models.ManyToManyField('Tags',through=TagsExercises)
     exerciseData = models.DateTimeField(auto_now_add=True,auto_now=False)
     exercisePosterId = models.ForeignKey(MyUsers)
     exerciseVideos = models.ManyToManyField('Videos', through=VideosExercises)
     exerciseApproved = models.BooleanField(default=False)
-    exerciseName = models.CharField(max_length=100,blank = False)
+    exerciseName = models.CharField(max_length=1000,blank = False)
 
 
     def __str__(self):

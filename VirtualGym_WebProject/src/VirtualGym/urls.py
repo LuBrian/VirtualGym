@@ -26,6 +26,7 @@ from exercise import views as ex
 from forum import views as fo
 # from annotations import views as an
 
+
 urlpatterns = [
     #settings admin page
     url(r'^admin/', admin.site.urls),
