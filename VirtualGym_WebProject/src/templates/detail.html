@@ -126,6 +126,8 @@
    var viewer;
    var current_vid = 0;
    $(document).ready(function () {
+    hideEmptyTabs();
+  
    $('#tabs .nav-tabs a').on('click', function(){
      activeTab=$(this).attr('id');
    
@@ -163,6 +165,31 @@
 	
     });
    	
+     function hideEmptyTabs() {
+         if (tempvideos.length == 1)
+    {
+        $('#tabs .nav-tabs #video1').hide();
+	$('#tabs .nav-tabs #video2').hide();
+	$('#tabs .nav-tabs #video3').hide();
+	$('#tabs .nav-tabs #video4').hide();
+    }
+       else if (tempvideos.length == 2)
+     {
+	$('#tabs .nav-tabs #video2').hide();
+	$('#tabs .nav-tabs #video3').hide();
+	$('#tabs .nav-tabs #video4').hide();
+     }
+     else if (tempvideos.length == 3)
+    {
+	$('#tabs .nav-tabs #video3').hide();
+	$('#tabs .nav-tabs #video4').hide();
+    }
+
+     else if (tempvideos.length == 4)
+    {
+	$('#tabs .nav-tabs #video4').hide();
+    }
+  }
      function setVideoSrc() {
 
 	if (tempvideos.length >= current_vid+1)
