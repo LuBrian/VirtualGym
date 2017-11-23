@@ -50,25 +50,25 @@
     </div>
   </div>
   </br>
-   <p class="text-left"> &emsp; &emsp;Tags: {% for tag in instance.exerciseTag.all %}
+   <div class="text-left"> Tags: {% for tag in instance.exerciseTag.all %}
     <!-- {{tag.tagDescription}} -->
     <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>
     <!-- {% include "comma.html" %} -->
-    {%endfor%}</p>
-
-<div class="col-lg-12">
-  {%if instance.exerciseApproved %}
-  <h3>Cross referance:</h3>
-    {%for crossExercise in quearyset%}
-      {%if instance.exerciseId != crossExercise.exerciseId %}
-      <div class="col-lg-12">
-        <h3><a href="{%url "detail" id=crossExercise.exerciseId %}">{{crossExercise.exerciseName}}</a></h3>
-        <p>{{crossExercise.exerciseDescription}}</p>
-      </div>
-      {%endif%}
     {%endfor%}
-  {%endif%}
-</div>
+
+   <div class="text-center"> Related Exercises: 
+    <p>
+    {% for obj in RelatedExercises %}
+    <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}</a>
+	<p>
+    	{% for video in obj.exerciseVideos.all|slice:":1"%}
+	<video width="100" height="100" controls>
+      		<source src="{{video.videoFile.url}}" type="video/mp4">
+    	</video>
+	<p>
+	{%endfor%}
+
+    {%endfor%}
 
 </br>
 </br>
@@ -119,7 +119,8 @@
 </div>
 </div>
 </div>
-
+</div>
+</div>
 <script type="text/javascript">
    var tempvideos = {{ videos|safe}};
    var activeTab = 'video0';
