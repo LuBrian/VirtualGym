@@ -150,6 +150,13 @@ def Exercise_detail(request,id=None):
 
 	title=" Detail of Exercise "
 	instance=get_object_or_404(Exercise,exerciseId=id)
+	vid_instances = instance.exerciseVideos.all()
+	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
+	# print(vid_instances)
+	videos = []
+	for element in vid_instances:
+		videos.append(element)
+
 	comment_form=CommentForm(request.POST or None)
 
 	quearyset=[]
@@ -183,6 +190,7 @@ def Exercise_detail(request,id=None):
 		"instance":instance,
 		"comment_form":comment_form,
 		"quearyset":quearyset,
+		"videos": json.dumps(videos_to_dict(videos))
 	}
 	return render(request,"detail.html",context)
 
