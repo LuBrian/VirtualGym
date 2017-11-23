@@ -31,15 +31,6 @@ DEBUG = True
 
 
 # Application definition
-SUIT_CONFIG = {  
-    'ADMIN_NAME': u'麦子青青',  
-    'MENU': (  
-        'sites',  
-        {'app': 'accounts', 'label': u'帐户'},  
-        {'app': 'zinnia', 'label': u'博客'},  
-        {'app': 'auth', 'label': u'认证管理'},  
-    ),  
-} 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
