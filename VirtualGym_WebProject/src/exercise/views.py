@@ -168,17 +168,20 @@ def MyExercise(request):
 
 
 def getRelatedExercises(tag_instances, oldExID):
+	print('haha')
 	tagExerciseRelationships = []
 	relatedExercisesObjects = set()
+
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
-	
+	print('ahah')
 	for element in tagExerciseRelationships:
 		for test in element:
-			instance = get_object_or_404(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
+			instance = Exercise.objects.filter(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
 			if (instance.exerciseId != oldExID):
  
 				relatedExercisesObjects.add(instance)
+	print('ahah')
 	return relatedExercisesObjects
 
 def getVideos(relatedExercises):
@@ -226,12 +229,18 @@ def Exercise_detail(request,id=None):
     """
 
 	title=" Detail of Exercise "
+	print(id)
 	instance=get_object_or_404(Exercise,exerciseId=id)
+	print(instance.exerciseId)
 	vid_instances = instance.exerciseVideos.all()
+	print('haha')
 	tag_instances = instance.exerciseTag.all()
-	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
-	if len(relatedExercises) >= 4:
-		relatedExercises = random.sample(relatedExercises, 3)
+	print('haha')
+	# relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
+
+	print('haha')
+	# if len(relatedExercises) >= 4:
+	# 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)
 	#print(relatedVideos)
 	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
@@ -242,9 +251,9 @@ def Exercise_detail(request,id=None):
 
 	comment_form=CommentForm(request.POST or None)
 
-	#quearyset=[]
-	#taglist=instance.exerciseTag.all()
-	#quearyset=getExebytag(taglist)
+	quearyset=[]
+	taglist=instance.exerciseTag.all()
+	quearyset=getExebytag(taglist)
 
 	if comment_form.is_valid():
 
@@ -273,8 +282,9 @@ def Exercise_detail(request,id=None):
 		"instance":instance,
 		"comment_form":comment_form,
 		"videos": json.dumps(videos_to_dict(videos)),
-		"RelatedExercises": relatedExercises
+		"RelatedExercises": quearyset,
 	}
+
 	return render(request,"detail.html",context)
 
 def getExebytag(taglist):
