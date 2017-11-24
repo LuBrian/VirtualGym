@@ -74,7 +74,7 @@ def Profile(request):
     @param queary: request string from front end.
 
     """
-	title=" Profile of Exercise "
+	title=""
 	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseData")
 	query=request.GET.get("q")
 
@@ -92,24 +92,28 @@ def Profile(request):
 
 	######### may cause errors here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	#https://docs.djangoproject.com/en/1.11/topics/pagination/
-	paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
-	page = request.GET.get('page')
-	if page:
-		quearyset = paginator.page(page).object_list
-	else:
-		quearyset = paginator.page(1).object_list
-	try:
-		quearyset = paginator.page(page)
+	if(len(quearyset_list) > 0):
+		paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
+		page = request.GET.get('page')
+		if page:
+			quearyset = paginator.page(page).object_list
+		else:
+			quearyset = paginator.page(1).object_list
+		try:
+			quearyset = paginator.page(page)
 
-	except PageNotAnInteger:
+		except PageNotAnInteger:
         # If page is not an integer, deliver first page.
-		quearyset = paginator.page(1)
-	except EmptyPage:
+			quearyset = paginator.page(1)
+		except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-		quearyset = paginator.page(paginator.num_pages)
+			quearyset = paginator.page(paginator.num_pages)
+	else:
+		quearyset = []
+		title = "No matched exercise..."
 
 	context={
-		"title":title,
+		"resultTitle":title,
 		"objects_list":quearyset
 	}
 
