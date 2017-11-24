@@ -18,6 +18,9 @@ from users.models import MyUsers
 from comments.models import Comment
 import re,json
 from django.views.decorators.csrf import csrf_exempt
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 """/******************************
 ** File: views.py
 ** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
@@ -72,24 +75,52 @@ def Profile(request):
 
     """
 	title=" Profile of Exercise "
-	quearyset=Exercise.objects.filter(exerciseApproved = True)
+	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseData")
 	query=request.GET.get("q")
 
 
 	if query:
 		queryList = re.split(' |,',query)
 		for i in queryList:
-			quearyset=quearyset.filter(
-				Q(exerciseDescription__icontains = i) |
-				Q(exerciseTag__tagDescription__icontains = i)
-			).distinct()
+			try:
+				quearyset_list=quearyset_list.filter(
+					Q(exerciseDescription__icontains = i) |
+					Q(exerciseTag__tagDescription__icontains = i)
+				).distinct()
+			except:
+				pass
+
+	######### may cause errors here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	#https://docs.djangoproject.com/en/1.11/topics/pagination/
+	paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
+	page = request.GET.get('page')
+	if page:
+		quearyset = paginator.page(page).object_list
+	else:
+		quearyset = paginator.page(1).object_list
+	try:
+		quearyset = paginator.page(page)
+
+	except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+		quearyset = paginator.page(1)
+	except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+		quearyset = paginator.page(paginator.num_pages)
 
 	context={
 		"title":title,
 		"objects_list":quearyset
 	}
+
 	return render(request,"viewProfile.html",context)
 
+
+def listing(request):
+    contact_list = Contacts.objects.all()
+
+
+    return render(request, 'list.html', {'contacts': contacts})
 
 def MyExercise(request):
 	"""
@@ -99,7 +130,7 @@ def MyExercise(request):
     """
 	title=" My Exercise "
 	try:
-		quearyset=Exercise.objects.filter(exercisePosterId = request.user)
+		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
 		context={
 			"title":title,
 			"objects_list":quearyset
@@ -109,6 +140,26 @@ def MyExercise(request):
 		context={
 			"objects_list":quearyset,
 		}
+	paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+	page = request.GET.get('page')
+	if page:
+		quearyset = paginator.page(page).object_list
+	else:
+		quearyset = paginator.page(1).object_list
+	try:
+		quearyset = paginator.page(page)
+
+	except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+		quearyset = paginator.page(1)
+	except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+		quearyset = paginator.page(paginator.num_pages)
+
+	context={
+		"title":title,
+		"objects_list":quearyset
+	}
 	return render(request,"myExercise.html",context)
 
 
@@ -127,8 +178,8 @@ def getRelatedExercises(tag_instances, oldExID):
 	return relatedExercisesObjects
 
 def getVideos(relatedExercises):
-	videosToAdd = set();
-    	for exerciseID in relatedExercises:
+	videosToAdd = set()
+	for exerciseID in relatedExercises:
 		instance=get_object_or_404(Exercise,exerciseId=exerciseID)
 		vid_instances = instance.exerciseVideos.all()
 		vid_instances = vid_instances[:1]
