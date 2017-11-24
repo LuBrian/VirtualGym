@@ -14,6 +14,7 @@
         <div class="row">
           {% for obj in objects_list %}
           <div class="col-md-4">
+            <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}</h3>
             <div class="thumbnail">
               <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
               {% for video in obj.exerciseVideos.all|slice:":1"%}
@@ -26,14 +27,7 @@
                 </embed>
                 </object> -->
               {% endfor %}
-            
-              <p style="text-align: center">{{obj.}}</p>
-              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}
-              </a>
-              </p>
               <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
-
-              
             </div>
           </div>
             {% endfor %}

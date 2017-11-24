@@ -49,23 +49,27 @@
       </div>
     </div>
   </div>
-  </br>
+
    <div class="text-left"> Tags: {% for tag in instance.exerciseTag.all %}
     <!-- {{tag.tagDescription}} -->
     <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>
     <!-- {% include "comma.html" %} -->
     {%endfor%}
-
-   <div class="text-center"> Related Exercises: 
-    <p>
+  </br>  </br>
+  
     {% for obj in RelatedExercises %}
-    <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}</a>
-	<p>
+     </br>
+    <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}
+    </a><br>
+    {{obj.exerciseDescription}}
+
     	{% for video in obj.exerciseVideos.all|slice:":1"%}
+      <div style="text-align: right">
 	<video width="100" height="100" controls>
       		<source src="{{video.videoFile.url}}" type="video/mp4">
     	</video>
-	<p>
+    </div>
+
 	{%endfor%}
 
     {%endfor%}
