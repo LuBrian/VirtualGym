@@ -14,35 +14,70 @@
         <!-- <div class="page-header"> -->
         <!-- </div> -->
 
+        <p style="text-align: center">{{ resultTitle }}</p>
         <div class="row">
-          {% for obj in objects_list %}
-          <div class="col-md-4">
-            <div class="thumbnail">
-              {% for video in obj.exerciseVideos.all|slice:":1"%}
-              <video width=100% height="100%" controls>
 
+          {% for obj in objects_list %}
+          <div class="col-md-3">
+              <h3 style="text-align: center">
+                <a class = "name" style="color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}
+                </a>
+              </h3>
+            <div class="thumbnail">
+            
+             <!--  <p style="text-align: center">{{obj.}}</p> -->
+
+              {% for video in obj.exerciseVideos.all|slice:":1"%}
+              <video width=100% height=100%>
                 <source src="{{video.videoFile.url}}" type="video/mp4">
-              </video>
-<!--                 <object id="video" width="400" height="200" border="0" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715">
-                <embed width="100%" height="200" border="0" autostart=0 filename="video" src="{{video.videoFile.url}}">
-                </embed>
-                </object> -->
+              </video></br>
+              {% for tag in obj.exerciseTag.all %}
+              <a class="tag" style="text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
+              {{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</a>
               {% endfor %}
-			
-              
-              <p style="text-align: center">{{obj.}}</p>
-              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}</p>
-              <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
+              <p>
+                {{obj.exerciseData}}
+              </p>
             </div>
           </div>
             {% endfor %}
+
           </div>
+
+
 
         </section>
     </div>
 
-</div>
-</div>
 
+    <!-- http://blog.csdn.net/grs294845170/article/details/72867185 -->
+<div class = "view_all_exe_pagination" style="display: block;text-align: center">
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if objects_list.has_previous %}
+            <li>
+            <a href="?page={{ objects_list.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+        {% endif %}
+
+       {% for pg in objects_list.paginator.page_range %}
+          {% if objects_list.number == pg %}
+            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% else %}
+            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% endif %}
+      {% endfor %}
+      {% if objects_list.has_next %}
+        <li>
+          <a href="?page={{ objects_list.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+    </ul>
+    </nav>
+  </div>
+</div>
+</div>
 
 {% endblock %}

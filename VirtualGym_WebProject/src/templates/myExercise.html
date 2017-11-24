@@ -9,12 +9,12 @@
     <!--show Exercise-- >
     <div class="container">
       <section>
-
         <!-- <div class="page-header"> -->
         <!-- </div> -->
         <div class="row">
           {% for obj in objects_list %}
           <div class="col-md-4">
+            <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}</h3>
             <div class="thumbnail">
               <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
               {% for video in obj.exerciseVideos.all|slice:":1"%}
@@ -27,12 +27,7 @@
                 </embed>
                 </object> -->
               {% endfor %}
-            
-              <p style="text-align: center">{{obj.}}</p>
-              <h3 style="text-align: center"><a style=" color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">Title: {{obj.exerciseName}}</p>
               <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
-
-              
             </div>
           </div>
             {% endfor %}
@@ -46,6 +41,35 @@
         <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
       </div>
     {% endif  %}
+    <div class = "view_all_exe_pagination" style="display: block;text-align: center">
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if objects_list.has_previous %}
+            <li>
+            <a href="?page={{ objects_list.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+        {% endif %}
+
+       {% for pg in objects_list.paginator.page_range %}
+          {% if objects_list.number == pg %}
+            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% else %}
+            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% endif %}
+      {% endfor %}
+      {% if objects_list.has_next %}
+        <li>
+          <a href="?page={{ objects_list.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+    </ul>
+    </nav>
+  </div>
+</div>
+</div>
+
 </div>
 </div>
 

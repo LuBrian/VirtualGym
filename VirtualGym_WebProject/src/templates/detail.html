@@ -81,9 +81,26 @@
         <p>{{crossExercise.exerciseDescription}}</p>
       </div>
       {%endif%}
+
     {%endfor%}
-  {%endif%}
-</div>
+  </br>  </br>
+  
+    {% for obj in RelatedExercises %}
+     </br>
+    <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}
+    </a><br>
+    {{obj.exerciseDescription}}
+
+    	{% for video in obj.exerciseVideos.all|slice:":1"%}
+      <div style="text-align: right">
+	<video width="100" height="100" controls>
+      		<source src="{{video.videoFile.url}}" type="video/mp4">
+    	</video>
+    </div>
+
+	{%endfor%}
+
+    {%endfor%}
 
 </br>
 </br>
@@ -134,7 +151,8 @@
 </div>
 </div>
 </div>
-
+</div>
+</div>
 <script type="text/javascript">
    var tempvideos = {{ videos|safe}};
    var activeTab = 'video0';
