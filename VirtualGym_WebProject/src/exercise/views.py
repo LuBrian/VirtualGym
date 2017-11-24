@@ -13,7 +13,7 @@ from .models import Videos
 from .models import VideosExercises
 from .models import Tags
 from .models import TagsExercises
-
+import random
 from users.models import MyUsers
 from comments.models import Comment
 import re,json
@@ -112,7 +112,29 @@ def MyExercise(request):
 	return render(request,"myExercise.html",context)
 
 
+def getRelatedExercises(tag_instances, oldExID):
+	tagExerciseRelationships = []
+	relatedExercisesObjects = set()
+	for element in tag_instances:
+		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
+	
+	for element in tagExerciseRelationships:
+		for test in element:
+			instance = get_object_or_404(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
+			if (instance.exerciseId != oldExID):
+ 
+				relatedExercisesObjects.add(instance)
+	return relatedExercisesObjects
 
+def getVideos(relatedExercises):
+	videosToAdd = set();
+    	for exerciseID in relatedExercises:
+		instance=get_object_or_404(Exercise,exerciseId=exerciseID)
+		vid_instances = instance.exerciseVideos.all()
+		vid_instances = vid_instances[:1]
+		for video in vid_instances:
+			videosToAdd.add(video.video_id)
+	return videosToAdd
 
 def Exercise_detail(request,id=None):
 	"""
@@ -150,11 +172,24 @@ def Exercise_detail(request,id=None):
 
 	title=" Detail of Exercise "
 	instance=get_object_or_404(Exercise,exerciseId=id)
+	vid_instances = instance.exerciseVideos.all()
+	tag_instances = instance.exerciseTag.all()
+	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
+	if len(relatedExercises) >= 4:
+		relatedExercises = random.sample(relatedExercises, 3)
+	#relatedVideos = getVideos(relatedExercises)
+	#print(relatedVideos)
+	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
+	# print(vid_instances)
+	videos = []
+	for element in vid_instances:
+		videos.append(element)
+
 	comment_form=CommentForm(request.POST or None)
 
-	quearyset=[]
-	taglist=instance.exerciseTag.all()
-	quearyset=getExebytag(taglist)
+	#quearyset=[]
+	#taglist=instance.exerciseTag.all()
+	#quearyset=getExebytag(taglist)
 
 	if comment_form.is_valid():
 
@@ -182,7 +217,8 @@ def Exercise_detail(request,id=None):
 		"title":title,
 		"instance":instance,
 		"comment_form":comment_form,
-		"quearyset":quearyset,
+		"videos": json.dumps(videos_to_dict(videos)),
+		"RelatedExercises": relatedExercises
 	}
 	return render(request,"detail.html",context)
 
