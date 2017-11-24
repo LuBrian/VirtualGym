@@ -335,12 +335,16 @@
     font-weight: bold;
     font-size: 20px; }
 
-. {
+div[class^="annotation_video_container"],
+.annotation_video_container {
   position: relative;
   text-align: center;
   display: inline-block;
   margin: auto; }
-  .annotation_video_container [class^="annotationForm_container"] {
+  div[class^="annotation_video_container"] div[class^="annotationForm_container"],
+  div[class^="annotation_video_container"] .annotationForm_container,
+  .annotation_video_container div[class^="annotationForm_container"],
+  .annotation_video_container .annotationForm_container {
     display: none;
     background-color: rgba(128, 128, 128, 0.7);
     position: absolute;
@@ -349,17 +353,26 @@
     top: 0;
     left: 0;
     z-index: 100; }
-    .annotation_video_container [class^="annotationForm_container"] [class^="input_container"] {
+    div[class^="annotation_video_container"] div[class^="annotationForm_container"] .input_container,
+    div[class^="annotation_video_container"] .annotationForm_container .input_container,
+    .annotation_video_container div[class^="annotationForm_container"] .input_container,
+    .annotation_video_container .annotationForm_container .input_container {
       margin-top: 40%;
       vertical-align: middle; }
-      .annotation_video_container [class^="annotationForm_container"] [class^="input_container"] textarea {
+      div[class^="annotation_video_container"] div[class^="annotationForm_container"] .input_container textarea,
+      div[class^="annotation_video_container"] .annotationForm_container .input_container textarea,
+      .annotation_video_container div[class^="annotationForm_container"] .input_container textarea,
+      .annotation_video_container .annotationForm_container .input_container textarea {
         resize: none;
         width: 60%;
         height: 200px;
         font-style: italic;
         font-weight: bold;
         font-size: 15px; }
-    .annotation_video_container [class^="annotationForm_container"] button {
+    div[class^="annotation_video_container"] div[class^="annotationForm_container"] button,
+    div[class^="annotation_video_container"] .annotationForm_container button,
+    .annotation_video_container div[class^="annotationForm_container"] button,
+    .annotation_video_container .annotationForm_container button {
       border: none;
       margin-top: 50px;
       height: 40px;
@@ -375,17 +388,44 @@
 .exercise_detail {
   text-align: center; }
 
+.view_exercise_detial video,
 .create_exercise_container video {
   background-color: #D3D3D3; }
+.view_exercise_detial .returnData,
 .create_exercise_container .returnData {
   display: none; }
-.create_exercise_container [class^="position_wrapper"] {
+.view_exercise_detial div[class^="position_wrapper"],
+.view_exercise_detial .position_wrapper,
+.create_exercise_container div[class^="position_wrapper"],
+.create_exercise_container .position_wrapper {
   text-align: center; }
-  .create_exercise_container [class^="position_wrapper"] [class^="video_container"] {
+  .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"],
+  .view_exercise_detial div[class^="position_wrapper"] .video_container,
+  .view_exercise_detial .position_wrapper div[class^="video_container"],
+  .view_exercise_detial .position_wrapper .video_container,
+  .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"],
+  .create_exercise_container div[class^="position_wrapper"] .video_container,
+  .create_exercise_container .position_wrapper div[class^="video_container"],
+  .create_exercise_container .position_wrapper .video_container {
     position: relative;
     margin-top: 20px;
     display: inline-block; }
-    .create_exercise_container [class^="position_wrapper"] [class^="video_container"] [class^="annotationForm_container"] {
+    .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"],
+    .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container,
+    .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"],
+    .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container,
+    .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"],
+    .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container,
+    .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"],
+    .view_exercise_detial .position_wrapper .video_container .annotationForm_container,
+    .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"],
+    .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container,
+    .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"],
+    .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container,
+    .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"],
+    .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container,
+    .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"],
+    .create_exercise_container .position_wrapper .video_container .annotationForm_container {
       display: none;
       background-color: rgba(128, 128, 128, 0.7);
       position: absolute;
@@ -394,17 +434,94 @@
       top: 0;
       left: 0;
       z-index: 100; }
-      .create_exercise_container [class^="position_wrapper"] [class^="video_container"] [class^="annotationForm_container"] [class^="input_container"] {
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"],
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] .input_container,
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container div[class^="input_container"],
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container .input_container,
+      .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] div[class^="input_container"],
+      .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] .input_container,
+      .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container div[class^="input_container"],
+      .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container .input_container,
+      .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"],
+      .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] .input_container,
+      .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container div[class^="input_container"],
+      .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container .input_container,
+      .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"] div[class^="input_container"],
+      .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"] .input_container,
+      .view_exercise_detial .position_wrapper .video_container .annotationForm_container div[class^="input_container"],
+      .view_exercise_detial .position_wrapper .video_container .annotationForm_container .input_container,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] .input_container,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container .input_container,
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] .input_container,
+      .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container .input_container,
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] .input_container,
+      .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container div[class^="input_container"],
+      .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container .input_container,
+      .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"] .input_container,
+      .create_exercise_container .position_wrapper .video_container .annotationForm_container div[class^="input_container"],
+      .create_exercise_container .position_wrapper .video_container .annotationForm_container .input_container {
         margin-top: 30px;
         vertical-align: middle; }
-        .create_exercise_container [class^="position_wrapper"] [class^="video_container"] [class^="annotationForm_container"] [class^="input_container"] textarea {
+        .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] .input_container textarea,
+        .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container div[class^="input_container"] textarea,
+        .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container .input_container textarea,
+        .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] .input_container textarea,
+        .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container div[class^="input_container"] textarea,
+        .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container .input_container textarea,
+        .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] .input_container textarea,
+        .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container div[class^="input_container"] textarea,
+        .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container .input_container textarea,
+        .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"] .input_container textarea,
+        .view_exercise_detial .position_wrapper .video_container .annotationForm_container div[class^="input_container"] textarea,
+        .view_exercise_detial .position_wrapper .video_container .annotationForm_container .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container .input_container textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] .input_container textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container .input_container textarea,
+        .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"] .input_container textarea,
+        .create_exercise_container .position_wrapper .video_container .annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper .video_container .annotationForm_container .input_container textarea {
           resize: none;
           width: 60%;
           height: 200px;
           font-style: italic;
           font-weight: bold;
           font-size: 15px; }
-      .create_exercise_container [class^="position_wrapper"] [class^="video_container"] [class^="annotationForm_container"] button {
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] button,
+      .view_exercise_detial div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container button,
+      .view_exercise_detial div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] button,
+      .view_exercise_detial div[class^="position_wrapper"] .video_container .annotationForm_container button,
+      .view_exercise_detial .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] button,
+      .view_exercise_detial .position_wrapper div[class^="video_container"] .annotationForm_container button,
+      .view_exercise_detial .position_wrapper .video_container div[class^="annotationForm_container"] button,
+      .view_exercise_detial .position_wrapper .video_container .annotationForm_container button,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="annotationForm_container"] button,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .annotationForm_container button,
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="annotationForm_container"] button,
+      .create_exercise_container div[class^="position_wrapper"] .video_container .annotationForm_container button,
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="annotationForm_container"] button,
+      .create_exercise_container .position_wrapper div[class^="video_container"] .annotationForm_container button,
+      .create_exercise_container .position_wrapper .video_container div[class^="annotationForm_container"] button,
+      .create_exercise_container .position_wrapper .video_container .annotationForm_container button {
         border: none;
         margin-top: 50px;
         height: 40px;
@@ -416,35 +533,54 @@
         font-style: italic;
         font-weight: bold;
         font-size: 20px; }
+.view_exercise_detial .vid_box,
 .create_exercise_container .vid_box {
   display: inline-block;
   position: relative; }
-.create_exercise_container [class^="vid_annotations_details"] {
+.view_exercise_detial div[class^="vid_annotations_details"],
+.view_exercise_detial .vid_annotations_details,
+.create_exercise_container div[class^="vid_annotations_details"],
+.create_exercise_container .vid_annotations_details {
   position: absolute;
   z-index: 10; }
-  .create_exercise_container [class^="vid_annotations_details"] .single_annotation {
+  .view_exercise_detial div[class^="vid_annotations_details"] .single_annotation,
+  .view_exercise_detial .vid_annotations_details .single_annotation,
+  .create_exercise_container div[class^="vid_annotations_details"] .single_annotation,
+  .create_exercise_container .vid_annotations_details .single_annotation {
     padding: 2px 2px 2px 2px;
     background-color: rgba(255, 80, 80, 0.8);
     font-size: 13px;
     font-family: "Georgia";
     min-width: 100px;
     border-radius: 5px; }
-.create_exercise_container [id^="annotation_closeBtn"] {
+.view_exercise_detial a[id^="annotation_closeBtn"],
+.view_exercise_detial #annotation_closeBtn,
+.create_exercise_container a[id^="annotation_closeBtn"],
+.create_exercise_container #annotation_closeBtn {
   float: right;
   color: black;
   margin-right: 20px;
   font-size: 30px;
   text-decoration: none;
   cursor: pointer; }
-.create_exercise_container [class^="annotation_tag_wrapper"] {
+.view_exercise_detial div[class^="annotation_tag_wrapper"],
+.view_exercise_detial .annotation_tag_wrapper,
+.create_exercise_container div[class^="annotation_tag_wrapper"],
+.create_exercise_container .annotation_tag_wrapper {
   display: block;
   margin: 30px 0 30px 0; }
-.create_exercise_container [class^="annotation_tags"] {
+.view_exercise_detial div[class^="annotation_tags"],
+.view_exercise_detial .annotation_tags,
+.create_exercise_container div[class^="annotation_tags"],
+.create_exercise_container .annotation_tags {
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
-  .create_exercise_container [class^="annotation_tags"] .single_tag {
+  .view_exercise_detial div[class^="annotation_tags"] .single_tag,
+  .view_exercise_detial .annotation_tags .single_tag,
+  .create_exercise_container div[class^="annotation_tags"] .single_tag,
+  .create_exercise_container .annotation_tags .single_tag {
     height: fit-content;
     border: 1px;
     box-shadow: 0 2px 4px 0 #b4b4b4;
@@ -452,32 +588,55 @@
     width: 120px;
     text-align: center;
     border-radius: 5px; }
-    .create_exercise_container [class^="annotation_tags"] .single_tag .tag_time {
+    .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_time,
+    .view_exercise_detial .annotation_tags .single_tag .tag_time,
+    .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time,
+    .create_exercise_container .annotation_tags .single_tag .tag_time {
       background-color: rgba(0, 191, 255, 0.8);
       padding: 3px 5px 3px 5px;
       display: flex;
       border-radius: 5px 5px 0 0; }
-      .create_exercise_container [class^="annotation_tags"] .single_tag .tag_time .tag_info {
+      .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_time .tag_info,
+      .view_exercise_detial .annotation_tags .single_tag .tag_time .tag_info,
+      .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .tag_info,
+      .create_exercise_container .annotation_tags .single_tag .tag_time .tag_info {
         border-right: 1px solid black;
         margin-right: 5px;
         padding: 2px 0 2px 5px;
         flex-grow: 4; }
-        .create_exercise_container [class^="annotation_tags"].single_tag .tag_time .tag_info p {
+        .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_time .tag_info p,
+        .view_exercise_detial .annotation_tags .single_tag .tag_time .tag_info p,
+        .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .tag_info p,
+        .create_exercise_container .annotation_tags .single_tag .tag_time .tag_info p {
           vertical-align: middle;
           font-size: 13px;
           vertical-align: middle;
           margin: 0; }
-      .create_exercise_container [class^="annotation_tags"] .single_tag .tag_time .tag_close_btn {
+      .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_time .none_border,
+      .view_exercise_detial .annotation_tags .single_tag .tag_time .none_border,
+      .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .none_border,
+      .create_exercise_container .annotation_tags .single_tag .tag_time .none_border {
+        border-right: none; }
+      .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_time .tag_close_btn,
+      .view_exercise_detial .annotation_tags .single_tag .tag_time .tag_close_btn,
+      .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .tag_close_btn,
+      .create_exercise_container .annotation_tags .single_tag .tag_time .tag_close_btn {
         flex-grow: 1;
         font-size: 15px;
         cursor: pointer; }
-    .create_exercise_container [class^="annotation_tags"] .single_tag .toggle {
+    .view_exercise_detial div[class^="annotation_tags"] .single_tag .toggle,
+    .view_exercise_detial .annotation_tags .single_tag .toggle,
+    .create_exercise_container div[class^="annotation_tags"] .single_tag .toggle,
+    .create_exercise_container .annotation_tags .single_tag .toggle {
       margin: auto;
       height: 17px;
       width: 17px;
       background-position: 0 -150px;
       cursor: pointer; }
-    .create_exercise_container [class^="annotation_tags"] .single_tag .tag_description {
+    .view_exercise_detial div[class^="annotation_tags"] .single_tag .tag_description,
+    .view_exercise_detial .annotation_tags .single_tag .tag_description,
+    .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_description,
+    .create_exercise_container .annotation_tags .single_tag .tag_description {
       text-align: left;
       display: none;
       font-size: 13px;
@@ -491,9 +650,5 @@
 
 .twitter {
   background-position: 0 -100px; }
-
- .tab-pane:not(.active) {
-      display: none;
-  }
 
 /*# sourceMappingURL=main.css.map */

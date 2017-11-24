@@ -44,8 +44,8 @@ def CreateExe(request):
 		instance.save()
 		data=form.cleaned_data
 
-		jsonData = request.POST.get('returnData').split("||")
-
+		jsonData = json.loads(request.POST.get('returnData'))
+		print(jsonData)
 		createVideos(data,instance,jsonData)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
@@ -259,9 +259,11 @@ def EditExe(request,id=None):
 
 		instance.save()
 		if request.method == "POST":
+			print('in post')
 			jsonData = request.POST.get('returnData')
 			annotaiton_data = json.loads(jsonData)
 			set_video_annotation(annotaiton_data)
+		print("not in post")
 
 
 		return HttpResponseRedirect('/myExercise/')
@@ -288,7 +290,7 @@ def videos_to_dict(myVids):
 	vidList = []
 	for item in myVids:
 		vidList.append({"video_id": item.video_id, "annotations": item.annotations,"url":item.videoFile.url })
-	print(vidList)
+	# print(vidList)
 	return vidList
 
 
@@ -298,7 +300,8 @@ def createVideos(data, exerciseObj, jsonData):
 	ex3 = data['exerciseVideos3']
 	ex4 = data['exerciseVideos4']
 	ex5 = data['exerciseVideos5']
-
+	print('check data')
+	print(jsonData)
 	if ex1 is not None:
 		createVideo(ex1, exerciseObj, jsonData[0])
 	if ex2 is not None:
@@ -323,6 +326,7 @@ def createVideo(videoName, exerciseObj,jsonData):
 
 	"""
 	print(videoName)
+
 	print(jsonData)
 	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId,annotations = jsonData)
 	videos_obj.save()

@@ -47,13 +47,14 @@
 }
 
 
+div[class^="annotation_video_container"],
 .annotation_video_container{
 	position:relative;
 	text-align:center;
 	display:inline-block;
 	margin: auto;
 
-
+	div[class^="annotationForm_container"],
 	.annotationForm_container{
 		display: none;
 		background-color:rgba(128,128,128, 0.7);
@@ -105,6 +106,8 @@
 }
 
 
+
+.view_exercise_detial,
 .create_exercise_container{
 	
 	video{
@@ -113,15 +116,16 @@
 	.returnData{
 		display: none;
 	}
-
+	div[class^="position_wrapper"],
 	.position_wrapper{
 		text-align:center;
+		div[class^="video_container"],
 		.video_container{
 			position:relative;
 			margin-top: 20px;
 			display: inline-block;
 
-
+			div[class^="annotationForm_container"],
 			.annotationForm_container{
 				display: none;
 				background-color:rgba(128,128,128, 0.7);
@@ -131,6 +135,7 @@
 				top:0;
 				left: 0;
 				z-index:100;
+				div[class^="input_container"],
 				.input_container{
 					margin-top: 30px;
 		    		vertical-align: middle;
@@ -168,6 +173,8 @@
 		display:inline-block;
 		position:relative;
 	}
+
+	div[class^="vid_annotations_details"],
 	.vid_annotations_details{
 		position: absolute;
 		z-index:10;
@@ -180,7 +187,7 @@
 			border-radius: 5px;
 		}
 	}
-
+	a[id^="annotation_closeBtn"],
 	#annotation_closeBtn{
 		float: right;
 		color: black;
@@ -198,10 +205,12 @@
 
 
 	// annotation tags
+	div[class^="annotation_tag_wrapper"],
 	.annotation_tag_wrapper{
 		display: block;
 		margin: 30px 0 30px 0;
 	}
+	div[class^="annotation_tags"],
 	.annotation_tags{
 		margin: auto;
 		display:flex;
@@ -237,6 +246,9 @@
 					}
 
 					
+				}
+				.none_border{
+					border-right: none;
 				}
 				.tag_close_btn{
 					flex-grow: 1;
