@@ -22,7 +22,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="body_container">
 <div class="create_exercise_container">
-   <div class="container">
+<!--    <div class="container"> -->
       {% if user.is_authenticated  %}
       <div class="exercise_form">
          <form method="post" enctype="multipart/form-data" novalidate>
@@ -210,7 +210,7 @@
          </div>
          {% endif  %}
       </div>
-   </div>
+
 </div>
 <script type="text/javascript">
    var activeTab = 'video0';
@@ -461,8 +461,8 @@
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
    
-       Xval1 = x;
-       Yval1 = y;
+       Xval1 = x/this.width;
+       Yval1 = y/this.height;
        timeStep1 = this.currentTime;
      };
      
@@ -488,8 +488,8 @@
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
    
-       Xval2 = x;
-       Yval2 = y;
+       Xval2 = x/this.width;
+       Yval2 = y/this.height;
        timeStep2 = this.currentTime;
      };
      
@@ -515,8 +515,8 @@
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
    
-       Xval3 = x;
-       Yval3 = y;
+       Xval3 = x/this.width;
+       Yval3 = y/this.height;
        timeStep3 = this.currentTime;
      };
      
@@ -542,8 +542,8 @@
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
    
-       Xval4 = x;
-       Yval4 = y;
+       Xval4 = x/this.width;
+       Yval4 = y/this.height;
        timeStep4 = this.currentTime;
      };
      
@@ -569,8 +569,8 @@
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
    
-       Xval5 = x;
-       Yval5 = y;
+       Xval5 = x/this.width;
+       Yval5 = y/this.height;
        timeStep5 = this.currentTime;
      };
      
@@ -613,7 +613,11 @@
    });
    
    sumitBtn.addEventListener('click',function(){
-     returnInput.value = [returnData1, returnData2, returnData3, returnData4, returnData5].filter(function (val) {return val;}).join('|| ');
+    console.log("get called")
+    console.log(returnData1)
+     // returnInput.value = [returnData1, returnData2, returnData3, returnData4, returnData5].filter(function (val) {return val;}).join('|| ');
+     returnInput.value = JSON.stringify([returnData1, returnData2, returnData3, returnData4, returnData5]);
+     console.log(returnInput.value);
    })
    
    
@@ -805,8 +809,9 @@
          
          if(currentT > myData1[i]["time"] && currentT < (myData1[i]["time"]+3)){
    
-   
-           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData1[i]["x"] + "px; top: " + myData1[i]["y"] + "px;\">" + myData1[i]["details"] + "</p>" + "\n";
+            tempX =  myData1[i]["x"] * this.width;
+            tempY = myData1[i]["y"] * this.height;
+           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData1[i]["details"] + "</p>" + "\n";
    
    
           
@@ -831,8 +836,9 @@
          
          if(currentT > myData2[i]["time"] && currentT < (myData2[i]["time"]+3)){
    
-   
-           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData2[i]["x"] + "px; top: " + myData2[i]["y"] + "px;\">" + myData2[i]["details"] + "</p>" + "\n";
+            tempX =  myData2[i]["x"] * this.width;
+            tempY = myData2[i]["y"] * this.height;
+           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData2[i]["details"] + "</p>" + "\n";
    
    
           
@@ -856,8 +862,9 @@
          
          if(currentT > myData3[i]["time"] && currentT < (myData3[i]["time"]+3)){
    
-   
-           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData3[i]["x"] + "px; top: " + myData3[i]["y"] + "px;\">" + myData3[i]["details"] + "</p>" + "\n";
+            tempX =  myData3[i]["x"] * this.width;
+            tempY = myData3[i]["y"] * this.height;
+           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX+ "px; top: " + tempY + "px;\">" + myData3[i]["details"] + "</p>" + "\n";
    
    
           
@@ -882,8 +889,9 @@
          
          if(currentT > myData4[i]["time"] && currentT < (myData4[i]["time"]+3)){
    
-   
-           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData4[i]["x"] + "px; top: " + myData4[i]["y"] + "px;\">" + myData4[i]["details"] + "</p>" + "\n";
+            tempX =  myData4[i]["x"] * this.width;
+            tempY = myData4[i]["y"] * this.height;
+           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData4[i]["details"] + "</p>" + "\n";
    
    
           
@@ -907,9 +915,10 @@
      for(var i=0;i<dataLength;i++){
          
          if(currentT > myData5[i]["time"] && currentT < (myData5[i]["time"]+3)){
-   
-   
-           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ myData5[i]["x"] + "px; top: " + myData5[i]["y"] + "px;\">" + myData5[i]["details"] + "</p>" + "\n";
+    
+            tempX =  myData5[i]["x"] * this.width;
+            tempY = myData5[i]["y"] * this.height;
+           innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData5[i]["details"] + "</p>" + "\n";
    
    
           

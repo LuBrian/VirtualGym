@@ -14,8 +14,11 @@
         <!-- <div class="page-header"> -->
         <!-- </div> -->
 
+        <p style="text-align: center">{{ resultTitle }}</p>
         <div class="row">
+
           {% for obj in objects_list %}
+
           <div class="col-sm-3">
             <div class="thumbnail">
               {% for video in obj.exerciseVideos.all|slice:":1"%}
@@ -37,16 +40,47 @@
                   {{tag.tagDescription}}{% include "comma.html" %}
                   {%endfor%}
                 </p>
+
             </div>
           </div>
             {% endfor %}
+
           </div>
+
+
 
         </section>
     </div>
 
-</div>
-</div>
 
+    <!-- http://blog.csdn.net/grs294845170/article/details/72867185 -->
+<div class = "view_all_exe_pagination" style="display: block;text-align: center">
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if objects_list.has_previous %}
+            <li>
+            <a href="?page={{ objects_list.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+        {% endif %}
+
+       {% for pg in objects_list.paginator.page_range %}
+          {% if objects_list.number == pg %}
+            <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% else %}
+            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% endif %}
+      {% endfor %}
+      {% if objects_list.has_next %}
+        <li>
+          <a href="?page={{ objects_list.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+    </ul>
+    </nav>
+  </div>
+</div>
+</div>
 
 {% endblock %}

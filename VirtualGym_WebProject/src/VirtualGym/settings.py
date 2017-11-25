@@ -31,6 +31,7 @@ DEBUG = True
 
 
 # Application definition
+
 SUIT_CONFIG = {  
     'ADMIN_NAME': 'cujo2k',  
     'MENU': (  
@@ -39,7 +40,7 @@ SUIT_CONFIG = {
         {'app': 'zinnia', 'label': 'ack2'},  
         {'app': 'auth', 'label': 'ack3'},  
     ),  
-} 
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',

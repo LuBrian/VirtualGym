@@ -18,6 +18,9 @@ from users.models import MyUsers
 from comments.models import Comment
 import re,json
 from django.views.decorators.csrf import csrf_exempt
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 """/******************************
 ** File: views.py
 ** Desc: This file is used as a controller to interact with the front-end and back-end of the given exercises app.
@@ -44,8 +47,8 @@ def CreateExe(request):
 		instance.save()
 		data=form.cleaned_data
 
-		jsonData = request.POST.get('returnData').split("||")
-
+		jsonData = json.loads(request.POST.get('returnData'))
+		print(jsonData)
 		createVideos(data,instance,jsonData)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
@@ -71,25 +74,57 @@ def Profile(request):
     @param queary: request string from front end.
 
     """
-	title=" Profile of Exercise "
-	quearyset=Exercise.objects.filter(exerciseApproved = True)
+	title=""
+	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseData")
 	query=request.GET.get("q")
 
 
 	if query:
 		queryList = re.split(' |,',query)
 		for i in queryList:
-			quearyset=quearyset.filter(
-				Q(exerciseDescription__icontains = i) |
-				Q(exerciseTag__tagDescription__icontains = i)
-			).distinct()
+			try:
+				quearyset_list=quearyset_list.filter(
+					Q(exerciseDescription__icontains = i) |
+					Q(exerciseTag__tagDescription__icontains = i)
+				).distinct()
+			except:
+				pass
+
+	######### may cause errors here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	#https://docs.djangoproject.com/en/1.11/topics/pagination/
+	if(len(quearyset_list) > 0):
+		paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
+		page = request.GET.get('page')
+		if page:
+			quearyset = paginator.page(page).object_list
+		else:
+			quearyset = paginator.page(1).object_list
+		try:
+			quearyset = paginator.page(page)
+
+		except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+			quearyset = paginator.page(1)
+		except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+			quearyset = paginator.page(paginator.num_pages)
+	else:
+		quearyset = []
+		title = "No matched exercise..."
 
 	context={
-		"title":title,
+		"resultTitle":title,
 		"objects_list":quearyset
 	}
+
 	return render(request,"viewProfile.html",context)
 
+
+def listing(request):
+    contact_list = Contacts.objects.all()
+
+
+    return render(request, 'list.html', {'contacts': contacts})
 
 def MyExercise(request):
 	"""
@@ -99,7 +134,7 @@ def MyExercise(request):
     """
 	title=" My Exercise "
 	try:
-		quearyset=Exercise.objects.filter(exercisePosterId = request.user)
+		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
 		context={
 			"title":title,
 			"objects_list":quearyset
@@ -109,18 +144,39 @@ def MyExercise(request):
 		context={
 			"objects_list":quearyset,
 		}
+	paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+	page = request.GET.get('page')
+	if page:
+		quearyset = paginator.page(page).object_list
+	else:
+		quearyset = paginator.page(1).object_list
+	try:
+		quearyset = paginator.page(page)
+
+	except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+		quearyset = paginator.page(1)
+	except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+		quearyset = paginator.page(paginator.num_pages)
+
+	context={
+		"title":title,
+		"objects_list":quearyset
+	}
 	return render(request,"myExercise.html",context)
 
 
 def getRelatedExercises(tag_instances, oldExID):
 	tagExerciseRelationships = []
 	relatedExercisesObjects = set()
+
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
 
 	for element in tagExerciseRelationships:
 		for test in element:
-			instance = get_object_or_404(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
+			instance = Exercise.objects.filter(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
 			if (instance.exerciseId != oldExID):
 
 				relatedExercisesObjects.add(instance)
@@ -171,12 +227,18 @@ def Exercise_detail(request,id=None):
     """
 
 	title=" Detail of Exercise "
+	print(id)
 	instance=get_object_or_404(Exercise,exerciseId=id)
+	print(instance.exerciseId)
 	vid_instances = instance.exerciseVideos.all()
+	print('haha')
 	tag_instances = instance.exerciseTag.all()
-	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
-	if len(relatedExercises) >= 4:
-		relatedExercises = random.sample(relatedExercises, 3)
+	print('haha')
+	# relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
+
+	print('haha')
+	# if len(relatedExercises) >= 4:
+	# 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)
 	#print(relatedVideos)
 	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
@@ -187,9 +249,9 @@ def Exercise_detail(request,id=None):
 
 	comment_form=CommentForm(request.POST or None)
 
-	#quearyset=[]
-	#taglist=instance.exerciseTag.all()
-	#quearyset=getExebytag(taglist)
+	quearyset=[]
+	taglist=instance.exerciseTag.all()
+	quearyset=getExebytag(taglist)
 
 	if comment_form.is_valid():
 
@@ -218,8 +280,9 @@ def Exercise_detail(request,id=None):
 		"instance":instance,
 		"comment_form":comment_form,
 		"videos": json.dumps(videos_to_dict(videos)),
-		"RelatedExercises": relatedExercises
+		"RelatedExercises": quearyset,
 	}
+
 	return render(request,"detail.html",context)
 
 def getExebytag(taglist):
@@ -287,9 +350,11 @@ def EditExe(request,id=None):
 
 		instance.save()
 		if request.method == "POST":
+			print('in post')
 			jsonData = request.POST.get('returnData')
 			annotaiton_data = json.loads(jsonData)
 			set_video_annotation(annotaiton_data)
+		print("not in post")
 
 
 		return HttpResponseRedirect('/myExercise/')
@@ -316,7 +381,7 @@ def videos_to_dict(myVids):
 	vidList = []
 	for item in myVids:
 		vidList.append({"video_id": item.video_id, "annotations": item.annotations,"url":item.videoFile.url })
-	print(vidList)
+	# print(vidList)
 	return vidList
 
 
@@ -326,7 +391,8 @@ def createVideos(data, exerciseObj, jsonData):
 	ex3 = data['exerciseVideos3']
 	ex4 = data['exerciseVideos4']
 	ex5 = data['exerciseVideos5']
-
+	print('check data')
+	print(jsonData)
 	if ex1 is not None:
 		createVideo(ex1, exerciseObj, jsonData[0])
 	if ex2 is not None:
@@ -351,6 +417,7 @@ def createVideo(videoName, exerciseObj,jsonData):
 
 	"""
 	print(videoName)
+
 	print(jsonData)
 	videos_obj = Videos(videoFile=videoName,exercisePosterId= exerciseObj.exercisePosterId,annotations = jsonData)
 	videos_obj.save()
