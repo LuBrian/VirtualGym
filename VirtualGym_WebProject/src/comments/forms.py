@@ -9,10 +9,10 @@ class CommentForm(forms.ModelForm):
     """
 
     # comment descriptin input field
-    comment=forms.CharField(widget=forms.TextInput(
+    comment=forms.CharField(widget=forms.Textarea(
         attrs={
             "class":"form-control",
-            "placeholder":"your comments...",
+            "placeholder":"Write your comment here!",
         }
     ))
 
