@@ -5,6 +5,36 @@
 {% load static %}
 
 {% block page_content %}
+<style>
+    .radius{
+        text-align: right;
+        background-color: #d2ff4d;
+        /*background-color: #cccccc;*/
+        /*background-image: radial-gradient(#e6ffff, white);*/
+        border: 1px solid #000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding:3px;
+        color:#000;
+        opacity: 0.5;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      padding:5px;
+      text-decoration: none;
+    }
+    a:active {
+    text-decoration: none;
+    }
+    
+</style>
 
 <div class="body_container">
 
@@ -61,7 +91,7 @@
       <div class="form-group">
         <h2 >{{instance.exerciseName}}</h2>
         <label>Description:</label><span> {{instance.exerciseDescription}}</span>
-        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
       </div>
   </div>
 
