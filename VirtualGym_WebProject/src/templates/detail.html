@@ -158,7 +158,7 @@
         <form method="post">{% csrf_token %}
           {{comment_form}}
           <input type="hidden" name="parent_id" value="{{comment.CommentId}}">
-          <button id = "reply" type="submit" class="btn btn-default ">Replay</button>
+          <button id = "reply" type="submit" class="btn btn-default ">Reply</button>
         </form>
         {% else %}
         {% endif  %}
