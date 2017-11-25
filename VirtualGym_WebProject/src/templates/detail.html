@@ -7,9 +7,11 @@
 {% block page_content %}
 
 <div class="body_container">
-<div class="container">
-  <div class="exercise_form">
-    <h3 style="text-align: center">{{instance.exerciseName}}</h3>
+
+
+  <div class="view_exercise">
+    <div class = "view_exercise_detial">
+    <!--  -->
        <div class="container" id="tabs">
            <ul class="nav nav-tabs">
            <li class="active"><a data-toggle="tab" id="video0" href="#menu0">Video 1</a></li>
@@ -37,48 +39,65 @@
           </div>
 
   </div>
-  <div class="jumbotron exercise_detail">
-    <video id="vid_preview" width="400" height="auto" controls>
-      <source src="" type="video/mp4">
-    </video>
-
-    <div class="col-lg-6" style="float: right;">
-      <div class="form-group">
-        <label for="description">Description:</label></br>
-        <p style="text-align: left">{{instance.exerciseDescription}}</p>
+  <div class="position_wrapper">
+    <div class="video_container" >
+      <div id = "vid_annotations_details" class="vid_annotations_details">
+        
       </div>
+
+      <div class="vid_box" onresize="resizeVid()">
+        <video id = "vid_preview"  controls>
+            <source src="" type="video/mp4">
+        </video>
+   
+      </div>
+   
     </div>
   </div>
 
-   <div class="text-left"> Tags: {% for tag in instance.exerciseTag.all %}
-    <!-- {{tag.tagDescription}} -->
-    <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>
-    <!-- {% include "comma.html" %} -->
-    {%endfor%}
-  </br>  </br>
   
-    {% for obj in RelatedExercises %}
-     </br>
-    <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}
-    </a><br>
-    {{obj.exerciseDescription}}
 
-    	{% for video in obj.exerciseVideos.all|slice:":1"%}
-      <div style="text-align: right">
-	<video width="100" height="100" controls>
-      		<source src="{{video.videoFile.url}}" type="video/mp4">
-    	</video>
+  <div class= "view_exercise_detial_description" class="col-lg-6">
+      <div class="form-group">
+        <h2 >{{instance.exerciseName}}</h2>
+        <label>Description:</label><span> {{instance.exerciseDescription}}</span>
+        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+      </div>
+  </div>
+
+ 
+</div>
+
+  <div class="view_exercise_crossRef">
+    <h3>Related Videos</h3>
+    <div class="refs_wrapper">
+      {% for obj in RelatedExercises %}
+        <div class="ref_element">
+        {% for video in obj.exerciseVideos.all|slice:":1"%}
+          <div class="ref_vid">
+            <video controls>
+              <source src="{{video.videoFile.url}}" type="video/mp4">
+             </video>
+           </div>
+         
+
+        {%endfor%}
+          <div class="ref_info">
+             <span><strong>{{obj.exerciseDescription}}</strong></span><br/>
+             <p>Tags: 
+            <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}
+            </a>
+            </p>
+          </div>
+      	</div>
+      {%endfor%}
     </div>
+</div>
 
-	{%endfor%}
 
-    {%endfor%}
 
-</br>
-</br>
-
-<div class="">
-  <p class="lead text-center">Comment here</p>
+<div class="view_exercise_comments">
+  <p class="lead text-center">Comments</p>
   {% if user.is_authenticated  %}
   <form method="post">{% csrf_token %}
     {{comment_form}}
@@ -92,7 +111,7 @@
 
   {% for comment in instance.comment_set.all%}
   {% if comment.isParent %}
-  <div class="container">
+  <div class="">
     <blockquote>
       <p>{{comment.CommentContent}}</p>
       <footer>by {{comment.CommentPoster}} at {{comment.CommentTimestamp}}</footer>
@@ -122,108 +141,150 @@
 
 </div>
 </div>
-</div>
-</div>
-</div>
+
+
 <script type="text/javascript">
    var tempvideos = {{ videos|safe}};
    var activeTab = 'video0';
    var viewer;
    var current_vid = 0;
+   var myData = JSON.parse(tempvideos[0]['annotations']);
    $(document).ready(function () {
-    hideEmptyTabs();
-  
-   $('#tabs .nav-tabs a').on('click', function(){
-     activeTab=$(this).attr('id');
-   
-     	if (activeTab == 'video0')
-   {
-	current_vid = 0;
-    }
-    
-    else if (activeTab == 'video1')
-    {
- 	current_vid = 1;
-   }
-
-    
-    else if (activeTab == 'video2')
-    {
-	current_vid = 2;
-   }
-   
-    
-    else if (activeTab == 'video3')
-    {
-	current_vid = 3;
-   
-   }
-   
-    
-    else if (activeTab == 'video4')
-    {
-	current_vid = 4;
-   
-   }
-   	setVideoSrc();
-    });
-	
+      // hideEmptyTabs()
+     $('#tabs .nav-tabs a').on('click', function(){
+       activeTab=$(this).attr('id');
+     
+        if (activeTab == 'video0'){
+          myData = JSON.parse(tempvideos[0]['annotations']);
+          current_vid = 0;
+        }
+        else if (activeTab == 'video1'){
+          myData = JSON.parse(tempvideos[1]['annotations']);
+     	    current_vid = 1;
+        }
+        else if (activeTab == 'video2')
+        {
+          myData = JSON.parse(tempvideos[2]['annotations']);
+          current_vid = 2;
+        }
+        else if (activeTab == 'video3')
+        {
+          myData = JSON.parse(tempvideos[3]['annotations']);
+          current_vid = 3;
+        }
+        else if (activeTab == 'video4')
+        {
+    	   myData = JSON.parse(tempvideos[4]['annotations']);
+         current_vid = 4;
+        }
+     	  setVideoSrc();
+      });
+  	
     });
    	
-     function hideEmptyTabs() {
-         if (tempvideos.length == 1)
-    {
-        $('#tabs .nav-tabs #video1').hide();
-	$('#tabs .nav-tabs #video2').hide();
-	$('#tabs .nav-tabs #video3').hide();
-	$('#tabs .nav-tabs #video4').hide();
-    }
-       else if (tempvideos.length == 2)
-     {
-	$('#tabs .nav-tabs #video2').hide();
-	$('#tabs .nav-tabs #video3').hide();
-	$('#tabs .nav-tabs #video4').hide();
-     }
-     else if (tempvideos.length == 3)
-    {
-	$('#tabs .nav-tabs #video3').hide();
-	$('#tabs .nav-tabs #video4').hide();
-    }
+ //     function hideEmptyTabs() {
+ //         if (current_vid == 1)
+ //    {
+ //        $('#tabs .nav-tabs #video1').hide();
+	// $('#tabs .nav-tabs #video2').hide();
+	// $('#tabs .nav-tabs #video3').hide();
+	// $('#tabs .nav-tabs #video4').hide();
+ //    }
+ //       else if (current_vid == 2)
+ //     {
+	// $('#tabs .nav-tabs #video2').hide();
+	// $('#tabs .nav-tabs #video3').hide();
+	// $('#tabs .nav-tabs #video4').hide();
+ //     }
+ //     else if (current_vid == 3)
+ //    {
+	// $('#tabs .nav-tabs #video3').hide();
+	// $('#tabs .nav-tabs #video4').hide();
+ //    }
 
-     else if (tempvideos.length == 4)
-    {
-	$('#tabs .nav-tabs #video4').hide();
-    }
-  }
-     function setVideoSrc() {
+ //     else if (current_vid == 4)
+ //    {
+	// $('#tabs .nav-tabs #video4').hide();
+ //    }
+ //  }
+  function setVideoSrc() {
 
-	if (tempvideos.length >= current_vid+1)
-	{ 
 	var videoSrc = document.querySelector("video > source");
-	var video = document.querySelector("video");
-	
-	videoSrc.src = tempvideos[current_vid]['url'];
-    	video.load();
-	}
-	else
-	{
-	var videoSrc = document.querySelector("video > source");
-	var video = document.querySelector("video");
-	videoSrc.src = "";
-	video.load();
-	}
-   };
+    var video = document.querySelector("video");
+
+    videoSrc.src = tempvideos[current_vid]['url'];
+    video.load();
+  };
+
+
+
+  function showDetials(element){
+    // assign booking content to a variable
+    console.log('clicked');
+    $content = $(element).closest(".single_tag").find('.tag_description');
+    
+    // if content is hiddent, show up arrow. If not show down arrwo
+    if($content.css("display")=="none"){
+      $(element).css("transform","rotateX(180deg)");
+    } 
+    else{
+      $(element).css("transform","rotateX(0deg)");
+    }
+    // toggle the content on click
+    $content.slideToggle(500)
+
+    
+  };
+  window.onresize = function(event) {
+      console.log('get called resize')
+      var div = $('#vid_preview');
+      var height = div.width() * 0.6;
+      
+      div.css('height', height);
+  };
 
  window.onload = function() {
-    
-    var video = document.querySelector("video"),
-        videoSrc = document.querySelector("video > source"),
-	activeTab = 'video0';
-	current_vid = 0;
+    $(function() {
+        var div = $('#vid_preview');
+        var height = div.width() * 0.6;
+        
+        div.css('height', height);
+    });
+
+
+    var videoSrc = document.querySelector("video > source"),
+	       activeTab = 'video0',
+         current_vid = 0,
+        video = document.getElementById("vid_preview");
+
     // set video url
     // reference: https://stackoverflow.com/questions/3732562/can-i-use-javascript-to-dynamically-change-a-videos-source
     videoSrc.src = tempvideos[current_vid]['url'];
     video.load();
+    setVideoSrc();
+
+
+    $('#vid_preview').on('timeupdate',function(event){
+      var dataLength = myData.length;
+      var currentT = this.currentTime;
+      var innerContent = "";
+
+      for(var i=0;i<dataLength;i++){
+          
+          if(currentT > myData[i]["time"] && currentT < (myData[i]["time"]+3)){
+
+            tempX =  myData[i]["x"] * this.getBoundingClientRect().width;
+            tempY = myData[i]["y"] * this.getBoundingClientRect().height;
+            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
+
+
+           
+          };
+      };
+     
+      var infoDiv = document.getElementById("vid_annotations_details");
+      infoDiv.innerHTML = innerContent;
+    });
  
 }
 
