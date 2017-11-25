@@ -108,8 +108,8 @@
                     <li><a href="{% url 'QA' %}">FAQ</a> </li>
                     <li><a href="{% url 'viewProfile' %}">View Exercises</a></li>
                     {% if user.is_authenticated  %}
-                        <li><a href="{% url 'myExercise' %}">Edit Exercises</a></li>
                         <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
+                        <li><a href="{% url 'myExercise' %}">Edit Exercises</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                        <li><a href="{% url 'signIn' %}">Sign In</a></li>
