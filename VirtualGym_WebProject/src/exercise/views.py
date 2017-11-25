@@ -171,20 +171,18 @@ def MyExercise(request):
 
 
 def getRelatedExercises(tag_instances, oldExID):
-	print('haha')
 	tagExerciseRelationships = []
 	relatedExercisesObjects = set()
 
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
-	print('ahah')
+
 	for element in tagExerciseRelationships:
 		for test in element:
 			instance = Exercise.objects.filter(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
 			if (instance.exerciseId != oldExID):
- 
+
 				relatedExercisesObjects.add(instance)
-	print('ahah')
 	return relatedExercisesObjects
 
 def getVideos(relatedExercises):
@@ -193,8 +191,8 @@ def getVideos(relatedExercises):
 		instance=get_object_or_404(Exercise,exerciseId=exerciseID)
 		vid_instances = instance.exerciseVideos.all()
 		vid_instances = vid_instances[:1]
-		for video in vid_instances:
-			videosToAdd.add(video.video_id)
+	for video in vid_instances:
+		videosToAdd.add(video.video_id)
 	return videosToAdd
 
 def Exercise_detail(request,id=None):
