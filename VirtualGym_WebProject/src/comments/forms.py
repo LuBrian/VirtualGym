@@ -12,7 +12,7 @@ class CommentForm(forms.ModelForm):
     comment=forms.CharField(widget=forms.TextInput(
         attrs={
             "class":"form-control",
-            "placeholder":"your comments...",
+            "placeholder":"Type your comment here...",
         }
     ))
 
