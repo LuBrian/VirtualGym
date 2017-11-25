@@ -6,12 +6,16 @@
 <div class="view_exercise_repo_container">
 
   {% if user.is_authenticated  %}
+	<h1 text align='center'>Edit Exercises</h1>
     <!--show Exercise-- >
     <div class="container">
       <section>
+       
         <!-- <div class="page-header"> -->
         <!-- </div> -->
+         <p style="text-align: center">{{ MyExerciseTitle }}</p>
         <div class="row">
+
           {% for obj in objects_list %}
           <div class="col-md-4">
             <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}</h3>

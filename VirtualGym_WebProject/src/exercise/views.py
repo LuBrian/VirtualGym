@@ -132,38 +132,41 @@ def MyExercise(request):
     @type  quearyset: set of exercise
     @param quearyset: The set of all my exercise object.
     """
-	title=" My Exercise "
+	MyExerciseTitle=""
+	quearyset=[]
 	try:
 		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
-		context={
-			"title":title,
-			"objects_list":quearyset
-		}
+		if len(quearyset_list) >= 1:
+			paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+			page = request.GET.get('page')
+			if page:
+				quearyset = paginator.page(page).object_list
+			else:
+				quearyset = paginator.page(1).object_list
+			try:
+				quearyset = paginator.page(page)
+
+			except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+				quearyset = paginator.page(1)
+			except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+				quearyset = paginator.page(paginator.num_pages)
+		else:
+			MyExerciseTitle = "You do not have any exercise yet."
+
+
 	except:
 		quearyset = []
+		MyExerciseTitle = "You do not have any exercise yet."
 		context={
+			"MyExerciseTitle":MyExerciseTitle,
 			"objects_list":quearyset,
 		}
-	paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
-	page = request.GET.get('page')
-	if page:
-		quearyset = paginator.page(page).object_list
-	else:
-		quearyset = paginator.page(1).object_list
-	try:
-		quearyset = paginator.page(page)
-
-	except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-		quearyset = paginator.page(1)
-	except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-		quearyset = paginator.page(paginator.num_pages)
-
 	context={
-		"title":title,
+		"MyExerciseTitle":MyExerciseTitle,
 		"objects_list":quearyset
-	}
+		}
 	return render(request,"myExercise.html",context)
 
 
