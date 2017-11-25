@@ -113,10 +113,13 @@
 
         {%endfor%}
           <div class="ref_info">
-             <span><strong>{{obj.exerciseDescription}}</strong></span><br/>
-             <p>Tags: 
-            <a href="http://localhost:8000/{{obj.exerciseId}}">{{obj.exerciseName}}
+             <span><strong>
+               <a href="/{{obj.exerciseId}}">{{obj.exerciseName}}
             </a>
+             </strong></span><br/>
+             <p>Description: 
+            
+            {{obj.exerciseDescription}}
             </p>
           </div>
       	</div>
