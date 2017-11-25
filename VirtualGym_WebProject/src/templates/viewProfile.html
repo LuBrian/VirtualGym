@@ -3,6 +3,35 @@
 
 
 {% block page_content %}
+<style>
+    .radius{
+        text-align: right;
+        background-color: #f0f5f5;
+        border: 1px solid #000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding:3px;
+        color:#666;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      padding:5px;
+      text-decoration: none;
+    }
+    a:active {
+    text-decoration: none;
+    }
+    
+</style>
+
+
 <div class="body_container">
 <div class="view_exercise_repo_container">
 
@@ -20,7 +49,7 @@
           {% for obj in objects_list %}
           <div class="col-md-3">
               <h3 style="text-align: center">
-                <a class = "name" style="color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}
+                <a class = "title" style="color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}
                 </a>
               </h3>
             <div class="thumbnail">
@@ -31,11 +60,13 @@
               <video width=100% height=100%>
                 <source src="{{video.videoFile.url}}" type="video/mp4">
               </video></br>
+
               {% for tag in obj.exerciseTag.all %}
-              <a class="tag" style="text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
+              <a class="radius"  text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
               {{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</a>
               {% endfor %}
-              <p>
+
+              <p style="text-align: center;">
                 {{obj.exerciseData}}
               </p>
             </div>
