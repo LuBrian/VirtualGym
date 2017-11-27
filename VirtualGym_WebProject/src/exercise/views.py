@@ -173,15 +173,13 @@ def MyExercise(request):
 def getRelatedExercises(tag_instances, oldExID):
 	tagExerciseRelationships = []
 	relatedExercisesObjects = set()
-
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
-
+	
 	for element in tagExerciseRelationships:
 		for test in element:
-			instance = Exercise.objects.filter(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
-			if (instance.exerciseId != oldExID):
-
+			instance = Exercise.objects.get(exerciseId=test.exercise_id.exerciseId)
+			if (instance.exerciseId != oldExID and instance.exerciseApproved):
 				relatedExercisesObjects.add(instance)
 	return relatedExercisesObjects
 
@@ -237,11 +235,11 @@ def Exercise_detail(request,id=None):
 	print('haha')
 	tag_instances = instance.exerciseTag.all()
 	print('haha')
-	# relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
+	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
 
 	print('haha')
-	# if len(relatedExercises) >= 4:
-	# 	relatedExercises = random.sample(relatedExercises, 3)
+	if len(relatedExercises) >= 4:
+	 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)
 	#print(relatedVideos)
 	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
@@ -283,7 +281,7 @@ def Exercise_detail(request,id=None):
 		"instance":instance,
 		"comment_form":comment_form,
 		"videos": json.dumps(videos_to_dict(videos)),
-		"RelatedExercises": quearyset,
+		"RelatedExercises": relatedExercises,
 	}
 
 	return render(request,"detail.html",context)
