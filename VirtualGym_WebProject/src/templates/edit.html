@@ -144,28 +144,42 @@
 	
   var tempvideos = {{ videos|safe}};
   console.log(tempvideos);
-  var myData = JSON.parse(tempvideos[0]['annotations']);
+  // var myData = JSON.parse(tempvideos[0]['annotations']);
   var current_vid = 0;
-
+  var tempData = tempvideos[0]["annotations"];
+  var myData = [];
+  console.log(tempData)
+   if (tempData != ""){
+      var myData = JSON.parse(tempData)
+    };
   
    $(document).ready(function () {
     $('#tabs .nav-tabs a').on('click', function(){
       activeTab=$(this).attr('id');
       if (activeTab == 'video0'){
-        myData = JSON.parse(tempvideos[0]['annotations']);
+        tempData = tempvideos[0]["annotations"];
+        if (tempData != ""){
+          myData = JSON.parse(tempData)
+        };
     		current_vid = 0;
       }
         
       else if (activeTab == 'video1')
       {
     		    
-          myData = JSON.parse(tempvideos[1]['annotations']);
+          tempData = tempvideos[1]["annotations"];
+        if (tempData != ""){
+          myData = JSON.parse(tempData)
+        };
           current_vid = 1;
       }
         
       else if (activeTab == 'video2')
       {
-    		  myData = JSON.parse(tempvideos[2]['annotations']);
+    		  tempData = tempvideos[2]["annotations"];
+        if (tempData != ""){
+          myData = JSON.parse(tempData)
+        };
           current_vid = 2;
       }
         
@@ -173,14 +187,20 @@
       {
     		 // if (myData4.length == 0 && tempvideos.length >= 4)
     		 // {
-    	   myData = JSON.parse(tempvideos[3]['annotations']);
+    	   tempData = tempvideos[3]["annotations"];
+          if (tempData != ""){
+            myData = JSON.parse(tempData)
+          };
     		 // }
     		 current_vid = 3;
       } 
         
       else if (activeTab == 'video4')
       {
-    		  myData = JSON.parse(tempvideos[4]['annotations']);
+    		  tempData = tempvideos[4]["annotations"];
+          if (tempData != ""){
+            myData = JSON.parse(tempData)
+          };
           current_vid = 4;
       }
       setVideoSrc();
@@ -196,17 +216,19 @@
     videoSrc.src = tempvideos[current_vid]['url'];
     video.load();
 
-    console.log(myData.length)
-    var tempLength = myData.length;
-    var tempContent = "";
-    for(var i=0;i<tempLength;i++){
-      tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+    if (tempData != ""){
+      console.log(myData.length)
+      var tempLength = myData.length;
+      var tempContent = "";
+      for(var i=0;i<tempLength;i++){
+        tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+      };
+      console.log(tempContent)
+      var tempDiv = document.getElementById("annotation_tags");
+      console.log(tempDiv)
+      tempDiv.innerHTML = tempContent;
+      console.log(tempDiv.innerHTML)
     };
-    console.log(tempContent)
-    var tempDiv = document.getElementById("annotation_tags");
-    console.log(tempDiv)
-    tempDiv.innerHTML = tempContent;
-    console.log(tempDiv.innerHTML)
    };
 
   function showDetials(element){
@@ -258,7 +280,7 @@
         returnData = "";
         sumitBtn = document.getElementById("submitExercise");
         returnInput = document.getElementById("returnData");
-        tempData = {};
+        tempDic = {};
     
 
     // set video url
@@ -321,11 +343,12 @@
         if (details != "" && details != null)
         {
           // myData = getMyData();
-          vidData.push({x: Xval, y: Yval, time: timeStep, details: details});
-          var tempData = {x: Xval, y: Yval, time: timeStep, details: details};
+          tempDic = {x: Xval, y: Yval, time: timeStep, details: details};
           // localdata = JSON.stringify([tempData]);
-          myData.push(tempData);
+          myData.push(tempDic);
           sortByTimeStep();
+
+
 
           tempvideos[current_vid]['annotations']=JSON.stringify(myData);
           console.log(tempvideos);
@@ -351,7 +374,7 @@
       returnData = JSON.stringify(myData);
       console.log(returnData);
 
-      setMyData();
+      // setMyData();
     
     }, false);
 
@@ -369,25 +392,26 @@
 
 
     $('#vid_preview').on('timeupdate',function(event){
-      var dataLength = myData.length;
-      var currentT = this.currentTime;
-      var innerContent = "";
-     
-      for(var i=0;i<dataLength;i++){
-          
-          if(currentT > myData[i]["time"] && currentT < (myData[i]["time"]+3)){
+      tempData = tempvideos[current_vid]["annotations"];
+      if (tempData != ""){
+        var dataLength = myData.length;
+        var currentT = this.currentTime;
+        var innerContent = "";
+       
+        for(var i=0;i<dataLength;i++){
+            
+            if(currentT > myData[i]["time"] && currentT < (myData[i]["time"]+3)){
 
-            tempX =  myData[i]["x"] * this.width;
-            tempY = myData[i]["y"] * this.height;
-            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
+              tempX =  myData[i]["x"] * this.width;
+              tempY = myData[i]["y"] * this.height;
+              innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
 
-
-           
-          };
-      };
-     
-      var infoDiv = document.getElementById("vid_annotations_details");
-      infoDiv.innerHTML = innerContent;
+            };
+        };
+       
+        var infoDiv = document.getElementById("vid_annotations_details");
+        infoDiv.innerHTML = innerContent;
+      }
     });
 
 
