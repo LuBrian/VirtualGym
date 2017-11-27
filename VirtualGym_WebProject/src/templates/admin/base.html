@@ -14,12 +14,26 @@
 {% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
+
+
 {% load i18n %}
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
   data-admin-utc-offset="{% now "Z" %}">
 
 <!-- Container -->
+<style media="screen">
+  .navbar-default {
+      background-color: #f8f8f8;
+      border-color: #2f353d;
+      border-radius: 0px;
+  }
+  @media (min-width: 768px)
+  navbar.less:661
+  .navbar {
+       border-radius: 0px;
+  }
+</style>
 <div id="container">
 
     {% if not is_popup %}
@@ -70,9 +84,9 @@
     {% endblock messages %}
 
     <!-- Content -->
-    <div id="content" class="{% block coltype %}colM{% endblock %}">
+    <div id="content" class="{% block coltype %}colM{% endblock %}" style="width: inherit;">
         {% block pretitle %}{% endblock %}
-        {% block content_title %}{% if title %}<h1></h1>{% endif %}{% endblock %}
+        {% block content_title %}{% if title %}{% endif %}{% endblock %}
         {% block content %}
         {% block object-tools %}{% endblock %}
         {{ content }}

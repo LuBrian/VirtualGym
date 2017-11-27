@@ -3,52 +3,85 @@
 
 
 {% block page_content %}
+<style>
+    .radius{
+        text-align: right;
+        background-color: #d2ff4d;
+        /*background-color: #cccccc;*/
+        /*background-image: radial-gradient(#e6ffff, white);*/
+        border: 1px solid #000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding:3px;
+        color:#000;
+        opacity: 0.5;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      padding:5px;
+      text-decoration: none;
+    }
+    a:active {
+    text-decoration: none;
+    }
+
+</style>
+
+
 <div class="body_container">
 <div class="view_exercise_repo_container">
 
+<h1 text align='center'>Approved Exercises</h1>
 
     <!--show Exercise-- >
     <div class="container">
       <section>
-
         <!-- <div class="page-header"> -->
         <!-- </div> -->
-
         <p style="text-align: center">{{ resultTitle }}</p>
         <div class="row">
 
           {% for obj in objects_list %}
           <div class="col-md-3">
               <h3 style="text-align: center">
-                <a class = "name" style="color:#666; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}
+                <a class = "title" style="color:#666; font-size:30px;" href="{%url "detail" id=obj.exerciseId %}"><b><u>{{obj.exerciseName}}</u></b>
                 </a>
               </h3>
             <div class="thumbnail">
-            
+
              <!--  <p style="text-align: center">{{obj.}}</p> -->
 
-              {% for video in obj.exerciseVideos.all|slice:":1"%}
-              <video width=100% height=100%>
-                <source src="{{video.videoFile.url}}" type="video/mp4">
-              </video></br>
-              {% for tag in obj.exerciseTag.all %}
-              <a class="tag" style="text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
-              {{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</a>
+              {% for video in obj.exerciseVideos.all|slice:":1" %}
+              <a href="{%url 'detail' id=obj.exerciseId %}">
+                <video width=100% height=“100%” >
+                  <source src="{{video.videoFile.url}}" type="video/mp4">
+                </video>
+              </a>
               {% endfor %}
-              <p>
+              </br>
+              <p style="text-align: center;">
                 {{obj.exerciseData}}
               </p>
+
+<!-- {% include "comma.html" %} -->
+
             </div>
+             {% for tag in obj.exerciseTag.all %}
+              <a class="radius"  text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
+              ○{{tag.tagDescription}}</a><span>&nbsp;{%endfor%}</span>
           </div>
             {% endfor %}
 
           </div>
-
-
-
         </section>
     </div>
-
 
     <!-- http://blog.csdn.net/grs294845170/article/details/72867185 -->
 <div class = "view_all_exe_pagination" style="display: block;text-align: center">
@@ -77,7 +110,6 @@
     </ul>
     </nav>
   </div>
-</div>
 </div>
 
 {% endblock %}

@@ -132,56 +132,55 @@ def MyExercise(request):
     @type  quearyset: set of exercise
     @param quearyset: The set of all my exercise object.
     """
-	title=" My Exercise "
+	MyExerciseTitle=""
+	quearyset=[]
 	try:
 		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
-		context={
-			"title":title,
-			"objects_list":quearyset
-		}
+		if len(quearyset_list) >= 1:
+			paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+			page = request.GET.get('page')
+			if page:
+				quearyset = paginator.page(page).object_list
+			else:
+				quearyset = paginator.page(1).object_list
+			try:
+				quearyset = paginator.page(page)
+
+			except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+				quearyset = paginator.page(1)
+			except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+				quearyset = paginator.page(paginator.num_pages)
+		else:
+			MyExerciseTitle = "You do not have any exercise yet."
+
+
 	except:
 		quearyset = []
+		MyExerciseTitle = "You do not have any exercise yet."
 		context={
+			"MyExerciseTitle":MyExerciseTitle,
 			"objects_list":quearyset,
 		}
-	paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
-	page = request.GET.get('page')
-	if page:
-		quearyset = paginator.page(page).object_list
-	else:
-		quearyset = paginator.page(1).object_list
-	try:
-		quearyset = paginator.page(page)
-
-	except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-		quearyset = paginator.page(1)
-	except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-		quearyset = paginator.page(paginator.num_pages)
-
 	context={
-		"title":title,
+		"MyExerciseTitle":MyExerciseTitle,
 		"objects_list":quearyset
-	}
+		}
 	return render(request,"myExercise.html",context)
 
 
 def getRelatedExercises(tag_instances, oldExID):
-	print('haha')
 	tagExerciseRelationships = []
 	relatedExercisesObjects = set()
-
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
-	print('ahah')
+	
 	for element in tagExerciseRelationships:
 		for test in element:
-			instance = Exercise.objects.filter(Exercise,exerciseId=test.exercise_id.exerciseId, exerciseApproved=True)
-			if (instance.exerciseId != oldExID):
- 
+			instance = Exercise.objects.get(exerciseId=test.exercise_id.exerciseId)
+			if (instance.exerciseId != oldExID and instance.exerciseApproved):
 				relatedExercisesObjects.add(instance)
-	print('ahah')
 	return relatedExercisesObjects
 
 def getVideos(relatedExercises):
@@ -190,8 +189,8 @@ def getVideos(relatedExercises):
 		instance=get_object_or_404(Exercise,exerciseId=exerciseID)
 		vid_instances = instance.exerciseVideos.all()
 		vid_instances = vid_instances[:1]
-		for video in vid_instances:
-			videosToAdd.add(video.video_id)
+	for video in vid_instances:
+		videosToAdd.add(video.video_id)
 	return videosToAdd
 
 def Exercise_detail(request,id=None):
@@ -236,11 +235,11 @@ def Exercise_detail(request,id=None):
 	print('haha')
 	tag_instances = instance.exerciseTag.all()
 	print('haha')
-	# relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
+	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
 
 	print('haha')
-	# if len(relatedExercises) >= 4:
-	# 	relatedExercises = random.sample(relatedExercises, 3)
+	if len(relatedExercises) >= 4:
+	 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)
 	#print(relatedVideos)
 	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
@@ -282,7 +281,7 @@ def Exercise_detail(request,id=None):
 		"instance":instance,
 		"comment_form":comment_form,
 		"videos": json.dumps(videos_to_dict(videos)),
-		"RelatedExercises": quearyset,
+		"RelatedExercises": relatedExercises,
 	}
 
 	return render(request,"detail.html",context)
