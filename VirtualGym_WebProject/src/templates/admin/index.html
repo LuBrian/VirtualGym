@@ -21,137 +21,199 @@
 
 
 {% block content %}
-<!-- {% if has_permission %}
-<div id="wel" class="panel-heading">
-        <h3>
-        {% trans 'Welcome,' %}
-        <strong>{% firstof user.get_short_name user.get_username %}</strong>
-        </h3>
-</div>
-{% endif %} -->
 
-<!-- <div id="content-main">
+<style media="screen">
+  #recent-actions-module .page-header {
+    margin: 0;
+  }
+  #recent-actions-module h2 {
+    margin-top: 0;
+  }
+  #recent-actions-module .none-available {
+    margin-top: 10px;
+  }
 
-{% if app_list %}
-    {% for app in app_list %}
-        <div class="app-{{ app.app_label }} module">
-        <table>
-        <caption>
-            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-        </caption>
-        {% for model in app.models %}
-            <tr class="model-{{ model.object_name|lower }}">
-            {% if model.admin_url %}
-                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
-            {% else %}
-                <th scope="row">{{ model.name }}</th>
-            {% endif %}
+  #content-related {
+      background: #f8f8f8;
+      width: -webkit-fill-available;
+      margin-right: 0px;
+  }
 
-            {% if model.add_url %}
-                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
+  .timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+  }
+  .timeline:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: #eeeeee;
+    left: 50%;
+    margin-left: -1.5px;
+  }
+  .timeline > li {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .timeline > li:before,
+  .timeline > li:after {
+    content: " ";
+    display: table;
+  }
+  .timeline > li:after {
+    clear: both;
+  }
+  .timeline > li:before,
+  .timeline > li:after {
+    content: " ";
+    display: table;
+  }
+  .timeline > li:after {
+    clear: both;
+  }
+  .timeline > li > .timeline-panel {
+    width: 46%;
+    float: left;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  }
+  .timeline > li > .timeline-panel:before {
+    position: absolute;
+    top: 26px;
+    right: -15px;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-right: 0 solid #ccc;
+    border-bottom: 15px solid transparent;
+    content: " ";
+  }
+  .timeline > li > .timeline-panel:after {
+    position: absolute;
+    top: 27px;
+    right: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #f8f8f8;
+    border-right: 0 solid #f8f8f8;
+    border-bottom: 14px solid transparent;
+    content: " ";
+  }
+  .timeline > li > .timeline-badge {
+    border: 2px solid #eeeeee;
+    border-radius: 50%;
+    color: #ffffff;
+    height: 38px;
+    left: 50%;
+    line-height: 36px;
+    margin-left: -19px;
+    position: absolute;
+    text-align: center;
+    top: 22px;
+    width: 38px;
+    z-index: 100;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+  .timeline-badge.add {
+    background-color: #3f903f !important;
+  }
+  .timeline-badge.change {
+    background-color: #f0ad4e !important;
+  }
+  .timeline-badge.delete {
+    background-color: #d9534f !important;
+  }
+  .timeline-title {
+    margin-top: 0;
+    color: inherit;
+  }
+  .timeline-body > p,
+  .timeline-body > ul {
+    margin-bottom: 0;
+  }
 
-            {% if model.admin_url %}
-                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
-            </tr>
-        {% endfor %}
-        </table>
-        </div>
-    {% endfor %}
-{% else %}
-    <p>{% trans "You don't have permission to edit anything." %}</p>
-{% endif %}
-</div>
-{% endblock %}
+  @media (max-width: 767px) {
+    ul.timeline:before {
+      left: 40px;
+    }
+    ul.timeline > li > .timeline-panel {
+      width: calc(100% - 75px);
+      width: -moz-calc(100% - 75px);
+      width: -webkit-calc(100% - 75px);
+    }
+    ul.timeline > li > .timeline-badge {
+      left: 22px;
+      margin-left: 0;
+      top: 20px;
+    }
+    ul.timeline > li > .timeline-panel {
+      float: right;
+    }
+    ul.timeline > li > .timeline-panel:before {
+      border-left-width: 0;
+      border-right-width: 15px;
+      left: -15px;
+      right: auto;
+    }
+    ul.timeline > li > .timeline-panel:after {
+      border-left-width: 0;
+      border-right-width: 14px;
+      left: -14px;
+      right: auto;
+    }
+  }
 
-{% block sidebar %}
-<div id="content-related">
-    <div class="module" id="recent-actions-module">
-        <h2>{% trans 'Recent actions' %}</h2>
-        <h3>{% trans 'My actions' %}</h3>
-            {% load log %}
-            {% get_admin_log 10 as admin_log for_user user %}
-            {% if not admin_log %}
-            <p>{% trans 'None available' %}</p>
-            {% else %}
-            <ul class="actionlist">
-            {% for entry in admin_log %}
-            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
-                {% if entry.is_deletion or not entry.get_admin_url %}
-                    {{ entry.object_repr }}
-                {% else %}
-                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
-                {% endif %}
-                <br/>
-                {% if entry.content_type %}
-                    <span class="mini quiet">{% filter capfirst %}{{ entry.content_type }}{% endfilter %}</span>
-                {% else %}
-                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
-                {% endif %}
-            </li>
-            {% endfor %}
-            </ul>
-            {% endif %}
-    </div>
-</div> -->
+</style>
 
-<!-- <body >
-<div style="position:absolute;z-index:-1;width:100%;height:100%;">
-      <img src="../static/images/2.jpg"/>
-</div>
-</body> -->
 <body style="background-image:url(../static/images/86.jpg); background-repeat:no-repeat ;
-background-size:100% 100%; 
+background-size:100% 100%;
 background-attachment: fixed;">
 
 <div id="content-main">
   {% if app_list %}
-    <div class="panel panel-primary " id="apps" style="width: 900px;">
-      <div class="panel-heading">
-
-        {% block welcome-msg %}
-            <h1>{% trans 'Welcome To Virtual Gym' %}</h1>
-            <strong>{% firstof user.get_short_name user.get_username %}</strong>
-        {% endblock %}
-      </div>
-      <div class="table-responsive table-apps">
+    <div class="jumbotron" style="width: -webkit-fill-available; margin-left: 220px;">
+      {% block welcome-msg %}
+          <h1 style="text-align: center;">{% trans 'Welcome To Virtual Gym' %}</h1>
+          <strong style="float:right">{% firstof user.get_short_name user.get_username %}</strong>
+      {% endblock %}
+    </div>
+    <div class="panel panel-default" id="apps" style="width: -webkit-fill-available; margin-left: 220px;">
+      <!-- <div class="table-responsive table-apps">
         <table class="table table-bordered">
           <thead>
               <th class="title-head-apps">
                 {% trans "Apps" %}
               </th>
-              <!-- <th class="search-apps-models">
-                <form action="" method="get">
-                  <div class="wrapper">
-                    <span class="glyphicon glyphicon-search"></span>
-                    <input placeholder="{% trans "Search" %}" class="search form-control input-sm" type="input" name="q">
-                    <span class="remove-this label label-info"><span class="glyphicon glyphicon-remove"></span> <span class="text"></span></span>
-                  </div>
-                </form>
-              </th> -->
               <th class="title-head-actions">{% trans "Action" %}</th>
-
           </thead>
           <tbody class="list">
             {% for app in app_list %}
               {% cycle ' bg-colored' '' as rowcolors silent %}
               {% for model in app.models %}
-                <!-- <tr class="app-{{ app.app_label }}{{ rowcolors }}">
-                {% if forloop.first %}
-                  <td rowspan="{{ app.models|length }}" class="app-name {% if forloop.parentloop.last %}last-app{% endif %}">
-                    <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-                  </td>
-                {% endif %} -->
+
 
                 <td class="model-name model-{{ model.object_name|lower }}">
-                  <!-- {% if forloop.first %}
-                    <a href="{{ app.app_url }}" class="extra-app-name" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-                  {% endif %} -->
+
                   <a href="{% if model.admin_url %}{{ model.admin_url }}{% else %}#{% endif %}" title="{{ app.name }} &raquo; {{ model.name }}" {% if not model.admin_url %}class="disabled"{% endif %}>{{ model.name }}</a>
                 </td>
 
@@ -159,7 +221,6 @@ background-attachment: fixed;">
                   <div class="btn-group btn-group-justified btn-group-actions">
                     <a href="{% if model.add_url %}{{ model.add_url }}{% endif %}" role="button" class="addlink btn {% if not model.add_url %}disabled{% endif %}" data-toggle="tooltip" data-placement="left" title="{% trans 'Add' %}"><span class="glyphicon glyphicon-plus"></span></a>
                     <a href="{% if model.admin_url %}{{ model.admin_url }}{% endif %}" role="button" class="changelink btn {% if not model.admin_url %}disabled{% endif %}" title="{% trans 'Change' %}" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="#" class="btn search-in-model" data-toggle="tooltip" data-placement="left" title="{% trans 'Search' %}" data-model-name="{{ model.name }}" data-url-model-name="{{ model.admin_url }}"><span class="glyphicon glyphicon-search"></span></a>
                   </div>
                 </td>
               </tr>
@@ -167,9 +228,9 @@ background-attachment: fixed;">
             {% endfor %}
           </tbody>
         </table>
-      </div>
+      </div> -->
       {% block recent_actions %}
-        <div id="content-related" class="recent-actions panel-body" style="margin-top: -540px;">
+        <div id="content-related" class="recent-actions panel-body" style="">
           <div class="module" id="recent-actions-module">
             <div class="page-header">
               <h2 id="timeline" class="h3">{% trans 'Recent Actions' %} <small>({% trans 'My Actions' %})</small></h2>
