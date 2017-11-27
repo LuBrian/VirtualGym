@@ -91,7 +91,7 @@
       <div class="form-group">
         <h2 >{{instance.exerciseName}}</h2>
         <label>Description:</label><span> {{instance.exerciseDescription}}</span>
-        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
       </div>
   </div>
 
