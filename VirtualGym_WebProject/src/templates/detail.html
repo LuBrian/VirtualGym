@@ -200,11 +200,11 @@ h5 {
       <div class="">
         <blockquote>
           <p>{{comment.CommentContent}}</p>
-          <footer>by {{comment.CommentPoster}} at {{comment.CommentTimestamp}}</footer>
+          <footer>by {{comment.CommentPoster}}| {{comment.CommentTimestamp|timesince}} ago</footer>
             {% for child_comment in comment.children %}
               <blockquote>
                 <p>{{child_comment.CommentContent}}</p>
-                <footer>by {{child_comment.CommentPoster}} at {{child_comment.CommentTimestamp}}</footer>
+                <footer>by {{child_comment.CommentPoster}}| {{child_comment.CommentTimestamp|timesince}} ago</footer>
               </blockquote>
             {% endfor %}
               <div id="{{comment.CommentId}}" style="display:none">

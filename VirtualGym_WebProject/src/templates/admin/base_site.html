@@ -43,6 +43,9 @@
   color: #e1ffff;
   margin-top: 49px;
 }
+.nav-side-menu .toggle-btn {
+  display: block;
+}
 
 .nav-side-menu ul,
 .nav-side-menu li {
@@ -103,12 +106,7 @@
     width: 40px;
     text-align: center;
   }
-  .brand {
-    text-align: left !important;
-    font-size: 22px;
-    padding-left: 20px;
-    line-height: 50px !important;
-  }
+
 }
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
@@ -119,7 +117,7 @@
 <div class="nav-side-menu">
     {% if app_list %}
 
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <i class="toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
 
             <ul id="menu-content" class="menu-content collapse out">
