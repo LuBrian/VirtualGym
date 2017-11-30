@@ -36,6 +36,10 @@
     min-height: 100vh;
     }
 
+    #filter{
+      background: #2f353d;
+    }
+
     form {
     margin: 0;
     padding: 0;
@@ -52,6 +56,7 @@
     color: #666;
     width: inherit;
   }
+  .link_:hover{text-decoration:underline;color: #C20C0C;}
   </style>
 {% endblock %}
 
@@ -64,10 +69,12 @@
 
 {% if not is_popup %}
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+<div class="breadcrumbs", style="background-color: #f5dd5d">
+<a class="link_" style="color: #000" href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+   <span style="color: #000"> &rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}</span>
+<!-- <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> -->
 <!-- &rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ cl.opts.app_config.verbose_name }}</a> -->
-&rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
+
 </div>
 {% endblock %}
 {% endif %}
@@ -96,6 +103,7 @@
         </p>
         {{ cl.formset.non_form_errors }}
     {% endif %}
+
     <div class="module{% if cl.has_filters %} filtered{% endif %}" id="changelist">
       {% block search %}{% search_form cl %}{% endblock %}
       {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
@@ -103,7 +111,7 @@
       {% block filters %}
         {% if cl.has_filters %}
           <div id="changelist-filter">
-            <h2>{% trans 'Filter' %}</h2>
+            <h2 id="filter">{% trans 'Filter' %}</h2>
             {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
           </div>
         {% endif %}
