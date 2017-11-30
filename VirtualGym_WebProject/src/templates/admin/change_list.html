@@ -38,6 +38,7 @@
 
     #filter{
       background: #2f353d;
+      color: #fff;
     }
 
     form {
@@ -112,7 +113,7 @@
         {% if cl.has_filters %}
           <div id="changelist-filter">
             <h2 id="filter">{% trans 'Filter' %}</h2>
-            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+         <div style="color: #fff"> {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}</div>
           </div>
         {% endif %}
       {% endblock %}

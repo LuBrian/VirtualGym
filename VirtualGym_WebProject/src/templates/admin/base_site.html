@@ -5,6 +5,7 @@
 
 {% block extrastyle %}
 <style>
+.normal{ font-style:normal;}
 #header {
     width: auto;
     height: 40px;
@@ -106,19 +107,25 @@
                     <li class="model-name model-{{ model.object_name|lower }}">
                       {% if model.admin_url %}
                       <i >
-                        {% if model.name != "Groups" and model.name != "Associations" and model.name != "Nonces" and model.name != "User social auths"%}
-                        <a href="{{ model.admin_url }}">{{ model.name }}</a>
-                        {% if model.add_url %}
-                            <a href="{{ model.add_url }}" class="addlink"></a>
-                        {% else %}
-                            <td>&nbsp;</td>
-                        {% endif %}
 
-                        {% if model.admin_url %}
-                            <a href="{{ model.admin_url }}" class="changelink"></a>
-                        {% else %}
-                            <td>&nbsp;</td>
-                        {% endif %}
+                        {% if model.name != "Groups" and model.name != "Associations" and model.name != "Nonces" and model.name != "User social auths"%}
+                          <a class="normal" href="{{ model.admin_url }}">{{ model.name }}</a>
+                          {% if model.admin_url %}
+                          <div style="float:right">
+                              <a href="{{ model.admin_url }}" class="changelink"></a>
+                            </div>
+                          {% else %}
+                              <td>&nbsp;</td>
+                          {% endif %}
+
+                          {% if model.add_url %}
+                           <div style="float:right">
+                              <a href="{{ model.add_url }}" class="addlink"></a>
+                            </div>
+                          {% else %}
+                              <td>&nbsp;</td>
+                          {% endif %}
+                          
                         {%endif%}
                       </i>
                       {% else %}
