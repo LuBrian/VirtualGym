@@ -20,6 +20,11 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+ <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+
 <div class="body_container">
 <div class="create_exercise_container">
 <!--    <div class="container"> -->
@@ -75,7 +80,7 @@
                               </video>
                            </div>
                            <div id = "annotationForm_container1" class="annotationForm_container1">
-                              <a id="annotation_closeBtn1"">&times;</a>
+                              <a id="annotation_closeBtn1">&times;</a>
                               <div class="input_container1">
                                  <textarea id = "annotation_detial1" class = "annotation_detial1" type="text" value = "" name="details" value="{{obj.questionID}}"></textarea>
                               </div>
@@ -208,6 +213,17 @@
 
 </div>
 <script type="text/javascript">
+
+// $('.form-control').material_chip({
+//     data: [{
+//       tag: 'Tag 1',
+//     }, {
+//       tag: 'Tag 2',
+//     }, {
+//       tag: 'Tag 3',
+//     }],
+//   });
+
    var activeTab = 'video0';
    var myData1 = [];
    var myData2 = [];
@@ -218,61 +234,61 @@
    $(document).ready(function () {
    $('#tabs .nav-tabs a').on('click', function(){
      activeTab=$(this).attr('id');
-   
+
      	if (activeTab == 'video0')
    {
    viewer = {
      load:function(e){
    	$("#vid_preview1").attr('src',e.target.result);
      }
-   
+
    }
     }
-    
+
     else if (activeTab == 'video1')
     {
      	viewer = {
      load:function(e){
    	$("#vid_preview2").attr('src',e.target.result);
      }
-   
+
    }
 
     }
-    
+
     else if (activeTab == 'video2')
     {
      	viewer = {
      load:function(e){
    	$("#vid_preview3").attr('src',e.target.result);
      }
-   
+
    }
     }
-    
+
     else if (activeTab == 'video3')
     {
      	viewer = {
      load:function(e){
    	$("#vid_preview4").attr('src',e.target.result);
      }
-   
+
    }
     }
-    
+
     else if (activeTab == 'video4')
     {
      	viewer = {
      load:function(e){
    	$("#vid_preview5").attr('src',e.target.result);
      }
-   
+
    }
     }
-   
-   
+
+
        console.log("viewerStatus", viewer, "viewerStatus");
-   
+
    });
      // reference: https://www.youtube.com/watch?v=UomEs0ZlvHY
      console.log("get jquery")
@@ -283,292 +299,292 @@
        reader.readAsDataURL(file);
        // console.log($(":file").val());
      });
-   
+
     var viewer = {
        load:function(e){
          $("#vid_preview1").attr('src',e.target.result);
        }
      }
    });
-   
-   
+
+
    function showDetials(element){
    // assign booking content to a variable
    console.log('clicked');
    $content = $(element).closest(".single_tag").find('.tag_description');
-   
+
    // if content is hiddent, show up arrow. If not show down arrwo
    if($content.css("display")=="none"){
      $(element).css("transform","rotateX(180deg)");
-   } 
+   }
    else{
      $(element).css("transform","rotateX(0deg)");
    }
    // toggle the content on click
    $content.slideToggle(500)
-   
-   
+
+
    };
-   
+
    function deleteAnnotation(element){
    // reference: https://stackoverflow.com/questions/44185632/get-index-of-class-element-with-inline-onclick-pure-js-no-jquery
    var els = Array.prototype.slice.call( document.getElementsByClassName('single_tag'), 0 );
    // console.log(els);
    // console.log(element.closest(".single_tag"));
    var tempIndex = els.indexOf(element.closest(".single_tag"));
-   
+
    if (activeTab == 'video0')
    {
    		myData1.splice(tempIndex,1);
     	}
-    
+
     else if (activeTab == 'video1')
     {
    		myData2.splice(tempIndex,1);
     }
-    
+
     else if (activeTab == 'video2')
     {
     myData3.splice(tempIndex,1);
     }
-    
+
     else if (activeTab == 'video3')
     {
     myData4.splice(tempIndex,1);
     }
-    
+
     else if (activeTab == 'video4')
     {
     myData5.splice(tempIndex,1);
     }
-   
+
    $(element).closest(".single_tag").remove();
    // console.log(myData);
-   
+
    }
-   
-   
-   
-   
-   
+
+
+
+
+
    window.onload = function() {
    // specify major varaibles needed to using in
    // this function
-   
-   
+
+
    var video1 = document.querySelectorAll("video")[0],
      info1 = document.querySelectorAll("span")[0],
      initial1 = document.querySelectorAll("i")[0];
-     
+
      video2 = document.querySelectorAll("video")[1],
      info2 = document.querySelectorAll("span")[1],
      initial2 = document.querySelectorAll("i")[1];
-     
+
      video3 = document.querySelectorAll("video")[2],
      info3 = document.querySelectorAll("span")[2],
      initial3 = document.querySelectorAll("i")[2];
-     
+
      video4 = document.querySelectorAll("video")[3],
      info4 = document.querySelectorAll("span")[3],
      initial4 = document.querySelectorAll("i")[3];
-     
+
      video5 = document.querySelectorAll("video")[4],
      info5 = document.querySelectorAll("span")[4],
      initial5 = document.querySelectorAll("i")[4];
-     
+
      concanenatedVideoElems = "";
      annotationSubmit0 =  document.getElementById("annotation_submit0");
      annotationClose0 = document.getElementById("annotation_closeBtn0");
-     
+
      annotationSubmit1 =  document.getElementById("annotation_submit1");
      annotationClose1 = document.getElementById("annotation_closeBtn1");
-     
+
      annotationSubmit2 =  document.getElementById("annotation_submit2");
      annotationClose2 = document.getElementById("annotation_closeBtn2");
-     
+
      annotationSubmit3 =  document.getElementById("annotation_submit3");
      annotationClose3 = document.getElementById("annotation_closeBtn3");
-     
+
      annotationSubmit4 =  document.getElementById("annotation_submit4");
      annotationClose4 = document.getElementById("annotation_closeBtn4");
-     
+
      vidData = [];
      videoInfo = {};
      details = "";
-     
+
      Xval1 = 0.0;
      Yval1 = 0.0;
      timeStep1 = 0.0;
      localdata1 = "";
      returnData1 = "";
-     
+
      Xval2 = 0.0;
      Yval2 = 0.0;
      timeStep2 = 0.0;
      localdata2 = "";
      returnData2 = "";
-     
-     
+
+
      Xval3 = 0.0;
      Yval3 = 0.0;
      timeStep3 = 0.0;
      localdata3 = "";
      returnData3 = "";
-     
-     
+
+
      Xval4 = 0.0;
      Yval4 = 0.0;
      timeStep4 = 0.0;
      localdata4 = "";
      returnData4 = "";
-     
-     
-         
+
+
+
      Xval5 = 0.0;
      Yval5 = 0.0;
      timeStep5 = 0.0;
      localdata5 = "";
      returnData5 = "";
-     
-     
-     
+
+
+
      sumitBtn = document.getElementById("submitExercise");
      returnInput = document.getElementById("returnData");
-   
-   
-   
+
+
+
    // when click on video window, performing adding
    // annotations
    function mouseHandler1(event) {
      if($(":file #vid1").val() != ""){
        this.pause();
        document.getElementById("annotationForm_container0").style.display = "block";
-     
+
        // var size = getElementCSSSize(this);
-       
+
        // var scaleX = this.videoWidth / size.width;
        // var scaleY = this.videoHeight / size.height;
-   
+
        var rect = this.getBoundingClientRect();  // absolute position of element
        console.log(event.clientX);
        // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
        // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
-   
+
        Xval1 = x/this.width;
        Yval1 = y/this.height;
        timeStep1 = this.currentTime;
      };
-     
+
    }
-   
-   
+
+
    // when click on video window, performing adding
    // annotations
    function mouseHandler2(event) {
      if($(":file #vid2").val() != ""){
        this.pause();
        document.getElementById("annotationForm_container1").style.display = "block";
-     
+
        // var size = getElementCSSSize(this);
-       
+
        // var scaleX = this.videoWidth / size.width;
        // var scaleY = this.videoHeight / size.height;
-   
+
        var rect = this.getBoundingClientRect();  // absolute position of element
        console.log(event.clientX);
        // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
        // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
-   
+
        Xval2 = x/this.width;
        Yval2 = y/this.height;
        timeStep2 = this.currentTime;
      };
-     
+
    }
-   
-   
+
+
    // when click on video window, performing adding
    // annotations
    function mouseHandler3(event) {
      if($(":file #vid3").val() != ""){
        this.pause();
        document.getElementById("annotationForm_container2").style.display = "block";
-     
+
        // var size = getElementCSSSize(this);
-       
+
        // var scaleX = this.videoWidth / size.width;
        // var scaleY = this.videoHeight / size.height;
-   
+
        var rect = this.getBoundingClientRect();  // absolute position of element
        console.log(event.clientX);
        // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
        // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
-   
+
        Xval3 = x/this.width;
        Yval3 = y/this.height;
        timeStep3 = this.currentTime;
      };
-     
+
    }
-   
-   
+
+
    // when click on video window, performing adding
    // annotations
    function mouseHandler4(event) {
      if($(":file #vid4").val() != ""){
        this.pause();
        document.getElementById("annotationForm_container3").style.display = "block";
-     
+
        // var size = getElementCSSSize(this);
-       
+
        // var scaleX = this.videoWidth / size.width;
        // var scaleY = this.videoHeight / size.height;
-   
+
        var rect = this.getBoundingClientRect();  // absolute position of element
        console.log(event.clientX);
        // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
        // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
-   
+
        Xval4 = x/this.width;
        Yval4 = y/this.height;
        timeStep4 = this.currentTime;
      };
-     
+
    }
-   
-   
+
+
    // when click on video window, performing adding
    // annotations
    function mouseHandler5(event) {
      if($(":file #vid5").val() != ""){
        this.pause();
        document.getElementById("annotationForm_container4").style.display = "block";
-     
+
        // var size = getElementCSSSize(this);
-       
+
        // var scaleX = this.videoWidth / size.width;
        // var scaleY = this.videoHeight / size.height;
-   
+
        var rect = this.getBoundingClientRect();  // absolute position of element
        console.log(event.clientX);
        // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
        // var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
        var x = ((event.clientX - rect.left)  + 0.5)|0;
        var y = ((event.clientY - rect.top )  + 0.5)|0;
-   
+
        Xval5 = x/this.width;
        Yval5 = y/this.height;
        timeStep5 = this.currentTime;
      };
-     
+
    }
    // add onclick listener to video
    video1.addEventListener("click", mouseHandler1);
@@ -580,33 +596,33 @@
    annotationClose0.addEventListener('click',function(){
      document.getElementById("annotationForm_container0").style.display = "none";
      video1.play();
-   
+
    });
-   
+
      annotationClose1.addEventListener('click',function(){
      document.getElementById("annotationForm_container1").style.display = "none";
      video2.play();
-   
+
    });
-   
+
      annotationClose2.addEventListener('click',function(){
      document.getElementById("annotationForm_container2").style.display = "none";
      video3.play();
-   
+
    });
-   
+
      annotationClose3.addEventListener('click',function(){
      document.getElementById("annotationForm_container3").style.display = "none";
      video4.play();
-   
+
    });
-   
+
      annotationClose4.addEventListener('click',function(){
      document.getElementById("annotationForm_container4").style.display = "none";
      video5.play();
-   
+
    });
-   
+
    sumitBtn.addEventListener('click',function(){
     console.log("get called")
     console.log(returnData1)
@@ -614,12 +630,12 @@
      returnInput.value = JSON.stringify([returnData1, returnData2, returnData3, returnData4, returnData5]);
      console.log(returnInput.value);
    })
-   
-   
+
+
    // add event listener when click submit button
    // of adding annotation form
    annotationSubmit0.addEventListener('click', function() {
-   
+
        details = $(".annotation_detial0").val();
        // console.log(details);
        if (details != "" && details != null)
@@ -629,10 +645,10 @@
          // localdata = JSON.stringify([tempData]);
          myData1.push(tempData);
          sortByTimeStep1();
-   
-   
-   
-   
+
+
+
+
          var dataLength = myData1.length;
          var tagContent = "";
          for(var i=0;i<dataLength;i++){
@@ -640,20 +656,20 @@
          };
          var tagDiv = document.getElementById("annotation_tags0");
          tagDiv.innerHTML = tagContent;
-   
+
        };
-   
-   
-     
-    
+
+
+
+
      document.getElementById("annotation_detial0").value = "";
      video1.play();
      document.getElementById("annotationForm_container0").style.display = "none";
      returnData1 = JSON.stringify(myData1);
      console.log(returnData1);
-    
+
    }, false);
-   
+
      // add event listener when click submit button
    // of adding annotation form
    annotationSubmit1.addEventListener('click', function() {
@@ -667,7 +683,7 @@
          // localdata = JSON.stringify([tempData]);
          myData2.push(tempData);
          sortByTimeStep2();
-   
+
          var dataLength = myData2.length;
          var tagContent = "";
          for(var i=0;i<dataLength;i++){
@@ -675,19 +691,19 @@
          };
          var tagDiv = document.getElementById("annotation_tags1");
          tagDiv.innerHTML = tagContent;
-   
+
        };
-   
-   
-     
-    
+
+
+
+
      document.getElementById("annotation_detial1").value = "";
      video2.play();
      document.getElementById("annotationForm_container1").style.display = "none";
      returnData2 = JSON.stringify(myData2);
-    
+
    }, false);
-   
+
        // add event listener when click submit button
    // of adding annotation form
    annotationSubmit2.addEventListener('click', function() {
@@ -700,10 +716,10 @@
          // localdata = JSON.stringify([tempData]);
          myData3.push(tempData);
          sortByTimeStep3();
-   
-   
-   
-   
+
+
+
+
          var dataLength = myData3.length;
          var tagContent = "";
          for(var i=0;i<dataLength;i++){
@@ -711,17 +727,17 @@
          };
          var tagDiv = document.getElementById("annotation_tags2");
          tagDiv.innerHTML = tagContent;
-   
+
        };
-   
-   
-     
-    
+
+
+
+
      document.getElementById("annotation_detial2").value = "";
      video3.play();
      document.getElementById("annotationForm_container2").style.display = "none";
      returnData3 = JSON.stringify(myData3);
-    
+
    }, false);
 
        // add event listener when click submit button
@@ -736,10 +752,10 @@
          // localdata = JSON.stringify([tempData]);
          myData4.push(tempData);
          sortByTimeStep4();
-   
-   
-   
-   
+
+
+
+
          var dataLength = myData4.length;
          var tagContent = "";
          for(var i=0;i<dataLength;i++){
@@ -747,17 +763,17 @@
          };
          var tagDiv = document.getElementById("annotation_tags3");
          tagDiv.innerHTML = tagContent;
-   
+
        };
-   
-   
-     
-    
+
+
+
+
      document.getElementById("annotation_detial3").value = "";
      video4.play();
      document.getElementById("annotationForm_container3").style.display = "none";
      returnData4 = JSON.stringify(myData4);
-    
+
    }, false);
 
        // add event listener when click submit button
@@ -772,10 +788,10 @@
          // localdata = JSON.stringify([tempData]);
          myData5.push(tempData);
          sortByTimeStep5();
-   
-   
-   
-   
+
+
+
+
          var dataLength = myData5.length;
          var tagContent = "";
          for(var i=0;i<dataLength;i++){
@@ -783,121 +799,121 @@
          };
          var tagDiv = document.getElementById("annotation_tags4");
          tagDiv.innerHTML = tagContent;
-   
+
        };
-   
+
      document.getElementById("annotation_detial4").value = "";
      video5.play();
      document.getElementById("annotationForm_container4").style.display = "none";
      returnData5 = JSON.stringify(myData5);
-    
+
    }, false);
-   
+
    // show the added annotation on the video
    $('#vid_preview1').on('timeupdate',function(event){
      var dataLength = myData1.length;
      myData1;
      var currentT = this.currentTime;
      var innerContent = "";
-    
+
      for(var i=0;i<dataLength;i++){
-         
+
          if(currentT > myData1[i]["time"] && currentT < (myData1[i]["time"]+3)){
-   
+
             tempX =  myData1[i]["x"] * this.width;
             tempY = myData1[i]["y"] * this.height;
            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData1[i]["details"] + "</p>" + "\n";
-   
-   
-          
+
+
+
          };
      };
-    
+
      var infoDiv = document.getElementById("vid_annotations_details0");
-    
+
      // infoDiv.innerHTML = "";
      infoDiv.innerHTML = innerContent;
-     
+
      // myData1 = JSON.parse({{ contents }});
    });
-   
+
    $('#vid_preview2').on('timeupdate',function(event){
      var dataLength = myData2.length;
      myData2;
      var currentT = this.currentTime;
      var innerContent = "";
-    
+
      for(var i=0;i<dataLength;i++){
-         
+
          if(currentT > myData2[i]["time"] && currentT < (myData2[i]["time"]+3)){
-   
+
             tempX =  myData2[i]["x"] * this.width;
             tempY = myData2[i]["y"] * this.height;
            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData2[i]["details"] + "</p>" + "\n";
-   
-   
-          
+
+
+
          };
      };
-    
+
      var infoDiv = document.getElementById("vid_annotations_details1");
-    
+
      // infoDiv.innerHTML = "";
      infoDiv.innerHTML = innerContent;
-     
+
    });
-   
+
      $('#vid_preview3').on('timeupdate',function(event){
      var dataLength = myData3.length;
      myData3;
      var currentT = this.currentTime;
      var innerContent = "";
-    
+
      for(var i=0;i<dataLength;i++){
-         
+
          if(currentT > myData3[i]["time"] && currentT < (myData3[i]["time"]+3)){
-   
+
             tempX =  myData3[i]["x"] * this.width;
             tempY = myData3[i]["y"] * this.height;
            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX+ "px; top: " + tempY + "px;\">" + myData3[i]["details"] + "</p>" + "\n";
-   
-   
-          
+
+
+
          };
      };
-    
+
      var infoDiv = document.getElementById("vid_annotations_details2");
-    
+
      // infoDiv.innerHTML = "";
      infoDiv.innerHTML = innerContent;
-     
+
      // myData1 = JSON.parse({{ contents }});
    });
-   
+
      $('#vid_preview4').on('timeupdate',function(event){
      var dataLength = myData4.length;
      myData4;
      var currentT = this.currentTime;
      var innerContent = "";
-    
+
      for(var i=0;i<dataLength;i++){
-         
+
          if(currentT > myData4[i]["time"] && currentT < (myData4[i]["time"]+3)){
-   
+
             tempX =  myData4[i]["x"] * this.width;
             tempY = myData4[i]["y"] * this.height;
            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData4[i]["details"] + "</p>" + "\n";
-   
-   
-          
+
+
+
          };
      };
-    
+
      var infoDiv = document.getElementById("vid_annotations_details3");
-    
+
      // infoDiv.innerHTML = "";
      infoDiv.innerHTML = innerContent;
-     
+
      // myData4 = JSON.parse({{ contents }});
    });
 
@@ -906,28 +922,28 @@
      myData5;
      var currentT = this.currentTime;
      var innerContent = "";
-    
+
      for(var i=0;i<dataLength;i++){
-         
+
          if(currentT > myData5[i]["time"] && currentT < (myData5[i]["time"]+3)){
-    
+
             tempX =  myData5[i]["x"] * this.width;
             tempY = myData5[i]["y"] * this.height;
            innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData5[i]["details"] + "</p>" + "\n";
-   
-   
-          
+
+
+
          };
      };
-    
+
      var infoDiv = document.getElementById("vid_annotations_details4");
-    
+
      // infoDiv.innerHTML = "";
      infoDiv.innerHTML = innerContent;
-     
+
      // myData5 = JSON.parse({{ contents }});
    });
-   
+
    function sortByTimeStep1(){
      myData1.sort(function(a,b){
        if(a.time<b.time) return -1;
@@ -972,7 +988,7 @@
      })
      console.log(myData5)
    }
-   
+
    //   setInterval(function checkvidT(){
    //     // console.log('in loop');
    //      if(vidData[0] != null){
@@ -982,13 +998,12 @@
    //     // if(vid.currentTime == 4.1){
    //     //   console.log('catch time');
    //     // }
-   
+
    //   },10);
-   
+
    }
-   
-   
-   
+
+
+
 </script>
 {% endblock %}
-

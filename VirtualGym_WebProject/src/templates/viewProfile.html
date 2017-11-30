@@ -3,59 +3,86 @@
 
 
 {% block page_content %}
-<style>
-    .radius{
-        text-align: right;
-        background-color: #d2ff4d;
-        /*background-color: #cccccc;*/
-        /*background-image: radial-gradient(#e6ffff, white);*/
-        border: 1px solid #000;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        padding:3px;
-        color:#000;
-        opacity: 0.5;
-    }
-    .radius:link {
-      text-decoration: none;
-    }
-    .radius:visited {
-      text-decoration: none;
-    }
-    .radius:hover {
-      padding:5px;
-      text-decoration: none;
-    }
-    .radius:active {
-    text-decoration: none;
-    }
 
+
+<style media="screen">
+  body {
+  /*font: 12px/1.5 'PT Sans', serif;*/
+  /*margin: 25px;*/
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags li {
+  float: left;
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #333;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: crimson;
+}
 </style>
 
 
 <div class="body_container">
 <div class="view_exercise_repo_container">
 
-    <!--show Exercise-- >
+
     <div class="container">
       <section>
-        <!-- <div class="page-header"> -->
-        <!-- </div> -->
-        <!-- <p style="text-align: center">{{ resultTitle}}</p> -->
+
+        <p style="text-align: center">{{ resultTitle}}</p>
         <div class="row">
 
           {% for obj in objects_list %}
           <div class="col-md-3">
-              <h3 >
-                <a class = "title" style="color:#000; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}"><b><u>{{obj.exerciseName|truncatechars:30}}</u></b>
-                </a>
-              </h3>
-            <div class="thumbnail">
-
-             <!--  <p style="text-align: center">{{obj.}}</p> -->
-
+            <!-- <div class="thumbnail"> -->
               {% for video in obj.exerciseVideos.all|slice:":1" %}
               <a href="{%url 'detail' id=obj.exerciseId %}">
                 <video width=100% height=“100%” >
@@ -64,16 +91,20 @@
               </a>
               {% endfor %}
               </br>
-              <p style="text-align: center;">
-                {{obj.exerciseDate}}
-              </p>
 
-<!-- {% include "comma.html" %} -->
+            <!-- </div> -->
 
-            </div>
+            <!-- <a class = "title" style="color:#000; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}"> -->
+              <h4>{{obj.exerciseName|truncatechars:25}}</h4>
+            <!-- </a> -->
+            <p>{{obj.exerciseDate|timesince }} agao</p>
+
              {% for tag in obj.exerciseTag.all %}
-              <a class="radius"  text-align: center href="/viewProfile/?q={{tag.tagDescription}}">
-              ○{{tag.tagDescription}}</a><span>&nbsp;{%endfor%}</span>
+
+              <a class="tag"  text-align: center href="/viewProfile/?q={{tag.tagDescription}}">
+                {{tag.tagDescription}}
+              </a>
+              <span>&nbsp;{%endfor%}</span>
           </div>
             {% endfor %}
 
