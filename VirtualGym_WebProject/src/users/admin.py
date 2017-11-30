@@ -15,5 +15,3 @@ class UsersAdmin(admin.ModelAdmin):
         model=MyUsers
 
 admin.site.register(MyUsers,UsersAdmin)
-
-
