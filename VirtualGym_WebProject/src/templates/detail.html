@@ -20,17 +20,17 @@
         color:#000;
         opacity: 0.5;
     }
-    a:link {
+    .radius:link {
       text-decoration: none;
     }
-    a:visited {
+    .radius:visited {
       text-decoration: none;
     }
-    a:hover {
+    .radius:hover {
       padding:5px;
       text-decoration: none;
     }
-    a:active {
+    .radius:active {
     text-decoration: none;
     }
 
@@ -90,8 +90,10 @@
   <div class= "view_exercise_detial_description" class="col-lg-6">
       <div class="form-group">
         <h2 >{{instance.exerciseName}}</h2>
-        <label>Description:</label><span> {{instance.exerciseDescription}}</span>
-        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        </br><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        </br></br>
+        <span> {{instance.exerciseDescription}}</span>
+        
       </div>
   </div>
 
