@@ -112,8 +112,8 @@
                         <li><a href="{% url 'myExercise' %}">Edit Exercises</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
-                       <li><a href="{% url 'signIn' %}">Sign In</a></li>
-                       <li><a href="{% url 'signUp' %}">Sign Up</a></li>
+                       <li><a id = "signIn_popup_trigger">Sign In</a></li>
+                       <!-- <li><a href="{% url 'signUp' %}">Sign Up</a></li> -->
                     {% endif  %}
 
                 </ul>

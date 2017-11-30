@@ -1,188 +1,187 @@
 /*# sourceMappingURL=main.scss.map */
-.signIn_form_container .sigIn_header {
-  position: relative;
-  margin: auto auto;
+.signIn_popup_container {
+  position: absolute;
   width: 100%;
-  height: 180px; }
-  .signIn_form_container .sigIn_header .header_text {
+  height: 100%;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  outline: 1; }
+  .signIn_popup_container .signIn_popup {
+    background-color: white;
     margin: auto;
-    text-align: center;
-    width: 80%; }
-    .signIn_form_container .sigIn_header .header_text p {
-      font-style: italic;
-      font-family: "Georgia";
-      font-weight: bold;
-      font-size: 50px;
-      color: #6A84D8;
-      text-shadow: 2px 2px #ACB1C1; }
-.signIn_form_container .signIn_form {
-  width: 100%;
-  position: relative;
-  margin: auto auto;
-  height: auto; }
-  .signIn_form_container .signIn_form form {
-    width: 100%;
-    margin: auto auto;
-    max-width: 400px;
-    height: auto; }
-    .signIn_form_container .signIn_form form .signIn_title {
-      text-align: center; }
-    .signIn_form_container .signIn_form form div {
-      height: 50px; }
-      .signIn_form_container .signIn_form form div input {
-        width: 100%;
-        height: 40px;
-        border: none;
-        border-bottom: 2px solid #9C9EA5;
-        border-radius: 2px;
-        font-size: 1em;
-        color: #838383; }
-        .signIn_form_container .signIn_form form div input:active, .signIn_form_container .signIn_form form div input:focus {
-          outline: none;
-          border-bottom: 2px solid #838383; }
-      .signIn_form_container .signIn_form form div.signIn_username, .signIn_form_container .signIn_form form div.signIn_password {
-        margin-top: 100px; }
-      .signIn_form_container .signIn_form form div label {
-        text-align: left; }
-    .signIn_form_container .signIn_form form .signInButtonContainer {
+    margin-top: 15vh;
+    width: 380px;
+    height: auto;
+    outline: 0; }
+    .signIn_popup_container .signIn_popup .signIn_header {
+      position: relative;
+      margin: auto auto;
+      width: 100%;
+      background-color: #314D68;
       text-align: center;
-      margin-top: 50px;
-      height: auto; }
-      .signIn_form_container .signIn_form form .signInButtonContainer .signIn_button {
-        margin-top: 50px;
-        background-color: #83A0FE;
-        width: 200px;
-        height: 40px;
-        border: none;
-        border-bottom: 1px solid #979797;
-        border-radius: 2px;
+      padding: 22px 12px;
+      vertical-align: middle; }
+      .signIn_popup_container .signIn_popup .signIn_header p {
         font-style: italic;
+        font-family: "Georgia";
         font-weight: bold;
-        font-size: 20px; }
-.signIn_form_container .go_signUp {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  margin: auto;
-  margin-top: 80px; }
-.signIn_form_container ::-webkit-input-placeholder {
-  /* Chrome */
-  color: #D2D2D2; }
-.signIn_form_container :-ms-input-placeholder {
-  /* IE 10+ */
-  color: #D2D2D2; }
-.signIn_form_container ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #D2D2D2; }
-.signIn_form_container :-moz-placeholder {
-  /* Firefox 4 - 18 */
-  color: #D2D2D2; }
+        font-size: 1.4em;
+        color: white;
+        margin: auto; }
+      .signIn_popup_container .signIn_popup .signIn_header #popup_close {
+        font-size: 1.5em;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer; }
+        .signIn_popup_container .signIn_popup .signIn_header #popup_close:focus, .signIn_popup_container .signIn_popup .signIn_header #popup_close:active, .signIn_popup_container .signIn_popup .signIn_header #popup_close:hover {
+          text-decoration: none; }
 
-.signUp_form_container .sigUp_header {
-  position: relative;
-  margin: auto auto;
+.form_container {
+  padding: 0 40px 0 40px;
+  display: inline-block;
   width: 100%;
   height: auto; }
-  .signUp_form_container .sigUp_header .header_text {
-    margin: auto;
-    text-align: left;
-    width: 80%; }
-    .signUp_form_container .sigUp_header .header_text p {
-      font-style: italic;
-      font-family: "Georgia";
-      font-weight: bold;
-      font-size: 50px;
-      color: #6A84D8;
-      text-shadow: 2px 2px #ACB1C1; }
-.signUp_form_container .alert {
-  width: 40%;
-  padding: 15px;
-  background-color: #CE4949;
-  color: white;
-  margin: auto auto;
-  vertical-align: middle; }
-  .signUp_form_container .alert .closebtn {
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 15px;
-    cursor: pointer;
-    transition: 0.3s; }
-    .signUp_form_container .alert .closebtn:hover {
-      color: black; }
-.signUp_form_container .already_loggedIn {
-  width: 100%;
-  position: relative;
-  margin: auto auto;
-  height: auto;
-  text-align: center;
-  margin-top: 100px; }
-.signUp_form_container .signUp_form {
-  width: 100%;
-  position: relative;
-  margin: auto auto;
-  height: auto; }
-  .signUp_form_container .signUp_form form {
+  .form_container .signIn_form {
     width: 100%;
+    position: relative;
     margin: auto auto;
-    max-width: 400px;
-    margin-top: 40px;
     height: auto; }
-    .signUp_form_container .signUp_form form .signUp_title {
-      text-align: center; }
-    .signUp_form_container .signUp_form form div {
-      height: 50px; }
-      .signUp_form_container .signUp_form form div input {
-        width: 100%;
-        height: 40px;
-        border: none;
-        border-bottom: 2px solid #9C9EA5;
-        border-radius: 2px;
-        font-size: 1em;
-        color: #838383; }
-        .signUp_form_container .signUp_form form div input:active, .signUp_form_container .signUp_form form div input:focus {
-          outline: none;
-          border-bottom: 2px solid #838383; }
-      .signUp_form_container .signUp_form form div label {
-        text-align: left; }
-      .signUp_form_container .signUp_form form div.signUp_username, .signUp_form_container .signUp_form form div.signUp_password, .signUp_form_container .signUp_form form div.signUp_email, .signUp_form_container .signUp_form form div.signUp_confirm {
-        margin-top: 100px; }
-    .signUp_form_container .signUp_form form .check_unique {
-      display: none; }
-    .signUp_form_container .signUp_form form .signUpButtonContainer {
-      text-align: center;
-      margin-top: 50px;
+    .form_container .signIn_form form {
+      width: 100%;
+      margin: auto auto;
+      max-width: 400px;
       height: auto; }
-      .signUp_form_container .signUp_form form .signUpButtonContainer .signUp_button {
-        margin-top: 50px;
-        background-color: #83A0FE;
-        width: 200px;
-        height: 40px;
-        border: none;
-        border-bottom: 1px solid #979797;
-        border-radius: 2px;
-        font-style: italic;
-        font-weight: bold;
-        font-size: 20px; }
-.signUp_form_container .go_signIn {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  margin: auto;
-  margin-top: 80px; }
-.signUp_form_container ::-webkit-input-placeholder {
-  /* Chrome */
-  color: #D2D2D2; }
-.signUp_form_container :-ms-input-placeholder {
-  /* IE 10+ */
-  color: #D2D2D2; }
-.signUp_form_container ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #D2D2D2; }
-.signUp_form_container :-moz-placeholder {
-  /* Firefox 4 - 18 */
-  color: #D2D2D2; }
+      .form_container .signIn_form form .signIn_username {
+        margin-top: 30px;
+        border: 1px solid #8FA4B9; }
+        .form_container .signIn_form form .signIn_username input {
+          width: 100%;
+          border: none;
+          padding: 10px 10px 10px 35px;
+          border-radius: 2px;
+          font-size: 1.1em;
+          color: #838383;
+          background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
+      .form_container .signIn_form form .signIn_password {
+        margin-top: 30px;
+        border: 1px solid #8FA4B9; }
+        .form_container .signIn_form form .signIn_password input {
+          width: 100%;
+          border: none;
+          padding: 10px 10px 10px 35px;
+          border-radius: 2px;
+          font-size: 1.1em;
+          color: #838383;
+          background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
+      .form_container .signIn_form form .signInButtonContainer {
+        text-align: center;
+        height: auto;
+        width: 100%; }
+        .form_container .signIn_form form .signInButtonContainer .signIn_button {
+          margin-top: 30px;
+          background-color: #314D68;
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #979797;
+          border-radius: 2px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 20px;
+          color: white; }
+  .form_container .go_signUp {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px; }
+  .form_container ::-webkit-input-placeholder {
+    /* Chrome */
+    color: #D2D2D2; }
+  .form_container :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #D2D2D2; }
+  .form_container ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #D2D2D2; }
+  .form_container :-moz-placeholder {
+    /* Firefox 4 - 18 */
+    color: #D2D2D2; }
+  .form_container .alert {
+    width: 100%;
+    padding: 10px;
+    background-color: #CE4949;
+    color: white;
+    margin: auto auto;
+    vertical-align: middle;
+    margin-top: 20px; }
+    .form_container .alert .closebtn {
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 15px;
+      cursor: pointer;
+      transition: 0.3s; }
+      .form_container .alert .closebtn:hover {
+        color: black; }
+  .form_container .signUp_form {
+    width: 100%;
+    position: relative;
+    margin: auto auto;
+    height: auto; }
+    .form_container .signUp_form form {
+      width: 100%;
+      margin: auto auto;
+      max-width: 400px;
+      height: auto; }
+      .form_container .signUp_form form .signUp_title {
+        text-align: center; }
+      .form_container .signUp_form form .input {
+        margin-top: 30px;
+        border: 1px solid #8FA4B9; }
+        .form_container .signUp_form form .input input {
+          width: 100%;
+          border: none;
+          padding: 10px 10px 10px 35px;
+          border-radius: 2px;
+          font-size: 0.9em;
+          color: #838383; }
+      .form_container .signUp_form form .signUp_username input {
+        background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
+      .form_container .signUp_form form .signUp_password input {
+        background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
+      .form_container .signUp_form form .signUp_email input {
+        background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
+      .form_container .signUp_form form .signUp_confirm input {
+        background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
+      .form_container .signUp_form form .signUpButtonContainer {
+        text-align: center;
+        height: auto;
+        width: 100%; }
+        .form_container .signUp_form form .signUpButtonContainer .signUp_button {
+          margin-top: 30px;
+          background-color: #314D68;
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #979797;
+          border-radius: 2px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 20px;
+          color: white; }
+  .form_container .go_signIn {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px; }
 
 .page_container {
   width: 100%;
@@ -199,7 +198,9 @@
     border-radius: 0px; }
 
 .home_container {
-  margin-top: 5vh; }
+  margin-top: 5vh;
+  height: 100vh;
+  display: block; }
   @media only screen and (min-width: 500px) {
     .home_container {
       margin-top: 5vh; } }
@@ -545,16 +546,15 @@ div[class^="annotation_video_container"],
     .createSocial {
       display: flex;
       justify-content: space-between;
-      width: 380px;
+      width: 100%;
       margin: auto auto;
-      margin-top: 7vh; } }
+      margin-top: 30px; } }
 
 .svg {
-  background: url("../images/sprite.svg");
-  overflow: hidden; }
+  background: url("../images/sprite.svg"); }
   .createSocial .svg {
-    width: 50px;
-    height: 50px; }
+    width: 40px;
+    height: 40px; }
 
 .facebook {
   background-position: 0 -0px; }

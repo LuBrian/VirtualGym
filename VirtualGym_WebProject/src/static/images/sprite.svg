@@ -3,7 +3,7 @@
 
 
 
-<svg id="icon-facebook" width="50px" height="50px" viewBox="0 0 50 50" x="0" y="0">
+<svg id="icon-facebook" width="40px" height="40px" viewBox="0 0 50 50" x="0" y="0">
 <g>
 	<g>
 		<path d="M24.826,0C11.137,0,0,11.137,0,24.826c0,13.688,11.137,24.826,24.826,24.826c13.688,0,24.826-11.138,24.826-24.826
@@ -16,7 +16,7 @@
 
 
 
-<svg id="icon-google" width="50px" height="50px" viewBox="0 0 50 50" x="0" y="50" >
+<svg id="icon-google" width="40px" height="40px" viewBox="0 0 50 50" x="0" y="50" >
 <g>
 	<g>
 		<g>
@@ -44,7 +44,7 @@
 </svg>
 
 
-<svg id="icon-twitter" width="50px" height="50px" viewBox="0 0 50 50" x="0" y="100" >
+<svg id="icon-twitter" width="40px" height="40px" viewBox="0 0 50 50" x="0" y="100" >
 <g>
 	<g>
 		<path d="M24.826,0C11.137,0,0,11.137,0,24.826c0,13.688,11.137,24.826,24.826,24.826c13.688,0,24.826-11.138,24.826-24.826

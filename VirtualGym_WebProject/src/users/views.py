@@ -63,7 +63,7 @@ def signUp(request):
 	title="Sign Up"
 	form= SignUpForm(request.POST or None)
 	exception = "None"
-
+	print('redner sign up form')
 	context={
 		"title":title,
 		"form":form,
@@ -85,11 +85,11 @@ def signUp(request):
 			# print(context["exception"])
 			# print(context)
 		
-		return render(request,"signUp.html",context)
+		return render(request,"index.html",context)
 
 
 
-	return render(request,"signUp.html",context)
+	return render(request,"index.html",context)
 		
 
 
