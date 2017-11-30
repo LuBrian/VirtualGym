@@ -26,29 +26,55 @@
 			padding: 22px 12px;
 			vertical-align: middle;
 			// height: 180px;
-				p {
-					font-style: italic ;
-					font-family: "Georgia";
-					font-weight: bold;
-					font-size: 1.4em;
-					color: white;
-					margin:auto;
-					// text-shadow: 2px 2px #ACB1C1;
+			p {
+				font-style: italic ;
+				font-family: "Georgia";
+				font-weight: bold;
+				font-size: 1.4em;
+				color: white;
+				margin:auto;
+				// text-shadow: 2px 2px #ACB1C1;
+			}
+			#popup_close{
+				font-size: 1.5em;
+				color:white;
+				position:absolute;
+				top:0;
+				right: 10px;
+				cursor: pointer;
+				&:focus,
+				&:active,
+				&:hover{
+					text-decoration: none;
 				}
-				#popup_close{
-					font-size: 1.5em;
-					color:white;
-					position:absolute;
-					top:0;
-					right: 10px;
-					cursor: pointer;
-					&:focus,
-					&:active,
-					&:hover{
-						text-decoration: none;
-					}
-				}
+			}
 			
+		}
+
+		.alert {
+			width: 80%;
+			padding: 10px;
+			background-color: #CE4949;
+			color: white;
+			margin: auto auto;
+			// vertical-align: middle;
+			margin-top: 20px;
+			display: none;
+
+			.closebtn {
+				color: white;
+				font-weight: bold;
+				float: right;
+				font-size: 22px;
+				line-height: 15px;
+				cursor: pointer;
+				transition: 0.3s;
+				&:hover {
+					color: black;
+				}
+						
+			}
+
 		}
 	}
 }
@@ -60,8 +86,11 @@
 	width: 100%;
 	height:auto;
 
+	.form_type{
+		display: none;
+	}
 
-	.signIn_form{
+	#signIn_form{
 		width: 100%;
 		position:relative;
 		margin: auto auto;
@@ -138,6 +167,9 @@
 		margin:auto;
 		margin-top: 30px;
 		margin-bottom: 40px;
+		a{
+			cursor:pointer
+		}
 	}
 
 
@@ -171,32 +203,9 @@
 
 
 
-	.alert {
-		width: 100%;
-		padding: 10px;
-		background-color: #CE4949;
-		color: white;
-		margin: auto auto;
-		vertical-align: middle;
-		margin-top: 20px;
+	
 
-		.closebtn {
-			color: white;
-			font-weight: bold;
-			float: right;
-			font-size: 22px;
-			line-height: 15px;
-			cursor: pointer;
-			transition: 0.3s;
-			&:hover {
-				color: black;
-			}
-					
-		}
-
-	}
-
-	.signUp_form{
+	#signUp_form{
 		width: 100%;
 		position:relative;
 		margin: auto auto;
@@ -272,6 +281,9 @@
 		margin:auto;
 		margin-top: 30px;
 		margin-bottom: 40px;
+		a{
+			cursor:pointer
+		}
 	}
 }
 

@@ -38,26 +38,46 @@
         cursor: pointer; }
         .signIn_popup_container .signIn_popup .signIn_header #popup_close:focus, .signIn_popup_container .signIn_popup .signIn_header #popup_close:active, .signIn_popup_container .signIn_popup .signIn_header #popup_close:hover {
           text-decoration: none; }
+    .signIn_popup_container .signIn_popup .alert {
+      width: 80%;
+      padding: 10px;
+      background-color: #CE4949;
+      color: white;
+      margin: auto auto;
+      margin-top: 20px;
+      display: none; }
+      .signIn_popup_container .signIn_popup .alert .closebtn {
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 15px;
+        cursor: pointer;
+        transition: 0.3s; }
+        .signIn_popup_container .signIn_popup .alert .closebtn:hover {
+          color: black; }
 
 .form_container {
   padding: 0 40px 0 40px;
   display: inline-block;
   width: 100%;
   height: auto; }
-  .form_container .signIn_form {
+  .form_container .form_type {
+    display: none; }
+  .form_container #signIn_form {
     width: 100%;
     position: relative;
     margin: auto auto;
     height: auto; }
-    .form_container .signIn_form form {
+    .form_container #signIn_form form {
       width: 100%;
       margin: auto auto;
       max-width: 400px;
       height: auto; }
-      .form_container .signIn_form form .signIn_username {
+      .form_container #signIn_form form .signIn_username {
         margin-top: 30px;
         border: 1px solid #8FA4B9; }
-        .form_container .signIn_form form .signIn_username input {
+        .form_container #signIn_form form .signIn_username input {
           width: 100%;
           border: none;
           padding: 10px 10px 10px 35px;
@@ -65,10 +85,10 @@
           font-size: 1.1em;
           color: #838383;
           background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
-      .form_container .signIn_form form .signIn_password {
+      .form_container #signIn_form form .signIn_password {
         margin-top: 30px;
         border: 1px solid #8FA4B9; }
-        .form_container .signIn_form form .signIn_password input {
+        .form_container #signIn_form form .signIn_password input {
           width: 100%;
           border: none;
           padding: 10px 10px 10px 35px;
@@ -76,11 +96,11 @@
           font-size: 1.1em;
           color: #838383;
           background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
-      .form_container .signIn_form form .signInButtonContainer {
+      .form_container #signIn_form form .signInButtonContainer {
         text-align: center;
         height: auto;
         width: 100%; }
-        .form_container .signIn_form form .signInButtonContainer .signIn_button {
+        .form_container #signIn_form form .signInButtonContainer .signIn_button {
           margin-top: 30px;
           background-color: #314D68;
           width: 100%;
@@ -99,6 +119,8 @@
     margin: auto;
     margin-top: 30px;
     margin-bottom: 40px; }
+    .form_container .go_signUp a {
+      cursor: pointer; }
   .form_container ::-webkit-input-placeholder {
     /* Chrome */
     color: #D2D2D2; }
@@ -111,59 +133,41 @@
   .form_container :-moz-placeholder {
     /* Firefox 4 - 18 */
     color: #D2D2D2; }
-  .form_container .alert {
-    width: 100%;
-    padding: 10px;
-    background-color: #CE4949;
-    color: white;
-    margin: auto auto;
-    vertical-align: middle;
-    margin-top: 20px; }
-    .form_container .alert .closebtn {
-      color: white;
-      font-weight: bold;
-      float: right;
-      font-size: 22px;
-      line-height: 15px;
-      cursor: pointer;
-      transition: 0.3s; }
-      .form_container .alert .closebtn:hover {
-        color: black; }
-  .form_container .signUp_form {
+  .form_container #signUp_form {
     width: 100%;
     position: relative;
     margin: auto auto;
     height: auto; }
-    .form_container .signUp_form form {
+    .form_container #signUp_form form {
       width: 100%;
       margin: auto auto;
       max-width: 400px;
       height: auto; }
-      .form_container .signUp_form form .signUp_title {
+      .form_container #signUp_form form .signUp_title {
         text-align: center; }
-      .form_container .signUp_form form .input {
+      .form_container #signUp_form form .input {
         margin-top: 30px;
         border: 1px solid #8FA4B9; }
-        .form_container .signUp_form form .input input {
+        .form_container #signUp_form form .input input {
           width: 100%;
           border: none;
           padding: 10px 10px 10px 35px;
           border-radius: 2px;
           font-size: 0.9em;
           color: #838383; }
-      .form_container .signUp_form form .signUp_username input {
+      .form_container #signUp_form form .signUp_username input {
         background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
-      .form_container .signUp_form form .signUp_password input {
+      .form_container #signUp_form form .signUp_password input {
         background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
-      .form_container .signUp_form form .signUp_email input {
+      .form_container #signUp_form form .signUp_email input {
         background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
-      .form_container .signUp_form form .signUp_confirm input {
+      .form_container #signUp_form form .signUp_confirm input {
         background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png) no-repeat 8px 12px #fff; }
-      .form_container .signUp_form form .signUpButtonContainer {
+      .form_container #signUp_form form .signUpButtonContainer {
         text-align: center;
         height: auto;
         width: 100%; }
-        .form_container .signUp_form form .signUpButtonContainer .signUp_button {
+        .form_container #signUp_form form .signUpButtonContainer .signUp_button {
           margin-top: 30px;
           background-color: #314D68;
           width: 100%;
@@ -182,6 +186,8 @@
     margin: auto;
     margin-top: 30px;
     margin-bottom: 40px; }
+    .form_container .go_signIn a {
+      cursor: pointer; }
 
 .page_container {
   width: 100%;

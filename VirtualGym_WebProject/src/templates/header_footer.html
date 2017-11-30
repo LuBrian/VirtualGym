@@ -112,8 +112,7 @@
                         <li><a href="{% url 'myExercise' %}">Edit Exercises</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
-                       <li><a id = "signIn_popup_trigger">Sign In</a></li>
-                       <!-- <li><a href="{% url 'signUp' %}">Sign Up</a></li> -->
+                       <li><a id = "signIn_popup_trigger" class="signIn_popup_trigger">Sign In</a></li>
                     {% endif  %}
 
                 </ul>
@@ -133,6 +132,26 @@
 
 
 
+
+  <div class="signIn_popup_container" id = "signIn_popup_container">
+  <div class = "signIn_popup">
+    <div class="signIn_header">
+        <a id="popup_close">&times;</a>
+        <p>Virtual Gym Sign In</p>
+    </div>
+    
+    
+    <div id = "alert" class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Warning! </strong><span id="alert_content"></span>
+    </div>
+
+    
+    <div class= "form_container" id= "form_container">
+    </div>
+  </div>
+</div>
+
   {% block page_content %}
 
 
@@ -145,7 +164,118 @@
       </div>
     </footer>
 
+    <script type="text/javascript">
+  var formContainer =  document.getElementById("form_container"),
+      signInForm = "",
+      signUpForm = "";
 
+  function getSignInForm(event){
+    console.log('change to sign in')
+    formContainer.innerHTML = "";
+    // console.log(signInForm);
+    $(".signIn_header p").text("Virtual Gym Login")
+    formContainer.innerHTML = signInForm;
+    $(".form_type").val("signIn");
+  };
+
+  function getSignUpForm(event){
+    console.log("change to sign up");
+    formContainer.innerHTML = "";
+    // console.log(signUpForm);
+    $(".signIn_header p").text("Virtual Gym Sign Up")
+    formContainer.innerHTML = signUpForm;
+    $(".form_type").val("signUp");
+  }
+
+  function signInSubmit(event){// catch the form's submit event
+    console.log('get sign in');
+      $.ajax({ // create an AJAX call...
+          data: $('form').serialize(), // get the form data
+          type: 'POST', // GET or POST
+          url: '/'// the file to call
+      }).done(function(contents){
+        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+        // For instance, you could hide/display your add/remove button here
+        console.log('success post call back');
+        console.log(contents);
+        if(contents == "ok"){
+          location.reload();
+        }else{
+          console.log(contents);
+          $("#alert_content").text(contents);
+          $("#alert").show();
+        }
+        // console.log({{user|safe}})
+        // location.reload();
+        // myData = JSON.parse(contents);
+      });
+  };
+
+
+
+  function signUpSubmit(event){/// catch the form's submit event
+    console.log("sign up ajax");
+      $.ajax({ // create an AJAX call...
+          data: $('form').serialize(), // get the form data
+          type: 'POST', // GET or POST
+          url: '/' // the file to call
+      }).done(function(contents){
+        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+        // For instance, you could hide/display your add/remove button here
+        console.log('success post call back');
+        if(contents == "ok"){
+          location.reload();
+        }else{
+          $("#alert_content").text(contents);
+          $("#alert").show();
+        }
+        // myData = JSON.parse(contents);
+      });
+  };
+
+ $(document).ready(function () {
+  var overlay = document.getElementById("signIn_popup_container"),
+      signin = document.getElementsByClassName("signIn_popup_trigger");
+
+  
+
+  signInForm = "<div id = \"signIn_form\">\n<form method = \"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\">\n<div class=\"signIn_username\">\n<input type=\"text\" autocomplete ='off' id=\"email\" required name=\"email\" placeholder=\"User name\">\n</div>\n<div class=\"signIn_password\">\n<input type=\"password\" required id=\"password\" name=\"password\" placeholder=\"Your password\">\n</div>\n<div class=\"createSocial\">\n<a id=\"facebookSignIn\" class=\"svg facebook\" href=\"{% url 'social:begin' 'facebook' %}?next={% url 'index' %}\"></a>\n<a id=\"googleSignIn\" class=\"svg google\" href=\"{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}\"></a>\n<a id=\"twitterSignIn\" class=\"svg twitter\" href=\"{% url 'social:begin' 'twitter' %}?next={% url 'index' %}\"></a>\n</div>\n<div class=\"signInButtonContainer\">\n<button id = \"signInButton\" type=\"button\" id=\"signIn_button\" class=\"signIn_button\" onClick=\"signInSubmit(this)\">Login</button>\n</div>\n</form>\n</div>\n<div class=\"go_signUp\">\n<p>Doesn't have an account,<a id=\"get_signUp_form\" onClick=\"getSignUpForm(this)\"> Sign Up</a> here</p>\n</div>";
+
+
+  signUpForm = "<div id = \"signUp_form\">\n<form method=\"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\" type=\"text\">\n<div class=\"input signUp_username\">\n<input type=\"text\" name=\"username\" autocomplete=\"off\" required placeholder=\"User name\" id=\"id_username\" />\n</div>\n<div class=\"input signUp_email\">\n<input type=\"text\" name=\"email\" autocomplete=\"off\" required placeholder=\"Sign Up Email\" id=\"id_email\" />\n</div>\n<div class=\"input signUp_password\">\n<input type=\"password\" name=\"password\" autocomplete=\"off\" required placeholder=\"Input Password\" id=\"id_password\" />\n</div>\n<div class=\"input signUp_confirm\">\n<input type=\"password\" name=\"confirm\" autocomplete=\"off\" required placeholder=\"Confirm Password\" id=\"id_confirm\" />\n</div>\n<div class=\"signUpButtonContainer\">\n<button type=\"button\" id=\"signUp_button\" class=\"signUp_button\" onClick=\"signUpSubmit(this)\">Sign up</button>\n</div>\n</form>\n<div class=\"go_signIn\">\n<p>Already have an account,<a id=\"get_signIn_form\" onClick=\"getSignInForm(this)\"> Sign In</a> here</p>\n</div>\n</div>";
+
+
+
+  
+
+ 
+
+
+  
+
+  $(signin).on("click",function(event){
+    formContainer.innerHTML = "";
+    formContainer.innerHTML = signInForm;
+    $(".form_type").val("signIn");
+    $(overlay).show();
+  })
+  $("#popup_close").on('click',function(event){
+    $(overlay).hide();
+
+  });
+  
+  $('.signIn_popup_container').on('mouseup',function(e) {
+    console.log('on click')
+    // https://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
+    if (!$(".signIn_popup").is(e.target) && $(".signIn_popup").has(e.target).length === 0) 
+    {
+        $(overlay).hide();
+    }
+  
+  });
+});
+
+</script>
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
