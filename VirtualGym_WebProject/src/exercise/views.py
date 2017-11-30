@@ -75,7 +75,7 @@ def Profile(request):
 
     """
 	title=""
-	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseData")
+	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseDate")
 	query=request.GET.get("q")
 
 

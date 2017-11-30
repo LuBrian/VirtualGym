@@ -18,17 +18,17 @@
         color:#000;
         opacity: 0.5;
     }
-    a:link {
+    .radius:link {
       text-decoration: none;
     }
-    a:visited {
+    .radius:visited {
       text-decoration: none;
     }
-    a:hover {
+    .radius:hover {
       padding:5px;
       text-decoration: none;
     }
-    a:active {
+    .radius:active {
     text-decoration: none;
     }
 
@@ -65,14 +65,14 @@
               {% endfor %}
               </br>
               <p style="text-align: center;">
-                {{obj.exerciseData}}
+                {{obj.exerciseDate}}
               </p>
 
 <!-- {% include "comma.html" %} -->
 
             </div>
              {% for tag in obj.exerciseTag.all %}
-              <a class="radius"  text-align: center href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
+              <a class="radius"  text-align: center href="/viewProfile/?q={{tag.tagDescription}}">
               ○{{tag.tagDescription}}</a><span>&nbsp;{%endfor%}</span>
           </div>
             {% endfor %}
