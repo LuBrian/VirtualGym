@@ -5,6 +5,7 @@
 {% load static %}
 
 {% block page_content %}
+
 <style>
     .radius{
         text-align: right;
@@ -107,8 +108,8 @@
         <div class="ref_element">
         {% for video in obj.exerciseVideos.all|slice:":1"%}
           <div class="ref_vid">
-            <video controls>
-              <source src="{{video.videoFile.url}}" type="video/mp4">
+            <video controls="controls">
+              <source src="{{video.videoFile.url}}" type="video/mp4" >
              </video>
            </div>
 
