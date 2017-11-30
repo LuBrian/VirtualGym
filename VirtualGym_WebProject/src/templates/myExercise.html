@@ -10,7 +10,7 @@
     <!--show Exercise-- >
     <div class="container">
       <section>
-       
+
         <!-- <div class="page-header"> -->
         <!-- </div> -->
          <p style="text-align: center">{{ MyExerciseTitle }}</p>
@@ -18,7 +18,7 @@
 
           {% for obj in objects_list %}
           <div class="col-md-4">
-            <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName}}</h3>
+            <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName|truncatechars:30}}</h3>
             <div class="thumbnail">
               <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
               {% for video in obj.exerciseVideos.all|slice:":1"%}
@@ -38,7 +38,7 @@
           </div>
 
         </section>
-	
+
     </div>
     {% else %}
       <div class="create_exercise_perm">
