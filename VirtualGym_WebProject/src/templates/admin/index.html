@@ -194,55 +194,23 @@
 
 </style>
 
-<body style="background-image:url(../static/images/86.jpg); background-repeat:no-repeat ;
-background-size:100% 100%;
-background-attachment: fixed;">
+<body style="color:#f8f8f8;">
 
 <div id="content-main">
   {% if app_list %}
     <div class="jumbotron" style="width: -webkit-fill-available; margin-left: 220px;">
       {% block welcome-msg %}
-          <h2 style="text-align: center;">{% trans 'Welcome To Virtual Gym' %}</h2>
-          <strong style="float:right">{% firstof user.get_short_name user.get_username %}</strong>
+          <h2 style="text-align: center;color: black;">{% trans 'Welcome To Virtual Gym' %}</h2>
+          <strong style="float:right;color: black;">{% firstof user.get_short_name user.get_username %}</strong>
       {% endblock %}
     </div>
     <div class="panel panel-default" id="apps" style="width: -webkit-fill-available; margin-left: 220px;">
-      <!-- <div class="table-responsive table-apps">
-        <table class="table table-bordered">
-          <thead>
-              <th class="title-head-apps">
-                {% trans "Apps" %}
-              </th>
-              <th class="title-head-actions">{% trans "Action" %}</th>
-          </thead>
-          <tbody class="list">
-            {% for app in app_list %}
-              {% cycle ' bg-colored' '' as rowcolors silent %}
-              {% for model in app.models %}
 
-
-                <td class="model-name model-{{ model.object_name|lower }}">
-
-                  <a href="{% if model.admin_url %}{{ model.admin_url }}{% else %}#{% endif %}" title="{{ app.name }} &raquo; {{ model.name }}" {% if not model.admin_url %}class="disabled"{% endif %}>{{ model.name }}</a>
-                </td>
-
-                <td class="model-{{ model.object_name|lower }} actions">
-                  <div class="btn-group btn-group-justified btn-group-actions">
-                    <a href="{% if model.add_url %}{{ model.add_url }}{% endif %}" role="button" class="addlink btn {% if not model.add_url %}disabled{% endif %}" data-toggle="tooltip" data-placement="left" title="{% trans 'Add' %}"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a href="{% if model.admin_url %}{{ model.admin_url }}{% endif %}" role="button" class="changelink btn {% if not model.admin_url %}disabled{% endif %}" title="{% trans 'Change' %}" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-pencil"></span></a>
-                  </div>
-                </td>
-              </tr>
-              {% endfor %}
-            {% endfor %}
-          </tbody>
-        </table>
-      </div> -->
       {% block recent_actions %}
         <div id="content-related" class="recent-actions panel-body" style="">
           <div class="module" id="recent-actions-module">
             <div class="page-header">
-              <h2 id="timeline" class="h3">{% trans 'Recent Actions' %} <small>({% trans 'My Actions' %})</small></h2>
+              <h2 id="timeline" class="h3">{% trans 'Recent Actions' %} <small>({% trans '10 Actions' %})</small></h2>
             </div>
             {% load log %}
             {% get_admin_log 10 as admin_log for_user user %}
@@ -251,6 +219,7 @@ background-attachment: fixed;">
             {% else %}
               <ul class="timeline">
                 {% for entry in admin_log %}
+                  {% if forloop.counter <= 10 %}
                   {% if entry.is_addition %}
                   <li>
                     <span class="timeline-badge add">
@@ -293,6 +262,7 @@ background-attachment: fixed;">
                       </span>
                     </span>
                   </li>
+                  {%endif%}
                 {% endfor %}
               </ul>
             {% endif %}

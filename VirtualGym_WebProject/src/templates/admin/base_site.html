@@ -5,7 +5,7 @@
 
 {% block extrastyle %}
 <style>
-.normal{ font-style:normal;} 
+.normal{ font-style:normal;}
 #header {
     width: auto;
     height: 40px;
@@ -46,7 +46,7 @@
   min-height: 100vh;
 }
 .nav-side-menu .toggle-btn {
-  display: block;
+  display: none;
 }
 
 .nav-side-menu ul,
@@ -89,28 +89,7 @@
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
-@media (max-width: 767px) {
-  .nav-side-menu {
-    position: relative;
-    width: 10%;
-    margin-bottom: 10px;
-  }
-  .nav-side-menu .toggle-btn {
-    display: block;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 10 !important;
-    padding: 3px;
-    background-color: #ffffff;
-    color: #000;
-    width: 40px;
-    text-align: center;
-  }
-
-}
-@media (min-width: 767px) {
+@media (min-width: 0px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
   }
@@ -128,22 +107,26 @@
                     <li class="model-name model-{{ model.object_name|lower }}">
                       {% if model.admin_url %}
                       <i >
-                        <a class="normal" href="{{ model.admin_url }}">{{ model.name }}</a>
-                        {% if model.add_url %}
-                         <div style="float:right">
-                            <a href="{{ model.add_url }}" class="addlink"></a>
-                          </div>
-                        {% else %}
-                            <td>&nbsp;</td>
-                        {% endif %}
 
-                        {% if model.admin_url %}
-                        <div style="float:right">
-                            <a href="{{ model.admin_url }}" class="changelink"></a>
-                          </div>
-                        {% else %}
-                            <td>&nbsp;</td>
-                        {% endif %}
+                        {% if model.name != "Groups" and model.name != "Associations" and model.name != "Nonces" and model.name != "User social auths"%}
+                          <a class="normal" href="{{ model.admin_url }}">{{ model.name }}</a>
+                          {% if model.admin_url %}
+                          <div style="float:right">
+                              <a href="{{ model.admin_url }}" class="changelink"></a>
+                            </div>
+                          {% else %}
+                              <td>&nbsp;</td>
+                          {% endif %}
+
+                          {% if model.add_url %}
+                           <div style="float:right">
+                              <a href="{{ model.add_url }}" class="addlink"></a>
+                            </div>
+                          {% else %}
+                              <td>&nbsp;</td>
+                          {% endif %}
+                          
+                        {%endif%}
                       </i>
                       {% else %}
                       <i >{{ model.name }}</i>

@@ -164,15 +164,11 @@ class ExerciseAdmin(admin.ModelAdmin):
         actions = super(ExerciseAdmin, self).get_actions(request)
         del actions['delete_selected']
         return actions
-
     def check_exercises(self, obj):
-        return mark_safe('<input type="button">')
-    check_exercises.short_description = 'Action'
-    check_exercises.allow_tags = True
-        # return format_html(
-        #     '<a class="button" href="{}">Approve</a>&nbsp;',
-        #     '<a class="button" href="{}">Approve</a>&nbsp;',
-        # )
+        return format_html(
+            '<button>Approve</button>&nbsp;'
+            '<button>Reject</button>&nbsp;',
+        )
 
     class Meta:
         model=Exercise
