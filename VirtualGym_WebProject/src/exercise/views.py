@@ -75,7 +75,7 @@ def Profile(request):
 
     """
 	title=""
-	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseData")
+	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseDate")
 	query=request.GET.get("q")
 
 
@@ -175,7 +175,7 @@ def getRelatedExercises(tag_instances, oldExID):
 	relatedExercisesObjects = set()
 	for element in tag_instances:
 		tagExerciseRelationships.append(TagsExercises.objects.filter(tag_id=element.tagID))
-	
+
 	for element in tagExerciseRelationships:
 		for test in element:
 			instance = Exercise.objects.get(exerciseId=test.exercise_id.exerciseId)
