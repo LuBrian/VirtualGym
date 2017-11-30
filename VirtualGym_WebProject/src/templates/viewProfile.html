@@ -38,20 +38,18 @@
 <div class="body_container">
 <div class="view_exercise_repo_container">
 
-<h1 text align='center'>Approved Exercises</h1>
-
     <!--show Exercise-- >
     <div class="container">
       <section>
         <!-- <div class="page-header"> -->
         <!-- </div> -->
-        <p style="text-align: center">{{ resultTitle }}</p>
+        <!-- <p style="text-align: center">{{ resultTitle}}</p> -->
         <div class="row">
 
           {% for obj in objects_list %}
           <div class="col-md-3">
-              <h3 style="text-align: center">
-                <a class = "title" style="color:#666; font-size:30px;" href="{%url "detail" id=obj.exerciseId %}"><b><u>{{obj.exerciseName}}</u></b>
+              <h3 >
+                <a class = "title" style="color:#000; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}"><b><u>{{obj.exerciseName|truncatechars:30}}</u></b>
                 </a>
               </h3>
             <div class="thumbnail">
@@ -74,7 +72,7 @@
 
             </div>
              {% for tag in obj.exerciseTag.all %}
-              <a class="radius"  text-align: center" href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
+              <a class="radius"  text-align: center href="http://localhost:8000/viewProfile/?q={{tag.tagDescription}}">
               ○{{tag.tagDescription}}</a><span>&nbsp;{%endfor%}</span>
           </div>
             {% endfor %}

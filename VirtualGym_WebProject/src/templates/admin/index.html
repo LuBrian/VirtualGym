@@ -37,6 +37,7 @@
       background: #f8f8f8;
       width: -webkit-fill-available;
       margin-right: 0px;
+      min-height: 65vh;
   }
 
   .timeline {
@@ -183,6 +184,14 @@
     }
   }
 
+  .jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #ffffff;
+}
+
 </style>
 
 <body style="background-image:url(../static/images/86.jpg); background-repeat:no-repeat ;
@@ -193,7 +202,7 @@ background-attachment: fixed;">
   {% if app_list %}
     <div class="jumbotron" style="width: -webkit-fill-available; margin-left: 220px;">
       {% block welcome-msg %}
-          <h1 style="text-align: center;">{% trans 'Welcome To Virtual Gym' %}</h1>
+          <h2 style="text-align: center;">{% trans 'Welcome To Virtual Gym' %}</h2>
           <strong style="float:right">{% firstof user.get_short_name user.get_username %}</strong>
       {% endblock %}
     </div>
@@ -278,7 +287,7 @@ background-attachment: fixed;">
                           {% if entry.is_deletion or not entry.get_admin_url %}
                             {{ entry.object_repr }}
                           {% else %}
-                            <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                            <a href="{{ admin_root_url }}{{ entry.get_admin_url }}">{{ entry.object_repr|truncatechars:100 }}</a>
                           {% endif %}
                         </p>
                       </span>

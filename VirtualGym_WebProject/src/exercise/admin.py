@@ -73,8 +73,8 @@ class ExerciseAdmin(admin.ModelAdmin):
     Set up exercise in back end admin page by managing which fields of the Exercise model are displayed, which actions you can select, and how it is filtered.
     """
     actions = [approve_exercise, reject_exercise]
-    list_display=["exercisePosterId","exerciseDescription","exerciseData","Tags", "exerciseURL", "Videos","exerciseApproved"]
-    list_filter=["exerciseApproved","exerciseDescription"]
+    list_display=["exerciseId","exercisePosterId","exerciseDate","Tags", "exerciseURL","exerciseApproved"]
+    list_filter=["exerciseApproved","exerciseTag"]
     search_fields=["exerciseTag__tagDescription","exercisePosterId__email","exerciseName"]
 
 
