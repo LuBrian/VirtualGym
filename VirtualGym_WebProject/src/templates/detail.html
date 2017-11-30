@@ -5,6 +5,7 @@
 {% load static %}
 
 {% block page_content %}
+
 <style>
     .radius{
         text-align: right;
@@ -20,17 +21,17 @@
         color:#000;
         opacity: 0.5;
     }
-    a:link {
+    .radius:link {
       text-decoration: none;
     }
-    a:visited {
+    .radius:visited {
       text-decoration: none;
     }
-    a:hover {
+    .radius:hover {
       padding:5px;
       text-decoration: none;
     }
-    a:active {
+    .radius:active {
     text-decoration: none;
     }
 
@@ -90,8 +91,10 @@
   <div class= "view_exercise_detial_description" class="col-lg-6">
       <div class="form-group">
         <h2 >{{instance.exerciseName}}</h2>
-        <label>Description:</label><span> {{instance.exerciseDescription}}</span>
-        <br/><label>Tags:</label><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        </br><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+        </br></br>
+        <span> {{instance.exerciseDescription}}</span>
+        
       </div>
   </div>
 
@@ -105,8 +108,8 @@
         <div class="ref_element">
         {% for video in obj.exerciseVideos.all|slice:":1"%}
           <div class="ref_vid">
-            <video controls>
-              <source src="{{video.videoFile.url}}" type="video/mp4">
+            <video controls="controls">
+              <source src="{{video.videoFile.url}}" type="video/mp4" >
              </video>
            </div>
 
@@ -115,13 +118,13 @@
           <div class="ref_info">
 
              <span><strong>
-               <a href="/{{obj.exerciseId}}">{{obj.exerciseName}}
+               <a href="/{{obj.exerciseId}}">{{obj.exerciseName |truncatechars:10}}
 
             </a>
              </strong></span><br/>
              <p>Description:
 
-            {{obj.exerciseDescription}}
+            {{obj.exerciseDescription |truncatechars:70}}
             </p>
           </div>
       	</div>
@@ -200,11 +203,11 @@ h5 {
       <div class="">
         <blockquote>
           <p>{{comment.CommentContent}}</p>
-          <footer>by {{comment.CommentPoster}} at {{comment.CommentTimestamp}}</footer>
+          <footer>by {{comment.CommentPoster}}| {{comment.CommentTimestamp|timesince}} ago</footer>
             {% for child_comment in comment.children %}
               <blockquote>
                 <p>{{child_comment.CommentContent}}</p>
-                <footer>by {{child_comment.CommentPoster}} at {{child_comment.CommentTimestamp}}</footer>
+                <footer>by {{child_comment.CommentPoster}}| {{child_comment.CommentTimestamp|timesince}} ago</footer>
               </blockquote>
             {% endfor %}
               <div id="{{comment.CommentId}}" style="display:none">
@@ -379,17 +382,17 @@ h5 {
 
 
         for(var i=0;i<dataLength;i++){
-            
+
             if(currentT > myData[i]["time"] && currentT < (myData[i]["time"]+3)){
 
 
               tempX =  myData[i]["x"] * this.getBoundingClientRect().width;
               tempY = myData[i]["y"] * this.getBoundingClientRect().height;
               innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
- 
+
             };
         };
-       
+
         var infoDiv = document.getElementById("vid_annotations_details");
         infoDiv.innerHTML = innerContent;
       };
