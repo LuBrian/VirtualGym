@@ -78,19 +78,21 @@ def Profile(request):
 	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseDate")
 	query=request.GET.get("q")
 
-
+	
 	if query:
 		queryList = re.split(' |,',query)
 		for i in queryList:
 			try:
 				quearyset_list=quearyset_list.filter(
 					Q(exerciseDescription__icontains = i) |
-					Q(exerciseTag__tagDescription__icontains = i)
+					Q(exerciseTag__tagDescription__icontains = i) |
+					Q(exerciseVideos__annotations__icontains = i)
 				).distinct()
 			except:
 				pass
 
 	######### may cause errors here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	# seems good for now
 	#https://docs.djangoproject.com/en/1.11/topics/pagination/
 	if(len(quearyset_list) > 0):
 		paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
