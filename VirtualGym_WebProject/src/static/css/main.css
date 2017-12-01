@@ -204,12 +204,8 @@
     border-radius: 0px; }
 
 .home_container {
-  margin-top: 5vh;
   height: 100vh;
   display: block; }
-  @media only screen and (min-width: 500px) {
-    .home_container {
-      margin-top: 5vh; } }
 
 .footer_container {
   position: relative;
@@ -265,7 +261,7 @@
 .body_container {
   position: relative;
   width: 100%;
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
   min-height: 60vh;
   margin-top: 20vh; }
   @media only screen and (min-width: 500px) {
@@ -375,6 +371,8 @@ div[class^="annotation_video_container"],
       font-weight: bold;
       font-size: 20px; }
 
+.create_exercise_container textarea {
+  resize: none; }
 .create_exercise_container video {
   background-color: #D3D3D3; }
 .create_exercise_container .returnData {
@@ -503,19 +501,18 @@ div[class^="annotation_video_container"],
     height: fit-content;
     border: 1px;
     box-shadow: 0 2px 4px 0 #b4b4b4;
-    margin: 0 20px 0 20px;
+    margin: 10px 20px 10px 20px;
     width: 120px;
     text-align: center;
     border-radius: 5px; }
     .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time,
     .create_exercise_container .annotation_tags .single_tag .tag_time {
-      background-color: rgba(0, 191, 255, 0.8);
+      background-color: rgba(51, 122, 183, 0.8);
       padding: 3px 5px 3px 5px;
       display: flex;
       border-radius: 5px 5px 0 0; }
       .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .tag_info,
       .create_exercise_container .annotation_tags .single_tag .tag_time .tag_info {
-        border-right: 1px solid black;
         margin-right: 5px;
         padding: 2px 0 2px 5px;
         flex-grow: 4; }
@@ -531,8 +528,10 @@ div[class^="annotation_video_container"],
       .create_exercise_container div[class^="annotation_tags"] .single_tag .tag_time .tag_close_btn,
       .create_exercise_container .annotation_tags .single_tag .tag_time .tag_close_btn {
         flex-grow: 1;
-        font-size: 15px;
-        cursor: pointer; }
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 18px; }
     .create_exercise_container div[class^="annotation_tags"] .single_tag .toggle,
     .create_exercise_container .annotation_tags .single_tag .toggle {
       margin: auto;

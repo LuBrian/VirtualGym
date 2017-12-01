@@ -87,7 +87,7 @@
         </div>
 
         <div  class="annotation_tag_wrapper">
-        <label>Annotations:</label>
+          <label>Annotations:</label>
           <div id = "annotation_tags" class="annotation_tags">
           </div>
         </div>
@@ -224,33 +224,32 @@
   });
   
   function setVideoSrc() {
-    // myData = getMyData();
+
     console.log(myData)
     var videoSrc = document.querySelector("video > source");
     var video = document.querySelector("video");
     if(tempvideos[current_vid] != null){
       videoSrc.src = tempvideos[current_vid]['url'];
-      
+      video.load();
+
+      if (tempData != ""){
+        console.log(myData.length)
+        var tempLength = myData.length;
+        var tempContent = "";
+        for(var i=0;i<tempLength;i++){
+          tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+        };
+        // console.log(tempContent)
+        var tempDiv = document.getElementById("annotation_tags");
+        // console.log(tempDiv)
+        tempDiv.innerHTML = tempContent;
+        // console.log(tempDiv.innerHTML)
+      };
     }else{
       videoSrc.src = "";
-    }
-    
-    video.load();
-
-    if (tempData != ""){
-      console.log(myData.length)
-      var tempLength = myData.length;
-      var tempContent = "";
-      for(var i=0;i<tempLength;i++){
-        tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
-      };
-      // console.log(tempContent)
-      var tempDiv = document.getElementById("annotation_tags");
-      // console.log(tempDiv)
-      tempDiv.innerHTML = tempContent;
-      // console.log(tempDiv.innerHTML)
+      video.load();
     };
-   };
+  };
 
   function showDetials(element){
     // assign booking content to a variable

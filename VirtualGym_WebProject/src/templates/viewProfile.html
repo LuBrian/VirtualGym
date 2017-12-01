@@ -6,10 +6,6 @@
 
 
 <style media="screen">
-  body {
-  /*font: 12px/1.5 'PT Sans', serif;*/
-  /*margin: 25px;*/
-}
 
 .tags {
   list-style: none;
@@ -67,6 +63,56 @@
 .tag:hover::after {
    border-left-color: crimson;
 }
+
+/*.vid_box{
+  width: 200px;
+  height: 200px;
+}*/
+.videoInsert {
+  /*position:fixed;*/
+	margin:0;
+	width:100%;
+	height:250px;
+  border-radius: 25px;
+	/*border: 1px solid red;*/
+    overflow: hidden;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+     border: 1px solid #ddd;
+    border-radius: 25px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    /*width: 20%;*/
+}
+
+.col-md-3{
+  position: relative;
+  min-height: 1px;
+  padding-right: 5px;
+  padding-left: 0px;
+
+}
+
+@media (min-width: 992px){
+  .col-md-3 {
+      width: 20%;
+  }
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eee;
+}
+
 </style>
 
 
@@ -81,29 +127,28 @@
 
           {% for obj in objects_list %}
           <div class="col-md-3">
-            <!-- <div class="thumbnail"> -->
+            <div class="thumbnail">
               {% for video in obj.exerciseVideos.all|slice:":1" %}
-              <a href="{%url 'detail' id=obj.exerciseId %}">
-                <video width=100% height=“100%” >
-                  <source src="{{video.videoFile.url}}" type="video/mp4">
-                </video>
-              </a>
+              <div class="vid_box">
+                <a href="{%url 'detail' id=obj.exerciseId %}">
+                  <video class="videoInsert" >
+                    <source src="{{video.videoFile.url}}" type="video/mp4">
+                  </video>
+                </a>
+              </div>
               {% endfor %}
-              </br>
+              <h4>{{obj.exerciseName|truncatechars:20}}</h4>
+              <p>{{obj.exerciseDate|timesince }} agao</p>
 
-            <!-- </div> -->
-
-            <!-- <a class = "title" style="color:#000; font-size:16px;" href="{%url "detail" id=obj.exerciseId %}"> -->
-              <h4>{{obj.exerciseName|truncatechars:25}}</h4>
-            <!-- </a> -->
-            <p>{{obj.exerciseDate|timesince }} agao</p>
-
-             {% for tag in obj.exerciseTag.all %}
-
-              <a class="tag"  text-align: center href="/viewProfile/?q={{tag.tagDescription}}">
-                {{tag.tagDescription}}
-              </a>
-              <span>&nbsp;{%endfor%}</span>
+               {% for tag in obj.exerciseTag.all %}
+                {% if forloop.counter <= 1 %}
+                  <a class="tag"  text-align: center href="/viewProfile/?q={{tag.tagDescription}}">
+                    {{tag.tagDescription|truncatechars:15}}
+                  </a>
+                {% endif %}
+              {%endfor%}
+            </div>
+            <hr>
           </div>
             {% endfor %}
 
@@ -138,6 +183,8 @@
     </ul>
     </nav>
   </div>
+</div>
+</div>
 </div>
 
 {% endblock %}

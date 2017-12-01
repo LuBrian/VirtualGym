@@ -24,7 +24,7 @@ class EditExeForm(forms.ModelForm):
     """
 
     # exercise descriptin input field
-    exerciseDescription=forms.CharField(widget=forms.TextInput(
+    exerciseDescription=forms.CharField(widget=forms.Textarea(
         attrs={
             "class":"form-control",
             "placeholder":"Description for your exercise...",
@@ -38,7 +38,7 @@ class EditExeForm(forms.ModelForm):
     ))
 
     # exercise tag text input field
-    exerciseTag=forms.CharField(required=False,widget=forms.TextInput(
+    exerciseTag=forms.CharField(required=False,widget=forms.Textarea(
         attrs={
             "class":"form-control",
             "placeholder":"Tags for the exercise...",
@@ -64,7 +64,7 @@ class CreateExeForm(forms.ModelForm):
     """
 
     # exercise descriptin input field
-    exerciseDescription=forms.CharField(widget=forms.TextInput(
+    exerciseDescription=forms.CharField(widget=forms.Textarea(
         attrs={
             "class":"form-control",
             "placeholder":"Description for your exercise...",
@@ -84,7 +84,7 @@ class CreateExeForm(forms.ModelForm):
     )
 
     # exercise tag text input field
-    exTag=forms.CharField(required=False,widget=forms.TextInput(
+    exTag=forms.CharField(required=False,widget=forms.Textarea(
         attrs={
             "class":"form-control",
             "placeholder":"Tags for the exercise...",

@@ -120,6 +120,9 @@ div[class^="annotation_video_container"],
 
 
 .create_exercise_container{
+	textarea{
+		resize: none;
+	}
 	
 	video{
 		background-color: #D3D3D3;
@@ -230,9 +233,10 @@ div[class^="annotation_video_container"],
 		flex-wrap: wrap;
 		.single_tag{
 			height:fit-content;
+
 			border: 1px;
 			box-shadow: 0 2px 4px 0 #b4b4b4;
-			margin: 0 20px 0 20px;
+			margin: 10px 20px 10px 20px;
 			width: 120px;
 			text-align: center;
 			
@@ -240,12 +244,12 @@ div[class^="annotation_video_container"],
 
 
 			.tag_time{
-				background-color: rgba(0, 191, 255,0.8);
+				background-color: rgba(51, 122, 183,0.8);
 				padding:3px 5px 3px 5px;
 				display:flex;
 				border-radius: 5px 5px 0 0 ;
 				.tag_info{
-					border-right: 1px solid black;
+					// border-right: 1px solid black;
 					margin-right: 5px;
 					padding: 2px 0 2px 5px;
 					flex-grow: 4;
@@ -264,8 +268,10 @@ div[class^="annotation_video_container"],
 				}
 				.tag_close_btn{
 					flex-grow: 1;
-					font-size: 15px;
+					font-size: 22px;
+					font-weight: bold;
 					cursor: pointer;
+					line-height: 18px;
 				}
 			}
 
