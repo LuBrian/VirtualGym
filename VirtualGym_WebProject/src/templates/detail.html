@@ -6,35 +6,64 @@
 
 {% block page_content %}
 
-<style>
-    .radius{
-        text-align: right;
-        background-color: #d2ff4d;
-        /*background-color: #cccccc;*/
-        /*background-image: radial-gradient(#e6ffff, white);*/
-        border: 1px solid #000;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        padding:3px;
-        color:#000;
-        opacity: 0.5;
-    }
-    .radius:link {
-      text-decoration: none;
-    }
-    .radius:visited {
-      text-decoration: none;
-    }
-    .radius:hover {
-      padding:5px;
-      text-decoration: none;
-    }
-    .radius:active {
-    text-decoration: none;
-    }
+<style media="screen">
 
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags li {
+  float: left;
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #333;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: crimson;
+}
 </style>
 
 <div class="body_container">
@@ -91,10 +120,10 @@
   <div class= "view_exercise_detial_description" class="col-lg-6">
       <div class="form-group">
         <h2 >{{instance.exerciseName}}</h2>
-        </br><span> {% for tag in instance.exerciseTag.all %} <a class="radius" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
+      </br><span> {% for tag in instance.exerciseTag.all %} <a class="tag" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
         </br></br>
         <span> {{instance.exerciseDescription}}</span>
-        
+
       </div>
   </div>
 
@@ -108,11 +137,12 @@
         <div class="ref_element">
         {% for video in obj.exerciseVideos.all|slice:":1"%}
           <div class="ref_vid">
-            <video controls="controls">
-              <source src="{{video.videoFile.url}}" type="video/mp4" >
-             </video>
+            <a href="{%url 'detail' id=obj.exerciseId %}">
+              <video>
+                <source src="{{video.videoFile.url}}" type="video/mp4" >
+               </video>
+            </a>
            </div>
-
 
         {%endfor%}
           <div class="ref_info">
