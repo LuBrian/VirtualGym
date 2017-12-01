@@ -5,10 +5,11 @@ from .models import Questions
 
 class QuestionsAdmin(admin.ModelAdmin):
     """
-    Set up question and answer in back end admin page 
+    Set up question and answer in back end admin page
     """
-    list_display=["questionID","questionDescription","userID","dateAsked"]
-    search_fields=["dateAsked","questionDescription"]
+    list_display=["questionID","Answer","Description","dateAsked"]
+    search_fields=["dateAsked","Description"]
+    list_filter=["dateAsked"]
     class Meta:
         model=Questions
 

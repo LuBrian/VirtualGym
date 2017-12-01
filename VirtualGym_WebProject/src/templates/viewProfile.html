@@ -66,8 +66,9 @@ hr {
 	              {% for video in obj.exerciseVideos.all|slice:":1" %}
 	              <div class="vid_box">
 	                <a href="{%url 'detail' id=obj.exerciseId %}">
-	                  <video class="videoInsert" >
+	                  <video class="videoInsert">
 	                    <source src="{{video.videoFile.url}}" type="video/mp4">
+	                    <!-- <source src="../static/bacK.MP4"/> -->
 	                  </video>
 	                </a>
 	              </div>
@@ -116,6 +117,5 @@ hr {
 
 
 </div>
-
 
 {% endblock %}

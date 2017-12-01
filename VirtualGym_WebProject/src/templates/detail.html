@@ -101,12 +101,9 @@
       </div>
 
       <div class="vid_box" onresize="resizeVid()">
-        <video id = "vid_preview"  controls>
+        <video id = "vid_preview"  loop muted preload="auto" controls>
             <source src="" type="video/mp4">
         </video>
-
-
-
       </div>
 
     </div>
@@ -416,6 +413,5 @@ h5 {
     });
 
 }
-
 </script>
  {% endblock %}
