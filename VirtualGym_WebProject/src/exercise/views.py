@@ -51,7 +51,6 @@ def CreateExe(request):
 		data=form.cleaned_data
 
 		jsonData = json.loads(request.POST.get('returnData'))
-		# print(jsonData)
 		createVideos(data,instance,jsonData)
 		# addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
@@ -81,7 +80,7 @@ def Profile(request):
 	quearyset_list=Exercise.objects.filter(exerciseApproved = True).order_by("-exerciseDate")
 	query=request.GET.get("q")
 
-	
+
 	if query:
 		queryList = re.split(' |,',query)
 		for i in queryList:
@@ -98,7 +97,7 @@ def Profile(request):
 	# seems good for now
 	#https://docs.djangoproject.com/en/1.11/topics/pagination/
 	if(len(quearyset_list) > 0):
-		paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
+		paginator = Paginator(quearyset_list, 10) # Show 10 contacts per page
 		page = request.GET.get('page')
 		if page:
 			quearyset = paginator.page(page).object_list
@@ -140,9 +139,9 @@ def MyExercise(request):
 	MyExerciseTitle=""
 	quearyset=[]
 	try:
-		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
+		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user).order_by("-exerciseDate")
 		if len(quearyset_list) >= 1:
-			paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+			paginator = Paginator(quearyset_list, 10) # Show 25 contacts per page
 			page = request.GET.get('page')
 			if page:
 				quearyset = paginator.page(page).object_list
@@ -397,8 +396,6 @@ def createVideos(data, exerciseObj, jsonData):
 	ex3 = data['exerciseVideos3']
 	ex4 = data['exerciseVideos4']
 	ex5 = data['exerciseVideos5']
-	print('check data')
-	print(jsonData)
 	if ex1 is not None:
 		createVideo(ex1, exerciseObj, jsonData[0])
 	if ex2 is not None:

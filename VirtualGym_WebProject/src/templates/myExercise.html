@@ -2,37 +2,95 @@
 {% extends 'header_footer.html' %}
 {% block page_content %}
 
+<style media="screen">
+
+.videoInsert {
+  /*position:fixed;*/
+	margin:0;
+	width:100%;
+	height:250px;
+  border-radius: 25px;
+	/*border: 1px solid red;*/
+    overflow: hidden;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #f5f5f5;
+     border: 1px solid #ddd;
+    border-radius: 25px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    /*width: 20%;*/
+}
+
+.col-md-3{
+  position: relative;
+  min-height: 1px;
+  padding-right: 5px;
+  padding-left: 0px;
+
+}
+
+@media (min-width: 992px){
+  .col-md-3 {
+      width: 20%;
+  }
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eee;
+}
+
+.btn-success {
+/*float: right;*/
+width:36px;
+height: 32px;
+position: absolute;
+background:url("../static/images/edit.png") no-repeat center center;
+/*    color: #e8e8e8;
+    background-color: #5cb85c;*/
+    border-color: #ddd;
+    border-radius: 25px;
+
+    margin-left: 78%;
+}
+
+
+</style>
+
 <div class="body_container">
 <div class="view_exercise_repo_container">
 
   {% if user.is_authenticated  %}
-	<h1 text align='center'>Edit Exercises</h1>
-    <!--show Exercise-- >
+
     <div class="container">
       <section>
-
-        <!-- <div class="page-header"> -->
-        <!-- </div> -->
-         <p style="text-align: center">{{ MyExerciseTitle }}</p>
         <div class="row">
 
           {% for obj in objects_list %}
-          <div class="col-md-4">
-            <h3 style="text-align: center"><a style=" color:#666; font-size:20px;" href="{%url "detail" id=obj.exerciseId %}">{{obj.exerciseName|truncatechars:30}}</h3>
+          <div class="col-md-3">
             <div class="thumbnail">
-              <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
               {% for video in obj.exerciseVideos.all|slice:":1"%}
-              <video width="100%" height="200" controls>
-
+              <video  class="videoInsert">
                 <source src="{{video.videoFile.url}}" type="video/mp4">
               </video>
-<!--                 <object id="video" width="400" height="200" border="0" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715">
-                <embed width="100%" height="200" border="0" autostart=0 filename="video" src="{{video.videoFile.url}}">
-                </embed>
-                </object> -->
+
               {% endfor %}
-              <p style="text-align: center">Tags: {% for tag in obj.exerciseTag.all %}{{tag.tagDescription}}{% include "comma.html" %}{%endfor%}</h3>
+              <h4>{{obj.exerciseName|truncatechars:20}}</h4>
+              <div class="row">
+                <p>{{obj.exerciseDate|timesince|truncatechars:9 }} agao</p>
+                <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success"></a>
+              </div>
             </div>
+            <hr>
           </div>
             {% endfor %}
           </div>
@@ -42,11 +100,14 @@
     </div>
     {% else %}
       <div class="create_exercise_perm">
-        <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
+        <p>You have to Login to create an exercise, <a id = "signIn" class="signIn_popup_trigger">Sign In</a> here</p>
       </div>
     {% endif  %}
-    <div class = "view_all_exe_pagination" style="display: block;text-align: center">
-<nav aria-label="Page navigation">
+</div>
+</div>
+
+<div class = "view_all_exe_pagination" style="display: block;text-align: center">
+  <nav aria-label="Page navigation">
     <ul class="pagination">
         {% if objects_list.has_previous %}
             <li>
@@ -69,12 +130,8 @@
         </li>
         {% endif %}
     </ul>
-    </nav>
-  </div>
-</div>
+  </nav>
 </div>
 
-</div>
-</div>
 
 {% endblock %}
