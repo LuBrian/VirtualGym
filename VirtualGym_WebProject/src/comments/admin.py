@@ -6,7 +6,7 @@ from django.utils.html import format_html
 from .models import Comment
 
 """
-Set up comment in back end admin page 
+Set up comment in back end admin page
 """
 
 
@@ -20,13 +20,13 @@ class CommentsAdmin(admin.ModelAdmin):
     search_fields=["CommentContent"]
 
     def Poster(self, obj):
-	return obj.CommentPoster
-    
+        return obj.CommentPoster
+
     def Content(self, obj):
-	return obj.CommentContent
+        return obj.CommentContent
 
     def Exercise(self, obj):
-	return format_html('<a href="/{}/">{}</a>', obj.CommentExercise.exerciseId, obj.CommentExercise.exerciseName)
+        return format_html('<a href="/{}/">{}</a>', obj.CommentExercise.exerciseId, obj.CommentExercise.exerciseName)
 
     def Comment_Status(self, obj):
         return format_html('<Button><a href="/admin/comments/comment/{}/change/">Change Status</a></button> &nbsp', obj.CommentId) + format_html('<Button><a href="/admin/comments/comment/{}/delete/">Delete</a></button></>', obj.CommentId)

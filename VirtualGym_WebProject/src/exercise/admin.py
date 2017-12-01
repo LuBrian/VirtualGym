@@ -110,10 +110,10 @@ def reject_exerciseWithID(modeladmin, objectID):
     tagEx = TagsExercises.objects.filter(exercise_id=objectID)
     for ex in tagEx:
         ex.delete()
-    
+
     tag_instances.delete()
     for tag in tag_instances:
-	tag.delete()
+        tag.delete()
     instance.delete()
 
 
@@ -124,7 +124,7 @@ from django.contrib.admin import SimpleListFilter
 class TagFilter(SimpleListFilter):
     title = 'Tags' # or use _('country') for translated title
     parameter_name = 'Tags'
-    
+
     def lookups(self, request, model_admin):
         tags = Tags.objects.filter(tagID__in = model_admin.model.objects.all().values_list('exerciseTag', flat = True).distinct())
         return [(c.tagID, c.tagDescription) for c in tags]

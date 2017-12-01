@@ -64,13 +64,12 @@
 .tag:hover::after {
    border-left-color: crimson;
 }
-</style>
+</style>        
 
 <div class="body_container">
-
-
   <div class="view_exercise">
     <div class = "view_exercise_detial">
+
     <!--  -->
        <div class="container" id="tabs">
            <ul class="nav nav-tabs">
@@ -102,10 +101,9 @@
       </div>
 
       <div class="vid_box" onresize="resizeVid()">
-        <video id = "vid_preview"  controls>
+        <video id = "vid_preview"  loop muted preload="auto" controls>
             <source src="" type="video/mp4">
         </video>
-
       </div>
 
     </div>
@@ -115,7 +113,7 @@
 
   <div class= "view_exercise_detial_description" class="col-lg-6">
       <div class="form-group">
-        <h2 >{{instance.exerciseName}}</h2>
+        <h2 id="detail_title">{{instance.exerciseName}}</h2>
       </br><span> {% for tag in instance.exerciseTag.all %} <a class="tag" href="/viewProfile/?q={{tag.tagDescription}}">{{tag.tagDescription}}</a>{%endfor%}</span>
         </br></br>
         <span> {{instance.exerciseDescription}}</span>
@@ -244,7 +242,7 @@ h5 {
                 </form>
               </div>
               {% if user.is_authenticated  %}
-                <h5 onclick="hideFunction({{comment.CommentId}});">Reply</h5>
+                <h5 id="reply_click" onclick="hideFunction({{comment.CommentId}});">Reply</h5>
               {% else %}
                 <h5 class="signIn_popup_trigger">Sign In</h5>
               {% endif  %}
@@ -415,6 +413,5 @@ h5 {
     });
 
 }
-
 </script>
  {% endblock %}

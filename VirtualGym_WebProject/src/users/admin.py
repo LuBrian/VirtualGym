@@ -14,7 +14,7 @@ class UsersAdmin(admin.ModelAdmin):
 
     def change_view(self,request,object_id,extra_content=None):
         self.fields = ('email','username','last_login','is_active', 'is_admin', 'is_superuser')
-	self.readonly_fields = ['username','last_login','_date_joined']
+        self.readonly_fields = ['username','last_login','_date_joined']
         return super(UsersAdmin,self).change_view(request,object_id)
 
     def User_Status(self, obj):

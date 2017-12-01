@@ -112,16 +112,17 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">Home</a> </li>
-                    <li><a href="{% url 'QA' %}">FAQ</a> </li>
                     <li><a href="{% url 'viewProfile' %}">View Exercises</a></li>
+                    <li><a href="{% url 'QA' %}">FAQ</a> </li>
                     {% if user.is_authenticated  %}
-                        <li><a href="{% url 'createExercise' %}">Post</a></li>
-                        <li><a href="{% url 'myExercise' %}">Edit</a></li>
+                        <li><a href="{% url 'createExercise' %}">Add New</a></li>
+                        <li><a href="{% url 'myExercise' %}">My Videos</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                        <li><a id="signIn_popup_trigger" class="signIn_popup_trigger">Sign In</a></li>
 
                     {% endif  %}
+
 
                 </ul>
                 <div class="row" style="margin-top:10px">
