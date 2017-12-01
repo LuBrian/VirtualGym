@@ -25,11 +25,12 @@
  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
-  <!-- Compiled and minified CSS -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css">
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js"></script>
 
-  <!-- Compiled and minified JavaScript -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
 <div class="body_container">
 <div class="create_exercise_container">
@@ -190,12 +191,11 @@
                <div class="col-lg-4">
                   <div class="form-group">
                      <label for="tags">Custom tags separated by comma</label></br>
-                     <div class="chips chips-initial">
-                     {{ form.exTag}}</div>
+                 {{ form.exTag }}
 
 
-                  </div>
-               </div>
+             </div>
+           </div>
                <div class="col-lg-4">
                   <div class="form-group">
                      <label for="tags">Tags:</label></br>
@@ -1002,15 +1002,9 @@
 
    }
 
-$('.chips-initial').material_chip({
-    data: [{
-      tag: 'Tag 1',
-    }, {
-      tag: 'Tag 2',
-    }, {
-      tag: 'Tag 3',
-    }],
-  });
+  $(".tm-input").tagsManager({
+      prefilled: ["Angola", "Laos", "Nepal"]
+    });
 
 </script>
 {% endblock %}

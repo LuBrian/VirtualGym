@@ -87,7 +87,7 @@ class CreateExeForm(forms.ModelForm):
     # exercise tag text input field
     exTag=forms.CharField(required=False,widget=forms.TextInput(
         attrs={
-            "class":"form-control",
+            "class":"form-control tm-input tm-input-info",
             "placeholder":"Tags for the exercise...",
            # "value":"test, test2",
         }
