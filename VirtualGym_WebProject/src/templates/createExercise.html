@@ -25,6 +25,12 @@
  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
 <div class="body_container">
 <div class="create_exercise_container">
 <!--    <div class="container"> -->
@@ -184,7 +190,10 @@
                <div class="col-lg-4">
                   <div class="form-group">
                      <label for="tags">Custom tags separated by comma</label></br>
-                     {{ form.exTag}}
+                     <div class="chips chips-initial">
+                     {{ form.exTag}}</div>
+    
+
                   </div>
                </div>
                <div class="col-lg-4">
@@ -1003,6 +1012,15 @@
 
    }
 
+$('.chips-initial').material_chip({
+    data: [{
+      tag: 'Tag 1',
+    }, {
+      tag: 'Tag 2',
+    }, {
+      tag: 'Tag 3',
+    }],
+  });
 
 
 </script>

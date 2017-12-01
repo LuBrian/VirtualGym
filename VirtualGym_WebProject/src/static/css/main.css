@@ -571,6 +571,8 @@ div[class^="annotation_video_container"],
 .twitter {
   background-position: 0 -100px; }
 
+.view_exercise textarea {
+  resize: none; }
 .view_exercise .view_exercise_crossRef {
   font-family: Roboto, Arial, sans-serif;
   float: right;
