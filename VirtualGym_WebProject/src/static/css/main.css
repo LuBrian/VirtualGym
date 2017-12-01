@@ -373,6 +373,47 @@ div[class^="annotation_video_container"],
 
 .create_exercise_container .multiTags {
   display: none; }
+.create_exercise_container .form-group .tm-tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #333;
+  display: inline-block;
+  height: 28px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+  border-color: white; }
+  .create_exercise_container .form-group .tm-tag::before {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px; }
+  .create_exercise_container .form-group .tm-tag::after {
+    background: #fff;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #eee;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .create_exercise_container .form-group .tm-tag:hover {
+    background-color: crimson;
+    color: white; }
+  .create_exercise_container .form-group .tm-tag a {
+    margin-left: 5px;
+    color: black;
+    opacity: 0.7; }
+  .create_exercise_container .form-group .tm-tag:hover::after {
+    border-left-color: crimson; }
 .create_exercise_container textarea {
   resize: none; }
 .create_exercise_container video {

@@ -53,7 +53,7 @@ def CreateExe(request):
 		jsonData = json.loads(request.POST.get('returnData'))
 		# print(jsonData)
 		createVideos(data,instance,jsonData)
-		addTagsToDB(data["exerciseTag"],instance)
+		# addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"

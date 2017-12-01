@@ -25,11 +25,11 @@
  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js"></script>
 
 <div class="body_container">
 <div class="create_exercise_container">
@@ -189,19 +189,12 @@
                </div>
                <div class="col-lg-4">
                   <div class="form-group">
-                     <label for="tags">Custom tags separated by comma</label></br>
-                    <div class="chips chips-initial">
-                     
-                    </div>
-                  </div>
+                     <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
+                     <input class="form-control tm-input tm-input-info">
+                 </div>
                </div>
-               {{ form.exTag}}
-               <div class="col-lg-4">
-                  <div class="form-group">
-                     <label for="tags">Tags:</label></br>
-                     {{ form.exerciseTag}}
-                  </div>
-               </div>
+               {{ form.exTag }}
+            
                <div class="col-lg-12">
                   <div class = "signUp_button">
                      <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
@@ -373,14 +366,22 @@
    }
 
 
-// $(".input").bind("enterKey",function(e){
-//    //do stuff here
-//    console.log('detected');
-// });
 
-
-
-
+$(".tm-input").tagsManager({
+      prefilled: ["Biceps", "Elbow", "Shoulder"]
+});
+$(".multiTags").val($('.tm-input').next('input').val());
+$(".tm-tag-remove").on('click',function(e){
+  $(".multiTags").val($('.tm-input').next('input').val());
+})
+$('.tm-input').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        var tempVal = $(this).next('input').val();
+        $(".multiTags").val(tempVal);
+        console.log( $(".multiTags").val());
+    }
+});
 
 
 window.onload = function() {
@@ -1005,7 +1006,13 @@ window.onload = function() {
      console.log(myData5)
    }
 
-}
+
+
+
+   }
+
+  
+
 
 
 </script>

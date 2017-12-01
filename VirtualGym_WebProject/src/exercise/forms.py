@@ -40,7 +40,7 @@ class EditExeForm(forms.ModelForm):
     # exercise tag text input field
     exerciseTag=forms.CharField(required=False,widget=forms.Textarea(
         attrs={
-            "class":"form-control",
+            "class":"form-control multiTags",
             "placeholder":"Tags for the exercise...",
         }
     ))
@@ -85,8 +85,9 @@ class CreateExeForm(forms.ModelForm):
     )
 
     # exercise tag text input field
-    exTag=forms.CharField(required=False,widget=forms.Textarea(
+    exTag=forms.CharField(required=False,widget=forms.TextInput(
         attrs={
+            # "class":"form-control tm-input tm-input-info",
             "class":"form-control multiTags",
             "placeholder":"Tags for the exercise...",
            # "value":"test, test2",
