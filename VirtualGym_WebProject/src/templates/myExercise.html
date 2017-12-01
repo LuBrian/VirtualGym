@@ -50,12 +50,17 @@ hr {
 }
 
 .btn-success {
-    color: #e8e8e8;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-    /*float: right;*/
+/*float: right;*/
+width:36px;
+height: 32px;
+position: absolute;
+background:url("../static/images/edit.png") no-repeat center center;
+/*    color: #e8e8e8;
+    background-color: #5cb85c;*/
+    border-color: #ddd;
     border-radius: 25px;
-    margin-left: 75px;
+
+    margin-left: 78%;
 }
 
 
@@ -82,7 +87,7 @@ hr {
               <h4>{{obj.exerciseName|truncatechars:20}}</h4>
               <div class="row">
                 <p>{{obj.exerciseDate|timesince|truncatechars:9 }} agao</p>
-                <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success">edit</a>
+                <a href="{%url "edit" id=obj.exerciseId %}" class="btn btn-success"></a>
               </div>
             </div>
             <hr>

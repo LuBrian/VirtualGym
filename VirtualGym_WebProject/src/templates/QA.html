@@ -5,6 +5,28 @@
 
 <div class="body_container">
 <h1 align="center">Frequently Asked Questions</h1>
+
+<div class="container ">
+    <div class="panel-group" id="faqAccordion">
+      {%for obj in objects_list%}
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#{{obj.questionID}}">
+                 <h4 class="panel-title">
+                    <a href="#" class="ing">Q: {{obj.Description}}?</a>
+              </h4>
+
+            </div>
+            <div id="{{obj.questionID}}" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <h5><span class="label label-primary">Answer</span></h5>
+                    <p>{{obj.Answer}}</p>
+                </div>
+            </div>
+        </div>
+      {%endfor%}
+    </div>
+</div>
+
 <div class="container ">
     <div class="panel-group" id="faqAccordion">
         <div class="panel panel-default ">
@@ -19,7 +41,7 @@
                      <h5><span class="label label-primary">Answer</span></h5>
 
                     <p>
-                    In order to create an exercise you must be logged in, and you can log in <a href="/signIn"> Here </a> or if you don't have an account you can create one <a href="/signUp"> Here. </a> 
+                    In order to create an exercise you must be logged in, and you can log in <a href="/signIn"> Here </a> or if you don't have an account you can create one <a href="/signUp"> Here. </a>
                     Once you are logged in there will be an option to create exercise under the exercise heading at the top of the page.
                         </p>
                 </div>
@@ -87,7 +109,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="panel panel-default ">
             <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question5">
@@ -100,7 +122,7 @@
                 <div class="panel-body">
                      <h5><span class="label label-primary">Answer</span></h5>
 
-                    <p>While you are creating or editing an exercise you may click on the video to add an annotation at that time and place during the video. 
+                    <p>While you are creating or editing an exercise you may click on the video to add an annotation at that time and place during the video.
                     If you make a mistake you can remove them by clicking the "x" on the annotation timestamp below the video. </p>
                 </div>
             </div>
@@ -108,7 +130,6 @@
 
 
     </div>
-    <!--/panel-group-->
 </div>
 </div>
 </div>
