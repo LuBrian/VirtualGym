@@ -4,6 +4,7 @@ from django.db.models import Q
 from comments.forms import CommentForm
 from .forms import CreateExeForm
 from .forms import EditExeForm
+from django.contrib import messages
 
 from .models import Exercise,Tags,TagsExercises
 from .forms import TAG_CHOICE
@@ -335,8 +336,9 @@ def EditExe(request,id=None):
     """
 
 	instance=get_object_or_404(Exercise,exerciseId=id)
-	# userID = 
-	exerciseUserId = MyUsers.objects.get(email=instance.exercisePosterId).user_id
+	if (request.user.user_id != instance.exercisePosterId.user_id and not (request.user.is_admin or request.user.is_superuser)):
+		return redirect('/myExercise/')
+
 	vid_instances = instance.exerciseVideos.all()
 	# vid_instances = VideosExercises.objects.filter(exercise_id = id)
 	# print(vid_instances)
@@ -369,7 +371,6 @@ def EditExe(request,id=None):
 	"title":"Edit Exercist",
 	"instance":instance,
 	"form":form,
-	"exerciseUserId": exerciseUserId,
 	"videos": json.dumps(videos_to_dict(videos))
 	}
 	return render(request,"edit.html",context)

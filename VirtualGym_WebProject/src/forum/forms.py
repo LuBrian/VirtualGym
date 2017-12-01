@@ -1,5 +1,5 @@
 from django import forms
-from .models import Questions
+from .models import Question
 
 class QuestionsForm(forms.ModelForm):
 
@@ -18,5 +18,5 @@ class QuestionsForm(forms.ModelForm):
         """
         question comment fields in front end
         """
-        model=Questions
+        model=Question
         fields={"questionDescription"}

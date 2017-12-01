@@ -26,8 +26,8 @@
 <div class="body_container">
 <div class="create_exercise_container">
   <div class="container">
-  {% if user.is_authenticated  %}
-    {% if user.user_id == exerciseUserId %}
+
+  {% if user.is_authenticated %}
     <div class="exercise_form">
       <form method="post" enctype="multipart/form-data">{% csrf_token %}
         <h1 class ="text-center">Edit Exercise</h1>
@@ -156,11 +156,6 @@
 
       </form>
     </div>
-        {% else %}
-          <div class="create_exercise_perm">
-            <p>You don't have permission to edit this exercise</p>
-          </div>
-        {% endif  %}
 
     {% else %}
       <div class="create_exercise_perm">
