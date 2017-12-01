@@ -224,7 +224,7 @@ h5 {
     {% if user.is_authenticated  %}
       <button id = "submitComment" type="submit" class="btn btn-default" style="display:none">Comment</button>
     {% else %}
-      <a href="{% url 'signIn' %}" class="btn btn-default">Sign In</a>
+      <a  class="btn btn-default signIn_popup_trigger">Sign In</a>
     {% endif  %}
   </form>
 
@@ -250,7 +250,7 @@ h5 {
               {% if user.is_authenticated  %}
                 <h5 onclick="hideFunction({{comment.CommentId}});">Reply</h5>
               {% else %}
-                <h5 href="{% url 'signIn' %}">Sign In</h5>
+                <h5 class="signIn_popup_trigger">Sign In</h5>
               {% endif  %}
         </blockquote>
       </div>

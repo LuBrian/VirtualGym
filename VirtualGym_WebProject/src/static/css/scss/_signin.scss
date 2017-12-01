@@ -1,30 +1,96 @@
 
-.signIn_form_container{
-	.sigIn_header{
-		position: relative;
-		margin: auto auto;
-		width: 100%;
-		height: 180px;
-		
-			// margin: auto auto;
-		.header_text {
-			margin: auto;
+.signIn_popup_container{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	z-index:500;
+	background-color:rgba(0,0,0, 0.6);
+	display: none;
+	outline:1;
+	.signIn_popup{
+		background-color:white;
+		margin:auto;
+		margin-top: 15vh;
+		width: 380px;
+		height: auto;
+		// max-height: 80vh;
+		outline:0;
+		// overflow: auto;
+		// z-index: 1001;
+		.signIn_header{
+			position: relative;
+			margin: auto auto;
+			width: 100%;
+			background-color:#314D68;
 			text-align: center;
-			width: 80%;
-
+			padding: 22px 12px;
+			vertical-align: middle;
+			// height: 180px;
 			p {
 				font-style: italic ;
 				font-family: "Georgia";
 				font-weight: bold;
-				font-size: 50px;
-				color: #6A84D8;
-				text-shadow: 2px 2px #ACB1C1;
+				font-size: 1.4em;
+				color: white;
+				margin:auto;
+				// text-shadow: 2px 2px #ACB1C1;
 			}
+			#popup_close{
+				font-size: 1.5em;
+				color:white;
+				position:absolute;
+				top:0;
+				right: 10px;
+				cursor: pointer;
+				&:focus,
+				&:active,
+				&:hover{
+					text-decoration: none;
+				}
+			}
+			
 		}
-		
+
+		.alert {
+			width: 80%;
+			padding: 10px;
+			background-color: #CE4949;
+			color: white;
+			margin: auto auto;
+			// vertical-align: middle;
+			margin-top: 20px;
+			display: none;
+
+			.closebtn {
+				color: white;
+				font-weight: bold;
+				float: right;
+				font-size: 22px;
+				line-height: 15px;
+				cursor: pointer;
+				transition: 0.3s;
+				&:hover {
+					color: black;
+				}
+						
+			}
+
+		}
+	}
+}
+
+.form_container{
+	padding: 0 40px 0 40px;
+	display:inline-block;
+	// display: none;
+	width: 100%;
+	height:auto;
+
+	.form_type{
+		display: none;
 	}
 
-	.signIn_form{
+	#signIn_form{
 		width: 100%;
 		position:relative;
 		margin: auto auto;
@@ -38,56 +104,47 @@
 			margin: auto auto;
 			max-width: 400px;
 			height: auto;
-			
-			// text-align: left;
 
-			.signIn_title{
-				text-align: center;
-			}
-			div{
-				height: 50px;
 
+
+
+			.signIn_username{
+				margin-top: 30px;
+				border: 1px solid #8FA4B9;
 				input{
 					width:100%;
-					height: 40px;
 					border : none;
-					border-bottom: 2px solid #9C9EA5;
+					padding: 10px 10px 10px 35px;
 					border-radius: 2px;
-					font-size: 1em;
+					font-size: 1.1em;
 					color:#838383;
-
-					&:active,
-					&:focus {
-						outline: none;
-						border-bottom: 2px solid #838383;
-					}
+					background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png)no-repeat 8px 12px #fff;
 				}
-
-
-				&.signIn_username,
-				&.signIn_password{
-					margin-top: 100px;
-				}
-
-				label{
-					text-align: left;
-
+				
+			}
+			.signIn_password{
+				margin-top: 30px;
+				border: 1px solid #8FA4B9;
+				input{
+					width:100%;
+					border : none;
+					padding: 10px 10px 10px 35px;
+					border-radius: 2px;
+					font-size: 1.1em;
+					color:#838383;
+					background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png)no-repeat 8px 12px #fff;
 				}
 			}
-
-
-
-
+		
 			.signInButtonContainer{
 				text-align: center;
-				margin-top: 50px;
 				height:auto;
-				// width: 100%;
+				width: 100%;
 				.signIn_button {
 					
-					margin-top: 50px;
-					background-color: #83A0FE;
-					width: 200px;
+					margin-top: 30px;
+					background-color: #314D68;;
+					width: 100%;
 					height: 40px;
 					border : none;
 					border-bottom: 1px solid #979797;
@@ -95,6 +152,7 @@
 					font-style: italic;
 					font-weight: bold;
 					font-size: 20px;
+					color: white;
 
 				}
 			}
@@ -107,7 +165,11 @@
 		text-align: center;
 		width:100%;
 		margin:auto;
-		margin-top: 80px;
+		margin-top: 30px;
+		margin-bottom: 40px;
+		a{
+			cursor:pointer
+		}
 	}
 
 
@@ -125,140 +187,79 @@
 	  color: #D2D2D2;
 	  // opacity: 1;
 	}
-}
 
 
 
 
-.signUp_form_container{
-	// @media only screen and (min-width: 500px) {
-	// 	margin-top: 15vh;
-	// }
-	// margin-top: 20vh;
 
-	.sigUp_header{
-		position: relative;
-		margin: auto auto;
-		width: 100%;
-		height: auto;
 
-		.header_text {
-			margin: auto;
-			text-align: left;
-			width: 80%;
 
-			p {
-				font-style: italic ;
-				font-family: "Georgia";
-				font-weight: bold;
-				font-size: 50px;
-				color: #6A84D8;
-				text-shadow: 2px 2px #ACB1C1;
-			}
-		}
-		
-	}
-	.alert {
-		width: 40%;
-		padding: 15px;
-		background-color: #CE4949;
 
-		color: white;
-		margin: auto auto;
-		vertical-align: middle;
-		// margin-bottom: 10px;
 
-		.closebtn {
-			color: white;
-			font-weight: bold;
-			float: right;
-			font-size: 22px;
-			line-height: 15px;
-			cursor: pointer;
-			transition: 0.3s;
-			&:hover {
-				color: black;
-			}
-					
-		}
 
-	}
+
+
+
+
+
 
 	
 
-	
-
-
-	.already_loggedIn{
+	#signUp_form{
 		width: 100%;
 		position:relative;
 		margin: auto auto;
 		height: auto;
-		text-align: center;
-		margin-top: 100px;
-
-	}
-
-	.signUp_form{
-		width: 100%;
-		position:relative;
-		margin: auto auto;
-		height: auto;
+		// overflow: auto;
 		
 		form{
 			width:100%;
 			margin: auto auto;
 			max-width: 400px;
-			margin-top: 40px;
 			height: auto;
 			.signUp_title{
 				text-align: center;
 			}
-			div{
-				height: 50px;
 
+			.input{
+				margin-top: 30px;
+				border: 1px solid #8FA4B9;
 				input{
 					width:100%;
-					height: 40px;
 					border : none;
-					border-bottom: 2px solid #9C9EA5;
+					padding: 10px 10px 10px 35px;
 					border-radius: 2px;
-					font-size: 1em;
+					font-size: 0.9em;
 					color:#838383;
 
-					&:active,
-					&:focus {
-						outline: none;
-						border-bottom: 2px solid #838383;
-					}
 				}
-				label{
-					text-align: left;
-
-				}
-
-
-				&.signUp_username,
-				&.signUp_password,
-				&.signUp_email,
-				&.signUp_confirm{
-					margin-top: 100px;
-				}
-
 			}
-			.check_unique{
-				display: none;
+
+			.signUp_username input{
+				background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png)no-repeat 8px 12px #fff;
 			}
+			.signUp_password input{
+				background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png)no-repeat 8px 12px #fff;
+			}
+			.signUp_email input{
+				background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png)no-repeat 8px 12px #fff;
+			}
+			.signUp_confirm input{
+				background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/lock.png)no-repeat 8px 12px #fff;
+			}
+			// .check_unique{
+			// 	display: none;
+			// }
+
 			.signUpButtonContainer{
 				text-align: center;
-				margin-top: 50px;
-				height: auto;
-				// width: 100%;
+				height:auto;
+				width: 100%;
 				.signUp_button {
 					
-					margin-top: 50px;
-					background-color: #83A0FE;
-					width: 200px;
+					margin-top: 30px;
+					background-color: #314D68;;
+					width: 100%;
 					height: 40px;
 					border : none;
 					border-bottom: 1px solid #979797;
@@ -266,7 +267,7 @@
 					font-style: italic;
 					font-weight: bold;
 					font-size: 20px;
-
+					color: white;
 				}
 			}
 			
@@ -278,25 +279,38 @@
 		text-align: center;
 		width:100%;
 		margin:auto;
-		margin-top: 80px;
+		margin-top: 30px;
+		margin-bottom: 40px;
+		a{
+			cursor:pointer
+		}
 	}
-
-	::-webkit-input-placeholder { /* Chrome */
-	  color: #D2D2D2;
-	}
-	:-ms-input-placeholder { /* IE 10+ */
-	  color: #D2D2D2;
-	}
-	::-moz-placeholder { /* Firefox 19+ */
-	  color: #D2D2D2;
-	  // opacity: 1;
-	}
-	:-moz-placeholder { /* Firefox 4 - 18 */
-	  color: #D2D2D2;
-	  // opacity: 1;
-	}
-
-
 }
+
+
+
+
+// .form_container{
+
+
+	
+
+// 	::-webkit-input-placeholder { /* Chrome */
+// 	  color: #D2D2D2;
+// 	}
+// 	:-ms-input-placeholder { /* IE 10+ */
+// 	  color: #D2D2D2;
+// 	}
+// 	::-moz-placeholder { /* Firefox 19+ */
+// 	  color: #D2D2D2;
+// 	  // opacity: 1;
+// 	}
+// 	:-moz-placeholder { /* Firefox 4 - 18 */
+// 	  color: #D2D2D2;
+// 	  // opacity: 1;
+// 	}
+
+
+// }
 
 
