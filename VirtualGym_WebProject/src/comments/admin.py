@@ -15,9 +15,12 @@ class CommentsAdmin(admin.ModelAdmin):
     """
     Set up comment in back end admin page by managing which fields of the Exercise model are displayed, which actions you can select, and how it is filtered.
     """
-    list_display=["CommentPoster","CommentContent"]
+    list_display=["CommentPoster","CommentContent","Comment_Status"]
     list_filter=["CommentPoster"]
     search_fields=["CommentContent"]
+
+    def Comment_Status(self, obj):
+        return format_html('<Button><a href="/admin/comments/comment/{}/change/">Change Status</a></button> &nbsp', obj.CommentId) + format_html('<Button><a href="/admin/comments/comment/{}/delete/">Delete</a></button></>', obj.CommentId)
 
     class Meta:
         model=Comment
