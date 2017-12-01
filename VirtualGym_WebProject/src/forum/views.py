@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from .forms import QuestionsForm
-from .models import Questions
+from .models import Question
 from users.models import MyUsers
 
 def CreateQuestion(request):
@@ -17,7 +17,7 @@ def CreateQuestion(request):
 
 
     """
-    quearyset=Questions.objects.all()
+    quearyset=Question.objects.all()
     title="Frequently Asked Questions"
     form= QuestionsForm(request.POST or None)
     print(quearyset)
