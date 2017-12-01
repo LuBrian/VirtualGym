@@ -230,16 +230,16 @@ def Exercise_detail(request,id=None):
     """
 
 	title=" Detail of Exercise "
-	print(id)
+
 	instance=get_object_or_404(Exercise,exerciseId=id)
-	print(instance.exerciseId)
+
 	vid_instances = instance.exerciseVideos.all()
-	print('haha')
+	
 	tag_instances = instance.exerciseTag.all()
-	print('haha')
+	
 	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
 
-	print('haha')
+
 	if len(relatedExercises) >= 4:
 	 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)

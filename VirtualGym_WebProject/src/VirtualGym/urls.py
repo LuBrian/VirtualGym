@@ -34,10 +34,6 @@ urlpatterns = [
     url(r'^$', view.index, name='index'),
     #setting log out page
     url(r'^logout/$', view.logOut, name='logout'),
-    #setting sing in page
-    # url(r'^signIn/$',us.signIn,name="signIn"),
-    #setting sing up page
-    # url(r'^signUp/$',us.signUp,name = "signUp"),
     #setting createExercise page
     url(r'^createExercise/$',ex.CreateExe,name = "createExercise"),
     #setting viewProfile page

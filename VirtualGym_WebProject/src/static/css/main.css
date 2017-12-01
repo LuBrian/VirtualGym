@@ -490,7 +490,8 @@ div[class^="annotation_video_container"],
 .create_exercise_container div[class^="annotation_tag_wrapper"],
 .create_exercise_container .annotation_tag_wrapper {
   display: block;
-  margin: 30px 0 30px 0; }
+  margin: 30px 0 30px 0;
+  padding: 0 15px 0 15px; }
 .create_exercise_container div[class^="annotation_tags"],
 .create_exercise_container .annotation_tags {
   margin: auto;
