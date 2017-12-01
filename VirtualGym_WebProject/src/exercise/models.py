@@ -65,6 +65,15 @@ class Videos(models.Model):
     annotations = models.CharField(max_length=5000)
     videoFile = models.FileField(null=False,upload_to=upload_location)
 
+# Receive the pre_delete signal and delete the file associated with the model instance.
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
+
+@receiver(pre_delete, sender=Videos)
+def videos_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.videoFile.delete(False)
+
 class Exercise(models.Model):
     """
     Exercise object database schema build
@@ -102,6 +111,6 @@ class Exercise(models.Model):
 
     def get_absolute_url(self):
         """
-		return the url of each exercise according Id
-		"""
+        return the url of each exercise according Id
+        """
         return reverse("detail",kwargs={"id":self.exerciseId})

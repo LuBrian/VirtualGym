@@ -1,6 +1,9 @@
 
 
 .view_exercise{
+	textarea{
+		resize: none;
+	}
 	.view_exercise_crossRef{
 		font-family: Roboto, Arial, sans-serif;
 		float:right;

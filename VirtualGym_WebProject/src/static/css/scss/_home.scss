@@ -5,7 +5,9 @@
 	margin: auto auto;
 	// position: absolute;
 	overflow:auto;
-
+	.signIn_popup_trigger{
+		cursor:pointer;
+	}
 
 
 
@@ -21,10 +23,6 @@
 }
 
 .home_container{
-	@media only screen and (min-width: 500px) {
-		margin-top: 5vh;
-	}
-	margin-top: 5vh;
 	height: 100vh;
 	display:block;
 }
@@ -94,7 +92,7 @@
 .body_container{
 	position: relative;
 	width: 100%;
-	margin-bottom: 20vh;
+	margin-bottom: 10vh;
 	min-height:60vh;
 
 	@media only screen and (min-width: 500px) {

@@ -32,11 +32,11 @@
  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css">
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tagmanager/3.0.2/tagmanager.min.js"></script>
 
 
 <div class="body_container">
@@ -58,7 +58,7 @@
                </ul>
                <div class="tab-content">
                   <div id="menu0" class="tab-pane active">
-                     <button type= "videofile" id="vid1" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos1}}</button>
+                     <button type= "videofile" id="vid1" class="btn btn-block btn-success vid_upload">{{form.exerciseVideos1}}</button>
                      <div class="position_wrapper">
                         <div class="video_container">
                            <div id = "vid_annotations_details0" class="vid_annotations_details0">
@@ -197,16 +197,12 @@
                </div>
                <div class="col-lg-4">
                   <div class="form-group">
-                     <label for="tags">Custom tags separated by comma</label></br>
-                 {{ form.exTag }}
-             </div>
-           </div>
-               <div class="col-lg-4">
-                  <div class="form-group">
-                     <label for="tags">Tags:</label></br>
-                     {{ form.exerciseTag}}
-                  </div>
+                     <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
+                     <input class="form-control tm-input tm-input-info">
+                 </div>
                </div>
+               {{ form.exTag }}
+            
                <div class="col-lg-12">
                   <div class = "signUp_button">
                      <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
@@ -220,7 +216,7 @@
         </div>
          {% else %}
          <div class="create_exercise_perm">
-            <p>You have to Login to create an exercise, <a id = "signIn" href="{% url 'signIn' %}">Sign In</a> here</p>
+            <p>You have to Login to create an exercise, <a id = "signIn" class="signIn_popup_trigger">Sign In</a> here</p>
          </div>
          {% endif  %}
       </div>
@@ -369,12 +365,27 @@
 
 
 
+$(".tm-input").tagsManager({
+      prefilled: ["Biceps", "Elbow", "Shoulder"]
+});
+$(".multiTags").val($('.tm-input').next('input').val());
+$(".tm-tag-remove").on('click',function(e){
+  $(".multiTags").val($('.tm-input').next('input').val());
+})
+$('.tm-input').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        var tempVal = $(this).next('input').val();
+        $(".multiTags").val(tempVal);
+        console.log( $(".multiTags").val());
+    }
+});
 
 
-   window.onload = function() {
+window.onload = function() {
    // specify major varaibles needed to using in
    // this function
-
+   
 
    var video1 = document.querySelectorAll("video")[0],
      info1 = document.querySelectorAll("span")[0],
@@ -993,23 +1004,13 @@
      console.log(myData5)
    }
 
-   //   setInterval(function checkvidT(){
-   //     // console.log('in loop');
-   //      if(vidData[0] != null){
-     //  console.log(vidData);
-     // };
-   //     // console.log(vid.currentTime);
-   //     // if(vid.currentTime == 4.1){
-   //     //   console.log('catch time');
-   //     // }
 
-   //   },10);
+
 
    }
 
-  $(".tm-input").tagsManager({
-      prefilled: ["Angola", "Laos", "Nepal"]
-    });
+  
+
 
 </script>
 {% endblock %}

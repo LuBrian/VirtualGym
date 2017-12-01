@@ -2,13 +2,15 @@ from django.contrib import admin
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.html import format_html
-
+from django.shortcuts import render, get_object_or_404, redirect
 # Register your models here.
 from .models import Exercise
 from .models import Videos
 from .models import VideosExercises
 from .models import Tags
 from .models import TagsExercises
+from django.contrib import messages
+
 """/******************************
 ** File: admin.py
 ** Desc: This file is used to control the administration access used within the "exercises" submenu
@@ -16,6 +18,7 @@ from .models import TagsExercises
 ** Auth: Brad Harrison
 ** Date: Oct 19 2017
 *******************************/"""
+
 
 def approve_exercise(modeladmin, request, queryset):
     """approve_exercise
@@ -32,7 +35,10 @@ def approve_exercise(modeladmin, request, queryset):
 
     """
     queryset.update(exerciseApproved=True)
+
+
 approve_exercise.short_description = "Approve Selected Exercise"
+
 
 def reject_exercise(modeladmin, request, queryset):
     """reject_exercise
@@ -54,18 +60,58 @@ def reject_exercise(modeladmin, request, queryset):
     videos = queryset.values("exerciseVideos")
     tags = queryset.values("exerciseTag")
 
-    videoObj = Videos.objects.filter(video_id = videos)
-    videoObj.delete()
+    for exerciseID in exId:
+        exerciseIDFinal = exerciseID['exerciseId']
+        instance=get_object_or_404(Exercise,exerciseId=exerciseIDFinal)
+        vid_instances = instance.exerciseVideos.all()
+        for vids in vid_instances:
+            vids.delete()
 
-    videoEx = VideosExercises.objects.filter(exercise_id = exId)
-    videoEx.delete()
+        videoEx = VideosExercises.objects.filter(exercise_id=exerciseIDFinal)
+        videoEx.delete()
 
-    tagEx = TagsExercises.objects.filter(exercise_id = exId, tag_id = tags)
-    tagEx.delete()
+        tagEx = TagsExercises.objects.filter(exercise_id=exerciseIDFinal)
+        for ex in tagEx:
+            ex.delete()
     queryset.delete()
 
 
 reject_exercise.short_description = "Reject Selected Exercise"
+
+
+def reject_exerciseWithID(modeladmin, objectID):
+    """reject_exercise
+
+    This subrouine deletes the exercise and its dependents from the
+    Video, VideoExercises, TagsExercises tables.
+    It is a selectable action with the admin panel of exercise admin.
+    Args:
+        modeladmin (ExerciseAdmin): This is an instance of exerciseAdmin.
+        request: This is unused but is relatd to the request connection.
+        queryset: This is an instance of the given exercise model.
+
+    Returns:
+        nothing
+
+    """
+    instance = get_object_or_404(Exercise, exerciseId=objectID)
+    vid_instances = instance.exerciseVideos.all()
+    for vid in vid_instances:
+        vid.delete()
+
+    videoEx = VideosExercises.objects.filter(exercise_id=objectID)
+
+    for vidEx in videoEx:
+        vidEx.delete()
+
+    tagEx = TagsExercises.objects.filter(exercise_id=objectID)
+    for ex in tagEx:
+        ex.delete()
+    instance.delete()
+
+
+reject_exercise.short_description = "Reject Selected Exercise"
+
 
 class ExerciseAdmin(admin.ModelAdmin):
 
@@ -73,15 +119,16 @@ class ExerciseAdmin(admin.ModelAdmin):
     Set up exercise in back end admin page by managing which fields of the Exercise model are displayed, which actions you can select, and how it is filtered.
     """
     actions = [approve_exercise, reject_exercise]
-    list_display=["exerciseId","exercisePosterId","exerciseDate","Tags", "exerciseURL","exerciseApproved","check_exercises"]
-    list_filter=["exerciseApproved","exerciseTag"]
-    search_fields=["exerciseTag__tagDescription","exercisePosterId__email","exerciseName"]
+    list_display = ["exerciseName", "exerciseDate", "Tags",
+                    "exerciseURL", "exerciseApproved", "Exercise_Status"]
+    list_filter = ["exerciseApproved", "exerciseTag"]
+    search_fields = ["exerciseTag__tagDescription",
+                     "exercisePosterId__email", "exerciseName"]
 
-
-    def exerciseURL(self,obj):
+    def exerciseURL(self, obj):
         """approve_exercise
 
-	This subroutine is used to return the URL of the exercise in the admin panel.
+    This subroutine is used to return the URL of the exercise in the admin panel.
         Args:
            obj : An instance of the exercise class
 
@@ -90,12 +137,12 @@ class ExerciseAdmin(admin.ModelAdmin):
            a formatted string with a hardcoded server prefix attached to the suffix of the exercise instance's exerciseid.`
 
         """
-        return format_html("<a target=_blank href='http://127.0.0.1:8000/{0}'>{0}</a>", obj.exerciseId)
+        return format_html("<a target=_blank href='/{0}'>{0}</a>", obj.exerciseId)
 
     def Tags(self, obj):
         """Tags
 
-	This subroutine is used to return all Tags in the exercise object
+    This subroutine is used to return all Tags in the exercise object
         Args:
            obj : An instance of the exercise class
 
@@ -109,7 +156,7 @@ class ExerciseAdmin(admin.ModelAdmin):
     def Videos(self, obj):
         """Videos
 
-	This subroutine is used to return all Videos in the exercise object
+    This subroutine is used to return all Videos in the exercise object
         Args:
            obj : An instance of the exercise class
 
@@ -123,7 +170,7 @@ class ExerciseAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         """has_add_permission
 
-	This subroutine manages whether or not we have the permission to create an exercise from the admin panel(we do not)
+    This subroutine manages whether or not we have the permission to create an exercise from the admin panel(we do not)
         Args:
            request : An instance of the exercise class
 
@@ -137,7 +184,7 @@ class ExerciseAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         """get_queryset
 
-	This subroutine returns a querset of the exercises to display in the admin panel.
+    This subroutine returns a querset of the exercises to display in the admin panel.
         Args:
            request : An instance of the exercise class
 
@@ -146,12 +193,12 @@ class ExerciseAdmin(admin.ModelAdmin):
            QuerySet of exercises to display in the admin panel
 
         """
-        return super(ExerciseAdmin,self).get_queryset(request)
+        return super(ExerciseAdmin, self).get_queryset(request)
 
     def get_actions(self, request):
         """get_actions
 
-	This subroutine returns a list of possible actions inside of the exercise admin panel
+    This subroutine returns a list of possible actions inside of the exercise admin panel
         Args:
            request : An instance of the exercise class
 
@@ -164,14 +211,25 @@ class ExerciseAdmin(admin.ModelAdmin):
         actions = super(ExerciseAdmin, self).get_actions(request)
         del actions['delete_selected']
         return actions
-    def check_exercises(self, obj):
-        return format_html(
-            '<button>Approve</button>&nbsp;'
-            '<button>Reject</button>&nbsp;',
-        )
+
+    def delete_view(self, request, object_id, extra_context=None):
+        # if request.POST is set, the user already confirmed deletion
+        if request.POST:
+            instance = get_object_or_404(Exercise, exerciseId=object_id)
+            reject_exerciseWithID(self, object_id)
+            messages.success(request, 'Exercise {} was deleted'.format(instance.exerciseName))
+            return redirect("/admin/exercise/exercise")
+            # return super(ExerciseAdmin, self).delete_view(request, *args, **kwargs)
+            # return reject_exercise(ExerciseAdmin, object_id, extra_context)
+
+        return super(ExerciseAdmin, self).delete_view(request, object_id, extra_context)
+        # reject_exercise(ExerciseAdmin, object_id, extra_context)
+
+    def Exercise_Status(self, obj):
+        return format_html('<Button><a href="/admin/exercise/exercise/{}/change/">Change Status</a></button> &nbsp', obj.exerciseId) + format_html('<Button><a href="/admin/exercise/exercise/{}/delete/">Delete</a></button></>', obj.exerciseId)
 
     class Meta:
-        model=Exercise
+        model = Exercise
 
 
-admin.site.register(Exercise,ExerciseAdmin)
+admin.site.register(Exercise, ExerciseAdmin)
