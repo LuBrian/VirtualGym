@@ -95,7 +95,7 @@ def Profile(request):
 	# seems good for now
 	#https://docs.djangoproject.com/en/1.11/topics/pagination/
 	if(len(quearyset_list) > 0):
-		paginator = Paginator(quearyset_list, 8) # Show 25 contacts per page
+		paginator = Paginator(quearyset_list, 10) # Show 10 contacts per page
 		page = request.GET.get('page')
 		if page:
 			quearyset = paginator.page(page).object_list
