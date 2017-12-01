@@ -9,6 +9,8 @@
     border-bottom: 1px solid transparent;
     border-top-left-radius: 25px;
     border-top-right-radius: 5px;
+    color: #333;
+    background-color: #a29784;
 
 }
 .panel {
@@ -16,6 +18,12 @@
     background-color: #fff;
     border: 0px solid transparent;
   }
+
+  .panel-group .panel {
+    margin-bottom: inherit;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px #888888;
+}
 
 </style>
 
@@ -129,7 +137,7 @@
         <div class="panel panel-default ">
             <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#{{obj.questionID}}">
                  <h4 class="panel-title">
-                    <a href="#" class="ing">Q: {{obj.Description}}?</a>
+                    <a href="#" class="ing">Q: {{obj.Question}}?</a>
               </h4>
 
             </div>
