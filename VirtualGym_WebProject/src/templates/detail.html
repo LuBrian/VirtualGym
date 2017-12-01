@@ -74,10 +74,6 @@
        <div class="container" id="tabs">
            <ul class="nav nav-tabs">
            <li class="active"><a data-toggle="tab" id="video0" href="#menu0">Video 1</a></li>
-           <li><a data-toggle="tab" id="video1" href="#menu1">Video 2</a></li>
-           <li><a data-toggle="tab" id="video2" href="#menu2">Video 3</a></li>
-           <li><a data-toggle="tab" id="video3" href="#menu3">Video 4</a></li>
-           <li><a data-toggle="tab" id="video4" href="#menu4">Video 5</a></li>
            </ul>
 	           <div class="tab-content">
             <div id="menu0" class="tab-pane active">
@@ -276,6 +272,18 @@ h5 {
     };
    // console.log(myData);
    $(document).ready(function () {
+    
+    if (tempvideos.length >1){
+      console.log('in for loop');
+      for(i = 1; i < tempvideos.length; i++){
+        var newEle = "<li><a data-toggle=\"tab\" id=\"video"+ i + "\" href=\"#menu"+i+"\">Video "+ 2+ "</a></li>";
+        $("#tabs .nav-tabs").append(newEle);
+      }
+     }
+
+
+
+
       // hideEmptyTabs()
      $('#tabs .nav-tabs a').on('click', function(){
        activeTab=$(this).attr('id');
@@ -323,34 +331,11 @@ h5 {
 
     });
 
- //     function hideEmptyTabs() {
- //         if (current_vid == 1)
- //    {
- //        $('#tabs .nav-tabs #video1').hide();
-	// $('#tabs .nav-tabs #video2').hide();
-	// $('#tabs .nav-tabs #video3').hide();
-	// $('#tabs .nav-tabs #video4').hide();
- //    }
- //       else if (current_vid == 2)
- //     {
-	// $('#tabs .nav-tabs #video2').hide();
-	// $('#tabs .nav-tabs #video3').hide();
-	// $('#tabs .nav-tabs #video4').hide();
- //     }
- //     else if (current_vid == 3)
- //    {
-	// $('#tabs .nav-tabs #video3').hide();
-	// $('#tabs .nav-tabs #video4').hide();
- //    }
+   
 
- //     else if (current_vid == 4)
- //    {
-	// $('#tabs .nav-tabs #video4').hide();
- //    }
- //  }
   function setVideoSrc() {
 
-	var videoSrc = document.querySelector("video > source");
+    var videoSrc = document.querySelector("video > source");
     var video = document.querySelector("video");
 
     videoSrc.src = tempvideos[current_vid]['url'];

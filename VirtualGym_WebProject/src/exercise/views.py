@@ -44,14 +44,15 @@ def CreateExe(request):
 		print('form submit')
 		instance=form.save(commit=False)
 		instance.exercisePosterId= request.user
+		print('before tags')
+		print(request.POST.get("exTag"))
+		print('after tags')
 		instance.save()
 		data=form.cleaned_data
 
 		jsonData = json.loads(request.POST.get('returnData'))
-		print(instance.exerciseTag.all())
-		# print(instance.exTag)
 		createVideos(data,instance,jsonData)
-		addTagsToDB(data["exerciseTag"],instance)
+		# addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
 		context={
 			"title":"Thank You"
@@ -59,7 +60,7 @@ def CreateExe(request):
 
 		return HttpResponseRedirect('/myExercise/')
 		# return redirect('annotations',vidID = vidid)
-
+	print('form not valide')
 	return render(request,"createExercise.html",context)
 
 def Profile(request):
@@ -231,16 +232,16 @@ def Exercise_detail(request,id=None):
     """
 
 	title=" Detail of Exercise "
-	print(id)
+
 	instance=get_object_or_404(Exercise,exerciseId=id)
-	print(instance.exerciseId)
+
 	vid_instances = instance.exerciseVideos.all()
-	print('haha')
+	
 	tag_instances = instance.exerciseTag.all()
-	print('haha')
+	
 	relatedExercises = getRelatedExercises(tag_instances, instance.exerciseId)
 
-	print('haha')
+
 	if len(relatedExercises) >= 4:
 	 	relatedExercises = random.sample(relatedExercises, 3)
 	#relatedVideos = getVideos(relatedExercises)
