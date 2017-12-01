@@ -79,14 +79,15 @@ class CreateExeForm(forms.ModelForm):
 
     # exercise tag input check box field
     exerciseTag = forms.MultipleChoiceField(
+        required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=TAG_CHOICE,
     )
 
     # exercise tag text input field
-    exTag=forms.CharField(required=False,widget=forms.Textarea(
+    exTag=forms.CharField(required=False,widget=forms.TextInput(
         attrs={
-            "class":"form-control",
+            "class":"form-control tm-input tm-input-info",
             "placeholder":"Tags for the exercise...",
            # "value":"test, test2",
         }
