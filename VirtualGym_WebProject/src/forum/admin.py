@@ -7,7 +7,7 @@ class QuestionsAdmin(admin.ModelAdmin):
     """
     Set up question and answer in back end admin page
     """
-    list_display=["questionID","Question","Answer","dateAsked", "Question_Status"]
+    list_display=["Question","Answer","dateAsked", "Question_Status"]
     search_fields=["dateAsked","Description"]
     list_filter=["dateAsked"]
 
