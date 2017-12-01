@@ -79,15 +79,26 @@
             </div>
 
 
-             <div id = "annotationForm_container" class="annotationForm_container">
+            <div id = "annotationForm_container" class="annotationForm_container">
               <a id="annotation_closeBtn"">&times;</a>
               
                 <div class="input_container">
                   <textarea id = "annotation_detial" class = "annotation_detial" type="text" value = "" name="details"></textarea>
                 </div>
                 <button id = "annotation_submit" type="button" class="annotation_submit">Add</button>
+            </div>
+
+
+
+            <div id = "edit_annotationForm_container" class="edit_annotationForm_container">
+              <a id="edit_annotation_closeBtn"">&times;</a>
+              
+                <div class="input_container">
+                  <textarea id = "annotation_detial" class = "annotation_detial" type="text" value = "" name="details"></textarea>
+                </div>
+                <button id = "submit_annotation_submit" type="button" class="annotation_submit">Edit</button>
             
-              </div>
+            </div>
          
           </div>
         </div>
@@ -162,6 +173,7 @@
   var current_vid = 0;
   var tempData = tempvideos[0]["annotations"];
   var myData = [];
+  var annotationID;
   // console.log(tempData)
    if (tempData != ""){
       var myData = JSON.parse(tempData)
@@ -171,11 +183,26 @@
     $('#tabs .nav-tabs a').on('click', function(){
       activeTab=$(this).attr('id');
       if (activeTab == 'video0'){
+
+        var infoDiv = document.getElementById("vid_annotations_details");
+         infoDiv.innerHTML = "";
+
+        var tagDiv = document.getElementById("annotation_tags");
+        tagDiv.innerHTML = "";
         if(tempvideos[0] != null){
           
           tempData = tempvideos[0]["annotations"];
           if (tempData != ""){
             myData = JSON.parse(tempData)
+            var tempLength = myData.length;
+            var tempContent = "";
+            for(var i=0;i<tempLength;i++){
+              tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            };
+            // console.log(tempContent)
+            var tempDiv = document.getElementById("annotation_tags");
+            // console.log(tempDiv)
+            tempDiv.innerHTML = tempContent;
           };
         };
         current_vid = 0;
@@ -183,12 +210,24 @@
         
       else if (activeTab == 'video1')
       {
-    		    
+        var infoDiv = document.getElementById("vid_annotations_details");
+        infoDiv.innerHTML = "";
+    		var tagDiv = document.getElementById("annotation_tags");
+        tagDiv.innerHTML = "";
         if(tempvideos[1] != null){
           
           tempData = tempvideos[1]["annotations"];
           if (tempData != ""){
-            myData = JSON.parse(tempData)
+            myData = JSON.parse(tempData);
+            var tempLength = myData.length;
+            var tempContent = "";
+            for(var i=0;i<tempLength;i++){
+              tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            };
+            // console.log(tempContent)
+            var tempDiv = document.getElementById("annotation_tags");
+            // console.log(tempDiv)
+            tempDiv.innerHTML = tempContent;
           };
         };
         current_vid = 1;
@@ -196,11 +235,26 @@
         
       else if (activeTab == 'video2')
       {
+
+        var infoDiv = document.getElementById("vid_annotations_details");
+       infoDiv.innerHTML = "";
+
+        var tagDiv = document.getElementById("annotation_tags");
+        tagDiv.innerHTML = "";
         if(tempvideos[2] != null){
           
           tempData = tempvideos[2]["annotations"];
           if (tempData != ""){
             myData = JSON.parse(tempData)
+            var tempLength = myData.length;
+            var tempContent = "";
+            for(var i=0;i<tempLength;i++){
+              tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            };
+            // console.log(tempContent)
+            var tempDiv = document.getElementById("annotation_tags");
+            // console.log(tempDiv)
+            tempDiv.innerHTML = tempContent;
           };
         };
         current_vid = 2;
@@ -209,13 +263,25 @@
         
       else if (activeTab == 'video3')
       {
-    		 // if (myData4.length == 0 && tempvideos.length >= 4)
-    		 // {
+        var infoDiv = document.getElementById("vid_annotations_details");
+        infoDiv.innerHTML = "";
+
+    		 var tagDiv = document.getElementById("annotation_tags");
+          tagDiv.innerHTML = "";
     	   if(tempvideos[3] != null){
           
           tempData = tempvideos[3]["annotations"];
           if (tempData != ""){
             myData = JSON.parse(tempData)
+            var tempLength = myData.length;
+            var tempContent = "";
+            for(var i=0;i<tempLength;i++){
+              tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            };
+            // console.log(tempContent)
+            var tempDiv = document.getElementById("annotation_tags");
+            // console.log(tempDiv)
+            tempDiv.innerHTML = tempContent;
           };
         };
         current_vid = 3;
@@ -223,11 +289,25 @@
         
       else if (activeTab == 'video4')
       {
-    		  if(tempvideos[4] != null){
-          
+
+        var infoDiv = document.getElementById("vid_annotations_details");
+        infoDiv.innerHTML = "";
+
+        var tagDiv = document.getElementById("annotation_tags");
+        tagDiv.innerHTML = "";
+  		  if(tempvideos[4] != null){
           tempData = tempvideos[4]["annotations"];
           if (tempData != ""){
             myData = JSON.parse(tempData)
+            var tempLength = myData.length;
+            var tempContent = "";
+            for(var i=0;i<tempLength;i++){
+              tempContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            };
+            // console.log(tempContent)
+            var tempDiv = document.getElementById("annotation_tags");
+            // console.log(tempDiv)
+            tempDiv.innerHTML = tempContent;
           };
         };
         current_vid = 4;
@@ -238,7 +318,7 @@
   
   function setVideoSrc() {
 
-    console.log(myData)
+    // console.log(myData)
     var videoSrc = document.querySelector("video > source");
     var video = document.querySelector("video");
     if(tempvideos[current_vid] != null){
@@ -246,7 +326,7 @@
       video.load();
 
       if (tempData != ""){
-        console.log(myData.length)
+        console.log(myData)
         var tempLength = myData.length;
         var tempContent = "";
         for(var i=0;i<tempLength;i++){
@@ -263,6 +343,26 @@
       video.load();
     };
   };
+
+
+
+
+  function editAnnotation(event){
+    console.log('triggered');
+    annotationID = parseInt(event.id);
+    console.log(myData);
+    $("#edit_annotationForm_container textarea").val(myData[annotationID]["details"]);
+    $("#edit_annotationForm_container").show();
+    // $("#edit_annotationForm_container textarea").val("");
+    // video.play();
+    tempvideos[current_vid]["annotations"] = JSON.stringify(myData);
+    // console.log(returnData);
+    // console.log(tempvideos);
+  };
+
+
+
+
 
   function showDetials(element){
     // assign booking content to a variable
@@ -282,7 +382,7 @@
     
   };
   var tagVals = $("#id_exerciseTag").val().split(",");
-  console.log(tagVals);
+  // console.log(tagVals);
 
   $(".tm-input").tagsManager(
     {prefilled: tagVals}
@@ -291,14 +391,14 @@
   $(".tm-tag-remove").on('click',function(e){
     $(".multiTags").val($('.tm-input').next('input').val());
   })
-  $('.tm-input').keyup(function(e){
-      if(e.keyCode == 13)
-      {
-          var tempVal = $(this).next('input').val();
-          $(".multiTags").val(tempVal);
-          console.log( $(".multiTags").val());
-      }
-  });
+  // $('.tm-input').keyup(function(e){
+  //     if(e.keyCode == 13)
+  //     {
+  //         var tempVal = $(this).next('input').val();
+  //         $(".multiTags").val(tempVal);
+  //         console.log( $(".multiTags").val());
+  //     }
+  // });
 
   
 
@@ -318,6 +418,8 @@
         concanenatedVideoElems = "";
         annotationSubmit =  document.getElementById("annotation_submit");
         annotationClose = document.getElementById("annotation_closeBtn");
+        editAnnotationClose = document.getElementById("edit_annotation_closeBtn");
+        editAnnotationSubmit = document.getElementById("submit_annotation_submit");
 	     activeTab = 'video0';
         vidData = [];
         videoInfo = {};
@@ -370,15 +472,25 @@
     }
 
 
+
+
+
     video.addEventListener("click", mouseHandler);
     // add onclick listener to the close button
     annotationClose.addEventListener('click',function(){
       document.getElementById("annotationForm_container").style.display = "none";
       video.play();
+    });
+
+    editAnnotationClose.addEventListener('click',function(){
+      document.getElementById("edit_annotationForm_container").style.display = "none";
+      video.play();
 
     });
 
     sumitBtn.addEventListener('click',function(){
+      var tempVal = $(".tm-input").next('input').val();
+      $(".multiTags").val(tempVal);
       returnInput.value = JSON.stringify(tempvideos);
 
     })
@@ -387,13 +499,19 @@
 
 
     annotationSubmit.addEventListener('click', function() {
-        details = $("textarea").val();
+        details = $("#annotationForm_container textarea").val();
         // console.log(details);
+        var tagDiv = document.getElementById("annotation_tags");
+        tagDiv.innerHTML = "";
         if (details != "" && details != null)
         {
           // myData = getMyData();
           tempDic = {x: Xval, y: Yval, time: timeStep, details: details};
-          // localdata = JSON.stringify([tempData]);
+          myData = [];
+          if( tempvideos[current_vid]['annotations'] != ""){
+            myData = JSON.parse(tempvideos[current_vid]['annotations']);
+          }
+          console.log(myData);
           myData.push(tempDic);
           sortByTimeStep();
 
@@ -407,7 +525,7 @@
           var dataLength = myData.length;
           var tagContent = "";
           for(var i=0;i<dataLength;i++){
-            tagContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"] + "s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+            tagContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
           };
           var tagDiv = document.getElementById("annotation_tags");
           tagDiv.innerHTML = tagContent;
@@ -420,12 +538,39 @@
       document.getElementById("annotation_detial").value = "";
       video.play();
       document.getElementById("annotationForm_container").style.display = "none";
-      returnData = JSON.stringify(myData);
+      // returnData = JSON.stringify(myData);
+      tempvideos[current_vid]["annotations"] = JSON.stringify(myData);
       // console.log(returnData);
 
       // setMyData();
     
     }, false);
+
+
+
+    editAnnotationSubmit.addEventListener('click',function(){
+      console.log('submit annotation');
+      // console.log($("#edit_annotationForm_container textarea").val());
+      myData = JSON. parse(tempvideos[current_vid]["annotations"]);
+      console.log(myData);
+      console.log('chekc mydata')
+      console.log(annotationID);
+      myData[annotationID]["details"] = $("#edit_annotationForm_container textarea").val();
+
+
+
+      var dataLength = myData.length;
+      var tagContent = "";
+      for(var i=0;i<dataLength;i++){
+        tagContent+= "<div class= \"single_tag\">\n<div class=\"tag_time\">\n<div class=\"tag_info\">\n<p>"+ myData[i]["time"].toFixed(2) + " s </p>\n</div>\n<div class=\"tag_close_btn\" onclick=\"deleteAnnotation(this);\">\n&times;\n</div>\n</div>\n<div class=\"tag_details svg toggle\" onclick=\"showDetials(this);\">\n</div>\n<div class= \"tag_description\">" + myData[i]["details"] + "\n</div>\n</div>";
+      };
+      var tagDiv = document.getElementById("annotation_tags");
+      tagDiv.innerHTML = tagContent;
+
+
+      document.getElementById("edit_annotationForm_container").style.display = "none";
+      tempvideos[current_vid]["annotations"] = JSON.stringify(myData);
+    })
 
 
 
@@ -442,9 +587,11 @@
 
     $('#vid_preview').on('timeupdate',function(event){
       var infoDiv = document.getElementById("vid_annotations_details");
+      infoDiv.innerHTML = "";
       if (tempvideos[current_vid] != null){
         tempData = tempvideos[current_vid]["annotations"];
         if (tempData != ""){
+          myData = JSON.parse(tempData);
           var dataLength = myData.length;
           var currentT = this.currentTime;
           var innerContent = "";
@@ -455,7 +602,7 @@
 
                 tempX =  myData[i]["x"] * this.width;
                 tempY = myData[i]["y"] * this.height;
-                innerContent += "<p class=\"single_annotation\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
+                innerContent += "<p class=\"single_annotation\" "+ " id =\"" + i + "\" onclick=\"editAnnotation(this);\" style=\"position:absolute; left:"+ tempX + "px; top: " + tempY + "px;\">" + myData[i]["details"] + "</p>" + "\n";
 
               };
           };

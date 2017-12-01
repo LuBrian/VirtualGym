@@ -372,14 +372,14 @@ $(".multiTags").val($('.tm-input').next('input').val());
 $(".tm-tag-remove").on('click',function(e){
   $(".multiTags").val($('.tm-input').next('input').val());
 })
-$('.tm-input').keyup(function(e){
-    if(e.keyCode == 13)
-    {
-        var tempVal = $(this).next('input').val();
-        $(".multiTags").val(tempVal);
-        console.log( $(".multiTags").val());
-    }
-});
+// $('.tm-input').keyup(function(e){
+//     if(e.keyCode == 13)
+//     {
+//         var tempVal = $(this).next('input').val();
+//         $(".multiTags").val(tempVal);
+//         console.log( $(".multiTags").val());
+//     }
+// });
 
 
 window.onload = function() {
@@ -641,6 +641,8 @@ window.onload = function() {
    sumitBtn.addEventListener('click',function(){
     console.log("get called")
     console.log(returnData1)
+    var tempVal = $(".tm-input").next('input').val();
+    $(".multiTags").val(tempVal);
      // returnInput.value = [returnData1, returnData2, returnData3, returnData4, returnData5].filter(function (val) {return val;}).join('|| ');
      returnInput.value = JSON.stringify([returnData1, returnData2, returnData3, returnData4, returnData5]);
      console.log(returnInput.value);
