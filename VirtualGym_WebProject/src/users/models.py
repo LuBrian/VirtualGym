@@ -44,6 +44,10 @@ class MyUsersManager(BaseUserManager):
 		print(email)
 		print(password)
 		now = timezone.now()
+		# if MyUsers._default_manager.get(email=email) != None:
+		# 	print("user already exists by email")
+		# 	raise ValueError('Email is already used, please use a new email.')
+
 		# if user social sign in and email exist, assign email attribute
 		if(email):
 			print("has email")
