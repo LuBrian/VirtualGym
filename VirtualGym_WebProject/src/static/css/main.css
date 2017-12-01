@@ -500,11 +500,84 @@ div[class^="annotation_video_container"],
         margin-top: 50px;
         height: 40px;
         width: 200px;
-        background-color: #83A0FE;
+        background-color: #337ab7;
         border: 1px solid #979797;
         border-radius: 2px;
         box-shadow: 2px 2px 2px #888888;
-        font-style: italic;
+        font-weight: bold;
+        font-size: 20px; }
+    .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"],
+    .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container,
+    .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"],
+    .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container,
+    .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"],
+    .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container,
+    .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"],
+    .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container {
+      display: none;
+      background-color: rgba(128, 128, 128, 0.7);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100; }
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"] .input_container,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container .input_container,
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"] .input_container,
+      .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container div[class^="input_container"],
+      .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container .input_container,
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"] .input_container,
+      .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container div[class^="input_container"],
+      .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container .input_container,
+      .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"] div[class^="input_container"],
+      .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"] .input_container,
+      .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container div[class^="input_container"],
+      .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container .input_container {
+        margin-top: 30px;
+        vertical-align: middle; }
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"] .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"] .input_container textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container .input_container textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"] .input_container textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container .input_container textarea,
+        .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"] div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"] .input_container textarea,
+        .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container div[class^="input_container"] textarea,
+        .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container .input_container textarea {
+          resize: none;
+          width: 60%;
+          height: 200px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 15px; }
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] div[class^="edit_annotationForm_container"] button,
+      .create_exercise_container div[class^="position_wrapper"] div[class^="video_container"] .edit_annotationForm_container button,
+      .create_exercise_container div[class^="position_wrapper"] .video_container div[class^="edit_annotationForm_container"] button,
+      .create_exercise_container div[class^="position_wrapper"] .video_container .edit_annotationForm_container button,
+      .create_exercise_container .position_wrapper div[class^="video_container"] div[class^="edit_annotationForm_container"] button,
+      .create_exercise_container .position_wrapper div[class^="video_container"] .edit_annotationForm_container button,
+      .create_exercise_container .position_wrapper .video_container div[class^="edit_annotationForm_container"] button,
+      .create_exercise_container .position_wrapper .video_container .edit_annotationForm_container button {
+        border: none;
+        margin-top: 50px;
+        height: 40px;
+        width: 200px;
+        background-color: #337ab7;
+        border: 1px solid #979797;
+        border-radius: 2px;
+        box-shadow: 2px 2px 2px #888888;
         font-weight: bold;
         font-size: 20px; }
 .create_exercise_container .vid_box {
@@ -516,14 +589,23 @@ div[class^="annotation_video_container"],
   z-index: 10; }
   .create_exercise_container div[class^="vid_annotations_details"] .single_annotation,
   .create_exercise_container .vid_annotations_details .single_annotation {
+    cursor: pointer;
     padding: 2px 2px 2px 2px;
-    background-color: rgba(255, 80, 80, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     font-size: 13px;
     font-family: "Georgia";
     min-width: 100px;
     border-radius: 5px; }
 .create_exercise_container a[id^="annotation_closeBtn"],
 .create_exercise_container #annotation_closeBtn {
+  float: right;
+  color: black;
+  margin-right: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  cursor: pointer; }
+.create_exercise_container a[id^="edit_annotation_closeBtn"],
+.create_exercise_container #edit_annotation_closeBtn {
   float: right;
   color: black;
   margin-right: 20px;

@@ -4,6 +4,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.html import format_html
 from django.shortcuts import render, get_object_or_404, redirect
 # Register your models here.
+from .models import MyUsers
 from .models import Exercise
 from .models import Videos
 from .models import VideosExercises
@@ -109,7 +110,7 @@ def reject_exerciseWithID(modeladmin, objectID):
     tagEx = TagsExercises.objects.filter(exercise_id=objectID)
     for ex in tagEx:
         ex.delete()
-    
+
     tag_instances.delete()
     for tag in tag_instances:
         tag.delete()
@@ -123,16 +124,13 @@ from django.contrib.admin import SimpleListFilter
 class TagFilter(SimpleListFilter):
     title = 'Tags' # or use _('country') for translated title
     parameter_name = 'Tags'
-    
+
     def lookups(self, request, model_admin):
         tags = Tags.objects.filter(tagID__in = model_admin.model.objects.all().values_list('exerciseTag', flat = True).distinct())
-	# print(tags)
         return [(c.tagID, c.tagDescription) for c in tags]
 
 
     def queryset(self, request, queryset):
-        if self.value() == 'AFRICA':
-            return queryset.filter(country__continent='Africa')
         if self.value():
             return queryset.filter(exerciseTag__tagID__exact=self.value())
 
@@ -234,6 +232,10 @@ class ExerciseAdmin(admin.ModelAdmin):
         actions = super(ExerciseAdmin, self).get_actions(request)
         del actions['delete_selected']
         return actions
+
+    def change_view(self,request,object_id,extra_content=None):
+        self.fields = ('exerciseName','exerciseDescription','exercisePosterId','exerciseApproved')
+        return super(ExerciseAdmin,self).change_view(request,object_id)
 
     def delete_view(self, request, object_id, extra_context=None):
         # if request.POST is set, the user already confirmed deletion

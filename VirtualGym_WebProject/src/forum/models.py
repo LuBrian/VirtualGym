@@ -3,7 +3,7 @@ from users.models import MyUsers
 from django.core.urlresolvers import reverse
 
 
-class Questions(models.Model):
+class Question(models.Model):
 	"""
 	Questions object database schema build
 
@@ -17,7 +17,7 @@ class Questions(models.Model):
 	@param Answer: the descriptin of answer.
 	"""
 	questionID = models.AutoField(primary_key=True)
-	Description = models.CharField(null = False, blank = False, max_length=1000)
+	Question = models.CharField(null = False, blank = False, max_length=1000)
 	Answer=models.CharField(null = True, blank = False, max_length=1000)
 	dateAsked = models.DateTimeField(auto_now_add=True)
 	class Meta():
@@ -28,7 +28,7 @@ class Questions(models.Model):
 		"""
         return poster name for each comment
 		"""
-		return self.Description
+		return self.Question
 
 	def get_absolute_url(self):
 		"""
