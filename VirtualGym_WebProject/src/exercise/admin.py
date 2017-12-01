@@ -112,7 +112,7 @@ def reject_exerciseWithID(modeladmin, objectID):
     
     tag_instances.delete()
     for tag in tag_instances:
-	tag.delete()
+        tag.delete()
     instance.delete()
 
 
@@ -126,7 +126,7 @@ class TagFilter(SimpleListFilter):
     
     def lookups(self, request, model_admin):
         tags = Tags.objects.filter(tagID__in = model_admin.model.objects.all().values_list('exerciseTag', flat = True).distinct())
-	print(tags)
+	# print(tags)
         return [(c.tagID, c.tagDescription) for c in tags]
 
 

@@ -73,9 +73,9 @@ hr {
 	                </a>
 	              </div>
 	              {% endfor %}
-	              <h4>{{obj.exerciseName|truncatechars:20}}</h4>
-	              <p>{{obj.exerciseDate|timesince }} agao</p>
 
+	              <h4><a style="color: black" href="{%url 'detail' id=obj.exerciseId %}">{{obj.exerciseName|truncatechars:20}}</h4></a>
+	              <p>{{obj.exerciseDate|timesince }} ago</p>
 	            </div>
 	            <hr>
 	          </div>
