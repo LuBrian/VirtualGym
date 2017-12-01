@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 import json
+from django.core.mail import EmailMessage
 # import re
 
 def signIn(request):
@@ -69,7 +70,10 @@ def index(request):
 		"exception": exception,
 		"message": ""
 	}
-
+	# print('sending email')
+	# email = EmailMessage('Subject', 'check email', to=['brianbylu@gmail.com'])
+	# email.send()
+	# print('finish send')
 	if request.is_ajax():
 		print("get post request")
 		try:
@@ -95,6 +99,20 @@ def index(request):
 				user = authenticate(email=instance.email,password=instance.password)
 				login(request, user)
 				return HttpResponse("ok")
+			elif(request.POST.get('formType') == "forget"):
+				print('forget password')
+				validate_email(request.POST.get("email"))
+				pw = checkIfExist(request.POST.get("email"))
+				email = request.POST.get("email")
+				# print(pw)
+				email_msg = EmailMessage('Virtual Gym Account Password', 'Your password is: ' + pw, to=[request.POST.get("email")])
+				HttpResponse("sending")
+				email_msg.send()
+				print('sent')
+				return HttpResponse("ok")
+
+
+
 			else:
 				print("shouldn't be printed")
 		except Exception as e:
@@ -118,7 +136,14 @@ def index(request):
 
 
 
-
+def checkIfExist(email):
+	try:
+		pw = MyUsers._default_manager.get(email=email).password
+		if pw == "":
+			raise ValueError("Account doesn't exist.")
+		return pw
+	except MyUsers.DoesNotExist:
+		raise ValueError("Account doesn't exist.")
 
 
 def signUpValidation(request):

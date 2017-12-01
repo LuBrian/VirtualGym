@@ -101,7 +101,7 @@
         height: auto;
         width: 100%; }
         .form_container #signIn_form form .signInButtonContainer .signIn_button {
-          margin-top: 30px;
+          margin-top: 10px;
           background-color: #314D68;
           width: 100%;
           height: 40px;
@@ -121,6 +121,16 @@
     margin-bottom: 40px; }
     .form_container .go_signUp a {
       cursor: pointer; }
+  .form_container .go_forget {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px; }
+    .form_container .go_forget a {
+      cursor: pointer; }
+    .form_container .go_forget p {
+      margin: 0; }
   .form_container ::-webkit-input-placeholder {
     /* Chrome */
     color: #D2D2D2; }
@@ -133,6 +143,44 @@
   .form_container :-moz-placeholder {
     /* Firefox 4 - 18 */
     color: #D2D2D2; }
+  .form_container #forgetPw_form {
+    width: 100%;
+    position: relative;
+    margin: auto auto;
+    height: auto; }
+    .form_container #forgetPw_form form {
+      width: 100%;
+      margin: auto auto;
+      max-width: 400px;
+      height: auto; }
+      .form_container #forgetPw_form form .input {
+        margin-top: 30px;
+        border: 1px solid #8FA4B9; }
+        .form_container #forgetPw_form form .input input {
+          width: 100%;
+          border: none;
+          padding: 10px 10px 10px 35px;
+          border-radius: 2px;
+          font-size: 0.9em;
+          color: #838383; }
+      .form_container #forgetPw_form form .forget_email input {
+        background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png) no-repeat 8px 12px #fff; }
+      .form_container #forgetPw_form form .forgetButtonContainer {
+        text-align: center;
+        height: auto;
+        width: 100%; }
+        .form_container #forgetPw_form form .forgetButtonContainer .forget_button {
+          margin-top: 30px;
+          background-color: #314D68;
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-bottom: 1px solid #979797;
+          border-radius: 2px;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 20px;
+          color: white; }
   .form_container #signUp_form {
     width: 100%;
     position: relative;
