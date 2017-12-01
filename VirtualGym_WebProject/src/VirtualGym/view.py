@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 import json
+from django.core.mail import EmailMessage
 # import re
 
 def signIn(request):
@@ -69,7 +70,10 @@ def index(request):
 		"exception": exception,
 		"message": ""
 	}
-
+	# print('sending email')
+	# email = EmailMessage('Subject', 'check email', to=['brianbylu@gmail.com'])
+	# email.send()
+	# print('finish send')
 	if request.is_ajax():
 		print("get post request")
 		try:
