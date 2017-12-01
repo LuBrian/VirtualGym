@@ -194,6 +194,8 @@
   height: 100vh;
   margin: auto auto;
   overflow: auto; }
+  .page_container .signIn_popup_trigger {
+    cursor: pointer; }
 
 .header_container {
   position: fixed;
@@ -501,7 +503,7 @@ div[class^="annotation_video_container"],
         background-color: #83A0FE;
         border: 1px solid #979797;
         border-radius: 2px;
-        box-shadow: 5px 5px 5px #888888;
+        box-shadow: 2px 2px 2px #888888;
         font-style: italic;
         font-weight: bold;
         font-size: 20px; }
