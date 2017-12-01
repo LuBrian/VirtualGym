@@ -95,6 +95,8 @@ def reject_exerciseWithID(modeladmin, objectID):
 
     """
     instance = get_object_or_404(Exercise, exerciseId=objectID)
+    tag_instances = instance.exerciseTag.all()
+    print(tag_instances)
     vid_instances = instance.exerciseVideos.all()
     for vid in vid_instances:
         vid.delete()
@@ -107,11 +109,32 @@ def reject_exerciseWithID(modeladmin, objectID):
     tagEx = TagsExercises.objects.filter(exercise_id=objectID)
     for ex in tagEx:
         ex.delete()
+    
+    tag_instances.delete()
+    for tag in tag_instances:
+	tag.delete()
     instance.delete()
 
 
 reject_exercise.short_description = "Reject Selected Exercise"
 
+from django.contrib.admin import SimpleListFilter
+
+class TagFilter(SimpleListFilter):
+    title = 'Tags' # or use _('country') for translated title
+    parameter_name = 'Tags'
+    
+    def lookups(self, request, model_admin):
+        tags = Tags.objects.filter(tagID__in = model_admin.model.objects.all().values_list('exerciseTag', flat = True).distinct())
+	print(tags)
+        return [(c.tagID, c.tagDescription) for c in tags]
+
+
+    def queryset(self, request, queryset):
+        if self.value() == 'AFRICA':
+            return queryset.filter(country__continent='Africa')
+        if self.value():
+            return queryset.filter(exerciseTag__tagID__exact=self.value())
 
 class ExerciseAdmin(admin.ModelAdmin):
 
@@ -121,7 +144,7 @@ class ExerciseAdmin(admin.ModelAdmin):
     actions = [approve_exercise, reject_exercise]
     list_display = ["exerciseName", "exerciseDate", "Tags",
                     "exerciseURL", "exerciseApproved", "Exercise_Status"]
-    list_filter = ["exerciseApproved", "exerciseTag"]
+    list_filter = ["exerciseApproved", TagFilter,]
     search_fields = ["exerciseTag__tagDescription",
                      "exercisePosterId__email", "exerciseName"]
 
