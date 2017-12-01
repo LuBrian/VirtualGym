@@ -79,6 +79,7 @@ class CreateExeForm(forms.ModelForm):
 
     # exercise tag input check box field
     exerciseTag = forms.MultipleChoiceField(
+        required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=TAG_CHOICE,
     )
@@ -86,7 +87,7 @@ class CreateExeForm(forms.ModelForm):
     # exercise tag text input field
     exTag=forms.CharField(required=False,widget=forms.Textarea(
         attrs={
-            "class":"form-control",
+            "class":"form-control multiTags",
             "placeholder":"Tags for the exercise...",
            # "value":"test, test2",
         }

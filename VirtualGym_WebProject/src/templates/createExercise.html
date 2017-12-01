@@ -190,12 +190,12 @@
                <div class="col-lg-4">
                   <div class="form-group">
                      <label for="tags">Custom tags separated by comma</label></br>
-                     <div class="chips chips-initial">
-                     {{ form.exTag}}</div>
-    
-
+                    <div class="chips chips-initial">
+                     
+                    </div>
                   </div>
                </div>
+               {{ form.exTag}}
                <div class="col-lg-4">
                   <div class="form-group">
                      <label for="tags">Tags:</label></br>
@@ -373,13 +373,20 @@
    }
 
 
+// $(".input").bind("enterKey",function(e){
+//    //do stuff here
+//    console.log('detected');
+// });
 
 
 
-   window.onload = function() {
+
+
+
+window.onload = function() {
    // specify major varaibles needed to using in
    // this function
-
+   
 
    var video1 = document.querySelectorAll("video")[0],
      info1 = document.querySelectorAll("span")[0],
@@ -998,29 +1005,7 @@
      console.log(myData5)
    }
 
-   //   setInterval(function checkvidT(){
-   //     // console.log('in loop');
-   //      if(vidData[0] != null){
-     //  console.log(vidData);
-     // };
-   //     // console.log(vid.currentTime);
-   //     // if(vid.currentTime == 4.1){
-   //     //   console.log('catch time');
-   //     // }
-
-   //   },10);
-
-   }
-
-$('.chips-initial').material_chip({
-    data: [{
-      tag: 'Tag 1',
-    }, {
-      tag: 'Tag 2',
-    }, {
-      tag: 'Tag 3',
-    }],
-  });
+}
 
 
 </script>

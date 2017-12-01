@@ -44,11 +44,14 @@ def CreateExe(request):
 		print('form submit')
 		instance=form.save(commit=False)
 		instance.exercisePosterId= request.user
+		print('before tags')
+		print(request.POST.get("exTag"))
+		print('after tags')
 		instance.save()
 		data=form.cleaned_data
 
 		jsonData = json.loads(request.POST.get('returnData'))
-		print(jsonData)
+		# print(jsonData)
 		createVideos(data,instance,jsonData)
 		addTagsToDB(data["exerciseTag"],instance)
 		addTagsToDB(data["exTag"].split(","), instance)
@@ -58,7 +61,7 @@ def CreateExe(request):
 
 		return HttpResponseRedirect('/myExercise/')
 		# return redirect('annotations',vidID = vidid)
-
+	print('form not valide')
 	return render(request,"createExercise.html",context)
 
 def Profile(request):
