@@ -151,7 +151,7 @@
 
     <div id = "alert" class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      <strong>Warning! </strong><span id="alert_content"></span>
+      <span id="alert_content"></span>
     </div>
 
 
@@ -175,10 +175,12 @@
     <script type="text/javascript">
   var formContainer =  document.getElementById("form_container"),
       signInForm = "",
-      signUpForm = "";
+      signUpForm = "",
+      forgetPwForm = "";
 
   function getSignInForm(event){
     console.log('change to sign in')
+    $("#alert").hide();
     formContainer.innerHTML = "";
     // console.log(signInForm);
     $(".signIn_header p").text("Virtual Gym Login")
@@ -187,6 +189,7 @@
   };
 
   function getSignUpForm(event){
+    $("#alert").hide();
     console.log("change to sign up");
     formContainer.innerHTML = "";
     // console.log(signUpForm);
@@ -194,6 +197,22 @@
     formContainer.innerHTML = signUpForm;
     $(".form_type").val("signUp");
   }
+
+
+
+  function getPasswordForm(event){
+    console.log('on require password');
+    $("#alert").hide();
+    $(".signIn_header p").text("Retrieve password")
+    formContainer.innerHTML = forgetPwForm;
+    $(".form_type").val("forget");
+
+  }
+
+
+
+
+
 
   function signInSubmit(event){// catch the form's submit event
     console.log('get sign in');
@@ -210,7 +229,7 @@
           location.reload();
         }else{
           console.log(contents);
-          $("#alert_content").text(contents);
+          $("#alert_content").text("Warning! " + contents);
           $("#alert").show();
         }
         // console.log({{user|safe}})
@@ -234,12 +253,38 @@
         if(contents == "ok"){
           location.reload();
         }else{
-          $("#alert_content").text(contents);
+          $("#alert_content").text("Warning! " + contents);
           $("#alert").show();
         }
         // myData = JSON.parse(contents);
       });
   };
+
+
+
+  function passwordSubmit(event){
+    $("#alert_content").text("Sending...");
+    $("#alert").show();
+    console.log("get trigger");
+    $.ajax({ // create an AJAX call...
+        data: $('form').serialize(), // get the form data
+        type: 'POST', // GET or POST
+        url: '/', // the file to call
+    }).done(function(contents){
+      // This is the ajax.done() method, where you can fire events after the ajax method is complete
+      // For instance, you could hide/display your add/remove button here
+        console.log('success post call back');
+        if(contents == "ok"){
+          $("#alert_content").text("Your password has been sent to your email!");
+          $("#alert").show();
+        }else{
+          $("#alert_content").text("Warning! " + contents);
+          $("#alert").show();
+        }
+      // myData = JSON.parse(contents);
+    });
+
+  }
 
  $(document).ready(function () {
   var overlay = document.getElementById("signIn_popup_container"),
@@ -247,10 +292,13 @@
 
 
 
-  signInForm = "<div id = \"signIn_form\">\n<form method = \"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\">\n<div class=\"signIn_username\">\n<input type=\"text\" autocomplete ='off' id=\"email\" required name=\"email\" placeholder=\"User name\">\n</div>\n<div class=\"signIn_password\">\n<input type=\"password\" required id=\"password\" name=\"password\" placeholder=\"Your password\">\n</div>\n<div class=\"createSocial\">\n<a id=\"facebookSignIn\" class=\"svg facebook\" href=\"{% url 'social:begin' 'facebook' %}?next={% url 'index' %}\"></a>\n<a id=\"googleSignIn\" class=\"svg google\" href=\"{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}\"></a>\n<a id=\"twitterSignIn\" class=\"svg twitter\" href=\"{% url 'social:begin' 'twitter' %}?next={% url 'index' %}\"></a>\n</div>\n<div class=\"signInButtonContainer\">\n<button id = \"signInButton\" type=\"button\" id=\"signIn_button\" class=\"signIn_button\" onClick=\"signInSubmit(this)\">Login</button>\n</div>\n</form>\n</div>\n<div class=\"go_signUp\">\n<p>Doesn't have an account,<a id=\"get_signUp_form\" onClick=\"getSignUpForm(this)\"> Sign Up</a> here</p>\n</div>";
+  signInForm = "<div id = \"signIn_form\">\n<form method = \"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\">\n<div class=\"signIn_username\">\n<input type=\"text\" autocomplete ='off' id=\"email\" required name=\"email\" placeholder=\"User name\">\n</div>\n<div class=\"signIn_password\">\n<input type=\"password\" required id=\"password\" name=\"password\" placeholder=\"Your password\">\n</div>\n<div class=\"createSocial\">\n<a id=\"facebookSignIn\" class=\"svg facebook\" href=\"{% url 'social:begin' 'facebook' %}?next={% url 'index' %}\"></a>\n<a id=\"googleSignIn\" class=\"svg google\" href=\"{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}\"></a>\n<a id=\"twitterSignIn\" class=\"svg twitter\" href=\"{% url 'social:begin' 'twitter' %}?next={% url 'index' %}\"></a>\n</div>\n<div class=\"go_forget\">\n<p>Forget password?<a id=\"get_signUp_form\" onClick=\"getPasswordForm(this)\"> retrieve password</a> here</p>\n</div>\n<div class=\"signInButtonContainer\">\n<button id = \"signInButton\" type=\"button\" id=\"signIn_button\" class=\"signIn_button\" onClick=\"signInSubmit(this)\">Login</button>\n</div>\n</form>\n</div>\n<div class=\"go_signUp\">\n<p>Doesn't have an account,<a id=\"get_signUp_form\" onClick=\"getSignUpForm(this)\"> Sign Up</a> here</p>\n</div>";
 
 
   signUpForm = "<div id = \"signUp_form\">\n<form method=\"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\" type=\"text\">\n<div class=\"input signUp_username\">\n<input type=\"text\" name=\"username\" autocomplete=\"off\" required placeholder=\"User name\" id=\"id_username\" />\n</div>\n<div class=\"input signUp_email\">\n<input type=\"text\" name=\"email\" autocomplete=\"off\" required placeholder=\"Sign Up Email\" id=\"id_email\" />\n</div>\n<div class=\"input signUp_password\">\n<input type=\"password\" name=\"password\" autocomplete=\"off\" required placeholder=\"Input Password\" id=\"id_password\" />\n</div>\n<div class=\"input signUp_confirm\">\n<input type=\"password\" name=\"confirm\" autocomplete=\"off\" required placeholder=\"Confirm Password\" id=\"id_confirm\" />\n</div>\n<div class=\"signUpButtonContainer\">\n<button type=\"button\" id=\"signUp_button\" class=\"signUp_button\" onClick=\"signUpSubmit(this)\">Sign up</button>\n</div>\n</form>\n<div class=\"go_signIn\">\n<p>Already have an account,<a id=\"get_signIn_form\" onClick=\"getSignInForm(this)\"> Sign In</a> here</p>\n</div>\n</div>";
+
+
+  forgetPwForm = "<div id = \"forgetPw_form\">\n<form method=\"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\" type=\"text\">\n<div class=\"input forget_email\">\n<input type=\"text\" name=\"email\" autocomplete=\"off\" required placeholder=\"Your Account Email\" id=\"id_email\" />\n</div>\n<div class=\"forgetButtonContainer\">\n<button type=\"button\" id=\"signUp_button\" class=\"forget_button\" onClick=\"passwordSubmit(this)\">Send</button>\n</div>\n</form>\n<div class=\"go_signIn\">\n<p>Login to account,<a id=\"get_signIn_form\" onClick=\"getSignInForm(this)\"> Login</a> here</p>\n</div>\n</div>";
 
 
 
@@ -262,11 +310,13 @@
 
 
   $(signin).on("click",function(event){
+    $("#alert").hide();
     formContainer.innerHTML = "";
     formContainer.innerHTML = signInForm;
     $(".form_type").val("signIn");
     $(overlay).show();
-  })
+  });
+
   $("#popup_close").on('click',function(event){
     $(overlay).hide();
 

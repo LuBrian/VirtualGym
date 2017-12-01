@@ -142,7 +142,7 @@
 				width: 100%;
 				.signIn_button {
 					
-					margin-top: 30px;
+					margin-top: 10px;
 					background-color: #314D68;;
 					width: 100%;
 					height: 40px;
@@ -173,6 +173,23 @@
 	}
 
 
+	.go_forget{
+		position:relative;
+		text-align: center;
+		width:100%;
+		margin:auto;
+		margin-top: 30px;
+		// margin-bottom: 40px;
+		a{
+			cursor:pointer
+		}
+		p{
+			margin:0;
+		}
+	}
+
+
+
 	::-webkit-input-placeholder { /* Chrome */
 	  color: #D2D2D2;
 	}
@@ -194,6 +211,55 @@
 
 
 
+	#forgetPw_form{
+		width: 100%;
+		position:relative;
+		margin: auto auto;
+		height: auto;
+		form{
+			width:100%;
+			margin: auto auto;
+			max-width: 400px;
+			height: auto;
+			.input{
+				margin-top: 30px;
+				border: 1px solid #8FA4B9;
+				input{
+					width:100%;
+					border : none;
+					padding: 10px 10px 10px 35px;
+					border-radius: 2px;
+					font-size: 0.9em;
+					color:#838383;
+
+				}
+			}
+			.forget_email input{
+				background: url(https://w3layouts.com/wp-content/themes/w3layouts/images/user.png)no-repeat 8px 12px #fff;
+			}
+
+			.forgetButtonContainer{
+				text-align: center;
+				height:auto;
+				width: 100%;
+				.forget_button {
+					
+					margin-top: 30px;
+					background-color: #314D68;;
+					width: 100%;
+					height: 40px;
+					border : none;
+					border-bottom: 1px solid #979797;
+					border-radius: 2px;
+					font-style: italic;
+					font-weight: bold;
+					font-size: 20px;
+					color: white;
+				}
+			}
+		}
+
+	}
 
 
 
