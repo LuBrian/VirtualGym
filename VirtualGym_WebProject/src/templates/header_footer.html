@@ -112,12 +112,12 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- <li><a href="{% url 'index' %}">Home</a> </li> -->
+                    <li><a href="{% url 'index' %}">Home</a> </li>
                     <li><a href="{% url 'QA' %}">FAQ</a> </li>
                     <li><a href="{% url 'viewProfile' %}">View Exercises</a></li>
                     {% if user.is_authenticated  %}
-                        <li><a href="{% url 'createExercise' %}">Create Exercise</a></li>
-                        <li><a href="{% url 'myExercise' %}">Edit Exercises</a></li>
+                        <li><a href="{% url 'createExercise' %}">Post</a></li>
+                        <li><a href="{% url 'myExercise' %}">Edit</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                        <li><a id = "signIn_popup_trigger" class="signIn_popup_trigger">Sign In</a></li>
@@ -148,14 +148,14 @@
         <a id="popup_close">&times;</a>
         <p>Virtual Gym Sign In</p>
     </div>
-    
-    
+
+
     <div id = "alert" class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       <strong>Warning! </strong><span id="alert_content"></span>
     </div>
 
-    
+
     <div class= "form_container" id= "form_container">
     </div>
   </div>
@@ -203,7 +203,7 @@
           type: 'POST', // GET or POST
           url: '/'// the file to call
       }).done(function(contents){
-        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+        // This is the ajax.done() method, where you can fire events after the ajax method is complete
         // For instance, you could hide/display your add/remove button here
         console.log('success post call back');
         console.log(contents);
@@ -229,7 +229,7 @@
           type: 'POST', // GET or POST
           url: '/' // the file to call
       }).done(function(contents){
-        // This is the ajax.done() method, where you can fire events after the ajax method is complete 
+        // This is the ajax.done() method, where you can fire events after the ajax method is complete
         // For instance, you could hide/display your add/remove button here
         console.log('success post call back');
         if(contents == "ok"){
@@ -246,7 +246,7 @@
   var overlay = document.getElementById("signIn_popup_container"),
       signin = document.getElementsByClassName("signIn_popup_trigger");
 
-  
+
 
   signInForm = "<div id = \"signIn_form\">\n<form method = \"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\">\n<div class=\"signIn_username\">\n<input type=\"text\" autocomplete ='off' id=\"email\" required name=\"email\" placeholder=\"User name\">\n</div>\n<div class=\"signIn_password\">\n<input type=\"password\" required id=\"password\" name=\"password\" placeholder=\"Your password\">\n</div>\n<div class=\"createSocial\">\n<a id=\"facebookSignIn\" class=\"svg facebook\" href=\"{% url 'social:begin' 'facebook' %}?next={% url 'index' %}\"></a>\n<a id=\"googleSignIn\" class=\"svg google\" href=\"{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}\"></a>\n<a id=\"twitterSignIn\" class=\"svg twitter\" href=\"{% url 'social:begin' 'twitter' %}?next={% url 'index' %}\"></a>\n</div>\n<div class=\"signInButtonContainer\">\n<button id = \"signInButton\" type=\"button\" id=\"signIn_button\" class=\"signIn_button\" onClick=\"signInSubmit(this)\">Login</button>\n</div>\n</form>\n</div>\n<div class=\"go_signUp\">\n<p>Doesn't have an account,<a id=\"get_signUp_form\" onClick=\"getSignUpForm(this)\"> Sign Up</a> here</p>\n</div>";
 
@@ -255,12 +255,12 @@
 
 
 
-  
-
- 
 
 
-  
+
+
+
+
 
   $(signin).on("click",function(event){
     formContainer.innerHTML = "";
@@ -272,15 +272,15 @@
     $(overlay).hide();
 
   });
-  
+
   $('.signIn_popup_container').on('mouseup',function(e) {
     console.log('on click')
     // https://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
-    if (!$(".signIn_popup").is(e.target) && $(".signIn_popup").has(e.target).length === 0) 
+    if (!$(".signIn_popup").is(e.target) && $(".signIn_popup").has(e.target).length === 0)
     {
         $(overlay).hide();
     }
-  
+
   });
 });
 

@@ -140,7 +140,7 @@ def MyExercise(request):
 	try:
 		quearyset_list=Exercise.objects.filter(exercisePosterId = request.user)
 		if len(quearyset_list) >= 1:
-			paginator = Paginator(quearyset_list, 9) # Show 25 contacts per page
+			paginator = Paginator(quearyset_list, 10) # Show 25 contacts per page
 			page = request.GET.get('page')
 			if page:
 				quearyset = paginator.page(page).object_list
