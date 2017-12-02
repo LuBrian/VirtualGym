@@ -59,6 +59,14 @@ def index(request):
 	"""
 	render for index.html, set page tite as home
 	"""
+
+
+	"""
+	#     creater new MyUsers according user input and translate to database.
+	#     @type  instance: MyUser object
+	#     @param instance: The MyUser which will be created here and authenticated
+	#     right after signed up.
+	"""
 	print('get called')
 	title="Sign Up"
 	exception = "None"
@@ -70,24 +78,20 @@ def index(request):
 		"exception": exception,
 		"message": ""
 	}
-	# print('sending email')
-	# email = EmailMessage('Subject', 'check email', to=['brianbylu@gmail.com'])
-	# email.send()
-	# print('finish send')
+
 	if request.is_ajax():
 		print("get post request")
 		try:
-
+			# case sign in action
 			if(request.POST.get('formType') == "signIn"):
 				validate_email(request.POST.get("email"))
 				signInValidation(request.POST.get("password"))
 				user = signIn(request)
-				print('before return')
+				# print('before return')
 				return HttpResponse("ok")
-				print("shouldn't be printed")
-
+			# case sign up action
 			elif(request.POST.get('formType') == "signUp"):
-				print('sign up')
+				# print('sign up')
 				validate_email(request.POST.get("email"))
 				signUpValidation(request)
 				username = clean_username(request.POST.get("username"))
@@ -99,16 +103,16 @@ def index(request):
 				user = authenticate(email=instance.email,password=instance.password)
 				login(request, user)
 				return HttpResponse("ok")
+			# case forget action
 			elif(request.POST.get('formType') == "forget"):
-				print('forget password')
+				# print('forget password')
 				validate_email(request.POST.get("email"))
 				pw = checkIfExist(request.POST.get("email"))
 				email = request.POST.get("email")
 				# print(pw)
 				email_msg = EmailMessage('Virtual Gym Account Password', 'Your password is: ' + pw, to=[request.POST.get("email")])
-				HttpResponse("sending")
 				email_msg.send()
-				print('sent')
+				# print('sent')
 				return HttpResponse("ok")
 
 
@@ -134,7 +138,7 @@ def index(request):
 
 
 
-
+# all validation functions
 
 def checkIfExist(email):
 	try:
@@ -184,7 +188,7 @@ def clean_username(username):
 
 	
 
-# exception handler on duplicate user email, will be completed in sprint 3
+# exception handler on duplicate user email
 def clean_email(email):
 	try:
 		MyUsers._default_manager.get(email=email)

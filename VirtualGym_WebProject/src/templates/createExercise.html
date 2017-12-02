@@ -393,25 +393,19 @@
 $(".tm-input").tagsManager({
       prefilled: ["Biceps", "Elbow", "Shoulder"]
 });
+
 $(".multiTags").val($('.tm-input').next('input').val());
 $(".tm-tag-remove").on('click',function(e){
   $(".multiTags").val($('.tm-input').next('input').val());
 })
-// $('.tm-input').keyup(function(e){
-//     if(e.keyCode == 13)
-//     {
-//         var tempVal = $(this).next('input').val();
-//         $(".multiTags").val(tempVal);
-//         console.log( $(".multiTags").val());
-//     }
-// });
+
 
 
 window.onload = function() {
    // specify major varaibles needed to using in
    // this function
    
-
+   // initialize all variables associated with multi video
    var video1 = document.querySelectorAll("video")[0],
      info1 = document.querySelectorAll("span")[0],
      initial1 = document.querySelectorAll("i")[0];
@@ -985,7 +979,7 @@ window.onload = function() {
 
      // myData5 = JSON.parse({{ contents }});
    });
-
+     // sort all data lists
    function sortByTimeStep1(){
      myData1.sort(function(a,b){
        if(a.time<b.time) return -1;

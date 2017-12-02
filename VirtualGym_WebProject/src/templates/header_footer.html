@@ -65,6 +65,12 @@
       border-radius:0 0 2px 2px;
     }
 
+    .navbar-inverse {
+    border-radius: 0px;
+    opacity: 0.9;
+    }
+
+
     </style>
 
 
@@ -93,7 +99,7 @@
                 </button>
                 <a href="{% url 'index' %}" class="navbar-brand" >Virtual Gym</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbar-collapse" >
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">Home</a> </li>
@@ -137,7 +143,7 @@
 
 
     <div class= "form_container" id= "form_container">
-      
+
     </div>
   </div>
 </div>
@@ -147,12 +153,14 @@
 
 
   {% endblock %}
+  {% if user.is_authenticated  %}
     <footer class="footer">
     <footer style="background-color: #ffffff">
       <div class="container text-center">
         <p class="text-muted credit">Copyright @2017 Virtual Gym. All Rights Reserved</p>
       </div>
     </footer>
+    {%endif%}
 
     <script type="text/javascript">
 
@@ -171,6 +179,7 @@
       signUpForm = "",
       forgetPwForm = "";
 
+  // function get sign in form
   function getSignInForm(event){
     console.log('change to sign in')
     $("#alert").hide();
@@ -181,6 +190,8 @@
     $(".form_type").val("signIn");
   };
 
+
+  // function get sign up form
   function getSignUpForm(event){
     $("#alert").hide();
     console.log("change to sign up");
@@ -192,7 +203,7 @@
   }
 
 
-
+  // function to get forget passwrod form
   function getPasswordForm(event){
     console.log('on require password');
     $("#alert").hide();
@@ -206,7 +217,7 @@
 
 
 
-
+  // submit form functoin for sign in
   function signInSubmit(event){// catch the form's submit event
     console.log('get sign in');
       $.ajax({ // create an AJAX call...
@@ -225,14 +236,11 @@
           $("#alert_content").text("Warning! " + contents);
           $("#alert").show();
         }
-        // console.log({{user|safe}})
-        // location.reload();
-        // myData = JSON.parse(contents);
       });
   };
 
 
-
+  // submit form function for sign up
   function signUpSubmit(event){/// catch the form's submit event
     console.log("sign up ajax");
       $.ajax({ // create an AJAX call...
@@ -254,7 +262,7 @@
   };
 
 
-
+  // submit form function forn forget passwor
   function passwordSubmit(event){
     $("#alert_content").text("Sending...");
     $("#alert").show();
@@ -284,7 +292,8 @@
       signin = document.getElementsByClassName("signIn_popup_trigger");
 
 
-
+    // initialize three forms
+    // switch each when click
   signInForm = "<div id = \"signIn_form\">\n<form method = \"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\">\n<div class=\"signIn_username\">\n<input type=\"text\" autocomplete ='off' id=\"email\" required name=\"email\" placeholder=\"User name\">\n</div>\n<div class=\"signIn_password\">\n<input type=\"password\" required id=\"password\" name=\"password\" placeholder=\"Your password\">\n</div>\n<div class=\"createSocial\">\n<a id=\"facebookSignIn\" class=\"svg facebook\" href=\"{% url 'social:begin' 'facebook' %}?next={% url 'index' %}\"></a>\n<a id=\"googleSignIn\" class=\"svg google\" href=\"{% url 'social:begin' 'google-oauth2' %}?next={% url 'index' %}\"></a>\n<a id=\"twitterSignIn\" class=\"svg twitter\" href=\"{% url 'social:begin' 'twitter' %}?next={% url 'index' %}\"></a>\n</div>\n<div class=\"go_forget\">\n<p>Forget password?<a id=\"get_signUp_form\" onClick=\"getPasswordForm(this)\"> retrieve password</a> here</p>\n</div>\n<div class=\"signInButtonContainer\">\n<button id = \"signInButton\" type=\"button\" id=\"signIn_button\" class=\"signIn_button\" onClick=\"signInSubmit(this)\">Login</button>\n</div>\n</form>\n</div>\n<div class=\"go_signUp\">\n<p>Doesn't have an account,<a id=\"get_signUp_form\" onClick=\"getSignUpForm(this)\"> Sign Up</a> here</p>\n</div>";
 
 
@@ -302,6 +311,7 @@
 
 
 
+  // click function trigger on sign in button
   $(signin).on("click",function(event){
     $("#alert").hide();
     formContainer.innerHTML = "";
@@ -310,11 +320,12 @@
     $(overlay).show();
   });
 
+  // click function to close popup
   $("#popup_close").on('click',function(event){
     $(overlay).hide();
 
   });
-
+  
   $('.signIn_popup_container').on('mouseup',function(e) {
     console.log('on click')
     // https://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it

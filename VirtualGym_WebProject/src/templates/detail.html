@@ -281,7 +281,7 @@ h5 {
 
 
 
-      // hideEmptyTabs()
+      // on click function on each video tab
      $('#tabs .nav-tabs a').on('click', function(){
        activeTab=$(this).attr('id');
 
@@ -329,7 +329,7 @@ h5 {
     });
 
    
-
+   // function to set video src when change from different videos
   function setVideoSrc() {
 
     var videoSrc = document.querySelector("video > source");
@@ -358,6 +358,7 @@ h5 {
 
 
   };
+  // resize video when window size changes
   window.onresize = function(event) {
       console.log('get called resize')
       var div = $('#vid_preview');
@@ -365,6 +366,7 @@ h5 {
 
       div.css('height', height);
   };
+
 
  window.onload = function() {
     $(function() {
@@ -386,7 +388,7 @@ h5 {
     video.load();
     setVideoSrc();
 
-
+    // update annotation layer on video 
     $('#vid_preview').on('timeupdate',function(event){
       if (tempData != ""){
         var dataLength = myData.length;
