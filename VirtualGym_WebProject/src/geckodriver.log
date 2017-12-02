@@ -23857,3 +23857,837 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 1512183973706	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.zXfTVxkAWbUM"
 1512183973916	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
 1512183974186	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:15.084 plugin-container[37053:10820782] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:15.085 plugin-container[37053:10820782] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183975533	Marionette	INFO	Listening on port 58942
+1512183975583	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183975618	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183975641	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183975655	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183975657	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183975657	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183975726	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183975779	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 37053] WARNING: pipe error: Broken pipe: file /home/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1512183975913	geckodriver	INFO	geckodriver 0.19.0
+1512183975974	geckodriver	INFO	Listening on 127.0.0.1:58995
+1512183977001	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.JpBDkMFjcCQy"
+1512183977237	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183977527	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:18.322 plugin-container[37057:10821287] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:18.323 plugin-container[37057:10821287] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183978832	Marionette	INFO	Listening on port 59005
+1512183978886	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183978921	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183978945	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183978960	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183978962	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183978962	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183979021	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/admin/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183979056	Marionette	INFO	New connections will no longer be accepted
+1512183979211	geckodriver	INFO	geckodriver 0.19.0
+1512183979277	geckodriver	INFO	Listening on 127.0.0.1:59055
+1512183980290	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.A2QYPnaKqFGp"
+1512183980513	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183980786	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:21.590 plugin-container[37064:10821797] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:21.591 plugin-container[37064:10821797] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183982055	Marionette	INFO	Listening on port 59064
+1512183982152	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183982187	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183982205	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183982223	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183982225	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183982225	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183982285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/admin/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183982338	Marionette	INFO	New connections will no longer be accepted
+1512183982485	geckodriver	INFO	geckodriver 0.19.0
+1512183982551	geckodriver	INFO	Listening on 127.0.0.1:59117
+1512183983579	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.qexQZzCUoVrO"
+1512183983784	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183984059	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:24.909 plugin-container[37067:10822295] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:24.910 plugin-container[37067:10822295] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183985345	Marionette	INFO	Listening on port 59126
+1512183985359	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183985398	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183985421	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183985435	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183985437	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183985437	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183985493	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/admin/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183985536	Marionette	INFO	New connections will no longer be accepted
+1512183985684	geckodriver	INFO	geckodriver 0.19.0
+1512183985753	geckodriver	INFO	Listening on 127.0.0.1:59171
+1512183986769	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.zDc08aSNoWAI"
+1512183986963	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183987244	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:28.182 plugin-container[37075:10822821] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:28.183 plugin-container[37075:10822821] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183988639	Marionette	INFO	Listening on port 59180
+1512183988746	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183988783	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183988802	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183988818	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183988820	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183988820	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183988879	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/admin/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183988928	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1512183989071	geckodriver	INFO	geckodriver 0.19.0
+1512183989138	geckodriver	INFO	Listening on 127.0.0.1:59233
+1512183990160	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.oWUF7650rC0l"
+1512183990383	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183990666	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:31.544 plugin-container[37078:10823314] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:31.545 plugin-container[37078:10823314] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183992077	Marionette	INFO	Listening on port 59242
+1512183992147	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183992181	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183992200	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183992213	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183992214	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183992215	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183992270	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183992302	Marionette	INFO	New connections will no longer be accepted
+1512183992458	geckodriver	INFO	geckodriver 0.19.0
+1512183992525	geckodriver	INFO	Listening on 127.0.0.1:59295
+1512183993545	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.DJxCSAtcZ2Ho"
+1512183993752	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183994028	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:34.890 plugin-container[37081:10823806] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:34.891 plugin-container[37081:10823806] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183995434	Marionette	INFO	Listening on port 59304
+1512183995514	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183995561	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183995605	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183995629	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183995631	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183995631	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512183995696	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "about:neterror?e=connectionFailure&u=http%3A//localhost%3A8000/&c=UTF-8&f=regular&d=Firefox%20%E6%97%A0%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%88%B0%20localhost%3A8000%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E3%80%82"
+1512183995734	Marionette	INFO	New connections will no longer be accepted
+1512183996005	geckodriver	INFO	geckodriver 0.19.0
+1512183996135	geckodriver	INFO	Listening on 127.0.0.1:59360
+1512183997099	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.Rz4BAYl70hPn"
+1512183997305	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512183997585	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:38.533 plugin-container[37090:10824334] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:38.534 plugin-container[37090:10824334] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512183999170	Marionette	INFO	Listening on port 59371
+1512183999202	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512183999245	Marionette	DEBUG	Register listener.js for window 2147483649
+1512183999264	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512183999347	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512183999347	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184000273	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/viewProfile/"
+1512184000454	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/viewProfile/"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1512184005027	geckodriver	INFO	geckodriver 0.19.0
+1512184005089	geckodriver	INFO	Listening on 127.0.0.1:59467
+1512184006128	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.NS5pE4VJoxF6"
+1512184006381	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184006669	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:47.500 plugin-container[37099:10825049] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:47.501 plugin-container[37099:10825049] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184008121	Marionette	INFO	Listening on port 59476
+1512184008208	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184008245	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184008274	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184008321	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184008321	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184009244	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/viewProfile/"
+1512184009489	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/viewProfile/"
+1512184009682	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/viewProfile/"
+1512184009849	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/viewProfile/"
+1512184009849	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/viewProfile/"
+1512184010364	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184010371	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184010726	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184011078	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/11/"
+1512184011182	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/11/"
+1512184011182	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/11/"
+1512184011511	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184011517	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184011893	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184011927	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/11/"
+1512184012127	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/11/"
+1512184012127	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/11/"
+1512184012426	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184012432	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184012733	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184012831	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/11/"
+1512184012952	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/11/"
+1512184012952	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/11/"
+1512184013220	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184013227	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184013239	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 37099] WARNING: pipe error: Broken pipe: file /home/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1512184013484	geckodriver	INFO	geckodriver 0.19.0
+1512184013601	geckodriver	INFO	Listening on 127.0.0.1:59612
+1512184014602	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.Tq7BklRUbT64"
+1512184014825	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184015100	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:06:55.982 plugin-container[37104:10825770] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:06:55.982 plugin-container[37104:10825770] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184016612	Marionette	INFO	Listening on port 59621
+1512184016697	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184016746	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184016775	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184016803	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184016804	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184017525	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184017577	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184017899	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184018167	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184018361	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184018388	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184018388	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184018826	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184018843	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184018862	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184018959	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184018959	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184019510	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/createExercise/"
+1512184019517	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/createExercise/"
+1512184024463	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+2017-12-02 03:07:05.143 firefox-bin[37103:10825703] IMKInputSession presentFunctionRowItemTextInputViewWithEndpoint:completionHandler: : [self textInputContext]=0x1123e3400 *NO* NSRemoteViewController to client, NSError=Error Domain=NSCocoaErrorDomain Code=4097 "connection from pid 0" UserInfo={NSDebugDescription=connection from pid 0}, com.apple.inputmethod.EmojiFunctionRowItem
+1512184033139	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184035465	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184035588	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/createExercise/"
+1512184035726	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/createExercise/"
+1512184035726	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/createExercise/"
+1512184036178	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/myExercise/"
+1512184036450	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/myExercise/"
+1512184037460	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1512184037702	geckodriver	INFO	geckodriver 0.19.0
+1512184037779	geckodriver	INFO	Listening on 127.0.0.1:59776
+1512184038796	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.jKMaApw2fBc6"
+1512184039068	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184039406	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:20.368 plugin-container[37111:10826792] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d2f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:20.369 plugin-container[37111:10826792] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184040940	Marionette	INFO	Listening on port 59785
+1512184041010	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184041052	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184041088	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184041158	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184041159	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184042140	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/viewProfile/"
+1512184042150	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/viewProfile/"
+1512184042270	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/viewProfile/"
+1512184042425	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/viewProfile/"
+1512184042425	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/viewProfile/"
+1512184042955	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184042962	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184043149	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/11/"
+1512184043315	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/11/"
+1512184043316	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/11/"
+1512184043705	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/6/"
+1512184043720	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/6/"
+1512184043845	Marionette	INFO	New connections will no longer be accepted
+1512184044039	geckodriver	INFO	geckodriver 0.19.0
+1512184044117	geckodriver	INFO	Listening on 127.0.0.1:59895
+1512184045142	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.Y8amusW3skUT"
+1512184045361	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184045667	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:26.652 plugin-container[37117:10827458] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:26.653 plugin-container[37117:10827458] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa203, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184047184	Marionette	INFO	Listening on port 59904
+1512184047245	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184047280	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184047315	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184047339	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184047339	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184048046	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184048062	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184048383	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184048626	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184048779	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184048802	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184048802	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184049127	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184049138	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184049188	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184049217	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184049219	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184049631	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/myExercise/"
+1512184049769	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/myExercise/"
+1512184049833	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/myExercise/"
+1512184049864	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/myExercise/"
+1512184049866	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/myExercise/"
+1512184050285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/14/edit/"
+1512184050293	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/14/edit/"
+1512184050579	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184051184	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184053936	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184054514	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184054686	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/14/edit/"
+1512184054832	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/14/edit/"
+1512184054833	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/14/edit/"
+1512184055400	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/myExercise/"
+1512184055407	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/myExercise/"
+1512184055521	Marionette	INFO	New connections will no longer be accepted
+1512184055775	geckodriver	INFO	geckodriver 0.19.0
+1512184055868	geckodriver	INFO	Listening on 127.0.0.1:60065
+1512184056868	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.B5PuxPv4zGXV"
+1512184057114	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184057419	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:38.318 plugin-container[37123:10828362] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:38.320 plugin-container[37123:10828362] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184058869	Marionette	INFO	Listening on port 60074
+1512184058954	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184058993	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184059019	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184059135	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184059135	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184059174	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184059325	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184059536	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184059608	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184059608	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184059908	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184060028	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184060096	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184060201	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184060202	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184060432	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184060448	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184060564	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184060626	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/"
+1512184060627	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184060752	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184060765	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061024	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184061069	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061192	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061193	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061329	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184061338	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184061467	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184061546	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/"
+1512184061547	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184061688	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061691	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/14/change/"
+1512184061746	Marionette	INFO	New connections will no longer be accepted
+1512184061911	geckodriver	INFO	geckodriver 0.19.0
+1512184061989	geckodriver	INFO	Listening on 127.0.0.1:60210
+1512184063009	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.IOvWY69bV727"
+1512184063247	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184063545	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:44.402 plugin-container[37126:10829002] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d37, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:44.403 plugin-container[37126:10829002] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184064911	Marionette	INFO	Listening on port 60219
+1512184064987	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184065025	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184065049	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184065152	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184065152	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184065194	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184065364	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184065646	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184065726	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184065726	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184066029	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184066149	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184066210	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184066318	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184066319	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184066551	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184066698	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184066955	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184067191	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184067428	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184067452	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184067624	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/"
+1512184067624	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184067738	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184067745	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184067754	Marionette	INFO	New connections will no longer be accepted
+1512184067929	geckodriver	INFO	geckodriver 0.19.0
+1512184068031	geckodriver	INFO	Listening on 127.0.0.1:60340
+1512184069023	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.Lijjkkd2K4QM"
+1512184069265	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184069602	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:50.649 plugin-container[37130:10829593] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d37, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:50.650 plugin-container[37130:10829593] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184071201	Marionette	INFO	Listening on port 60349
+1512184071226	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184071272	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184071318	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184071429	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184071430	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184071477	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184071652	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184071895	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184071966	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184071967	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184072295	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184072412	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184072495	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184072695	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184072696	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184072982	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184073068	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184073170	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184073299	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/"
+1512184073299	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/"
+1512184073428	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/?q=xin%40vg.ca"
+1512184073449	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/?q=xin%40vg.ca"
+1512184074580	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/?q=xin%40vg.ca"
+1512184074633	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/?q=xin%40vg.ca"
+1512184074633	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/?q=xin%40vg.ca"
+1512184074727	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/?q=Balance+Exercises+For+Seniors"
+1512184074730	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/?q=Balance+Exercises+For+Seniors"
+1512184075820	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/exercise/exercise/?q=Balance+Exercises+For+Seniors"
+1512184075876	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/exercise/exercise/?q=Balance+Exercises+For+Seniors"
+1512184075877	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/exercise/exercise/?q=Balance+Exercises+For+Seniors"
+1512184075964	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/?q=Triceps"
+1512184075969	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/?q=Triceps"
+1512184075977	Marionette	INFO	New connections will no longer be accepted
+1512184076151	geckodriver	INFO	geckodriver 0.19.0
+1512184076240	geckodriver	INFO	Listening on 127.0.0.1:60485
+1512184077251	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.e4m7BpqHF3xF"
+1512184077494	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184077816	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:07:58.724 plugin-container[37133:10830186] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:07:58.725 plugin-container[37133:10830186] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184079297	Marionette	INFO	Listening on port 60494
+1512184079352	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184079390	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184079424	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184079501	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184079501	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184079546	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184079735	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184079951	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184080017	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184080018	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184080339	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184080439	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184080512	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184080595	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184080596	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184080851	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/exercise/exercise/"
+1512184080863	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/exercise/exercise/"
+1512184080879	Marionette	INFO	New connections will no longer be accepted
+1512184081055	geckodriver	INFO	geckodriver 0.19.0
+1512184081138	geckodriver	INFO	Listening on 127.0.0.1:60603
+1512184082154	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.v5dA1QDr2TcN"
+1512184082389	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184082672	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:03.594 plugin-container[37136:10830737] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:03.595 plugin-container[37136:10830737] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa003, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184084121	Marionette	INFO	Listening on port 60612
+1512184084168	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184084211	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184084238	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184084259	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184084259	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184084939	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184084968	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184085087	Marionette	DEBUG	Received DOM event "popstate" for "http://localhost:8000/#"
+1512184086228	Marionette	INFO	New connections will no longer be accepted
+1512184086400	geckodriver	INFO	geckodriver 0.19.0
+1512184086479	geckodriver	INFO	Listening on 127.0.0.1:60704
+1512184087489	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.gfx6TgXnqIoz"
+1512184087736	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184088041	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:09.153 plugin-container[37141:10831330] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:09.154 plugin-container[37141:10831330] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184089706	Marionette	INFO	Listening on port 60713
+1512184089823	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184089869	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184089906	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184089932	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184089933	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184090652	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184090665	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184090790	Marionette	DEBUG	Received DOM event "popstate" for "http://localhost:8000/#"
+1512184091918	Marionette	INFO	New connections will no longer be accepted
+1512184092091	geckodriver	INFO	geckodriver 0.19.0
+1512184092169	geckodriver	INFO	Listening on 127.0.0.1:60816
+1512184093181	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.jIBrmsENYp5u"
+1512184093409	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184093682	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:14.524 plugin-container[37146:10831988] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:14.525 plugin-container[37146:10831988] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184095183	Marionette	INFO	Listening on port 60825
+1512184095270	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184095318	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184095342	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184095398	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184095398	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184096251	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/viewProfile/"
+1512184096302	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/viewProfile/"
+1512184097467	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/viewProfile/"
+1512184097570	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/viewProfile/"
+1512184097570	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/viewProfile/"
+1512184097959	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/11/"
+1512184097965	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/11/"
+1512184098108	Marionette	INFO	New connections will no longer be accepted
+1512184098308	geckodriver	INFO	geckodriver 0.19.0
+1512184098396	geckodriver	INFO	Listening on 127.0.0.1:60927
+1512184099388	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.oYuT3lTcCpai"
+1512184099596	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184099872	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:20.687 plugin-container[37152:10832622] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:20.688 plugin-container[37152:10832622] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184101282	Marionette	INFO	Listening on port 60936
+1512184101359	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184101401	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184101422	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184101488	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184101489	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184101535	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184101718	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184101952	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184102021	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184102021	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184102467	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184102587	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184102654	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184102720	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184102721	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184102938	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/"
+1512184102950	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/"
+1512184103043	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/"
+1512184103103	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/"
+1512184103103	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/"
+1512184103266	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/add/"
+1512184103268	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/add/"
+1512184103403	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/add/"
+1512184103477	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/add/"
+1512184103478	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/add/"
+1512184103613	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/"
+1512184103624	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/"
+1512184103677	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/"
+1512184103707	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/"
+1512184103711	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/"
+1512184104081	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/QA/"
+1512184104099	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/QA/"
+1512184104389	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184104429	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/QA/"
+1512184104483	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/QA/"
+1512184104486	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/QA/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184104545	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184104569	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184104662	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184104744	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184104745	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184104907	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/"
+1512184104917	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/"
+1512184105002	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/"
+1512184105070	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/"
+1512184105070	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/"
+1512184105220	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/5/change/"
+1512184105228	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/5/change/"
+1512184105310	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/5/change/"
+1512184105355	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/5/change/"
+1512184105355	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/5/change/"
+1512184105487	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/5/delete/"
+1512184105503	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/5/delete/"
+1512184105566	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/forum/question/5/delete/"
+1512184105640	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/forum/question/5/delete/"
+1512184105641	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/forum/question/5/delete/"
+1512184105759	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/forum/question/"
+1512184105762	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/forum/question/"
+1512184105773	Marionette	INFO	New connections will no longer be accepted
+1512184105959	geckodriver	INFO	geckodriver 0.19.0
+1512184106041	geckodriver	INFO	Listening on 127.0.0.1:61115
+1512184107048	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.ge2q1yCbA8jS"
+1512184107273	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184107542	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:28.384 plugin-container[37155:10833251] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:28.384 plugin-container[37155:10833251] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa203, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184108928	Marionette	INFO	Listening on port 61124
+1512184109027	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184109067	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184109103	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184109124	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184109124	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184109844	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184109858	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184110192	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184110242	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184110537	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184110542	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184110918	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/login.php?skip_api_login=1&api_key=181251585758026&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.10%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Fauth%252Fcomplete%252Ffacebook%252F%253Fredirect_state%253DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26scope%3Demail%26return_scopes%3Dtrue%26client_id%3D181251585758026%26ret%3Dlogin%26logger_id%3D43703931-be43-6187-9fcf-a6bd8bc23117&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ffacebook%2F%3Fredirect_state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%23_%3D_&display=page&locale=zh_CN&logger_id=43703931-be43-6187-9fcf-a6bd8bc23117"
+[Parent 37154] WARNING: pipe error: Broken pipe: file /home/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 709
+1512184111270	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/login.php?skip_api_login=1&api_key=181251585758026&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.10%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Fauth%252Fcomplete%252Ffacebook%252F%253Fredirect_state%253DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26scope%3Demail%26return_scopes%3Dtrue%26client_id%3D181251585758026%26ret%3Dlogin%26logger_id%3D43703931-be43-6187-9fcf-a6bd8bc23117&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ffacebook%2F%3Fredirect_state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%23_%3D_&display=page&locale=zh_CN&logger_id=43703931-be43-6187-9fcf-a6bd8bc23117"
+1512184114559	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.facebook.com/login.php?skip_api_login=1&api_key=181251585758026&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.10%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Fauth%252Fcomplete%252Ffacebook%252F%253Fredirect_state%253DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26scope%3Demail%26return_scopes%3Dtrue%26client_id%3D181251585758026%26ret%3Dlogin%26logger_id%3D43703931-be43-6187-9fcf-a6bd8bc23117&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ffacebook%2F%3Fredirect_state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%23_%3D_&display=page&locale=zh_CN&logger_id=43703931-be43-6187-9fcf-a6bd8bc23117"
+1512184115427	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.facebook.com/login.php?skip_api_login=1&api_key=181251585758026&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.10%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Fauth%252Fcomplete%252Ffacebook%252F%253Fredirect_state%253DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26scope%3Demail%26return_scopes%3Dtrue%26client_id%3D181251585758026%26ret%3Dlogin%26logger_id%3D43703931-be43-6187-9fcf-a6bd8bc23117&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ffacebook%2F%3Fredirect_state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%23_%3D_&display=page&locale=zh_CN&logger_id=43703931-be43-6187-9fcf-a6bd8bc23117"
+1512184115433	Marionette	DEBUG	Received DOM event "unload" for "https://www.facebook.com/login.php?skip_api_login=1&api_key=181251585758026&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv2.10%2Fdialog%2Foauth%3Fredirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8000%252Fauth%252Fcomplete%252Ffacebook%252F%253Fredirect_state%253DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26scope%3Demail%26return_scopes%3Dtrue%26client_id%3D181251585758026%26ret%3Dlogin%26logger_id%3D43703931-be43-6187-9fcf-a6bd8bc23117&cancel_url=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ffacebook%2F%3Fredirect_state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DDAafOF4bvLB68Q72ztO1oAH3DJP9hkor%23_%3D_&display=page&locale=zh_CN&logger_id=43703931-be43-6187-9fcf-a6bd8bc23117"
+1512184115567	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483654"
+1512184115740	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/#_=_"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184115756	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/#_=_"
+1512184118820	Marionette	INFO	New connections will no longer be accepted
+1512184119003	geckodriver	INFO	geckodriver 0.19.0
+1512184119086	geckodriver	INFO	Listening on 127.0.0.1:61239
+1512184120093	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.dwOjtqiZkq8q"
+1512184120321	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184120591	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:41.475 plugin-container[37158:10833935] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:41.476 plugin-container[37158:10833935] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa203, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184121976	Marionette	INFO	Listening on port 61248
+1512184122070	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184122110	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184122130	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184122195	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184122195	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184122244	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184122451	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184122678	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184122759	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184122760	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184123078	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184123187	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184123264	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/"
+1512184123319	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/"
+1512184123319	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/"
+1512184123603	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/"
+1512184123619	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/"
+1512184123744	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/"
+1512184123800	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/"
+1512184123800	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/"
+1512184123953	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184123955	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184124233	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184124459	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184124490	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184124641	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184124641	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184124783	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/"
+1512184124791	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/"
+1512184124896	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/"
+1512184124966	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/"
+1512184124967	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/"
+1512184125122	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125131	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125260	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125369	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125369	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125507	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/"
+1512184125515	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/"
+1512184125602	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/"
+1512184125654	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/"
+1512184125655	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/"
+1512184125777	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184125788	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184126060	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184126296	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184126328	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184126452	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184126452	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/users/myusers/2/change/"
+1512184126606	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/users/myusers/"
+1512184126615	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/users/myusers/"
+1512184126623	Marionette	INFO	New connections will no longer be accepted
+1512184126784	geckodriver	INFO	geckodriver 0.19.0
+1512184126868	geckodriver	INFO	Listening on 127.0.0.1:61409
+1512184127868	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.7KY80BU4itrs"
+1512184128108	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184128385	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:08:49.204 plugin-container[37161:10834635] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x990b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:08:49.205 plugin-container[37161:10834635] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184129693	Marionette	INFO	Listening on port 61418
+1512184129760	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184129801	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184129826	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184129848	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184129849	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184130547	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184130599	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184130945	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184130993	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184131182	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184131185	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184131320	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/auth?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&redirect_uri=http://localhost:8000/auth/complete/google-oauth2/&state=e1uf4n0NtqM3eXgmSPfu0LBsvcDx7vrG&response_type=code&scope=openid+email+profile"
+1512184131322	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/auth?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&redirect_uri=http://localhost:8000/auth/complete/google-oauth2/&state=e1uf4n0NtqM3eXgmSPfu0LBsvcDx7vrG&response_type=code&scope=openid+email+profile"
+1512184133922	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184138044	Marionette	DEBUG	Received DOM event "beforeunload" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=-4e972154a73f8627&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChRnU0V3eURqTkwwRXFkQkpPRVNUNxIfUTZQRDlpdUJnNXdRWUpOWUFyQnF0S09RM0NwVEFSWQ%E2%88%99AHw7d_cAAAAAWiNqw6570yCYqLten501MphHFG_qolX4&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE_0m6aRAVTi3j1Xs_zSmjVqQVZWGA&flowName=GeneralOAuthFlow&TL=AHnYQLxF8iDcwcmetpT-qglSo1iiilgHFED6VUrR5lnzym4S_52hrsjR5N7O_iYpuwom6BS5CqPRR4uRer6x8M4kqyncSsTt5Xnh_1dy1aCQeGeiWU_0ro3FLENoDVZL7dT7-mcjAOfPfE3kmuhRYOAKLcKpx_kOkA&cid=1&navigationDirection=forward"
+1512184138423	Marionette	DEBUG	Received DOM event "beforeunload" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=-4e972154a73f8627&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChRnU0V3eURqTkwwRXFkQkpPRVNUNxIfUTZQRDlpdUJnNXdRWUpOWUFyQnF0S09RM0NwVEFSWQ%E2%88%99AHw7d_cAAAAAWiNqw6570yCYqLten501MphHFG_qolX4&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE_0m6aRAVTi3j1Xs_zSmjVqQVZWGA&flowName=GeneralOAuthFlow&TL=AHnYQLxF8iDcwcmetpT-qglSo1iiilgHFED6VUrR5lnzym4S_52hrsjR5N7O_iYpuwom6BS5CqPRR4uRer6x8M4kqyncSsTt5Xnh_1dy1aCQeGeiWU_0ro3FLENoDVZL7dT7-mcjAOfPfE3kmuhRYOAKLcKpx_kOkA&cid=1&navigationDirection=forward"
+1512184139339	Marionette	DEBUG	Received DOM event "pagehide" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=-4e972154a73f8627&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChRnU0V3eURqTkwwRXFkQkpPRVNUNxIfUTZQRDlpdUJnNXdRWUpOWUFyQnF0S09RM0NwVEFSWQ%E2%88%99AHw7d_cAAAAAWiNqw6570yCYqLten501MphHFG_qolX4&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE_0m6aRAVTi3j1Xs_zSmjVqQVZWGA&flowName=GeneralOAuthFlow&TL=AHnYQLxF8iDcwcmetpT-qglSo1iiilgHFED6VUrR5lnzym4S_52hrsjR5N7O_iYpuwom6BS5CqPRR4uRer6x8M4kqyncSsTt5Xnh_1dy1aCQeGeiWU_0ro3FLENoDVZL7dT7-mcjAOfPfE3kmuhRYOAKLcKpx_kOkA&cid=1&navigationDirection=forward"
+1512184139344	Marionette	DEBUG	Received DOM event "unload" for "https://accounts.google.com/signin/v2/challenge/pwd?client_id=1082380445663-a6pee1tpgug2o78can7d3n1j32129499.apps.googleusercontent.com&as=-4e972154a73f8627&destination=http%3A%2F%2Flocalhost%3A8000&approval_state=!ChRnU0V3eURqTkwwRXFkQkpPRVNUNxIfUTZQRDlpdUJnNXdRWUpOWUFyQnF0S09RM0NwVEFSWQ%E2%88%99AHw7d_cAAAAAWiNqw6570yCYqLten501MphHFG_qolX4&passive=1209600&oauth=1&sarp=1&scc=1&xsrfsig=AHgIfE_0m6aRAVTi3j1Xs_zSmjVqQVZWGA&flowName=GeneralOAuthFlow&TL=AHnYQLxF8iDcwcmetpT-qglSo1iiilgHFED6VUrR5lnzym4S_52hrsjR5N7O_iYpuwom6BS5CqPRR4uRer6x8M4kqyncSsTt5Xnh_1dy1aCQeGeiWU_0ro3FLENoDVZL7dT7-mcjAOfPfE3kmuhRYOAKLcKpx_kOkA&cid=1&navigationDirection=forward"
+1512184139583	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1512184139694	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184139704	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184140728	Marionette	INFO	New connections will no longer be accepted
+1512184140912	geckodriver	INFO	geckodriver 0.19.0
+1512184141000	geckodriver	INFO	Listening on 127.0.0.1:61537
+1512184142003	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.XXV5TYw4ZydC"
+1512184142231	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184142500	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:09:03.332 plugin-container[37164:10835251] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:09:03.333 plugin-container[37164:10835251] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184143943	Marionette	INFO	Listening on port 61546
+1512184143983	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184144028	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184144046	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184144137	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184144137	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184144180	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184144371	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184144610	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184144687	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/admin/login/?next=/admin/"
+1512184144688	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/admin/login/?next=/admin/"
+JavaScript error: https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js, line 6: Error: Bootstrap's JavaScript requires jQuery
+1512184145009	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/admin/"
+1512184145143	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/admin/"
+1512184145160	Marionette	INFO	New connections will no longer be accepted
+1512184145330	geckodriver	INFO	geckodriver 0.19.0
+1512184145411	geckodriver	INFO	Listening on 127.0.0.1:61631
+1512184146417	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.41dFgl1vsCB2"
+1512184146645	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184146920	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:09:07.804 plugin-container[37167:10835794] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:09:07.806 plugin-container[37167:10835794] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d37, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184148290	Marionette	INFO	Listening on port 61640
+1512184148404	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184148441	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184148470	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184148491	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184148491	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184149112	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184149144	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184149468	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184149648	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184149688	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184149689	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184150016	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184150025	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184150042	Marionette	INFO	New connections will no longer be accepted
+1512184150216	geckodriver	INFO	geckodriver 0.19.0
+1512184150300	geckodriver	INFO	Listening on 127.0.0.1:61743
+1512184151304	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.b4WbQdOCMy0C"
+1512184151529	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184151797	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:09:12.621 plugin-container[37170:10836339] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9e33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:09:12.622 plugin-container[37170:10836339] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184153208	Marionette	INFO	Listening on port 61752
+1512184153290	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184153332	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184153366	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184153385	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184153385	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184154102	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184154122	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184154476	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184154630	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184154660	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184154660	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184154952	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184154961	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184155043	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184155082	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184155084	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184155331	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184155338	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184155371	Marionette	INFO	New connections will no longer be accepted
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/nsUrlClassifierListManager.js, line 559: TypeError: this.tablesData[table] is undefined
+1512184155558	geckodriver	INFO	geckodriver 0.19.0
+1512184155640	geckodriver	INFO	Listening on 127.0.0.1:61862
+1512184156646	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/cw/wg539z996hn_wrvd8093qg300000gn/T/rust_mozprofile.ycMDuQx9EO7F"
+1512184156871	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1512184157139	Marionette	INFO	Enabled via --marionette
+2017-12-02 03:09:17.980 plugin-container[37173:10836872] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-12-02 03:09:17.981 plugin-container[37173:10836872] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa103, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1512184158517	Marionette	INFO	Listening on port 61871
+1512184158532	Marionette	WARN	TLS certificate errors will be ignored for this session
+1512184158575	Marionette	DEBUG	Register listener.js for window 2147483649
+1512184158613	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1512184158639	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1512184158639	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1512184159225	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:8000/"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184159241	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:8000/"
+1512184159551	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1512184159592	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:8000/"
+1512184160312	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:8000/"
+1512184160316	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:8000/"
+1512184160581	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://api.twitter.com/oauth/authenticate?oauth_token=4iQ12gAAAAAA201YAAABYBUzHb0&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3DGKxKrzUKR4ml12GiJxY9Bt0ty9dkqZop"
+1512184160694	Marionette	DEBUG	Received DOM event "pageshow" for "https://api.twitter.com/oauth/authenticate?oauth_token=4iQ12gAAAAAA201YAAABYBUzHb0&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3DGKxKrzUKR4ml12GiJxY9Bt0ty9dkqZop"
+1512184163896	Marionette	DEBUG	Received DOM event "beforeunload" for "https://api.twitter.com/oauth/authenticate?oauth_token=4iQ12gAAAAAA201YAAABYBUzHb0&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3DGKxKrzUKR4ml12GiJxY9Bt0ty9dkqZop"
+1512184164530	Marionette	DEBUG	Received DOM event "pagehide" for "https://api.twitter.com/oauth/authenticate?oauth_token=4iQ12gAAAAAA201YAAABYBUzHb0&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3DGKxKrzUKR4ml12GiJxY9Bt0ty9dkqZop"
+1512184164531	Marionette	DEBUG	Received DOM event "unload" for "https://api.twitter.com/oauth/authenticate?oauth_token=4iQ12gAAAAAA201YAAABYBUzHb0&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcomplete%2Ftwitter%2F%3Fredirect_state%3DGKxKrzUKR4ml12GiJxY9Bt0ty9dkqZop"
+1512184164609	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://api.twitter.com/oauth/authenticate"
+1512184164659	Marionette	DEBUG	Received DOM event "pageshow" for "https://api.twitter.com/oauth/authenticate"
+JavaScript error: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js, line 6: TypeError: e.pause(...) is undefined
+1512184167687	Marionette	INFO	New connections will no longer be accepted

@@ -16,7 +16,7 @@ class CommentsAdmin(admin.ModelAdmin):
     Set up comment in back end admin page by managing which fields of the Exercise model are displayed, which actions you can select, and how it is filtered.
     """
     list_display=["Content","Poster","Exercise","Comment_Status"]
-    list_filter=["CommentPoster"]
+    list_filter=["CommentTimestamp"]
     search_fields=["CommentContent"]
 
     def Poster(self, obj):
