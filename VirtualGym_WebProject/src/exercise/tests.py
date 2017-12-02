@@ -104,7 +104,7 @@ class UITestCase(TestCase):
 			print("View exercise test failed! server down or no internet for now")
 			print("Please check or contact us! ")
 
-    test if moderator can view exercise list
+    # test if moderator can view exercise list
 	def test_moderator_view_exercise_list(self):
 		try:
 			self.browser.get("http://localhost:8000/admin/")

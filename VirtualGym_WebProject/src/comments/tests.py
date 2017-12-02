@@ -8,15 +8,15 @@ import os,sys
 # this test is a UI test for comment app
 class UITestCase(TestCase):
 	# set up browser to firefox browser
-    def setUp(self):
-        self.browser = webdriver.Firefox()
+	def setUp(self):
+		self.browser = webdriver.Firefox()
 
-    # close browser after test    
+	# close browser after test    
 	def tearDown(self):
 		self.browser.quit()
 
-    # test if user can comment a exercise
-    # test if user can reply a comment
+	# test if user can comment a exercise
+	# test if user can reply a comment
     def test_add_comment(self):
         try:
 	        self.browser.get("http://localhost:8000/viewProfile/")
