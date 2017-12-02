@@ -65,6 +65,12 @@
       border-radius:0 0 2px 2px;
     }
 
+    .navbar-inverse {
+    border-radius: 0px;
+    opacity: 0.9;
+    }
+
+
     </style>
 
 
@@ -93,7 +99,7 @@
                 </button>
                 <a href="{% url 'index' %}" class="navbar-brand" >Virtual Gym</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbar-collapse" >
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">Home</a> </li>
@@ -147,12 +153,14 @@
 
 
   {% endblock %}
+  {% if user.is_authenticated  %}
     <footer class="footer">
     <footer style="background-color: #ffffff">
       <div class="container text-center">
         <p class="text-muted credit">Copyright @2017 Virtual Gym. All Rights Reserved</p>
       </div>
     </footer>
+    {%endif%}
 
     <script type="text/javascript">
 
@@ -293,6 +301,7 @@
 
 
   forgetPwForm = "<div id = \"forgetPw_form\">\n<form method=\"post\" action=\"{% url 'index' %}\">{% csrf_token %}\n<input class=\"form_type\" name = \"formType\" type=\"text\">\n<div class=\"input forget_email\">\n<input type=\"text\" name=\"email\" autocomplete=\"off\" required placeholder=\"Your Account Email\" id=\"id_email\" />\n</div>\n<div class=\"forgetButtonContainer\">\n<button type=\"button\" id=\"signUp_button\" class=\"forget_button\" onClick=\"passwordSubmit(this)\">Send</button>\n</div>\n</form>\n<div class=\"go_signIn\">\n<p>Login to account,<a id=\"get_signIn_form\" onClick=\"getSignInForm(this)\"> Login</a> here</p>\n</div>\n</div>";
+
 
 
 

@@ -30,24 +30,25 @@
     background-size: cover;
     -o-background-size: cover;
 }
-              
-.center{ 
+
+.center{
 	width:100%;
-	height:100%; 
- 	text-align:center; 
-	line-height:300%;
+	height:100%;
+  color: #313131;
+  margin-bottom:20%;
+ 	text-align:center;
 	font-size:60px;
 	}
 .joinUs{
-	color:white;
+	color:#000;
 	background: hsla(0,0%,100%,.25) border-box;
 	border-radius: .2em;
     box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,
                 0 .5em 1em rgba(0, 0, 0, 0.6);
     text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
 	width:70%;
-	height:80%; 
-	text-align:right; 
+	height:80%;
+	text-align:right;
 	line-height:550%;
 	font-size:40px;
 }
@@ -62,7 +63,7 @@
 
 <div class="home_container">
 
-      
+
 
 
 
@@ -79,23 +80,23 @@
 
           <div class="item active">
 
-            <img src="../static/images/1.jpg" alt="Los Angeles" style="width:100%; height: 100%">
+            <img src="../static/images/home3.jpg" alt="Los Angeles" style="width:100%;height:100%">
             <div class="carousel-caption">
-              <p  class="center">Welcome to Virtual Gym</p>
+              <p  class="center">Welcome</p>
 
-			<p><a class = "joinUs" href="{% url 'viewProfile' %}">&nbsp;Get start !&nbsp;</a></p>
+			         <h2><a  href="{% url 'viewProfile' %} " style="color:black;">Get started !</a></h2>
 
-              <h3>Improve Your Balance with Senior Balance Beam Exercises</h3>
+              <h3 style="margin-top: 30%;">Improve Your Balance with Senior Balance Beam Exercises</h3>
               <p>Some of the reasons seniors fall is due to walking on what we call uneven terrain. This may be in your back yard stepping over a hose, or in your garage walking over the threshold at the door.</p>
             </div>
           </div>
 
           <div class="item">
-            <img src="../static/images/2.jpg" alt="Chicago" style="width:100%;height: 100%">
+            <img src="../static/images/home4.jpg" alt="Chicago" style="width:100%;height:100%">
             <div class="carousel-caption">
-              <p  class="center">Welcome to Virtual Gym</p></br>
-              <p><a id="signIn_popup_trigger" class="signIn_popup_trigger joinUs">&nbsp;Join us !&nbsp;</a></p>
-              <h3>Strength training helps older adults live longer</h3>
+              <p  class="center">Welcome</p></br>
+              <h2><a id="signIn_popup_trigger" class="signIn_popup_trigger" style="color:black;">Join us !</a></h2>
+              <h3 style="margin-top: 30%;">Strength training helps older adults live longer</h3>
               <p>Have you noticed that your strength is not what it used to be? Getting out of that chair, going up those stairs, lifting up the dog for a kiss. </p>
             </div>
           </div>
@@ -113,5 +114,6 @@
         </a>
       </div>
 </div>
+
 
 {% endblock %}

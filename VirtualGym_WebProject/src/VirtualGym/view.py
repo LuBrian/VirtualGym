@@ -61,12 +61,12 @@ def index(request):
 	"""
 
 
-		"""
+	"""
 	#     creater new MyUsers according user input and translate to database.
 	#     @type  instance: MyUser object
 	#     @param instance: The MyUser which will be created here and authenticated
 	#     right after signed up.
-	    """
+	"""
 	print('get called')
 	title="Sign Up"
 	exception = "None"
@@ -82,14 +82,14 @@ def index(request):
 	if request.is_ajax():
 		print("get post request")
 		try:
-
+			# case sign in action
 			if(request.POST.get('formType') == "signIn"):
 				validate_email(request.POST.get("email"))
 				signInValidation(request.POST.get("password"))
 				user = signIn(request)
 				# print('before return')
 				return HttpResponse("ok")
-
+			# case sign up action
 			elif(request.POST.get('formType') == "signUp"):
 				# print('sign up')
 				validate_email(request.POST.get("email"))
@@ -103,6 +103,7 @@ def index(request):
 				user = authenticate(email=instance.email,password=instance.password)
 				login(request, user)
 				return HttpResponse("ok")
+			# case forget action
 			elif(request.POST.get('formType') == "forget"):
 				# print('forget password')
 				validate_email(request.POST.get("email"))
