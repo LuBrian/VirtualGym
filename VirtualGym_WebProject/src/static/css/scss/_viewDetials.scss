@@ -31,7 +31,7 @@
 					margin:0;
 					width: 60%;
 					video{
-						background-color: #D3D3D3;
+						background-color: black;
 						height: 20vh;
 						width:100%;
 					}
@@ -108,7 +108,7 @@
 
 		video{
 			width: 100%;
-			background-color: #D3D3D3;
+			background-color: black;
 		}
 		.returnData{
 			display: none;
@@ -181,7 +181,7 @@
 			z-index:10;
 			.single_annotation{
 				padding: 2px 2px 2px 2px;
-				background-color: rgba(255, 80, 80,0.8);
+				background-color: rgba(255, 255, 255,0.8);
 				font-size: 13px;
 				font-family: "Georgia";
 				min-width: 100px;

@@ -6,10 +6,10 @@ import time
 import os,sys
 
 # this test is a UI test for User app(basiclly sign in and sign out)
-# class UITestCase(TestCase):
-# 	# set up browser to firefox
-# 	def setUp(self):
-# 		self.browser = webdriver.Firefox()
+class UITestCase(TestCase):
+	# set up browser to firefox
+	def setUp(self):
+		self.browser = webdriver.Firefox()
 
 #     # close the browser after test
 # 	def tearDown(self):
@@ -144,4 +144,33 @@ import os,sys
 # 		except:
 # 			print("Twitter sign in test failed! server down or no internet for now")
 # 			print("Please check or contact us! ")
+	# def test_give_moderator_privileges(self):
+	# 	try:
+	# 		self.browser.get("http://localhost:8000/admin/")
+	# 		self.assertIn("http://localhost:8000/admin/", self.browser.current_url)
+	# 		username = self.browser.find_element_by_xpath("//*[@id='id_username']")
+	# 		username.send_keys("sprint4_admin@vg.ca")
+	# 		password = self.browser.find_element_by_xpath("//*[@id='id_password']")
+	# 		password.send_keys("admin1234")
+	# 		Log_in = self.browser.find_element_by_xpath("//*[@id='login-form']/div[3]/input").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='menu-content']/li[8]/i/a").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='result_list']/tbody/tr[5]/th/a").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='id_is_admin']").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='id_is_superuser']").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='myusers_form']/div/div/input[1]").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='result_list']/tbody/tr[5]/th/a").click()
+	# 		admin_box = self.browser.find_element_by_xpath("//*[@id='id_is_admin']").is_selected()
+	# 		self.assertTrue(admin_box == True)
+	# 		super_box = self.browser.find_element_by_xpath("//*[@id='id_is_superuser']").is_selected()
+	# 		self.assertTrue(super_box == True)
+	# 		self.browser.find_element_by_xpath("//*[@id='myusers_form']/div/div/input[1]").click()
+	# 		# everything goes ok, cancel privileges
+	# 		self.browser.find_element_by_xpath("//*[@id='result_list']/tbody/tr[5]/th/a").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='id_is_admin']").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='id_is_superuser']").click()
+	# 		self.browser.find_element_by_xpath("//*[@id='myusers_form']/div/div/input[1]").click()
+	# 		print("Give moderator privileges test passed!")
+	# 	except:
+	# 		print("Give moderator privileges test failed! server down or no internet for now")
+	# 		print("Please check or contact us! ")
 

@@ -121,7 +121,7 @@
 
         </div>
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 addMargin">
           <div class="form-group">
             <label for="description">Description:</label></br>
             {{ form.exerciseDescription}}
@@ -134,7 +134,7 @@
 
           </div>
         </div> -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 addMargin">
           <div class="form-group">
             <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
             <input class="form-control tm-input tm-input-info">
@@ -145,7 +145,7 @@
 
         <input class="returnData" type="text" id="returnData" name="returnData">
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 addMargin">
           <div class = "signUp_button">
             <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
               Submit Changes
@@ -194,7 +194,7 @@
           
           tempData = tempvideos[0]["annotations"];
           if (tempData != ""){
-            myData = JSON.parse(tempData)
+            myData = JSON.parse(tempData);
             var tempLength = myData.length;
             var tempContent = "";
             for(var i=0;i<tempLength;i++){
@@ -318,7 +318,8 @@
   });
   
   function setVideoSrc() {
-
+    console.log('get called');
+    console.log(tempvideos);
     // console.log(myData)
     var videoSrc = document.querySelector("video > source");
     var video = document.querySelector("video");

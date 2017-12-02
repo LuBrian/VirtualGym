@@ -340,6 +340,11 @@
   width: 100%; }
   .create_exercise_container .create_exercise_perm p {
     text-align: center; }
+  .create_exercise_container .uploadVid {
+    margin-top: 30px;
+    margin-bottom: 10px; }
+  .create_exercise_container .addMargin {
+    margin-top: 40px; }
 
 .view_exercise_repo_container .view_repo_perm {
   position: relative;
@@ -467,7 +472,7 @@ div[class^="annotation_video_container"],
 .create_exercise_container textarea {
   resize: none; }
 .create_exercise_container video {
-  background-color: #D3D3D3; }
+  background-color: black; }
 .create_exercise_container .returnData {
   display: none; }
 .create_exercise_container div[class^="position_wrapper"],
@@ -772,7 +777,7 @@ div[class^="annotation_video_container"],
         margin: 0;
         width: 60%; }
         .view_exercise .view_exercise_crossRef .refs_wrapper .ref_element .ref_vid video {
-          background-color: #D3D3D3;
+          background-color: black;
           height: 20vh;
           width: 100%; }
       .view_exercise .view_exercise_crossRef .refs_wrapper .ref_element .ref_info {
@@ -814,7 +819,7 @@ div[class^="annotation_video_container"],
           font-size: 15px; }
     .view_exercise .view_exercise_detial video {
       width: 100%;
-      background-color: #D3D3D3; }
+      background-color: black; }
     .view_exercise .view_exercise_detial .returnData {
       display: none; }
     .view_exercise .view_exercise_detial div[class^="position_wrapper"],
@@ -915,7 +920,7 @@ div[class^="annotation_video_container"],
       .view_exercise .view_exercise_detial div[class^="vid_annotations_details"] .single_annotation,
       .view_exercise .view_exercise_detial .vid_annotations_details .single_annotation {
         padding: 2px 2px 2px 2px;
-        background-color: rgba(255, 80, 80, 0.8);
+        background-color: rgba(255, 255, 255, 0.8);
         font-size: 13px;
         font-family: "Georgia";
         min-width: 100px;

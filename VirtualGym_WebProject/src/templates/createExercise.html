@@ -58,7 +58,9 @@
                </ul>
                <div class="tab-content">
                   <div id="menu0" class="tab-pane active">
-                     <button type= "videofile" id="vid1" class="btn btn-block btn-success vid_upload">{{form.exerciseVideos1}}</button>
+                    <div class="uploadVid" id= "vid1">
+                      {{form.exerciseVideos1}}
+                    </div>
                      <div class="position_wrapper">
                         <div class="video_container">
                            <div id = "vid_annotations_details0" class="vid_annotations_details0">
@@ -83,7 +85,9 @@
                      </div>
                   </div>
                   <div id="menu1" class="tab-pane fade">
-                     <button type= "videofile" id="vid2" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos2}}</button>
+                     <div class="uploadVid" id= "vid2">
+                      {{form.exerciseVideos2}}
+                    </div>
                      <div class="position_wrapper1">
                         <div class="video_container1">
                            <div id = "vid_annotations_details1" class="vid_annotations_details1">
@@ -108,7 +112,9 @@
                      </div>
                   </div>
                   <div id="menu2" class="tab-pane">
-                     <button type= "videofile" id="vid3" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos3}}</button>
+                     <div class="uploadVid" id= "vid3">
+                      {{form.exerciseVideos3}}
+                    </div>
                      <div class="position_wrapper2">
                         <div class="video_container2">
                            <div id = "vid_annotations_details2" class="vid_annotations_details2">
@@ -133,7 +139,9 @@
                      </div>
                   </div>
                   <div id="menu3" class="tab-pane">
-                     <button type= "videofile" id="vid4" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos4}}</button>
+                     <div class="uploadVid" id= "vid4">
+                      {{form.exerciseVideos4}}
+                    </div>
                      <div class="position_wrapper3">
                         <div class="video_container3">
                            <div id = "vid_annotations_details3" class="vid_annotations_details3">
@@ -158,7 +166,9 @@
                      </div>
                   </div>
                   <div id="menu4" class="tab-pane">
-                     <button type= "videofile" id="vid5" class="btn btn-block btn-success vid_upload" >{{form.exerciseVideos5}}</button>
+                     <div class="uploadVid" id= "vid5">
+                        {{form.exerciseVideos5}}
+                      </div>
                      <div class="position_wrapper4">
                         <div class="video_container4">
                            <div id = "vid_annotations_details4" class="vid_annotations_details4">
@@ -185,17 +195,15 @@
                </div>
                
 
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
+
                  <div class="col-lg-10">
                   <div class="form-group">
                      <label for="name">Exercise Title:</label></br>
                      {{ form.exerciseName}}
                   </div>
                </div>
-               <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-               <div class="col-lg-10">
+               
+               <div class="col-lg-10 addMargin">
                   <div class="form-group">
                      <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
                      <input class="form-control tm-input tm-input-info">
@@ -204,22 +212,16 @@
                </div>
                {{ form.exTag }}
 
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-1"><div class="form-group"></div></div>
-                <div class="col-lg-1"><div class="form-group"></br></div></div>
-                <div class="col-lg-10">
+                
+                <div class="col-lg-10 addMargin">
                   <div class="form-group">
                      <label for="description">Description:</label></br>
                      {{ form.exerciseDescription}}
                   </div>
                </div>
           
-                <div class="col-lg-12"><div class="form-group"></br></div></div>
-                 <div class="col-lg-4"><div class="form-group"></br></div></div>
 
-               <div class="col-lg-4">
+               <div class="col-lg-4 addMargin">
                   <div class = "signUp_button">
                      <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
                      Submit Exercise
