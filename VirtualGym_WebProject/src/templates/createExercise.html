@@ -351,27 +351,34 @@
 
    if (activeTab == 'video0')
    {
-   		myData1.splice(tempIndex,1);
-    	}
+
+      myData1.splice(tempIndex,1);
+      returnData1 = JSON.stringify(myData1);
+    	
+    }
 
     else if (activeTab == 'video1')
     {
    		myData2.splice(tempIndex,1);
+      returnData1 = JSON.stringify(myData2);
     }
 
     else if (activeTab == 'video2')
     {
     myData3.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData3);
     }
 
     else if (activeTab == 'video3')
     {
     myData4.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData4);
     }
 
     else if (activeTab == 'video4')
     {
     myData5.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData5);
     }
 
    $(element).closest(".single_tag").remove();
