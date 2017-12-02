@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 # from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 # from oauth2client.contrib.django_orm import FlowField
+from django.contrib.auth import authenticate, login,logout
+from django.shortcuts import redirect
 
 
 
@@ -46,7 +48,10 @@ class MyUsersManager(BaseUserManager):
 		now = timezone.now()
 		# if MyUsers._default_manager.get(email=email) != None:
 		# 	print("user already exists by email")
-		# 	raise ValueError('Email is already used, please use a new email.')
+		# 	print('redirect page')
+		# 	user = authenticate(request,email=email, password=password)
+		# 	# raise ValueError('Email is already used, please use a new email.')
+		# 	return redirect('index')
 
 		# if user social sign in and email exist, assign email attribute
 		if(email):

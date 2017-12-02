@@ -22,64 +22,49 @@
     <!-- JavaScript -->
 
     <style media="screen">
-      .search-form .form-group {
-      float: right !important;
-      transition: all 0.35s, border-radius 0s;
-      width: 32px;
-      height: 32px;
-      background-color: #fff;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-      border-radius: 25px;
-      /*border: 1px solid #ccc;*/
-    }
-    .search-form .form-group input.form-control {
-      /*padding-right: 20px;*/
-      border: 0 none;
-      background: transparent;
-      box-shadow: none;
-      display:block;
-    }
-    .search-form .form-group input.form-control::-webkit-input-placeholder {
-      display: none;
-    }
-    .search-form .form-group input.form-control:-moz-placeholder {
-      /* Firefox 18- */
-      display: none;
-    }
-    .search-form .form-group input.form-control::-moz-placeholder {
-      /* Firefox 19+ */
-      display: none;
-    }
-    .search-form .form-group input.form-control:-ms-input-placeholder {
-      display: none;
-    }
-    .search-form .form-group:hover{
-      width: 130px;
-      /*border-radius: 4px 25px 25px 4px;*/
+    .btn-search{
+      background:#08f;
+      position:absolute;
+      display:inline-block;
+      width:50px;
+      line-height:50px;
+      text-align:center;
+      color:white;
     }
 
-
-    .search-form .form-group span.form-control-feedback {
-      position: absolute;
-      top: -1px;
-      right: -2px;
-      z-index: 2;
-      display: block;
-      width: 34px;
-      height: 34px;
-      line-height: 34px;
-      text-align: center;
-      color: #3596e0;
-      left: initial;
-      font-size: 14px;
+    .forms{
+      display:none;
+      padding:3px 3px;
+      color: white;
+      text-align:center;
+      position:relative;
+      transition:background-color 500ms linear;
     }
 
-    .header_container .navbar-inverse {
-        border-radius: 0px;
-        background-color: black;
-        background-image: none;
-        opacity: 0.8;
+    .inputsb{
+      border:none;
+      padding:10px 0;
+      background:none;
+      color:white;
+      outline:none;
+      border-bottom:1px solid white;
+      width:80%;
+      font-size:26px;
+      font-weight: 300;
     }
+
+    .sbtn{
+      font-size:12px;
+      color:white;
+    }
+
+    .btn-search{
+      text-decoration:none;
+      background-color:rgba(0,0,0,.075);
+      color:white;
+      border-radius:0 0 2px 2px;
+    }
+
     </style>
 
 
@@ -123,19 +108,14 @@
 
                     {% endif  %}
 
-
+                    <li><a class="btn-search" href="#"><i class="glyphicon glyphicon-search "></i></a></li>
                 </ul>
-                <div class="row" style="margin-top:10px">
-                    <form action="{% url 'viewProfile' %}" class="search-form">
-                        <div class="form-group has-feedback">
-                        <input type="text" class="form-control" name="q" id="search" placeholder="search" value="{{request.GET.q}}" autocomplete="off" onfocus="clearThis(this)">
-                          <span class="glyphicon glyphicon-search form-control-feedback" style="color:black"></span>
-                      </div>
-                    </form>
-
-                </div>
             </div>
         </div>
+        <form class="forms" action="{% url 'viewProfile' %}">
+          <input type="text" class="inputsb" name="q" id="search" value="{{request.GET.q}}" autocomplete="off" placeholder="search ..." >
+          <button type="submit" class="sbtn glyphicon glyphicon-search " style="background:none;border:none;"></button>
+        </form>
     </nav> <!--end nav-->
   </div>
 
@@ -157,6 +137,7 @@
 
 
     <div class= "form_container" id= "form_container">
+      
     </div>
   </div>
 </div>
@@ -174,6 +155,17 @@
     </footer>
 
     <script type="text/javascript">
+
+
+
+  $( document ).ready(function() {
+    $(".btn-search").click(function(){
+      $("form").slideToggle("500", "easeInOutCirc");
+    });
+
+  });
+
+
   var formContainer =  document.getElementById("form_container"),
       signInForm = "",
       signUpForm = "",
@@ -344,6 +336,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 
 </div>
