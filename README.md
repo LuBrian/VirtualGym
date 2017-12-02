@@ -7,10 +7,12 @@ Enviroment:
   
 Required Software:
   * python 3.5
-  * Django 1.11.5
-  * python-social-auth 0.3.6
-  * bootstrap 3
-  * Sass 3.5.1
+  * Django 1.11.5 (back end)
+  * python-social-auth 0.3.6 (back end)
+  * bootstrap 3 (front end)
+  * Sass 3.5.1 (front end)
+  * jquery (front end)
+  * jquery-ui (front end)
   
 Testing Software (Optional):
   * Selenium
