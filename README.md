@@ -3,6 +3,7 @@
 The Virtual Gym project aims to build a web app for both Physiotherapists and their patients to assist in exercise. The Physiotherapists will build and upload videos for exercises for the patients to perform. The web app will allow user to edit and annotate the videos, as well as provide tags and descriptions for the exercise. The patients will be able to view, discuss, and ask questions about the exercises that have been uploaded. In this project, we will also construct the backend to support the application.
 
 link: virtualgym.ml
+
 Enviroment:
   * virtualenv
   
