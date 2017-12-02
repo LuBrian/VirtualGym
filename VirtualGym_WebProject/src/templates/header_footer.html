@@ -41,7 +41,7 @@
       transition:background-color 500ms linear;
     }
 
-    input{
+    .inputsb{
       border:none;
       padding:10px 0;
       background:none;
@@ -51,11 +51,6 @@
       width:80%;
       font-size:26px;
       font-weight: 300;
-    }
-
-    button{
-      background:none;
-      border:none;
     }
 
     .sbtn{
@@ -118,8 +113,8 @@
             </div>
         </div>
         <form class="forms" action="{% url 'viewProfile' %}">
-          <input type="text" class="sb" name="q" id="search" value="{{request.GET.q}}" autocomplete="off" placeholder="search ..." >
-          <button type="submit" class="sbtn glyphicon glyphicon-search "></button>
+          <input type="text" class="inputsb" name="q" id="search" value="{{request.GET.q}}" autocomplete="off" placeholder="search ..." >
+          <button type="submit" class="sbtn glyphicon glyphicon-search " style="background:none;border:none;"></button>
         </form>
     </nav> <!--end nav-->
   </div>
@@ -142,6 +137,7 @@
 
 
     <div class= "form_container" id= "form_container">
+      
     </div>
   </div>
 </div>

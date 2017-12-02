@@ -343,6 +343,8 @@
   .create_exercise_container .uploadVid {
     margin-top: 30px;
     margin-bottom: 10px; }
+  .create_exercise_container .addMargin {
+    margin-top: 40px; }
 
 .view_exercise_repo_container .view_repo_perm {
   position: relative;
