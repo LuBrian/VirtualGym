@@ -340,6 +340,9 @@
   width: 100%; }
   .create_exercise_container .create_exercise_perm p {
     text-align: center; }
+  .create_exercise_container .uploadVid {
+    margin-top: 30px;
+    margin-bottom: 10px; }
 
 .view_exercise_repo_container .view_repo_perm {
   position: relative;
