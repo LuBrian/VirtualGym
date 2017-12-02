@@ -32,7 +32,7 @@
       color:white;
     }
 
-    form{
+    .forms{
       display:none;
       padding:3px 3px;
       color: white;
@@ -117,7 +117,7 @@
                 </ul>
             </div>
         </div>
-        <form class="s" action="{% url 'viewProfile' %}">
+        <form class="forms" action="{% url 'viewProfile' %}">
           <input type="text" class="sb" name="q" id="search" value="{{request.GET.q}}" autocomplete="off" placeholder="search ..." >
           <button type="submit" class="sbtn glyphicon glyphicon-search "></button>
         </form>
