@@ -4,7 +4,7 @@
 <style media="screen">
   #id_exerciseDescription{
       height: 200px;
-      width:500px;
+      width: 100%;
   }
 
 
@@ -183,27 +183,43 @@
                      </div>
                   </div>
                </div>
-               <div class="col-lg-12">
+               
+
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                 <div class="col-lg-10">
                   <div class="form-group">
                      <label for="name">Exercise Title:</label></br>
                      {{ form.exerciseName}}
                   </div>
                </div>
-               <div class="col-lg-8">
+               <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+               <div class="col-lg-10">
+                  <div class="form-group">
+                     <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
+                     <input class="form-control tm-input tm-input-info">
+                     
+                 </div>
+               </div>
+               {{ form.exTag }}
+
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-1"><div class="form-group"></div></div>
+                <div class="col-lg-1"><div class="form-group"></br></div></div>
+                <div class="col-lg-10">
                   <div class="form-group">
                      <label for="description">Description:</label></br>
                      {{ form.exerciseDescription}}
                   </div>
                </div>
+          
+                <div class="col-lg-12"><div class="form-group"></br></div></div>
+                 <div class="col-lg-4"><div class="form-group"></br></div></div>
+
                <div class="col-lg-4">
-                  <div class="form-group">
-                     <label for="tags">Custom tags (Input by pressing 'enter'):</label></br>
-                     <input class="form-control tm-input tm-input-info">
-                 </div>
-               </div>
-               {{ form.exTag }}
-            
-               <div class="col-lg-12">
                   <div class = "signUp_button">
                      <button id = "submitExercise" type="submit" class="btn btn-block btn-primary btn-lg">
                      Submit Exercise
@@ -335,27 +351,34 @@
 
    if (activeTab == 'video0')
    {
-   		myData1.splice(tempIndex,1);
-    	}
+
+      myData1.splice(tempIndex,1);
+      returnData1 = JSON.stringify(myData1);
+    	
+    }
 
     else if (activeTab == 'video1')
     {
    		myData2.splice(tempIndex,1);
+      returnData1 = JSON.stringify(myData2);
     }
 
     else if (activeTab == 'video2')
     {
     myData3.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData3);
     }
 
     else if (activeTab == 'video3')
     {
     myData4.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData4);
     }
 
     else if (activeTab == 'video4')
     {
     myData5.splice(tempIndex,1);
+    returnData1 = JSON.stringify(myData5);
     }
 
    $(element).closest(".single_tag").remove();

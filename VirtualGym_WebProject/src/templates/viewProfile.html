@@ -53,8 +53,6 @@ hr {
 }
 
 </style>
-
-
 <div class="body_container">
 	<div class="view_exercise_repo_container">
 	    <div class="container">
@@ -68,15 +66,16 @@ hr {
 	              {% for video in obj.exerciseVideos.all|slice:":1" %}
 	              <div class="vid_box">
 	                <a href="{%url 'detail' id=obj.exerciseId %}">
-	                  <video class="videoInsert" >
+	                  <video class="videoInsert">
 	                    <source src="{{video.videoFile.url}}" type="video/mp4">
+	                    <!-- <source src="../static/bacK.MP4"/> -->
 	                  </video>
 	                </a>
 	              </div>
 	              {% endfor %}
-	              <h4>{{obj.exerciseName|truncatechars:20}}</h4>
-	              <p>{{obj.exerciseDate|timesince }} agao</p>
 
+	              <h4><a style="color: black" href="{%url 'detail' id=obj.exerciseId %}">{{obj.exerciseName|truncatechars:20}}</h4></a>
+	              <p>{{obj.exerciseDate|timesince }} ago</p>
 	            </div>
 	            <hr>
 	          </div>
@@ -118,6 +117,5 @@ hr {
 
 
 </div>
-
 
 {% endblock %}
