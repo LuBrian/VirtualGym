@@ -273,7 +273,7 @@ h5 {
     if (tempvideos.length >1){
       console.log('in for loop');
       for(i = 1; i < tempvideos.length; i++){
-        var newEle = "<li><a data-toggle=\"tab\" id=\"video"+ i + "\" href=\"#menu"+i+"\">Video "+ 2+ "</a></li>";
+        var newEle = "<li><a data-toggle=\"tab\" id=\"video"+ i + "\" href=\"#menu"+i+"\">Video "+ (i+1) + "</a></li>";
         $("#tabs .nav-tabs").append(newEle);
       }
      }
