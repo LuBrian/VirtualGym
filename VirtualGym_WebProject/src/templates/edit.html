@@ -181,6 +181,9 @@
     };
   
    $(document).ready(function () {
+
+
+    // major function to change each video's annotation when click on different video tabs
     $('#tabs .nav-tabs a').on('click', function(){
       activeTab=$(this).attr('id');
       if (activeTab == 'video0'){
@@ -317,6 +320,7 @@
     });
   });
   
+  // function used to set the video src
   function setVideoSrc() {
     console.log('get called');
     console.log(tempvideos);
@@ -348,24 +352,21 @@
 
 
 
-
+  // function used to edit tags
   function editAnnotation(event){
     console.log('triggered');
     annotationID = parseInt(event.id);
     console.log(myData);
     $("#edit_annotationForm_container textarea").val(myData[annotationID]["details"]);
     $("#edit_annotationForm_container").show();
-    // $("#edit_annotationForm_container textarea").val("");
-    // video.play();
     tempvideos[current_vid]["annotations"] = JSON.stringify(myData);
-    // console.log(returnData);
-    // console.log(tempvideos);
+
   };
 
 
 
 
-
+  // function used to show annotation details
   function showDetials(element){
     // assign booking content to a variable
     // console.log('clicked');
@@ -384,7 +385,7 @@
     
   };
   var tagVals = $("#id_exerciseTag").val().split(",");
-  // console.log(tagVals);
+ 
 
   $(".tm-input").tagsManager(
     {prefilled: tagVals}
@@ -393,17 +394,10 @@
   $(".tm-tag-remove").on('click',function(e){
     $(".multiTags").val($('.tm-input').next('input').val());
   })
-  // $('.tm-input').keyup(function(e){
-  //     if(e.keyCode == 13)
-  //     {
-  //         var tempVal = $(this).next('input').val();
-  //         $(".multiTags").val(tempVal);
-  //         console.log( $(".multiTags").val());
-  //     }
-  // });
+ 
 
   
-
+  // function to delete an annotation
   function deleteAnnotation(element){
     // reference: https://stackoverflow.com/questions/44185632/get-index-of-class-element-with-inline-onclick-pure-js-no-jquery
     var els = Array.prototype.slice.call( document.getElementsByClassName('single_tag'), 0 );
@@ -454,11 +448,6 @@
         this.pause();
         document.getElementById("annotationForm_container").style.display = "block";
       
-        // var size = getElementCSSSize(this);
-        
-        // var scaleX = this.videoWidth / size.width;
-        // var scaleY = this.videoHeight / size.height;
-
         var rect = this.getBoundingClientRect();  // absolute position of element
         console.log(event.clientX);
         // var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
@@ -499,7 +488,7 @@
 
 
 
-
+    // submit new annotation to video
     annotationSubmit.addEventListener('click', function() {
         details = $("#annotationForm_container textarea").val();
         // console.log(details);
@@ -549,7 +538,7 @@
     }, false);
 
 
-
+    // edit annotation when click an annotation on video
     editAnnotationSubmit.addEventListener('click',function(){
       console.log('submit annotation');
       // console.log($("#edit_annotationForm_container textarea").val());
@@ -576,7 +565,7 @@
 
 
 
-
+    // sort data
     function sortByTimeStep(){
       myData.sort(function(a,b){
         if(a.time<b.time) return -1;
@@ -586,7 +575,7 @@
       // console.log(myData)
     }
 
-
+    // updating annotation on video
     $('#vid_preview').on('timeupdate',function(event){
       var infoDiv = document.getElementById("vid_annotations_details");
       infoDiv.innerHTML = "";
