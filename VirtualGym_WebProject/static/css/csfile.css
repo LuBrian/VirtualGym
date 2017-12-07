@@ -1,7 +1,0 @@
-video, span {position:absolute;left:0;top:0;border:1px solid #000;padding:0}
-span {background:rgba(0,0,0,0.5);color:#fff;font:16px sans-serif;pointer-events:none}
-.button {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
